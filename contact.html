@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Karim Abdelnour - Student Portfolio">
+  <meta name="keywords" content="Contact, Karim Abdelnour, Portfolio">
+  <meta name="author" content="Karim Abdelnour">
+  <title>Contact - Karim Abdelnour</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      margin: 2rem 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      background: #3498db;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    button[type="submit"]:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    .section-description {
+      color: #666;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="culinary.html">Culinary</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <div class="container">
+        <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+        <p class="section-description">Have a question or want to work together? Feel free to reach out!</p>
+        <p class="section-description">
+          <a href="mailto:karimabdelnour25@gmail.com" style="color: #3498db; text-decoration: none;">
+            <i class="fas fa-envelope"></i> karimabdelnour25@gmail.com
+          </a>
+        </p>
+
+        <form class="contact-form" action="https://formsubmit.co/karimabdelnour25@gmail.com" method="POST">
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject" value="Portfolio Contact Form">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_next" value="https://karimuq.github.io/thanks.html">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+            Send Message
+          </button>
+        </form>
+
+        <div class="social-links">
+          <a href="https://github.com/karimuq" target="_blank">
+            <i class="fab fa-github"></i>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+          <a href="https://karim25.itch.io" target="_blank">
+            <i class="fab fa-itch-io"></i>
+            Itch.io
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:karimabdelnour25@gmail.com">
+        <i class="fas fa-envelope"></i>
+        karimabdelnour25@gmail.com
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fab fa-github"></i>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fab fa-itch-io"></i>
+        Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+</body>
+</html> 
