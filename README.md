@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Karim Abdelnour Portfolio Website
 
 A modern, responsive portfolio website showcasing my work, projects, and culinary adventures.
