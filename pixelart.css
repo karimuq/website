@@ -39,20 +39,33 @@
 }
 
 .character-section {
+<<<<<<< HEAD
     border-radius: 16px;
     padding: 2rem;
     margin-bottom: 3rem;
+=======
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+>>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .character-section:hover {
     transform: translateY(-5px);
+<<<<<<< HEAD
+=======
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+>>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
 }
 
 .character-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+<<<<<<< HEAD
     color: #3498db;
     display: flex;
     align-items: center;
@@ -64,6 +77,27 @@
 
 .character-title::before {
     display: none;
+=======
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.character-title i {
+    color: #ff6b6b;
+    font-size: 2rem;
+}
+
+.character-title::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 32px;
+    background: linear-gradient(to bottom, #ff6b6b, #ff8e8e);
+    border-radius: 4px;
+>>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
 }
 
 /* Character Grid */
@@ -94,7 +128,11 @@
     position: relative;
     width: 100%;
     height: calc(100% - 80px); /* Fixed height for preview, leaving space for info */
+<<<<<<< HEAD
     background: rgba(255, 255, 255, 0.1);
+=======
+    background: #000;
+>>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
     overflow: hidden;
 }
 
@@ -107,7 +145,11 @@
     object-fit: contain;
     image-rendering: pixelated;
     transition: all 0.5s ease;
+<<<<<<< HEAD
     background: rgba(255, 255, 255, 0.05);
+=======
+    background: rgba(0, 0, 0, 0.8);
+>>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
     padding: 1rem;
 }
 
@@ -379,6 +421,7 @@
 
 .character-card:hover .card-info::before {
     left: 100%;
+<<<<<<< HEAD
 }
 
 .card-info h4 {
@@ -2636,3 +2679,6 @@
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.9);
     display: flex;
+=======
+} 
+>>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
