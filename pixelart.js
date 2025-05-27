@@ -28,9 +28,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal handling
     function openModal(imgSrc, altText) {
-        modalImg.src = imgSrc;
-        modalImg.alt = altText;
-        modal.classList.add('active');
+        // Show loading spinner in modal
+        modal.classList.add('loading');
+        
+        // Create a new image to get the natural dimensions
+        const tempImg = new Image();
+        tempImg.onload = function() {
+            // For pixel art, we want to show it much larger
+            let pixelScale = 10; // Default scale factor for most pixel art
+            
+            // Special handling for specific image types
+            const fileName = imgSrc.toLowerCase();
+            
+            // Adjust scale for specific file types
+            if (fileName.includes('monster') || fileName.includes('chips')) {
+                pixelScale = 15; // Larger scale for smaller animations
+            } else if (fileName.includes('character') || fileName.endsWith('.png')) {
+                pixelScale = 12; // Medium scale for static character designs
+            }
+            
+            // Calculate size based on natural dimensions and available space
+            const maxWidth = window.innerWidth * 0.8;
+            const maxHeight = window.innerHeight * 0.8;
+            
+            // Maintain original aspect ratio but scale up significantly
+            let displayWidth = Math.min(tempImg.naturalWidth * pixelScale, maxWidth);
+            let displayHeight = Math.min(tempImg.naturalHeight * pixelScale, maxHeight);
+            
+            // If the image is still too small, enforce a minimum size
+            const minSize = 400; // Increased minimum size
+            if (displayWidth < minSize) {
+                const aspectRatio = tempImg.naturalWidth / tempImg.naturalHeight;
+                displayWidth = minSize;
+                displayHeight = minSize / aspectRatio;
+            }
+            
+            // Set the modal image properties
+            modalImg.style.width = `${displayWidth}px`;
+            modalImg.style.height = `${displayHeight}px`;
+            modalImg.src = imgSrc;
+            modalImg.alt = altText;
+            
+            // Add special class for animations
+            if (fileName.endsWith('.gif')) {
+                modalImg.classList.add('animation-preview');
+            } else {
+                modalImg.classList.remove('animation-preview');
+            }
+            
+            // Remove loading state
+            modal.classList.remove('loading');
+            modal.classList.add('active');
+        };
+        
+        tempImg.onerror = function() {
+            console.error('Failed to load image for modal:', imgSrc);
+            modal.classList.remove('loading');
+            modal.classList.add('active');
+            modalImg.src = imgSrc;
+            modalImg.alt = altText;
+        };
+        
+        tempImg.src = imgSrc;
         document.body.style.overflow = 'hidden';
     }
 
@@ -58,6 +117,28 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModalHandler();
         }
     });
+    
+    // Add zoom controls for modal image
+    let currentScale = 1;
+    modalImg.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = Math.sign(e.deltaY) * -0.1;
+        currentScale = Math.max(0.5, Math.min(8, currentScale + delta)); // Allow more zoom
+        modalImg.style.transform = `scale(${currentScale})`;
+    });
+    
+    // Reset scale when opening new image
+    function resetModalScale() {
+        currentScale = 1;
+        modalImg.style.transform = 'scale(1)';
+    }
+    
+    // Update open modal to reset scale
+    const originalOpenModal = openModal;
+    openModal = function(imgSrc, altText) {
+        resetModalScale();
+        originalOpenModal(imgSrc, altText);
+    };
 
     // Close modal with escape key
     document.addEventListener('keydown', (e) => {

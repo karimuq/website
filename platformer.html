@@ -7,9 +7,10 @@
   <meta name="keywords" content="Platformer, 2D Game, Unity Game, Pixel Art, Karim Abdelnour">
   <meta name="author" content="Karim Abdelnour">
   <title>Platformer - Game Details</title>
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="game-styles.css">
 </head>
 <body>
   <header>
@@ -18,11 +19,11 @@
         <h1>Karim Abdelnour</h1>
       </div>
       <nav>
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../culinary.html">Culinary</a>
-        <a href="../contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="culinary.html">Culinary</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -31,12 +32,15 @@
     <section class="game-details">
       <div class="container">
         <nav class="breadcrumb">
-          <a href="../projects.html">Projects</a> /
-          <a href="../projects-games.html">Games</a> /
+          <a href="projects.html">Projects</a> /
+          <a href="projects-games.html">Games</a> /
           <span>Platformer</span>
         </nav>
         
         <div class="game-header">
+          <div class="dev-banner">
+            <i class="fas fa-code-branch"></i> Under Development
+          </div>
           <h1>Platformer</h1>
           <div class="tags">
             <span class="tag"><i class="fab fa-unity"></i> Unity</span>
@@ -47,6 +51,11 @@
 
         <div class="game-content">
           <div class="game-description">
+            <div class="game-screenshots">
+              <img src="images/games/platformer-1.jpg" alt="Platformer Level Screenshot" class="screenshot">
+              <img src="images/games/platformer-2.jpg" alt="Platformer Character Screenshot" class="screenshot">
+              <img src="images/games/platformer-3.jpg" alt="Platformer Boss Fight Screenshot" class="screenshot">
+            </div>
             <div class="iframe-float">
               <iframe frameborder="0" src="https://itch.io/embed/1626602" width="552" height="167"><a href="https://karim25.itch.io/unnamed">Unnamed by Karim Abdelnour</a></iframe>
             </div>
@@ -85,7 +94,7 @@
 
   <footer>
     <div class="footer-links">
-      <a href="../contact.html">
+      <a href="contact.html">
         <i class="fas fa-envelope"></i>
         Contact Me
       </a>
@@ -107,6 +116,7 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="script.js"></script>
+  <script src="game-dev-banner.js"></script>
 </body>
 </html> 

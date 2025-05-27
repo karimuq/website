@@ -10,7 +10,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="pixelart.css">
+  <link rel="stylesheet" href="pixelart-new.css">
 </head>
 <body>
   <header>
@@ -42,6 +42,7 @@
         <a href="projects-games.html"><i class="fas fa-gamepad"></i> Games</a>
         <a href="projects-pixelart.html" class="active"><i class="fas fa-paint-brush"></i> Pixel Art</a>
         <a href="projects-3d.html"><i class="fas fa-cube"></i> 3D Models</a>
+        <a href="projects-apps.html"><i class="fas fa-mobile-alt"></i> Apps</a>
       </div>
 
       <div class="copyright-notice">
@@ -59,35 +60,28 @@
 
       <div class="character-showcase">
         <!-- Mimi Character Section -->
-        <div class="character-section" data-aos="fade-up">
-          <h3 class="character-title">
-            <i class="fas fa-gamepad"></i>
-            Mimi
-          </h3>
-          <div class="character-grid">
-            <div class="character-card">
+        <div class="character-section mimi-character" data-aos="fade-up" data-character="mimi">
+          <h3 class="character-title" data-character="mimi">Mimi</h3>
+          <div class="character-grid" data-character="mimi">
+            <div class="character-card" data-character="mimi" data-animation-type="static">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="C:/Users/karim/Desktop/pixel art gallery/characters/Mimi/mimi_1/Mimi1.png" 
-                     alt="Mimi - Version 1"
-                     loading="lazy">
+                <img src="Mimi1.png" alt="Mimi - Static" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
-                <h4>Version 1</h4>
-                <p>Static character design</p>
+                <h4>Static Design</h4>
+                <p>Base character design</p>
               </div>
             </div>
 
-            <div class="character-card">
+            <div class="character-card" data-character="mimi" data-animation-type="idle">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="C:/Users/karim/Desktop/pixel art gallery/characters/Mimi/mimi_2/Mimi_idel2.gif" 
-                     alt="Mimi - Idle Animation"
-                     loading="lazy">
+                <img src="Mimi_idel2.gif" alt="Mimi - Idle" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
                 <h4>Idle Animation</h4>
@@ -95,45 +89,44 @@
               </div>
             </div>
 
-            <div class="character-card">
+            <div class="character-card" data-character="mimi" data-animation-type="run">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="C:/Users/karim/Desktop/pixel art gallery/characters/Mimi/mimi_2/Mimi_run2.gif" 
-                     alt="Mimi - Run Animation"
-                     loading="lazy">
+                <img src="Mimi_run2.gif" alt="Mimi - Run Animation" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
                 <h4>Run Animation</h4>
-                <p>Dynamic running cycle</p>
+                <p>Dynamic movement sequence</p>
               </div>
             </div>
-          </div>
-          <div class="character-stats">
-            <span class="stat"><i class="fas fa-image"></i> 3 Variations</span>
-            <span class="stat"><i class="fas fa-film"></i> 2 Animations</span>
-            <span class="stat"><i class="fas fa-palette"></i> 16x16 Sprite</span>
-            <span class="stat"><i class="fas fa-clock"></i> Created: 2024</span>
-            <span class="stat"><i class="fas fa-gamepad"></i> Platform Game</span>
+
+            <div class="character-card" data-character="mimi" data-animation-type="run-alt">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Mimi1_run.gif" alt="Mimi - Alternative Run" loading="lazy" data-character="mimi">
+              </div>
+              <div class="card-info">
+                <h4>Run Animation 2</h4>
+                <p>Alternative running style</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Kamila Character Section -->
-        <div class="character-section" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="character-title">
-            <i class="fas fa-chess-queen"></i>
-            Kamila
-          </h3>
-          <div class="character-grid">
-            <div class="character-card">
+        <div class="character-section kamila-character" data-aos="fade-up" data-character="kamila">
+          <h3 class="character-title" data-character="kamila">Kamila</h3>
+          <div class="character-grid" data-character="kamila">
+            <div class="character-card" data-character="kamila" data-animation-type="static">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="C:/Users/karim/Desktop/pixel art gallery/characters/Kamilaaaaa/Kamilaaaaaa.png" 
-                     alt="Kamila - Character Design"
-                     loading="lazy">
+                <img src="Kamilaaaaaa.png" alt="Kamila - Character Design" loading="lazy" data-character="kamila">
               </div>
               <div class="card-info">
                 <h4>Character Design</h4>
@@ -141,12 +134,184 @@
               </div>
             </div>
           </div>
-          <div class="character-stats">
-            <span class="stat"><i class="fas fa-image"></i> 1 Design</span>
-            <span class="stat"><i class="fas fa-palette"></i> 32x32 Sprite</span>
-            <span class="stat"><i class="fas fa-swatchbook"></i> Custom Palette</span>
-            <span class="stat"><i class="fas fa-clock"></i> Created: 2024</span>
-            <span class="stat"><i class="fas fa-star"></i> Featured Work</span>
+        </div>
+
+        <!-- Unnamed Characters Section -->
+        <div class="character-section" data-aos="fade-up">
+          <h3 class="character-title">Unnamed Characters</h3>
+          <div class="character-grid">
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="1_Character .gif" alt="Character - Static" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Character Design</h4>
+                <p>Base character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="1_run.gif" alt="Character - Running" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Run Animation</h4>
+                <p>Dynamic running sequence</p>
+              </div>
+            </div>
+
+         
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Mar.png" alt="Mar - Character Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Mar</h4>
+                <p>Character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Wdr.png" alt="Wdr - Character Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Wdr</h4>
+                <p>Character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="nou.png" alt="Nou - Character Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Nou</h4>
+                <p>Character concept</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Creatures Section -->
+        <div class="character-section" data-aos="fade-up">
+          <h3 class="character-title">Creatures</h3>
+          <div class="character-grid">
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Monster.gif" alt="Monster Animation" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Monster</h4>
+                <p>Animated creature design</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Cat.png" alt="Cat Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Cat</h4>
+                <p>Pixel art cat design</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Dog.png" alt="Dog Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Dog</h4>
+                <p>Pixel art dog design</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Mermaid .png" alt="Mermaid Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Mermaid</h4>
+                <p>Mythical creature design</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Objects Section -->
+        <div class="character-section" data-aos="fade-up">
+          <h3 class="character-title">Objects & Environment</h3>
+          <div class="character-grid">
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Ice cream.gif" alt="Ice Cream Animation" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Ice Cream</h4>
+                <p>Animated food item</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="chips.gif" alt="Chips Animation" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Chips</h4>
+                <p>Animated snack item</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <img src="Sakara tree.png" alt="Sakura Tree" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Sakura Tree</h4>
+                <p>Environmental element</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
           </div>
         </div>
       </div>
@@ -179,11 +344,7 @@
       </a>
       <a href="https://karim25.itch.io" target="_blank">
         <i class="fab fa-itch-io"></i>
-<<<<<<< HEAD
         itch.io
-=======
-        Portfolio Projects
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
       </a>
     </div>
     <div class="footer-copyright">
@@ -205,8 +366,5 @@
 
   <script src="pixelart.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html> 
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
+</html>

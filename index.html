@@ -12,19 +12,47 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
+  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+    This website is currently under development
+    <button id="close-dev-banner" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  
+  <script>
+    // Check if the banner has been closed before
+    document.addEventListener('DOMContentLoaded', function() {
+      const devBanner = document.getElementById('development-bar');
+      const closeButton = document.getElementById('close-dev-banner');
+      const header = document.querySelector('header');
+      
+      // Check if the user has closed the banner before
+      if (localStorage.getItem('devBannerClosed') === 'true') {
+        devBanner.style.display = 'none';
+        header.style.marginTop = '0';
+      }
+      
+      // Add click event to close button
+      closeButton.addEventListener('click', function() {
+        devBanner.style.display = 'none';
+        header.style.marginTop = '0';
+        // Save the state in localStorage
+        localStorage.setItem('devBannerClosed', 'true');
+      });
+    });
+  </script>
+
+  <header style="margin-top: 40px; transition: margin-top 0.3s ease;">
     <div class="header-content">
       <div class="header-left">
         <h1>Karim Abdelnour</h1>
       </div>
-<<<<<<< HEAD
       <button class="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </button>
-=======
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
       <nav>
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
@@ -36,17 +64,27 @@
   </header>
 
   <main>
-<<<<<<< HEAD
     <section class="home-hero">
       <div class="container">
         <div class="hero-text">
           <h2>Welcome</h2>
-          <p class="hero-subtitle">I'm Karim, a graduating highschool student, game developer. Currently exploring the intersection of robotics, programming, and creative design.</p>
+          <p class="hero-subtitle">I'm Karim, a graduating high school student and aspiring game developer. I am currently aiming to study mechatronics at a prestigious university, where I can explore the intersection of robotics, programming, and creative design.</p>
           <div class="hero-cta">
             <a href="projects.html" class="cta-button primary">
               <i class="fas fa-folder-open"></i>
               View My Projects
             </a>
+
+            <a href="resume.html" class="cta-button secondary">
+              <i class="fas fa-file-alt"></i>
+              View Resume
+            </a>
+
+            <a href="culinary.html" class="cta-button secondary">
+              <i class="fas fa-utensils"></i>
+              View Culinary
+            </a>
+            
             <a href="contact.html" class="cta-button secondary">
               <i class="fas fa-envelope"></i>
               Get in Touch
@@ -54,60 +92,15 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>  
 
-    <section class="featured-work">
-      <div class="container">
-        <h2 class="section-title"><i class="fas fa-star"></i> Featured Work</h2>
-        <div class="featured-grid">
-          <div class="featured-card games">
-            <div class="featured-content">
-              <h3>Game Development</h3>
-              <p>Unity and C# projects showcasing interactive experiences</p>
-              <a href="projects.html#games" class="featured-link">Explore Games <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="featured-card technical">
-            <div class="featured-content">
-              <h3>Technical Projects</h3>
-              <p>Mechatronics and robotics engineering work</p>
-              <a href="projects.html#technical" class="featured-link">View Projects <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="featured-card modeling">
-            <div class="featured-content">
-              <h3>Digital Art</h3>
-              <p>3D modeling and digital artwork portfolio</p>
-              <a href="projects.html#art" class="featured-link">See Artwork <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-=======
-    <section class="homepage-nav">
-      <div class="homepage-nav-content">
-        <h1 class="homepage-logo">Karim Abdelnour</h1>
-        <nav class="homepage-main-nav">
-          <a href="about.html" class="homepage-nav-link"><i class="fas fa-user"></i> About</a>
-          <a href="projects.html" class="homepage-nav-link"><i class="fas fa-folder-open"></i> Projects</a>
-          <a href="culinary.html" class="homepage-nav-link"><i class="fas fa-utensils"></i> Culinary</a>
-          <a href="contact.html" class="homepage-nav-link"><i class="fas fa-envelope"></i> Contact</a>
-        </nav>
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="footer-links">
-<<<<<<< HEAD
       <a href="mailto:karimabdelnour25@gmail.com">
         <i class="fas fa-envelope"></i>
         karimabdelnour25@gmail.com
-=======
-      <a href="contact.html">
-        <i class="fas fa-envelope"></i>
-        Contact Me
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
       </a>
       <a href="https://github.com/karimuq" target="_blank">
         <i class="fab fa-github"></i>
@@ -119,19 +112,11 @@
       </a>
       <a href="https://karim25.itch.io" target="_blank">
         <i class="fab fa-itch-io"></i>
-<<<<<<< HEAD
-        itch.io
+        Itch.io
       </a>
     </div>
     <div class="footer-copyright">
       <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
-=======
-        Portfolio Projects
-      </a>
-    </div>
-    <div class="footer-copyright">
-      <p>&copy; 2025 Karim Abdelnour | Academic Portfolio</p>
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
     </div>
   </footer>
 
@@ -149,8 +134,4 @@
 
   <script src="script.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html> 
->>>>>>> b7c607f8d85ff671e11d7d038cd55fd588be8bb0
