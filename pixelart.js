@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal handling
     function openModal(imgSrc, altText) {
-<<<<<<< HEAD
         // Show loading spinner in modal
         modal.classList.add('loading');
         
@@ -91,11 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         tempImg.src = imgSrc;
-=======
-        modalImg.src = imgSrc;
-        modalImg.alt = altText;
-        modal.classList.add('active');
->>>>>>> 6062643ecfc88484d2adc90fd6f265831b2d97ed
         document.body.style.overflow = 'hidden';
     }
 
@@ -123,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModalHandler();
         }
     });
-<<<<<<< HEAD
     
     // Add zoom controls for modal image
     let currentScale = 1;
@@ -146,8 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
         resetModalScale();
         originalOpenModal(imgSrc, altText);
     };
-=======
->>>>>>> 6062643ecfc88484d2adc90fd6f265831b2d97ed
 
     // Close modal with escape key
     document.addEventListener('keydown', (e) => {

@@ -15,40 +15,10 @@
   <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
     This website is currently under development
-<<<<<<< HEAD
-    <button id="close-dev-banner" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-  
-  <script>
-    // Check if the banner has been closed before
-    document.addEventListener('DOMContentLoaded', function() {
-      const devBanner = document.getElementById('development-bar');
-      const closeButton = document.getElementById('close-dev-banner');
-      const header = document.querySelector('header');
-      
-      // Check if the user has closed the banner before
-      if (localStorage.getItem('devBannerClosed') === 'true') {
-        devBanner.style.display = 'none';
-        header.style.marginTop = '0';
-      }
-      
-      // Add click event to close button
-      closeButton.addEventListener('click', function() {
-        devBanner.style.display = 'none';
-        header.style.marginTop = '0';
-        // Save the state in localStorage
-        localStorage.setItem('devBannerClosed', 'true');
-      });
-    });
-  </script>
-=======
     <button onclick="this.parentElement.style.display='none'; document.querySelector('header').style.marginTop = '0';" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
       <i class="fas fa-times"></i>
     </button>
   </div>
->>>>>>> 6062643ecfc88484d2adc90fd6f265831b2d97ed
 
   <header style="margin-top: 40px; transition: margin-top 0.3s ease;">
     <div class="header-content">
@@ -81,7 +51,6 @@
               <i class="fas fa-folder-open"></i>
               View My Projects
             </a>
-<<<<<<< HEAD
 
             <a href="resume.html" class="cta-button secondary">
               <i class="fas fa-file-alt"></i>
@@ -93,8 +62,6 @@
               View Culinary
             </a>
             
-=======
->>>>>>> 6062643ecfc88484d2adc90fd6f265831b2d97ed
             <a href="contact.html" class="cta-button secondary">
               <i class="fas fa-envelope"></i>
               Get in Touch
@@ -102,11 +69,7 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
     </section>  
-=======
-    </section>
->>>>>>> 6062643ecfc88484d2adc90fd6f265831b2d97ed
 
   </main>
 
