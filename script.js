@@ -21,6 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // Handle development bar visibility
+  const devBar = document.getElementById('development-bar');
+  const closeDevBarBtn = document.getElementById('close-dev-bar');
+  const header = document.querySelector('header');
+  
+  if (devBar && closeDevBarBtn) {
+    // Check if the user has previously closed the bar
+    if (localStorage.getItem('devBarClosed') === 'true') {
+      devBar.style.display = 'none';
+      header.style.marginTop = '0';
+    }
+    
+    // Add event listener to close button
+    closeDevBarBtn.addEventListener('click', function() {
+      devBar.style.display = 'none';
+      header.style.marginTop = '0';
+      localStorage.setItem('devBarClosed', 'true');
+    });
+  }
+
   // Add loading state to images
   const images = document.querySelectorAll('img');
   images.forEach(img => {

@@ -7,9 +7,10 @@
   <meta name="keywords" content="Mini Hit, Action Game, Unity Game, Browser Game, Karim Abdelnour">
   <meta name="author" content="Karim Abdelnour">
   <title>Mini Hit - Game Details</title>
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="game-styles.css">
   <style>
     .game-embed-wrapper {
       width: 100%;
@@ -40,12 +41,17 @@
       <div class="header-left">
         <h1>Karim Abdelnour</h1>
       </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav>
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../culinary.html">Culinary</a>
-        <a href="../contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="culinary.html">Culinary</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -54,8 +60,8 @@
     <section class="game-details">
       <div class="container">
         <nav class="breadcrumb">
-          <a href="../projects.html">Projects</a> /
-          <a href="../projects-games.html">Games</a> /
+          <a href="projects.html">Projects</a> /
+          <a href="projects-games.html">Games</a> /
           <span>Mini Hit</span>
         </nav>
         
@@ -74,6 +80,11 @@
 
         <div class="game-content">
           <div class="game-description">
+            <div class="game-screenshots">
+              <img src="images/games/mini-hit-1.jpg" alt="Mini Hit Gameplay Screenshot" class="screenshot">
+              <img src="images/games/mini-hit-2.jpg" alt="Mini Hit Environment Screenshot" class="screenshot">
+              <img src="images/games/mini-hit-3.jpg" alt="Mini Hit Action Screenshot" class="screenshot">
+            </div>
             <h2>About the Game</h2>
             <p>Mini Hit is a fast-paced action game where quick reflexes and precise timing are key. Built with Unity and C#, this game offers an engaging gameplay experience directly in your browser.</p>
 
@@ -103,13 +114,29 @@
             </div>
           </div>
         </div>
+
+        <div class="copyright-notice collapsible">
+          <div class="notice-header">
+            <h4><i class="fas fa-copyright"></i> Copyright Notice</h4>
+            <button class="close-button"><i class="fas fa-chevron-up"></i></button>
+          </div>
+          <div class="notice-content">
+            <p>All game projects, including but not limited to source code, assets, and designs, are protected by copyright law.</p>
+            <ul>
+              <li>Games are available for playing through itch.io for personal entertainment only</li>
+              <li>Source code and assets may not be copied, modified, or used in other projects without explicit permission</li>
+              <li>Commercial use of any content is strictly prohibited</li>
+              <li>Distribution or sharing of game files is not permitted</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-links">
-      <a href="../contact.html">
+      <a href="contact.html">
         <i class="fas fa-envelope"></i>
         Contact Me
       </a>
@@ -131,6 +158,6 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html> 

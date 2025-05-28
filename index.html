@@ -15,7 +15,7 @@
   <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
     This website is currently under development
-    <button onclick="this.parentElement.style.display='none'; document.querySelector('header').style.marginTop = '0';" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
       <i class="fas fa-times"></i>
     </button>
   </div>
@@ -34,7 +34,7 @@
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
-        <a href="culinary.html">Culinary</a>
+        <a href="culinary.html">Culinary <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Coming Soon</span></a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -52,20 +52,21 @@
               View My Projects
             </a>
 
-            <a href="resume.html" class="cta-button secondary">
+            <a href="https://drive.google.com/file/d/1VRp03AuJeoUnJKxfw3CP9Y-XioubFWIZ/view?usp=sharing" class="cta-button secondary" target="_blank">
               <i class="fas fa-file-alt"></i>
               View Resume
-            </a>
-
-            <a href="culinary.html" class="cta-button secondary">
-              <i class="fas fa-utensils"></i>
-              View Culinary
             </a>
             
             <a href="contact.html" class="cta-button secondary">
               <i class="fas fa-envelope"></i>
               Get in Touch
             </a>
+
+            <a href="culinary.html" class="cta-button secondary">
+              <i class="fas fa-utensils"></i>
+              View Culinary
+            </a>
+
           </div>
         </div>
       </div>
