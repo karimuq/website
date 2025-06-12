@@ -3,10 +3,11 @@
 /* Game Details Section */
 .game-details {
   padding: 4rem 2rem 2rem;
-  max-width: 1200px;
+  max-width: 100%; /* Removed fixed max width */
   margin: 0 auto;
 }
 
+/* Breadcrumb */
 .breadcrumb {
   margin-bottom: 2rem;
   color: #64748b;
@@ -93,6 +94,7 @@
   }
 }
 
+/* Game Header Title */
 .game-header h1 {
   font-size: 2.5rem;
   color: #1e293b;
@@ -102,29 +104,17 @@
 
 /* Game Content */
 .game-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .game-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .game-content {
-    grid-template-columns: 3fr 1fr;
-  }
+  display: block; /* Removed grid layout */
 }
 
 /* Game Description */
 .game-description {
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 100%;
 }
 
 .game-description h2 {
@@ -208,7 +198,7 @@
     display: flex;
     justify-content: center;
   }
-  
+
   .iframe-float iframe {
     max-width: 100%;
   }
@@ -244,7 +234,10 @@
   padding: 1.5rem;
   height: fit-content;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
 }
+
+/* If you want sidebar under description, keep it. Else, remove sidebar entirely if not needed */
 
 .game-sidebar h3 {
   color: #1e40af;
@@ -278,42 +271,42 @@
     background-color: #1e293b;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
-  
+
   .game-description h2 {
     color: #60a5fa;
   }
-  
+
   .game-description p,
   .game-description li {
     color: #cbd5e1;
   }
-  
+
   .game-header h1 {
     color: #0d1b29;
   }
-  
+
   .breadcrumb {
     color: #94a3b8;
   }
-  
+
   .cta-button.secondary {
     background-color: #334155;
     color: #93c5fd;
     border: 1px solid #475569;
   }
-  
+
   .cta-button.secondary:hover {
     background-color: #1e293b;
   }
-  
+
   .game-sidebar {
     background-color: #1e293b;
   }
-  
+
   .game-sidebar h3 {
     color: #60a5fa;
   }
-  
+
   .game-sidebar li {
     color: #cbd5e1;
   }

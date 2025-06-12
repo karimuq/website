@@ -1,3 +1,88 @@
+// Featured artwork rotation configuration
+const ARTWORK_CONFIG = {
+  rotationInterval: 7000,
+  fadeOutDuration: 300,
+  artworks: [
+    {
+      src: 'Mimi1_run.gif',
+      title: 'Mimi',
+      description: 'A cheerful pixel art animation of Mimi, showing her dynamic running movement.'
+    },
+    {
+      src: 'Kamilaaaaaa.png',
+      title: 'Kamila',
+      description: 'A delightful pixel art portrait of Kamila, showcasing detailed character design.'
+    },
+    {
+      src: 'Ice cream.gif',
+      title: 'Ice Cream',
+      description: 'A sweet pixel art animation featuring a delicious ice cream design.'
+    }
+  ]
+};
+
+// Featured artwork rotation functionality
+class FeaturedArtwork {
+  constructor(config) {
+    this.config = config;
+    this.currentIndex = 0;
+    this.elements = {
+      img: document.getElementById('featured-pixel-art'),
+      title: document.getElementById('featured-title'),
+      description: document.getElementById('featured-description')
+    };
+    this.isTransitioning = false;
+  }
+
+  validateElements() {
+    return Object.values(this.elements).every(element => element !== null);
+  }
+
+  async updateArtwork() {
+    if (!this.validateElements() || this.isTransitioning) return;
+
+    this.isTransitioning = true;
+    const artwork = this.config.artworks[this.currentIndex];
+
+    // Fade out
+    this.elements.img.style.opacity = '0';
+
+    // Wait for fade out
+    await new Promise(resolve => setTimeout(resolve, this.config.fadeOutDuration));
+
+    // Update content
+    this.elements.img.src = artwork.src;
+    this.elements.title.textContent = artwork.title;
+    this.elements.description.textContent = artwork.description;
+
+    // Fade in
+    this.elements.img.style.opacity = '1';
+
+    // Update index
+    this.currentIndex = (this.currentIndex + 1) % this.config.artworks.length;
+    this.isTransitioning = false;
+  }
+
+  startRotation() {
+    if (!this.validateElements()) {
+      console.warn('Featured artwork elements not found');
+      return;
+    }
+
+    // Initial update
+    this.updateArtwork();
+
+    // Start rotation interval
+    setInterval(() => this.updateArtwork(), this.config.rotationInterval);
+  }
+}
+
+// Initialize featured artwork rotation
+document.addEventListener('DOMContentLoaded', () => {
+  const featuredArtwork = new FeaturedArtwork(ARTWORK_CONFIG);
+  featuredArtwork.startRotation();
+});
+
 // Header scroll effect
 window.addEventListener('scroll', function() {
   const header = document.querySelector('header');

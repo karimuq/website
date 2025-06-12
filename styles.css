@@ -302,7 +302,15 @@ main {
 
 /* Featured Work Section */
 .featured-work {
-  padding: 4rem 3%;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+/* Mobile styles for character grid in featured work section */
+@media (max-width: 768px) {
+  .featured-work .character-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 .section-title {
@@ -1391,6 +1399,31 @@ footer::before {
 @media (max-width: 768px) {
   .fun-facts {
     padding: 1.5rem;
+  }
+
+  .featured-work {
+    padding: 3rem 0;
+  }
+
+  .featured-work .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .pixel-art-card {
+    max-width: 100%;
+  }
+
+  .pixel-art-image img {
+    height: 200px;
+  }
+
+  .pixel-art-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .pixel-art-info p {
+    font-size: 0.95rem;
   }
   
   .fun-facts h3 {
