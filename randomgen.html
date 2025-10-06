@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RandomGen - Random Number Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .randomgen-container {
+      max-width: 400px;
+      margin: 5rem auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .randomgen-result {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #3498db;
+      margin: 1.5rem 0;
+    }
+    .randomgen-inputs {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .randomgen-inputs input {
+      width: 80px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .randomgen-btn {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .randomgen-btn:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Apps</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="randomgen.html" class="active">RandomGen</a>
+        <a href="taptoadd.html">Tap to Add</a>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="randomgen-container">
+      <h2>Random Number Generator</h2>
+      <div class="randomgen-inputs">
+        <input type="number" id="min" placeholder="Min" value="1">
+        <input type="number" id="max" placeholder="Max" value="100">
+      </div>
+      <button class="randomgen-btn" onclick="generateRandom()">Generate</button>
+      <div class="randomgen-result" id="result">—</div>
+    </div>
+  </main>
+  <script>
+    function generateRandom() {
+      const min = parseInt(document.getElementById('min').value, 10);
+      const max = parseInt(document.getElementById('max').value, 10);
+      if (isNaN(min) || isNaN(max) || min > max) {
+        document.getElementById('result').textContent = 'Invalid range';
+        return;
+      }
+      const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+      document.getElementById('result').textContent = rand;
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html> 

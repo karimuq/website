@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tap to Add</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .taptoadd-container {
+      max-width: 400px;
+      margin: 5rem auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .taptoadd-btn {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    .taptoadd-btn:hover {
+      background: #2980b9;
+    }
+    .taptoadd-result {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #3498db;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Apps</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="randomgen.html">RandomGen</a>
+        <a href="taptoadd.html" class="active">Tap to Add</a>
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="taptoadd-container">
+      <h2>Tap to Add</h2>
+      <button class="taptoadd-btn" onclick="tapToAdd()">Tap to Add</button>
+      <div class="taptoadd-result" id="tapResult">0</div>
+    </div>
+  </main>
+  <script>
+    let tapCount = 0;
+    function tapToAdd() {
+      tapCount++;
+      document.getElementById('tapResult').textContent = tapCount;
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html> 
