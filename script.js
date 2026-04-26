@@ -4,17 +4,17 @@ const ARTWORK_CONFIG = {
   fadeOutDuration: 300,
   artworks: [
     {
-      src: 'Mimi1_run.gif',
+      src: 'pixel-art/Mimi1_run.gif',
       title: 'Mimi',
       description: 'A cheerful pixel art animation of Mimi, showing her dynamic running movement.'
     },
     {
-      src: 'Kamilaaaaaa.png',
+      src: 'pixel-art/Kamilaaaaaa.png',
       title: 'Kamila',
       description: 'A delightful pixel art portrait of Kamila, showcasing detailed character design.'
     },
     {
-      src: 'Ice cream.gif',
+      src: 'pixel-art/Ice cream.gif',
       title: 'Ice Cream',
       description: 'A sweet pixel art animation featuring a delicious ice cream design.'
     }
@@ -147,13 +147,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if the user has previously closed the bar
     if (localStorage.getItem('devBarClosed') === 'true') {
       devBar.style.display = 'none';
-      header.style.marginTop = '0';
+      body.classList.remove('has-dev-bar');
+    } else {
+      body.classList.add('has-dev-bar');
     }
     
     // Add event listener to close button
     closeDevBarBtn.addEventListener('click', function() {
       devBar.style.display = 'none';
-      header.style.marginTop = '0';
+      body.classList.remove('has-dev-bar');
       localStorage.setItem('devBarClosed', 'true');
     });
   }

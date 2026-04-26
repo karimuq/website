@@ -12,7 +12,14 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pixelart-new.css">
 </head>
-<body>
+<body class="has-dev-bar">
+  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+    This website is currently under development
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
   <header>
     <div class="header-content">
       <div class="header-left">
@@ -47,22 +54,42 @@
         <a href="projects-pixelart.html" class="active"><i class="fas fa-paint-brush"></i> Pixel Art</a>
         <a href="projects-3d.html"><i class="fas fa-cube"></i> 3D Models</a>
         <a href="projects-apps.html"><i class="fas fa-mobile-alt"></i> Apps</a>
+        <a href="projects-arduino.html"><i class="fas fa-microchip"></i> Arduino</a>
+        <a href="projects-cad.html"><i class="fas fa-drafting-pencil"></i> CAD</a>
       </div>
 
-      <div class="copyright-notice">
-        <h4><i class="fas fa-copyright"></i> Copyright Notice</h4>
-        <p>All pixel art works, including sprites, animations, and designs, are protected under copyright law.</p>
-        <ul>
-          <li>Artwork is displayed for portfolio purposes only</li>
-          <li>All rights reserved for all pixel art assets and animations</li>
-          <li>No permission is granted for reproduction or use in any form</li>
-          <li>Commercial use or redistribution is strictly prohibited</li>
-          <li>Screenshots and artwork may not be used without explicit written permission</li>
-        </ul>
-        <p>For licensing inquiries or permissions, please contact me through the contact form.</p>
-      </div>
+      <details class="copyright-disclosure">
+        <summary class="copyright-toggle-wrap">
+          <span class="copyright-toggle-btn">
+            <i class="fas fa-copyright"></i> Copyright Notice
+          </span>
+        </summary>
+        <div class="copyright-notice">
+          <h4><i class="fas fa-copyright"></i> Copyright Notice</h4>
+          <p>All pixel art works, including sprites, animations, and designs, are protected under copyright law.</p>
+          <ul>
+            <li>Artwork is displayed for portfolio purposes only</li>
+            <li>All rights reserved for all pixel art assets and animations</li>
+            <li>No permission is granted for reproduction or use in any form</li>
+            <li>Commercial use or redistribution is strictly prohibited</li>
+            <li>Screenshots and artwork may not be used without explicit written permission</li>
+          </ul>
+          <p>For licensing inquiries or permissions, please contact me through the contact form.</p>
+        </div>
+      </details>
 
       <div class="character-showcase">
+        <div class="gallery-controls">
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid" title="Grid View">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="list" title="List View">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+
         <!-- Mimi Character Section -->
         <div class="character-section mimi-character" data-aos="fade-up" data-character="mimi">
           <h3 class="character-title" data-character="mimi">Mimi</h3>
@@ -72,7 +99,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Mimi1.png" alt="Mimi - Static" loading="lazy" data-character="mimi">
+                <img src="pixel-art/Mimi1.png" alt="Mimi - Static" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
                 <h4>Static Design</h4>
@@ -85,7 +112,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Mimi_idel2.gif" alt="Mimi - Idle" loading="lazy" data-character="mimi">
+                <img src="pixel-art/Mimi_idel2.gif" alt="Mimi - Idle" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
                 <h4>Idle Animation</h4>
@@ -98,7 +125,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Mimi_run2.gif" alt="Mimi - Run Animation" loading="lazy" data-character="mimi">
+                <img src="pixel-art/Mimi_run2.gif" alt="Mimi - Run Animation" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
                 <h4>Run Animation</h4>
@@ -111,7 +138,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Mimi1_run.gif" alt="Mimi - Alternative Run" loading="lazy" data-character="mimi">
+                <img src="pixel-art/Mimi1_run.gif" alt="Mimi - Alternative Run" loading="lazy" data-character="mimi">
               </div>
               <div class="card-info">
                 <h4>Run Animation 2</h4>
@@ -123,14 +150,14 @@
 
         <!-- Kamila Character Section -->
         <div class="character-section kamila-character" data-aos="fade-up" data-character="kamila">
-          <h3 class="character-title" data-character="kamila">Kamila</h3>
+          <h3 class="character-title" data-character="kamila">Kaka</h3>
           <div class="character-grid" data-character="kamila">
             <div class="character-card" data-character="kamila" data-animation-type="static">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Kamilaaaaaa.png" alt="Kamila - Character Design" loading="lazy" data-character="kamila">
+                <img src="pixel-art/Kamilaaaaaa.png" alt="Kamila - Character Design" loading="lazy" data-character="kamila">
               </div>
               <div class="card-info">
                 <h4>Character Design</h4>
@@ -141,15 +168,15 @@
         </div>
 
         <!-- Unnamed Characters Section -->
-        <div class="character-section" data-aos="fade-up">
+        <div class="character-section" data-aos="fade-up" data-character="unnamed">
           <h3 class="character-title">Unnamed Characters</h3>
           <div class="character-grid">
-            <div class="character-card">
+            <div class="character-card" data-animation-type="static">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="1_Character .gif" alt="Character - Static" loading="lazy">
+                <img src="pixel-art/1_Character .gif" alt="Unnamed Character - Static" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Character Design</h4>
@@ -157,12 +184,12 @@
               </div>
             </div>
 
-            <div class="character-card">
+            <div class="character-card" data-animation-type="run">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="1_run.gif" alt="Character - Running" loading="lazy">
+                <img src="pixel-art/1_run.gif" alt="Unnamed Character - Running" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Run Animation</h4>
@@ -170,14 +197,12 @@
               </div>
             </div>
 
-         
-
             <div class="character-card">
               <div class="card-preview">
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Mar.png" alt="Mar - Character Design" loading="lazy">
+                <img src="pixel-art/Mar.png" alt="Mar - Character Design" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Mar</h4>
@@ -190,7 +215,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Wdr.png" alt="Wdr - Character Design" loading="lazy">
+                <img src="pixel-art/Wdr.png" alt="Wdr - Character Design" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Wdr</h4>
@@ -203,7 +228,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="nou.png" alt="Nou - Character Design" loading="lazy">
+                <img src="pixel-art/nou.png" alt="Nou - Character Design" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Nou</h4>
@@ -214,7 +239,7 @@
         </div>
 
         <!-- Creatures Section -->
-        <div class="character-section" data-aos="fade-up">
+        <div class="character-section" data-aos="fade-up" data-character="creatures">
           <h3 class="character-title">Creatures</h3>
           <div class="character-grid">
             <div class="character-card">
@@ -222,7 +247,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Monster.gif" alt="Monster Animation" loading="lazy">
+                <img src="pixel-art/Monster.gif" alt="Monster Animation" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Monster</h4>
@@ -235,7 +260,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Cat.png" alt="Cat Design" loading="lazy">
+                <img src="pixel-art/Cat.png" alt="Cat Design" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Cat</h4>
@@ -248,7 +273,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Dog.png" alt="Dog Design" loading="lazy">
+                <img src="pixel-art/Dog.png" alt="Dog Design" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Dog</h4>
@@ -261,7 +286,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Mermaid .png" alt="Mermaid Design" loading="lazy">
+                <img src="pixel-art/Mermaid .png" alt="Mermaid Design" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Mermaid</h4>
@@ -272,7 +297,7 @@
         </div>
 
         <!-- Objects Section -->
-        <div class="character-section" data-aos="fade-up">
+        <div class="character-section" data-aos="fade-up" data-character="objects">
           <h3 class="character-title">Objects & Environment</h3>
           <div class="character-grid">
             <div class="character-card">
@@ -280,7 +305,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Ice cream.gif" alt="Ice Cream Animation" loading="lazy">
+                <img src="pixel-art/Ice cream.gif" alt="Ice Cream Animation" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Ice Cream</h4>
@@ -293,7 +318,7 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="chips.gif" alt="Chips Animation" loading="lazy">
+                <img src="pixel-art/chips.gif" alt="Chips Animation" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Chips</h4>
@@ -306,16 +331,13 @@
                 <div class="loading-spinner">
                   <i class="fas fa-spinner fa-spin"></i>
                 </div>
-                <img src="Sakara tree.png" alt="Sakura Tree" loading="lazy">
+                <img src="pixel-art/Sakara tree.png" alt="Sakura Tree" loading="lazy">
               </div>
               <div class="card-info">
                 <h4>Sakura Tree</h4>
                 <p>Environmental element</p>
               </div>
             </div>
-          </div>
-        </div>
-
           </div>
         </div>
       </div>
@@ -368,7 +390,7 @@
     </div>
   </div>
 
+  <script src="script.js"></script>
   <script src="pixelart.js"></script>
 </body>
-</html>
 </html>

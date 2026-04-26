@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RandomGen - A simple and efficient random number generator by Karim Abdelnour">
+  <meta name="keywords" content="Random Number Generator, Utility, Web App, Karim Abdelnour">
+  <meta name="author" content="Karim Abdelnour">
   <title>RandomGen - Random Number Generator</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
     .randomgen-container {
@@ -51,11 +56,18 @@
     }
   </style>
 </head>
-<body>
+<body class="has-dev-bar">
+  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+    This website is currently under development
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
   <header>
     <div class="header-content">
       <div class="header-left">
-        <h1>Apps</h1>
+        <h1>Karim Abdelnour</h1>
       </div>
       <button class="hamburger">
         <span></span>
@@ -63,9 +75,10 @@
         <span></span>
       </button>
       <nav>
-        <a href="randomgen.html" class="active">RandomGen</a>
-        <a href="taptoadd.html">Tap to Add</a>
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -80,6 +93,43 @@
       <div class="randomgen-result" id="result">—</div>
     </div>
   </main>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fas fa-envelope"></i>
+        Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fab fa-github"></i>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fab fa-itch-io"></i>
+        Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <div class="cookie-consent">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn accept">Accept Cookies</button>
+        <button class="cookie-btn decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     function generateRandom() {
       const min = parseInt(document.getElementById('min').value, 10);

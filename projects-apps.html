@@ -10,8 +10,144 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .app-preview-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+
+    .app-preview-overlay.active {
+      display: flex;
+    }
+
+    .app-preview-window {
+      width: min(420px, 94vw);
+      height: min(860px, 90vh);
+      aspect-ratio: 9 / 19.5;
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .app-preview-title {
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .app-preview-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .app-preview-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .app-preview-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .app-preview-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #fff;
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .app-preview-window {
+        width: min(380px, 94vw);
+        height: min(760px, 88vh);
+      }
+    }
+
+    .copyright-toggle-wrap {
+      display: block;
+      text-align: right;
+      margin: 8px 0 14px;
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .copyright-toggle-btn {
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 10px 16px;
+      background: #3498db;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copyright-toggle-btn:hover {
+      background: #2980b9;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+    }
+
+    .copyright-toggle-btn::-webkit-details-marker {
+      display: none;
+    }
+
+    .copyright-toggle-wrap::marker,
+    .copyright-toggle-wrap::-webkit-details-marker {
+      display: none;
+      content: "";
+    }
+
+    .copyright-disclosure:not([open]) .copyright-notice {
+      display: none;
+    }
+  </style>
 </head>
-<body>
+<body class="has-dev-bar">
+  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+    This website is currently under development
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
   <header>
     <div class="header-content">
       <div class="header-left">
@@ -46,18 +182,69 @@
         <a href="projects-pixelart.html"><i class="fas fa-paint-brush"></i> Pixel Art</a>
         <a href="projects-3d.html"><i class="fas fa-cube"></i> 3D Models</a>
         <a href="projects-apps.html" class="active"><i class="fas fa-mobile-alt"></i> Apps</a>
+        <a href="projects-arduino.html"><i class="fas fa-microchip"></i> Arduino</a>
+        <a href="projects-cad.html"><i class="fas fa-drafting-pencil"></i> CAD</a>
       </div>
 
-      <div class="coming-soon">
+      <details class="copyright-disclosure">
+        <summary class="copyright-toggle-wrap">
+          <span class="copyright-toggle-btn">
+            <i class="fas fa-copyright"></i> Copyright Notice
+          </span>
+        </summary>
+        <div class="copyright-notice" id="apps-copyright-notice">
+          <h4><i class="fas fa-copyright"></i> Copyright Notice</h4>
+          <p>All app development projects, including but not limited to source code, assets, and designs, are protected by copyright law.</p>
+          <ul>
+            <li>Applications are displayed for portfolio purposes only</li>
+            <li>Source code and assets may not be copied, modified, or used in other projects without explicit permission</li>
+            <li>Commercial use of any content is strictly prohibited</li>
+            <li>Distribution or sharing of application files is not permitted</li>
+          </ul>
+          <p>For licensing inquiries or permissions, please contact me through the contact form.</p>
+        </div>
+      </details>
+
+      <div class="grid-container">
         <div class="card">
           <div class="card-content">
-            <h3><i class="fas fa-clock"></i> Coming Soon</h3>
-            <p>My app development projects are currently being documented and will be available here soon. The showcase will include mobile apps, desktop applications, and web-based solutions!</p>
+            <h3>Counter App <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Concept</span></h3>
+            <p>A simple interactive counter web app concept.</p>
             <div class="tags">
-              <span class="tag"><i class="fab fa-android"></i> Android</span>
-              <span class="tag"><i class="fas fa-desktop"></i> Desktop</span>
-              <span class="tag"><i class="fas fa-hourglass-half"></i> In Progress</span>
+              <span class="tag"><i class="fas fa-globe"></i> Web App</span>
+              <span class="tag"><i class="fas fa-lightbulb"></i> Concept</span>
             </div>
+            <a href="#" class="project-link app-concept-link" data-app-title="Counter App Concept" data-app-url="Webapps/Counter-app.html">
+              <i class="fas fa-book-open"></i> View Concept
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>Random Number Generator <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Concept</span></h3>
+            <p>A lightweight random number generator web app concept with quick input/output interaction.</p>
+            <div class="tags">
+              <span class="tag"><i class="fas fa-globe"></i> Web App</span>
+              <span class="tag"><i class="fas fa-lightbulb"></i> Concept</span>
+            </div>
+            <a href="#" class="project-link app-concept-link" data-app-title="Random Number Generator Concept" data-app-url="Webapps/random-number-generator.html">
+              <i class="fas fa-book-open"></i> View Concept
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>ScreenSync <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Concept</span></h3>
+            <p>A screen synchronization web app concept focused on mirroring and managing shared displays.</p>
+            <div class="tags">
+              <span class="tag"><i class="fas fa-globe"></i> Web App</span>
+              <span class="tag"><i class="fas fa-lightbulb"></i> Concept</span>
+            </div>
+            <a href="#" class="project-link app-concept-link" data-app-title="ScreenSync Concept" data-app-url="Webapps/screensync.html">
+              <i class="fas fa-book-open"></i> View Concept
+            </a>
           </div>
         </div>
       </div>
@@ -66,9 +253,9 @@
 
   <footer>
     <div class="footer-links">
-      <a href="mailto:karimabdelnour25@gmail.com">
+      <a href="contact.html">
         <i class="fas fa-envelope"></i>
-        karimabdelnour25@gmail.com
+        Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
         <i class="fab fa-github"></i>
@@ -88,6 +275,108 @@
     </div>
   </footer>
 
+  <div class="cookie-consent">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies. All app development content is protected by copyright.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn accept">Accept Cookies</button>
+        <button class="cookie-btn decline">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-preview-overlay" id="app-preview-overlay" aria-hidden="true">
+    <div class="app-preview-window" id="app-preview-window" role="dialog" aria-modal="true" aria-label="App Concept Preview">
+      <div class="app-preview-header">
+        <p class="app-preview-title" id="app-preview-title">App Concept Preview</p>
+        <div class="app-preview-controls">
+          <button class="app-preview-btn" id="app-preview-fullscreen" type="button" aria-label="Toggle Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+          <button class="app-preview-btn" id="app-preview-close" type="button" aria-label="Close Preview">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <iframe id="app-preview-frame" class="app-preview-frame" src="about:blank" title="App Concept"></iframe>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script>
+    (function() {
+      const conceptLinks = document.querySelectorAll('.app-concept-link');
+      const overlay = document.getElementById('app-preview-overlay');
+      const previewWindow = document.getElementById('app-preview-window');
+      const frame = document.getElementById('app-preview-frame');
+      const title = document.getElementById('app-preview-title');
+      const closeBtn = document.getElementById('app-preview-close');
+      const fullscreenBtn = document.getElementById('app-preview-fullscreen');
+      const fullscreenIcon = fullscreenBtn ? fullscreenBtn.querySelector('i') : null;
+
+      if (!conceptLinks.length || !overlay || !previewWindow || !frame || !title || !closeBtn || !fullscreenBtn) {
+        return;
+      }
+
+      function openPreview(appUrl, appTitle) {
+        title.textContent = appTitle || 'App Concept Preview';
+        frame.src = appUrl;
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePreview() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        frame.src = 'about:blank';
+        document.body.style.overflow = '';
+      }
+
+      conceptLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          openPreview(this.dataset.appUrl, this.dataset.appTitle);
+        });
+      });
+
+      closeBtn.addEventListener('click', closePreview);
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closePreview();
+        }
+      });
+
+      fullscreenBtn.addEventListener('click', async function() {
+        try {
+          if (!document.fullscreenElement) {
+            await previewWindow.requestFullscreen();
+          } else {
+            await document.exitFullscreen();
+          }
+        } catch (err) {
+          window.open(frame.src, '_blank');
+        }
+      });
+
+      document.addEventListener('fullscreenchange', function() {
+        if (!fullscreenIcon) return;
+        fullscreenIcon.className = document.fullscreenElement ? 'fas fa-compress' : 'fas fa-expand';
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active') && !document.fullscreenElement) {
+          closePreview();
+        }
+      });
+    })();
+
+  </script>
 </body>
 </html>

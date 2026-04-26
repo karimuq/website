@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal handling
     function openModal(imgSrc, altText) {
+        // Reset zoom scale
+        currentScale = 1;
+        modalImg.style.transform = 'scale(1)';
+
         // Show loading spinner in modal
         modal.classList.add('loading');
         
@@ -56,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let displayHeight = Math.min(tempImg.naturalHeight * pixelScale, maxHeight);
             
             // If the image is still too small, enforce a minimum size
-            const minSize = 400; // Increased minimum size
+            const minSize = Math.min(400, window.innerWidth * 0.9); 
             if (displayWidth < minSize) {
                 const aspectRatio = tempImg.naturalWidth / tempImg.naturalHeight;
                 displayWidth = minSize;
@@ -121,25 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add zoom controls for modal image
     let currentScale = 1;
     modalImg.addEventListener('wheel', (e) => {
+        if (!modal.classList.contains('active')) return;
         e.preventDefault();
         const delta = Math.sign(e.deltaY) * -0.1;
-        currentScale = Math.max(0.5, Math.min(8, currentScale + delta)); // Allow more zoom
+        currentScale = Math.max(0.5, Math.min(8, currentScale + delta)); 
         modalImg.style.transform = `scale(${currentScale})`;
-    });
+    }, { passive: false });
     
-    // Reset scale when opening new image
-    function resetModalScale() {
-        currentScale = 1;
-        modalImg.style.transform = 'scale(1)';
-    }
-    
-    // Update open modal to reset scale
-    const originalOpenModal = openModal;
-    openModal = function(imgSrc, altText) {
-        resetModalScale();
-        originalOpenModal(imgSrc, altText);
-    };
-
     // Close modal with escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
@@ -165,34 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load preferred view
-    const preferredView = localStorage.getItem('preferred-view');
-    if (preferredView) {
-        const preferredButton = document.querySelector(`[data-view="${preferredView}"]`);
-        if (preferredButton) {
-            preferredButton.click();
-        }
-    }
-
-    // Lazy loading for images
-    const lazyLoadImages = () => {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    };
-
-    // Initialize lazy loading if supported
-    if ('IntersectionObserver' in window) {
-        lazyLoadImages();
+    const preferredView = localStorage.getItem('preferred-view') || 'grid';
+    const preferredButton = document.querySelector(`[data-view="${preferredView}"]`);
+    if (preferredButton) {
+        preferredButton.click();
     }
 
     // Smooth scrolling for navigation

@@ -1138,6 +1138,52 @@ footer::before {
   left: -1rem;
 }
 
+/* Collapsible Copyright Notice Toggle */
+.copyright-disclosure {
+  margin: 0;
+}
+
+.copyright-toggle-wrap {
+  display: block;
+  text-align: right;
+  margin: 8px 0 14px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.copyright-toggle-wrap::marker,
+.copyright-toggle-wrap::-webkit-details-marker {
+  display: none;
+  content: "";
+}
+
+.copyright-toggle-btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: #3498db;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copyright-toggle-btn:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+.copyright-disclosure:not([open]) .copyright-notice {
+  display: none;
+}
+
 @keyframes slideUp {
   from {
     transform: translateY(100%);

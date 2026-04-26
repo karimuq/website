@@ -1,0 +1,756 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.app{
+  --font-sans:'Inter','Segoe UI',Roboto,system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --p:#7F77DD;--pl:#EEEDFE;--pd:#534AB7;--pb:#AFA9EC;
+  --tx:#1a1a1a;--tm:#5a5a5a;--th:#a0a0a0;
+  --bg:#f0efe9;--card:#ffffff;--surf:#f5f4f0;
+  --bd:rgba(0,0,0,0.1);--bds:rgba(0,0,0,0.18);
+  --ok:#1D9E75;--okL:#E1F5EE;--no:#E24B4A;--noL:#FCEBEB;
+  --am:#BA7517;--amL:#FAEEDA;
+  width:380px;height:auto;aspect-ratio:9/18;background:var(--bg);font-family:var(--font-sans);font-feature-settings:'cv11' 1,'ss01' 1;line-height:1.35;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow:hidden;position:relative;display:flex;flex-direction:column;margin:0 auto;border-radius:22px;box-shadow:0 10px 34px rgba(0,0,0,0.16)
+}
+.app.dark{
+  --bg:#111113;--card:#1c1c1f;--surf:#26262a;
+  --bd:rgba(255,255,255,0.09);--bds:rgba(255,255,255,0.16);
+  --tx:#f0f0f0;--tm:#999;--th:#555;
+  --pl:#2a2840;--pb:#534AB7;--pd:#AFA9EC;
+  --amL:#2a200a;--am:#EF9F27;--okL:#0a2318;--noL:#2a0e0e
+}
+@media (max-width: 640px){
+  .app{border-radius:0;box-shadow:none}
+}
+.topbar{background:var(--card);padding:13px 16px 11px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid var(--bd);flex-shrink:0}
+.logo{display:flex;align-items:center;gap:7px;font-size:15px;font-weight:800;color:var(--tx);letter-spacing:-.35px}
+.tbr{display:flex;align-items:center;gap:6px}
+.ib{width:34px;height:34px;border-radius:50%;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--tm);position:relative;transition:background .15s}
+.ib:hover{background:var(--surf)}
+.ndot{width:8px;height:8px;background:var(--p);border-radius:50%;position:absolute;top:4px;right:4px;border:2px solid var(--card)}
+.av{width:33px;height:33px;border-radius:50%;background:var(--pl);border:1.5px solid var(--pb);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--pd);cursor:pointer}
+.screen{display:none;flex:1;min-height:0}.screen.on{display:flex;flex-direction:column;min-height:0}
+.scrl{padding:12px 13px 12px;display:flex;flex-direction:column;gap:11px;overflow-y:auto;flex:1;min-height:0}
+.card{background:var(--card);border-radius:16px;border:0.5px solid var(--bd);padding:15px}
+.ct{font-size:14px;font-weight:700;color:var(--tx);display:flex;align-items:center;gap:6px;letter-spacing:-.15px}
+.cs{font-size:11px;color:var(--tm);margin-top:2px;line-height:1.45}
+.bigtime{font-size:36px;font-weight:700;color:var(--tx);letter-spacing:-1.25px;margin:10px 0 9px;font-family:var(--font-mono)}
+.track{height:8px;background:var(--surf);border-radius:99px;overflow:hidden;border:0.5px solid var(--bd)}
+.fill{height:100%;background:var(--p);border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.plbl{display:flex;justify-content:space-between;font-size:11px;color:var(--tm);align-items:center;margin-top:6px}
+.edb{background:none;border:none;cursor:pointer;color:var(--th);padding:1px;display:flex;align-items:center;margin-left:3px}
+.lbr{display:flex;align-items:center;gap:9px;padding:8px 9px;border-radius:9px;margin-bottom:3px}
+.lbr.me{background:var(--pl)}.lbr:last-child{margin-bottom:0}
+.rnk{font-size:11px;font-weight:700;color:var(--th);width:13px;text-align:center;flex-shrink:0}
+.fav{width:32px;height:32px;border-radius:50%;background:var(--surf);border:0.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--tm);flex-shrink:0}
+.lbr.me .fav{background:var(--p);color:#fff;border-color:var(--p)}
+.fn{flex:1;font-size:13px;font-weight:500;color:var(--tx)}
+.ft{font-size:11px;font-family:var(--font-mono);color:var(--tm)}
+.lbr.me .ft{color:var(--pd);font-weight:700}
+.bnav{background:var(--card);border-top:0.5px solid var(--bd);display:flex;align-items:center;padding:5px 0 8px;flex-shrink:0}
+.nvi{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:5px 0;border:none;background:none;color:var(--th);font-family:inherit;font-size:10px;font-weight:600;letter-spacing:.1px;transition:color .15s}
+.nvi.on{color:var(--p)}
+.flr{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:0.5px solid var(--bd)}
+.flr:last-child{border:none}
+.tb{padding:5px 12px;border-radius:99px;border:0.5px solid var(--bds);background:transparent;color:var(--tx);font-size:11px;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:3px;transition:all .15s;white-space:nowrap}
+.tb:hover{background:var(--surf)}.tb:active{transform:scale(.95)}
+.tb.tapped{background:var(--pl);border-color:var(--pb);color:var(--pd)}
+.nin{width:100%;padding:9px 12px;border-radius:8px;border:0.5px solid var(--bds);background:var(--surf);font-family:inherit;font-size:13px;font-weight:500;color:var(--tx);outline:none;transition:border .15s}
+.nin::placeholder{color:var(--th)}
+.nin:focus{border-color:var(--p)}
+.pbtn{width:100%;padding:11px;border-radius:11px;background:var(--p);color:#fff;font-size:13px;font-weight:700;font-family:inherit;border:none;cursor:pointer;transition:all .15s}
+.pbtn:hover{background:var(--pd)}.pbtn:active{transform:scale(.98)}
+.pbtn:disabled{opacity:.5;cursor:default}
+.rtabs{display:flex;gap:4px;background:var(--surf);border-radius:8px;padding:3px;margin-bottom:10px;border:0.5px solid var(--bd)}
+.rtab{flex:1;padding:6px;border-radius:6px;border:none;background:transparent;font-size:12px;font-family:inherit;color:var(--tm);cursor:pointer;font-weight:600;transition:all .15s}
+.rtab.on{background:var(--card);color:var(--tx);border:0.5px solid var(--bd)}
+.rrow{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:0.5px solid var(--bd)}
+.rrow:last-child{border:none}
+.acbtn{width:30px;height:30px;border-radius:7px;border:0.5px solid var(--bd);background:var(--card);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.acbtn.ok:hover{background:var(--okL);border-color:var(--ok)}
+.acbtn.no:hover{background:var(--noL);border-color:var(--no)}
+.chcard{background:var(--surf);border-radius:11px;padding:12px;margin-bottom:7px;border:0.5px solid var(--bd)}
+.chcard:last-child{margin-bottom:0}
+.chbar{flex:1;height:5px;background:var(--bd);border-radius:99px;overflow:hidden}
+.chfill{height:100%;border-radius:99px;background:var(--p);transition:width .4s}
+.chfill.oth{background:#B4B2A9}
+.drop{position:absolute;z-index:900;background:var(--card);border:0.5px solid var(--bds);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.12)}
+.di{display:flex;align-items:center;gap:8px;padding:9px 13px;cursor:pointer;font-size:13px;color:var(--tx);white-space:nowrap;border-top:0.5px solid var(--bd)}
+.di:first-of-type{border-top:none}
+.di:hover{background:var(--surf)}
+.dtl{font-size:10px;font-weight:700;color:var(--th);padding:7px 13px 3px;letter-spacing:.5px;text-transform:uppercase}
+.npnl{position:absolute;top:60px;left:11px;right:11px;z-index:900;background:var(--card);border:0.5px solid var(--bds);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.12)}
+.ni{display:flex;align-items:center;gap:9px;padding:9px 13px;border-top:0.5px solid var(--bd);cursor:pointer;transition:background .15s}
+.ni:hover{background:var(--surf)}
+.nico{width:28px;height:28px;border-radius:7px;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ntx{font-size:12px;color:var(--tx);line-height:1.35}
+.ovl{position:absolute;inset:0;background:rgba(0,0,0,.42);z-index:700;display:flex;align-items:flex-end}
+.sht{background:var(--card);border-radius:18px 18px 0 0;width:100%;padding:16px;padding-bottom:22px;max-height:90vh;overflow-y:auto}
+.shd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.stl{font-size:16px;font-weight:700;color:var(--tx)}
+.xb{width:25px;height:25px;border-radius:50%;background:var(--surf);border:0.5px solid var(--bd);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--tm);font-size:13px}
+.sr{background:var(--surf);border-radius:11px;padding:12px 13px;display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;cursor:pointer;border:0.5px solid var(--bd);transition:background .15s}
+.sr:hover{background:var(--bg)}
+.srl{font-size:13px;font-weight:600;color:var(--tx)}
+.tgl{width:40px;height:22px;background:var(--bds);border-radius:99px;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
+.tgl.on{background:var(--p)}
+.tgl::after{content:'';width:16px;height:16px;background:#fff;border-radius:50%;position:absolute;top:3px;left:3px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+.tgl.on::after{left:21px}
+.gm{position:absolute;inset:0;background:rgba(0,0,0,.42);z-index:800;display:flex;align-items:center;justify-content:center;padding:16px}
+.gi{background:var(--card);border-radius:16px;padding:18px;width:100%;border:0.5px solid var(--bd)}
+.gv{flex:1;text-align:center;font-size:28px;font-weight:700;font-family:var(--font-mono);color:var(--tx)}
+.gs{width:32px;height:32px;border-radius:8px;border:0.5px solid var(--bds);background:var(--surf);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--tx);font-family:inherit;transition:background .15s}
+.gs:hover{background:var(--bd)}
+.fso{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:all .15s;margin-bottom:3px;border:0.5px solid transparent}
+.fso:hover{background:var(--surf)}.fso.sel{background:var(--pl);border-color:var(--pb)}
+.dbg{font-size:10px;padding:2px 6px;border-radius:99px;background:var(--pl);color:var(--pd);font-weight:700;margin-left:5px}
+.emp{font-size:12px;color:var(--th);padding:8px 0}
+.rnknum{font-size:11px;font-weight:700;color:var(--th);width:13px;text-align:center;flex-shrink:0}
+.toast{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);background:rgba(26,26,26,0.92);color:#fff;padding:7px 14px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap;z-index:9999;opacity:0;transition:opacity .2s;pointer-events:none}
+.app.dark .toast{background:rgba(240,240,240,0.92);color:#111}
+.toast.show{opacity:1}
+.statrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:3px}
+.statbox{background:var(--surf);border-radius:10px;padding:10px 12px;border:0.5px solid var(--bd)}
+.statlbl{font-size:10px;color:var(--tm);margin-bottom:3px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.statval{font-size:18px;font-weight:700;color:var(--tx);font-family:var(--font-mono);letter-spacing:-.2px}
+.ticker{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600}
+.ticker.live{color:var(--ok)}.ticker.paused{color:var(--am)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.chrow{display:flex;align-items:center;gap:8px;margin-bottom:6px}.chrow:last-child{margin-bottom:0}
+.chnm{font-size:11px;font-weight:600;color:var(--tx);width:40px;flex-shrink:0}
+.chtm{font-size:10px;font-family:var(--font-mono);color:var(--tm);width:82px;text-align:right;flex-shrink:0}
+.sep{height:0.5px;background:var(--bd);margin:10px 0}
+.badge{font-size:10px;padding:2px 7px;border-radius:99px;font-weight:700}
+.badge.won{background:var(--okL);color:var(--ok)}.badge.lost{background:var(--noL);color:var(--no)}
+.badge.active{background:var(--pl);color:var(--pd)}
+.secdur{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.duroption{padding:5px 11px;border-radius:99px;border:0.5px solid var(--bds);background:transparent;font-size:12px;font-family:inherit;color:var(--tm);cursor:pointer;transition:all .15s}
+.duroption.sel{background:var(--pl);border-color:var(--pb);color:var(--pd);font-weight:700}
+.winner-banner{background:var(--okL);border-radius:9px;padding:8px 12px;display:flex;align-items:center;gap:8px;margin-bottom:8px;border:0.5px solid var(--ok)}
+.loser-banner{background:var(--noL);border-radius:9px;padding:8px 12px;display:flex;align-items:center;gap:8px;margin-bottom:8px;border:0.5px solid var(--no)}
+</style>
+
+<div class="app" id="app">
+<div class="toast" id="toast"></div>
+
+<div class="topbar">
+  <div class="logo">
+    <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+      <circle cx="13" cy="13" r="12" stroke="#7F77DD" stroke-width="1.8"/>
+      <circle cx="13" cy="13" r="4.5" fill="#7F77DD"/>
+      <path d="M13 3.5 A9.5 9.5 0 0 1 22.5 13" stroke="#AFA9EC" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M13 22.5 A9.5 9.5 0 0 1 3.5 13" stroke="#AFA9EC" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    ScreenSync
+  </div>
+  <div class="tbr">
+    <button class="ib" id="nbtn" onclick="toggleP('notif')">
+      <svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2.5C7.2 2.5 5 4.7 5 7.5V13L3.5 15h13L15 13V7.5C15 4.7 12.8 2.5 10 2.5z"/><path d="M8.5 15c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5"/></svg>
+      <div class="ndot" id="ndot"></div>
+    </button>
+    <div class="av" id="avbtn" onclick="toggleP('acct')">K</div>
+  </div>
+</div>
+
+<div class="npnl" id="notifPanel" style="display:none">
+  <div class="dtl">Notifications</div>
+  <div class="ni" onclick="closeAll();tapNotif('alice')">
+    <div class="nico"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#7F77DD" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+    <div class="ntx">Zlata tapped you!</div>
+  </div>
+  <div class="ni" onclick="closeAll();navigate('friends')">
+    <div class="nico"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#7F77DD" stroke-width="1.6"><rect x="2" y="3" width="12" height="10" rx="2"/><path d="M2 6h12"/></svg></div>
+    <div class="ntx">Nour sent you a friend request.</div>
+  </div>
+  <div class="ni" onclick="closeAll();navigate('challenges')">
+    <div class="nico"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#7F77DD" stroke-width="1.6"><path d="M6 2H3L2 6h3l1-4z"/><path d="M10 2h3l1 4h-3l-1-4z"/><path d="M3 6c0 4 2.5 7 5 8M13 6c0 4-2.5 7-5 8"/></svg></div>
+    <div class="ntx">Mariam challenged you to: "Weekday Rush"!</div>
+  </div>
+</div>
+
+<div class="drop" id="acctMenu" style="display:none;top:60px;right:13px;min-width:148px">
+  <div class="dtl">My Account</div>
+  <div class="di" onclick="closeAll();openSheet('settings')">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.5 1.5M11.5 11.5L13 13M3 13l1.5-1.5M11.5 4.5L13 3"/></svg>
+    Settings
+  </div>
+  <div class="di" onclick="closeAll();showToast('Logged out!')">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3H5a1 1 0 00-1 1v8a1 1 0 001 1h5M12 8H6M10 5.5l2.5 2.5L10 10.5"/></svg>
+    Log out
+  </div>
+</div>
+
+<div class="screen on" id="s-home">
+  <div class="scrl">
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">
+        <div class="ct">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="1.5" width="15" height="15" rx="3"/><path d="M9 5v4l2.5 2.5"/></svg>
+          Today's Screen Time
+        </div>
+        <div class="ticker live" id="liveTicker">
+          <div class="dot"></div>
+          <span id="liveLabel">Phone data</span>
+        </div>
+      </div>
+      <div class="cs" id="goalSub">Your daily goal is 4 hours.</div>
+      <div class="bigtime" id="bigtime">0h 00m</div>
+      <div class="track"><div class="fill" id="pfill" style="width:0%"></div></div>
+      <div class="plbl">
+        <span id="pctLabel">0% of goal</span>
+        <span style="display:flex;align-items:center">Goal: <span id="glabel" style="margin-left:3px">4h</span>
+          <button class="edb" onclick="openGoal()"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1.5L12.5 5l-7.5 7.5H1.5V9L9 1.5z"/></svg></button>
+        </span>
+      </div>
+    </div>
+    <div class="statrow">
+      <div class="statbox">
+        <div class="statlbl">Streak</div>
+        <div class="statval" id="streakVal">4 <span style="font-size:13px;color:var(--tm);font-family:inherit">days</span></div>
+      </div>
+      <div class="statbox">
+        <div class="statlbl">Weekly Avg</div>
+        <div class="statval" id="weeklyAvg">2h 18m</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct" style="margin-bottom:9px">
+        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1.5l2 5.5h6l-5 3.5 2 5.5-5-3.5-5 3.5 2-5.5-5-3.5h6l2-5.5z"/></svg>
+        Friends Leaderboard
+      </div>
+      <div id="lbList"></div>
+    </div>
+    <div class="card" id="activeChHome" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px">
+        <div class="ct">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2H4L2 7h3l2-5z"/><path d="M11 2h3l2 5h-3l-2-5z"/><path d="M3.5 7c0 4.5 3 8 5.5 9M14.5 7c0 4.5-3 8-5.5 9"/></svg>
+          Active Challenges
+        </div>
+        <span class="badge active" id="chCountBadge">0</span>
+      </div>
+      <div id="homeChList"></div>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="s-friends">
+  <div class="scrl">
+    <div class="card">
+      <div class="ct" style="margin-bottom:2px">
+        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="6" r="3"/><path d="M1.5 16c0-3 2.5-5.5 5.5-5.5"/><path d="M13.5 10v6M10.5 13h6"/></svg>
+        Add Friend
+      </div>
+      <div class="cs" style="margin-bottom:9px">Send a request by entering their nickname.</div>
+      <input class="nin" type="text" placeholder="Enter nickname..." id="addInput" style="margin-bottom:8px"/>
+      <button class="pbtn" onclick="sendReq()">Send Friend Request</button>
+    </div>
+    <div class="card">
+      <div class="ct" style="margin-bottom:9px">
+        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="3" width="15" height="12" rx="2"/><path d="M1.5 7h15"/></svg>
+        Requests
+      </div>
+      <div class="rtabs">
+        <button class="rtab on" id="tabIn" onclick="switchTab('in')">Incoming (<span id="incN">1</span>)</button>
+        <button class="rtab" id="tabSent" onclick="switchTab('sent')">Sent (<span id="sentN">1</span>)</button>
+      </div>
+      <div id="incList"></div>
+      <div id="sentList" style="display:none"></div>
+    </div>
+    <div class="card">
+      <div class="ct" style="margin-bottom:11px">
+        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2.5"/><path d="M1 16c0-2.8 2.2-5 5-5M12 10l2 2 3.5-3.5"/></svg>
+        My Friends (<span id="flCount">3</span>)
+      </div>
+      <div id="flList"></div>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="s-challenges">
+  <div class="scrl">
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">
+        <div class="ct">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2H4L2 7h3l2-5z"/><path d="M11 2h3l2 5h-3l-2-5z"/><path d="M3.5 7c0 4.5 3 8 5.5 9M14.5 7c0 4.5-3 8-5.5 9"/></svg>
+          Active Challenges
+        </div>
+        <button style="width:28px;height:28px;background:var(--p);border-radius:7px;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer" onclick="openSheet('newch')">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><path d="M6 1v10M1 6h10"/></svg>
+        </button>
+      </div>
+      <div class="cs" style="margin-bottom:10px">Your ongoing competitions. Least screen time wins!</div>
+      <div id="actCh"></div>
+    </div>
+    <div class="card">
+      <div class="ct" style="margin-bottom:2px">
+        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1.5l2 5h5.5l-4.5 3 1.5 5L9 12 4.5 15l1.5-5L1.5 7H7l2-5.5z"/></svg>
+        Completed Challenges
+      </div>
+      <div class="cs" style="margin-bottom:10px">A record of your past glories.</div>
+      <div id="cmpCh"></div>
+    </div>
+  </div>
+</div>
+
+<div class="bnav">
+  <button class="nvi on" id="n-home" onclick="navigate('home')">
+    <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9L10 3l7 6v8a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><path d="M7.5 20v-7h5v7"/></svg>
+    Home
+  </button>
+  <button class="nvi" id="n-friends" onclick="navigate('friends')">
+    <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7.5" cy="7" r="3"/><path d="M1 18c0-3 3-5.5 6.5-5.5"/><circle cx="15" cy="10.5" r="2.5"/><path d="M9 18c0-2 1.6-3.5 4-3.5h4c2.2 0 3.5 1.5 3.5 3.5"/></svg>
+    Friends
+  </button>
+  <button class="nvi" id="n-challenges" onclick="navigate('challenges')">
+    <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 2H5L3 7h3l2-5z"/><path d="M12 2h3l2 5h-3l-2-5z"/><path d="M4 7c0 5 3.5 9 6 10M16 7c0 5-3.5 9-6 10"/></svg>
+    Challenges
+  </button>
+</div>
+
+<div id="portal"></div>
+</div>
+
+<script>
+var D={
+  dark:false,
+  screenSec:0,
+  goalH:4,
+  tempG:4,
+  tappedFriends:{},
+  friends:[
+    {id:'zlata',name:'Zlata',init:'Z',mins:90},
+    {id:'menna',name:'Menna',init:'M',mins:55},
+    {id:'mariam',name:'Mariam',init:'M',mins:48}
+  ],
+  incoming:[{from:'Nour',init:'N'}],
+  sent:[{to:'Salma'}],
+  challenges:[
+    {id:1,name:'Weekend Detox',vs:'Zlata',vsI:'Z',myM:216,theirM:258,goalM:840,durationDays:7,done:false,startDay:Date.now()-2*86400000},
+  ],
+  done:[
+    {name:'Read More',vs:'Menna',myM:180,theirM:210,won:true},
+    {name:'Focus Friday',vs:'Mariam',myM:300,theirM:240,won:false}
+  ],
+  selFriend:null,selDur:7,activeTab:'in',openPanel:null,
+  lastSync:null
+};
+
+function ft(m){var h=Math.floor(m/60),mn=m%60;return h===0?mn+'m':h+'h '+String(mn).padStart(2,'0')+'m';}
+function esc(v){return String(v).replace(/[&<>"']/g,function(ch){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);});}
+function isFriendName(name){
+  return D.friends.some(function(f){return f.name.toLowerCase()===String(name).toLowerCase();});
+}
+
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show');},2400);
+}
+
+function closeAll(){
+  document.getElementById('notifPanel').style.display='none';
+  document.getElementById('acctMenu').style.display='none';
+  D.openPanel=null;
+}
+
+function toggleP(p){
+  if(D.openPanel===p){closeAll();return;}
+  closeAll();D.openPanel=p;
+  if(p==='notif')document.getElementById('notifPanel').style.display='block';
+  else document.getElementById('acctMenu').style.display='block';
+}
+
+function navigate(tab){
+  closeAll();closeSheets();
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
+  document.querySelectorAll('.nvi').forEach(function(n){n.classList.remove('on');});
+  document.getElementById('s-'+tab).classList.add('on');
+  document.getElementById('n-'+tab).classList.add('on');
+}
+
+function updateActive(){
+  var mins=Math.floor(D.screenSec/60);
+  document.getElementById('bigtime').textContent=ft(mins);
+  var goalSec=D.goalH*3600;
+  var pct=Math.min(100,Math.round(D.screenSec/goalSec*100));
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('pctLabel').textContent=pct+'% of goal';
+  var liveEl=document.getElementById('liveTicker');
+  var lblEl=document.getElementById('liveLabel');
+  if(liveEl&&lblEl){
+    liveEl.className='ticker live';
+    lblEl.textContent=D.lastSync?'Synced':'Phone data';
+  }
+  renderHomeChList();
+}
+
+function updateChallenges(){
+  D.challenges.forEach(function(c){
+    if(!c.done){
+      var daysLeft=Math.max(0,(c.durationDays||7)-(Date.now()-c.startDay)/86400000);
+      if(daysLeft<=0&&!c.done){
+        c.done=true;
+        var myFinal=Math.floor(D.screenSec/60);
+        c.won=myFinal<=c.theirM;
+        D.done.unshift({name:c.name,vs:c.vs,myM:myFinal,theirM:c.theirM,goalM:c.goalM,won:c.won});
+        D.challenges=D.challenges.filter(function(x){return x.id!==c.id;});
+        showToast(c.name+': '+(c.won?'You won!':'You lost.'));
+        renderChallenges();
+      }
+    }
+  });
+}
+
+function renderLB(){
+  var all=D.friends.map(function(f){return{id:f.id,name:f.name,init:f.init,mins:f.mins};});
+  all.push({id:'me',name:'You',init:'K',mins:Math.floor(D.screenSec/60)});
+  all.sort(function(a,b){return a.mins-b.mins;});
+  var html=all.map(function(p,i){
+    return '<div class="lbr'+(p.id==='me'?' me':'')+'">'+
+      '<div class="rnknum">'+(i+1)+'</div>'+
+      '<div class="fav">'+p.init+'</div>'+
+      '<div class="fn">'+p.name+'</div>'+
+      (i===0?'<svg width="13" height="13" viewBox="0 0 14 14" fill="#EF9F27" stroke="none"><path d="M7 1l1.8 3.6L13 5.5l-3 2.9.7 4.1L7 10.4l-3.7 2.1.7-4.1L1 5.5l4.2-.9z"/></svg>':'')+
+      '<div class="ft">'+ft(p.mins)+'</div>'+
+    '</div>';
+  }).join('');
+  document.getElementById('lbList').innerHTML=html;
+}
+
+function renderHomeChList(){
+  var el=document.getElementById('homeChList');
+  var card=document.getElementById('activeChHome');
+  var active=D.challenges.filter(function(c){return !c.done;});
+  if(!el||!card)return;
+  if(active.length===0){card.style.display='none';return;}
+  card.style.display='block';
+  document.getElementById('chCountBadge').textContent=active.length;
+  var myM=Math.floor(D.screenSec/60);
+  el.innerHTML=active.map(function(c){
+    var mp=Math.min(100,Math.round(myM/c.goalM*100));
+    var tp=Math.min(100,Math.round(c.theirM/c.goalM*100));
+    var winning=myM<=c.theirM;
+    return '<div style="margin-bottom:8px">'+
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">'+
+        '<div style="font-size:12px;font-weight:700;color:var(--tx)">'+esc(c.name)+'</div>'+
+        '<div style="font-size:10px;color:'+(winning?'var(--ok)':'var(--no)')+';font-weight:700">'+(winning?'Winning':'Losing')+'</div>'+
+      '</div>'+
+      '<div class="chrow"><div class="chnm">You</div><div class="chbar"><div class="chfill" style="width:'+mp+'%"></div></div><div class="chtm">'+ft(myM)+' / '+ft(c.goalM)+'</div></div>'+
+      '<div class="chrow"><div class="chnm">'+esc(c.vs)+'</div><div class="chbar"><div class="chfill oth" style="width:'+tp+'%"></div></div><div class="chtm">'+ft(c.theirM)+' / '+ft(c.goalM)+'</div></div>'+
+    '</div>';
+  }).join('<div class="sep"></div>');
+}
+
+function renderFriends(){
+  document.getElementById('flCount').textContent=D.friends.length;
+  document.getElementById('flList').innerHTML=D.friends.length===0
+    ?'<div class="emp">No friends yet.</div>'
+    :D.friends.map(function(f){
+      var tapped=D.tappedFriends[f.id];
+      return '<div class="flr">'+
+        '<div class="fav">'+f.init+'</div>'+
+        '<div style="flex:1"><div style="font-size:13px;font-weight:600;color:var(--tx)">'+esc(f.name)+'</div>'+
+        '<div style="font-size:10px;color:var(--tm)">'+ft(f.mins)+' today</div></div>'+
+        '<button class="tb'+(tapped?' tapped':'')+'" onclick="tapFriend(\''+f.id+'\',\''+f.name+'\')">'+
+          '<svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5.5"/><path d="M4.5 7l2 2 3-3"/></svg>'+
+          (tapped?'Tapped':'Tap')+
+        '</button>'+
+      '</div>';
+    }).join('');
+}
+
+function tapFriend(id,name){
+  if(D.tappedFriends[id]){showToast('You already tapped '+name+' today.');return;}
+  D.tappedFriends[id]=true;
+  renderFriends();
+  showToast('You tapped '+name+'!');
+}
+
+function tapNotif(id){
+  D.tappedFriends[id]=true;
+  var f=D.friends.find(function(x){return x.id===id;});
+  showToast((f?f.name:'Your friend')+' sees your tap!');
+}
+
+function renderRequests(){
+  D.incoming=D.incoming.filter(function(r){return !isFriendName(r.from);});
+  D.sent=D.sent.filter(function(r){return !isFriendName(r.to);});
+  document.getElementById('incN').textContent=D.incoming.length;
+  document.getElementById('sentN').textContent=D.sent.length;
+  var inc=document.getElementById('incList');
+  inc.innerHTML=D.incoming.length===0
+    ?'<div class="emp">No incoming requests.</div>'
+    :D.incoming.map(function(r){
+      return '<div class="rrow">'+
+        '<div class="fav">'+r.init+'</div>'+
+        '<div style="flex:1;font-size:12px;color:var(--tx)">From <strong>'+esc(r.from)+'</strong></div>'+
+        '<div style="display:flex;gap:6px">'+
+          '<button class="acbtn ok" onclick="acceptR(\''+r.from+'\',\''+r.init+'\')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="#1D9E75" stroke-width="2.2"><path d="M2 7l3.5 3.5L12 4"/></svg></button>'+
+          '<button class="acbtn no" onclick="declineR(\''+r.from+'\')"><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="#E24B4A" stroke-width="2.2"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+  var sent=document.getElementById('sentList');
+  sent.innerHTML=D.sent.length===0
+    ?'<div class="emp">No sent requests.</div>'
+    :D.sent.map(function(r){
+      return '<div class="flr">'+
+        '<div class="fav">'+r.to[0]+'</div>'+
+        '<div style="flex:1;font-size:12px;color:var(--tx)">To <strong>'+esc(r.to)+'</strong></div>'+
+        '<span style="font-size:10px;padding:3px 8px;border-radius:99px;background:var(--amL);color:var(--am);font-weight:700">Pending</span>'+
+      '</div>';
+    }).join('');
+}
+
+function switchTab(t){
+  D.activeTab=t;
+  document.getElementById('incList').style.display=t==='in'?'block':'none';
+  document.getElementById('sentList').style.display=t==='sent'?'block':'none';
+  document.getElementById('tabIn').className='rtab'+(t==='in'?' on':'');
+  document.getElementById('tabSent').className='rtab'+(t==='sent'?' on':'');
+}
+
+function renderChallenges(){
+  var aEl=document.getElementById('actCh');
+  var myM=Math.floor(D.screenSec/60);
+  var active=D.challenges.filter(function(c){return !c.done;});
+  aEl.innerHTML=active.length===0
+    ?'<div class="emp">No active challenges. Start one!</div>'
+    :active.map(function(c){
+      var mp=Math.min(100,Math.round(myM/c.goalM*100));
+      var tp=Math.min(100,Math.round(c.theirM/c.goalM*100));
+      var winning=myM<=c.theirM;
+      var elapsed=Math.max(0,Math.floor((Date.now()-c.startDay)/86400000));
+      return '<div class="chcard">'+
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">'+
+          '<div style="font-size:13px;font-weight:700;color:var(--tx)">'+esc(c.name)+'</div>'+
+          '<div style="font-size:10px;font-weight:700;color:'+(winning?'var(--ok)':'var(--no)')+'">'+( winning?'Winning':'Losing')+'</div>'+
+        '</div>'+
+        '<div style="font-size:11px;color:var(--tm);margin-bottom:9px">vs. '+esc(c.vs)+' &middot; Day '+(elapsed+1)+' of '+(c.durationDays||7)+'</div>'+
+        '<div class="chrow"><div class="chnm">You</div><div class="chbar"><div class="chfill" style="width:'+mp+'%"></div></div><div class="chtm">'+ft(myM)+' / '+ft(c.goalM)+'</div></div>'+
+        '<div class="chrow"><div class="chnm">'+esc(c.vs)+'</div><div class="chbar"><div class="chfill oth" style="width:'+tp+'%"></div></div><div class="chtm">'+ft(c.theirM)+' / '+ft(c.goalM)+'</div></div>'+
+      '</div>';
+    }).join('');
+
+  var cEl=document.getElementById('cmpCh');
+  cEl.innerHTML=D.done.length===0
+    ?'<div class="emp">No completed challenges yet.</div>'
+    :D.done.map(function(c){
+      var doneGoal=c.goalM||840;
+      return '<div class="chcard">'+
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px">'+
+          '<div style="font-size:13px;font-weight:700;color:var(--tx)">'+esc(c.name)+'</div>'+
+          '<span class="badge '+(c.won?'won':'lost')+'">'+(c.won?'Won':'Lost')+'</span>'+
+        '</div>'+
+        '<div style="font-size:11px;color:var(--tm);margin-bottom:8px">vs. '+esc(c.vs)+'</div>'+
+        '<div class="chrow"><div class="chnm">You</div><div class="chbar"><div class="chfill" style="width:'+Math.min(100,Math.round(c.myM/doneGoal*100))+'%"></div></div><div class="chtm">'+ft(c.myM)+'</div></div>'+
+        '<div class="chrow"><div class="chnm">'+esc(c.vs)+'</div><div class="chbar"><div class="chfill oth" style="width:'+Math.min(100,Math.round(c.theirM/doneGoal*100))+'%"></div></div><div class="chtm">'+ft(c.theirM)+'</div></div>'+
+      '</div>';
+    }).join('');
+}
+
+function updateProgress(){
+  var goalSec=D.goalH*3600;
+  var pct=Math.min(100,Math.round(D.screenSec/goalSec*100));
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('glabel').textContent=D.goalH+'h';
+  document.getElementById('goalSub').textContent='Your daily goal is '+D.goalH+' hour'+(D.goalH!==1?'s':'')+'.';
+  document.getElementById('pctLabel').textContent=pct+'% of goal';
+}
+
+function applyPhoneData(payload){
+  if(!payload||typeof payload!=='object')return;
+  if(typeof payload.goalHours==='number'&&isFinite(payload.goalHours))
+    D.goalH=Math.max(1,Math.min(24,Math.round(payload.goalHours)));
+  if(typeof payload.todayMinutes==='number'&&isFinite(payload.todayMinutes))
+    D.screenSec=Math.max(0,Math.round(payload.todayMinutes*60));
+  if(typeof payload.todaySeconds==='number'&&isFinite(payload.todaySeconds))
+    D.screenSec=Math.max(0,Math.round(payload.todaySeconds));
+  if(Array.isArray(payload.friends))
+    D.friends=payload.friends.map(function(f,i){
+      var nm=(f&&f.name)?String(f.name):('Friend '+(i+1));
+      return {id:String((f&&f.id)||nm.toLowerCase().replace(/\s+/g,'-')),name:nm,init:(f&&f.init)||nm[0].toUpperCase(),mins:Math.max(0,Math.round((f&&f.mins)||0))};
+    });
+  D.lastSync=Date.now();
+  updateProgress();
+  updateActive();
+  renderLB();
+  renderFriends();
+  renderRequests();
+  renderChallenges();
+}
+
+function sendReq(){
+  var v=document.getElementById('addInput').value.trim();
+  if(!v){showToast('Enter a nickname first.');return;}
+  if(v.toLowerCase()==='karim'||v.toLowerCase()==='you'){showToast('You cannot add yourself.');return;}
+  if(D.friends.find(function(f){return f.name.toLowerCase()===v.toLowerCase();})){showToast(v+' is already your friend!');return;}
+  if(D.sent.find(function(r){return r.to.toLowerCase()===v.toLowerCase();})){showToast('Already sent to '+v+'!');return;}
+  D.sent.push({to:v});
+  document.getElementById('addInput').value='';
+  renderRequests();showToast('Request sent to '+v+'!');switchTab('sent');
+}
+
+function acceptR(name,init){
+  D.incoming=D.incoming.filter(function(r){return r.from!==name;});
+  if(!D.friends.find(function(f){return f.name===name;}))
+    D.friends.push({id:name.toLowerCase(),name:name,init:init||name[0],mins:Math.floor(Math.random()*90)+15});
+  renderRequests();renderFriends();renderLB();
+  showToast(name+' is now your friend!');
+}
+
+function declineR(name){
+  D.incoming=D.incoming.filter(function(r){return r.from!==name;});
+  renderRequests();showToast('Request declined.');
+}
+
+function openGoal(){
+  D.tempG=D.goalH;
+  var g=document.createElement('div');
+  g.className='gm';g.id='gmodal';
+  g.innerHTML='<div class="gi">'+
+    '<div style="font-size:14px;font-weight:700;color:var(--tx);margin-bottom:3px">Set daily goal</div>'+
+    '<div style="font-size:11px;color:var(--tm);margin-bottom:12px">Your target maximum screen time per day.</div>'+
+    '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">'+
+      '<button class="gs" onclick="adjG(-1)">&#8722;</button>'+
+      '<div class="gv" id="gval">'+D.tempG+'h</div>'+
+      '<button class="gs" onclick="adjG(1)">+</button>'+
+    '</div>'+
+    '<div style="display:flex;gap:7px">'+
+      '<button style="flex:1;padding:10px;border-radius:9px;border:0.5px solid var(--bds);background:var(--surf);color:var(--tx);font-size:12px;font-weight:600;font-family:inherit;cursor:pointer" onclick="closeGoal()">Cancel</button>'+
+      '<button class="pbtn" style="flex:1;padding:10px" onclick="saveGoal()">Save</button>'+
+    '</div>'+
+  '</div>';
+  document.getElementById('app').appendChild(g);
+}
+function adjG(d){D.tempG=Math.max(1,Math.min(16,D.tempG+d));document.getElementById('gval').textContent=D.tempG+'h';}
+function saveGoal(){D.goalH=D.tempG;updateProgress();closeGoal();showToast('Goal set to '+D.goalH+'h!');}
+function closeGoal(){var g=document.getElementById('gmodal');if(g)g.remove();}
+
+function toggleDark(){
+  D.dark=!D.dark;
+  document.getElementById('app').classList.toggle('dark',D.dark);
+  var t=document.getElementById('dtgl');if(t)t.classList.toggle('on',D.dark);
+}
+
+function openSheet(type){
+  closeAll();
+  var ov=document.createElement('div');
+  ov.className='ovl';ov.id='sheetOv';
+  var inner='';
+
+  if(type==='settings'){
+    inner='<div class="sht" onclick="event.stopPropagation()">'+
+      '<div class="shd"><div class="stl">Settings</div><button class="xb" onclick="closeSheets()">&#10005;</button></div>'+
+      '<div class="sr">'+
+        '<div class="srl">Nickname</div>'+
+        '<div style="display:flex;align-items:center;gap:5px"><span style="font-size:12px;color:var(--tm)">Karim</span><span class="dbg">Demo</span><svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="#7F77DD" stroke-width="1.5"><path d="M9 1.5L12.5 5l-7.5 7.5H1.5V9L9 1.5z"/></svg></div>'+
+      '</div>'+
+      '<div class="sr" onclick="toggleDark()">'+
+        '<div class="srl">Dark Mode</div>'+
+        '<div class="tgl'+(D.dark?' on':'')+'" id="dtgl"></div>'+
+      '</div>'+
+      '<div class="sr" onclick="showToast(\'Data is synced from your phone app.\')">'+
+        '<div class="srl">Screen Time Source</div>'+
+        '<div style="font-size:12px;font-weight:700;color:var(--ok)">Phone</div>'+
+      '</div>'+
+      '<div class="sr" onclick="showToast(\'Opening support...\')">'+
+        '<div class="srl">Support</div>'+
+        '<span style="font-size:11px;color:var(--tm);border:0.5px solid var(--bds);padding:4px 9px;border-radius:7px">Contact Us</span>'+
+      '</div>'+
+      '<div style="font-size:10px;color:var(--th);text-align:center;margin:13px 0 8px">Made by Karim Abdelnour</div>'+
+      '<button class="pbtn" onclick="closeSheets()">Done</button>'+
+    '</div>';
+  } else if(type==='newch'){
+    var flist=D.friends.length===0
+      ?'<div class="emp">Add some friends first!</div>'
+      :D.friends.map(function(f){
+        return '<div class="fso'+(D.selFriend===f.id?' sel':'')+'" id="fso-'+f.id+'" onclick="selF(\''+f.id+'\')">'+
+          '<div class="fav">'+f.init+'</div>'+
+          '<div><div style="font-size:13px;font-weight:600;color:var(--tx)">'+f.name+'</div><div style="font-size:10px;color:var(--tm)">'+ft(f.mins)+' today</div></div>'+
+        '</div>';
+      }).join('');
+    var durOpts=[1,3,7,14].map(function(d){
+      return '<button class="duroption'+(D.selDur===d?' sel':'')+'" onclick="selDur('+d+')">'+d+(d===1?' day':' days')+'</button>';
+    }).join('');
+    inner='<div class="sht" onclick="event.stopPropagation()">'+
+      '<div class="shd"><div class="stl">New Challenge</div><button class="xb" onclick="closeSheets()">&#10005;</button></div>'+
+      '<div style="font-size:11px;font-weight:700;color:var(--th);text-transform:uppercase;letter-spacing:.4px;margin-bottom:7px">Challenge friend</div>'+
+      '<div id="fsoList">'+flist+'</div>'+
+      '<div style="font-size:11px;font-weight:700;color:var(--th);text-transform:uppercase;letter-spacing:.4px;margin:11px 0 7px">Duration</div>'+
+      '<div class="secdur">'+durOpts+'</div>'+
+      '<div style="font-size:11px;font-weight:700;color:var(--th);text-transform:uppercase;letter-spacing:.4px;margin-bottom:7px">Challenge name</div>'+
+      '<input class="nin" type="text" placeholder="e.g. Weekend Detox" id="chNameIn" style="margin-bottom:12px"/>'+
+      '<button class="pbtn" onclick="createCh()">Start Challenge</button>'+
+    '</div>';
+  }
+
+  ov.innerHTML=inner;
+  ov.addEventListener('click',function(e){if(e.target===ov)closeSheets();});
+  document.getElementById('app').appendChild(ov);
+}
+
+function selF(id){
+  D.selFriend=id;
+  document.querySelectorAll('.fso').forEach(function(el){el.classList.remove('sel');});
+  var el=document.getElementById('fso-'+id);if(el)el.classList.add('sel');
+}
+
+function selDur(d){
+  D.selDur=d;
+  document.querySelectorAll('.duroption').forEach(function(el){
+    el.classList.toggle('sel',parseInt(el.textContent)===d||el.textContent===d+' day'||el.textContent===d+' days');
+  });
+}
+
+function createCh(){
+  var n=document.getElementById('chNameIn');
+  if(!n||!n.value.trim()){showToast('Add a challenge name!');return;}
+  if(!D.selFriend){showToast('Pick a friend first!');return;}
+  var f=D.friends.find(function(x){return x.id===D.selFriend;});
+  var id=Date.now();
+  D.challenges.push({id:id,name:n.value.trim(),vs:f.name,vsI:f.init,myM:0,theirM:f.mins,goalM:D.selDur*24*60,durationDays:D.selDur,done:false,startDay:Date.now()});
+  D.selFriend=null;
+  closeSheets();renderChallenges();renderHomeChList();
+  showToast('Challenge vs '+f.name+' started!');
+}
+
+function closeSheets(){var ov=document.getElementById('sheetOv');if(ov)ov.remove();}
+
+function fitAppFrame(){
+  var app=document.getElementById('app');
+  if(!app)return;
+  var ratio=9/18;
+  var isTablet=(window.innerWidth||0)>=768;
+  var vw=(window.innerWidth||0)*(isTablet?0.7:0.96);
+  var vh=(window.innerHeight||0)*(isTablet?0.84:0.9);
+  var maxW=isTablet?460:420;
+  var maxH=isTablet?900:840;
+  var wFromH=Math.min(vh*ratio,maxW);
+  var hFromW=Math.min(vw/ratio,maxH);
+  if(wFromH<=vw){
+    app.style.height=Math.min(vh,maxH)+'px';
+    app.style.width=wFromH+'px';
+  }else{
+    app.style.width=vw+'px';
+    app.style.height=hFromW+'px';
+  }
+}
+
+document.addEventListener('click',function(e){
+  var nb=document.getElementById('nbtn'),np=document.getElementById('notifPanel');
+  var ab=document.getElementById('avbtn'),am=document.getElementById('acctMenu');
+  if(!nb.contains(e.target)&&!np.contains(e.target)&&!ab.contains(e.target)&&!am.contains(e.target))closeAll();
+});
+
+window.addEventListener('resize',fitAppFrame);
+window.addEventListener('orientationchange',fitAppFrame);
+fitAppFrame();
+
+renderLB();renderFriends();renderRequests();renderChallenges();updateProgress();updateActive();
+window.ScreenSync={
+  setData:applyPhoneData
+};
+</script>

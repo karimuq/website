@@ -31,6 +31,114 @@
     transform: translateX(-5px);
 }
 
+/* Gallery Controls */
+.gallery-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.view-options {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.4rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.view-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.view-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.view-btn.active {
+    color: #fff;
+    background: #3498db;
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* List View Styles */
+.list-view .character-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.list-view .character-card {
+    display: flex;
+    aspect-ratio: auto;
+    min-height: 150px;
+    height: 150px;
+    flex-direction: row;
+}
+
+.list-view .card-preview {
+    width: 150px;
+    height: 100%;
+}
+
+.list-view .card-info {
+    flex: 1;
+    height: 100%;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.list-view .card-info h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.list-view .card-info p {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .list-view .character-card {
+        height: 120px;
+        min-height: 120px;
+    }
+    
+    .list-view .card-preview {
+        width: 120px;
+    }
+    
+    .list-view .card-info {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .list-view .character-card {
+        height: 100px;
+        min-height: 100px;
+    }
+    
+    .list-view .card-preview {
+        width: 100px;
+    }
+    
+    .list-view .card-info h4 {
+        font-size: 1.1rem;
+    }
+}
+
 /* Character Showcase */
 .character-showcase {
     max-width: 1200px;

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Random Number Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #7d8590;
+      --accent: #f0f6fc;
+      --btn-bg: #f0f6fc;
+      --btn-text: #0d1117;
+      --input-bg: #0d1117;
+      --sheet-bg: #161b22;
+      --overlay: rgba(0,0,0,0.6);
+      --radius: 14px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f8fa;
+      --surface: #ffffff;
+      --surface2: #f0f3f6;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --text-muted: #656d76;
+      --accent: #1f2328;
+      --btn-bg: #1f2328;
+      --btn-text: #ffffff;
+      --input-bg: #ffffff;
+      --sheet-bg: #ffffff;
+      --overlay: rgba(0,0,0,0.3);
+      --shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.25s, color 0.25s;
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px 14px;
+      flex-shrink: 0;
+    }
+
+    .app-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .icon-btn {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .icon-btn:hover { background: var(--surface2); color: var(--text); }
+    .icon-btn svg { width: 20px; height: 20px; }
+
+    /* ── Main card ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── Input row ── */
+    .inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 8px; }
+
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--input-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      -webkit-appearance: none;
+    }
+    input[type="text"]:focus {
+      border-color: var(--text-muted);
+      box-shadow: 0 0 0 3px rgba(127,133,142,0.12);
+    }
+    input[type="text"].invalid {
+      border-color: #f85149;
+      box-shadow: 0 0 0 3px rgba(248,81,73,0.12);
+    }
+
+    /* ── Number display ── */
+    .number-display {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .number-value {
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      color: var(--text);
+      word-break: break-all;
+      text-align: center;
+      line-height: 1.1;
+      transition: font-size 0.15s;
+      font-size: 72px;
+    }
+
+    .number-placeholder {
+      font-family: 'DM Mono', monospace;
+      font-size: 72px;
+      font-weight: 500;
+      color: var(--border);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Error area ── */
+    .error-container {
+      min-height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error-msg {
+      font-size: 13px;
+      color: #f85149;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* ── Generate button ── */
+    .generate-btn {
+      width: 100%;
+      padding: 22px 0;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s, box-shadow 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .generate-btn:hover:not(:disabled) {
+      box-shadow: var(--shadow);
+    }
+    .generate-btn:active:not(:disabled) {
+      transform: scale(0.985);
+    }
+    .generate-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* ── Sheet overlay ── */
+    .sheet-overlay {
+      position: fixed; inset: 0;
+      background: var(--overlay);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+    }
+    .sheet-overlay.open { opacity: 1; pointer-events: auto; }
+
+    /* ── Settings sheet ── */
+    .sheet {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(340px, 85vw);
+      background: var(--sheet-bg);
+      border-left: 1.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      z-index: 101;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+      box-shadow: -8px 0 40px rgba(0,0,0,0.3);
+    }
+    .sheet.open { transform: translateX(0); }
+
+    .sheet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 20px 18px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .sheet-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .sheet-body {
+      flex: 1;
+      padding: 24px 20px;
+    }
+
+    .sheet-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sheet-label {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .theme-toggle:hover { border-color: var(--text-muted); }
+    .theme-toggle svg { width: 22px; height: 22px; }
+
+    .sheet-footer {
+      padding: 20px;
+      border-top: 1.5px solid var(--border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Number pop animation */
+    @keyframes pop {
+      0% { transform: scale(0.85); opacity: 0.5; }
+      60% { transform: scale(1.04); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .pop { animation: pop 0.22s cubic-bezier(0.34,1.56,0.64,1); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="app-title">Random Number Generator</span>
+    <button class="icon-btn" id="settingsBtn" aria-label="Settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="inputs">
+        <div class="field">
+          <label for="minInput">Min Value</label>
+          <input type="text" id="minInput" value="1" maxlength="19" inputmode="numeric" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="maxInput">Max Value</label>
+          <input type="text" id="maxInput" value="100" maxlength="19" inputmode="numeric" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="number-display">
+        <span class="number-value" id="numDisplay">
+          <span class="number-placeholder">—</span>
+        </span>
+      </div>
+
+      <div class="error-container">
+        <span class="error-msg" id="errorMsg"></span>
+      </div>
+
+      <button class="generate-btn" id="generateBtn">Generate</button>
+    </div>
+  </main>
+
+  <!-- Sheet overlay -->
+  <div class="sheet-overlay" id="overlay"></div>
+
+  <!-- Settings sheet -->
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Settings">
+    <div class="sheet-header">
+      <span class="sheet-title">Settings</span>
+      <button class="icon-btn" id="closeSheet" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="sheet-body">
+      <div class="sheet-row">
+        <span class="sheet-label">Theme</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <!-- icon swapped by JS -->
+        </button>
+      </div>
+    </div>
+    <div class="sheet-footer">Made by Karim Abdelnour</div>
+  </div>
+
+  <script>
+    // ── Theme ──
+    const moonIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+    const sunIcon  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+    let theme = localStorage.getItem('rng-theme') || 'dark';
+    applyTheme(theme);
+
+    function applyTheme(t) {
+      theme = t;
+      document.documentElement.setAttribute('data-theme', t);
+      document.getElementById('themeToggle').innerHTML = t === 'dark' ? moonIcon : sunIcon;
+      localStorage.setItem('rng-theme', t);
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      applyTheme(theme === 'dark' ? 'light' : 'dark');
+    });
+
+    // ── Sheet ──
+    const sheet   = document.getElementById('sheet');
+    const overlay = document.getElementById('overlay');
+
+    function openSheet()  { sheet.classList.add('open'); overlay.classList.add('open'); }
+    function closeSheet() { sheet.classList.remove('open'); overlay.classList.remove('open'); }
+
+    document.getElementById('settingsBtn').addEventListener('click', openSheet);
+    document.getElementById('closeSheet').addEventListener('click', closeSheet);
+    overlay.addEventListener('click', closeSheet);
+
+    // ── Inputs ──
+    const minInput   = document.getElementById('minInput');
+    const maxInput   = document.getElementById('maxInput');
+    const numDisplay = document.getElementById('numDisplay');
+    const errorMsg   = document.getElementById('errorMsg');
+    const generateBtn = document.getElementById('generateBtn');
+
+    function sanitize(v) {
+      // allow leading minus, then digits only, max 18 chars after sign
+      let s = v.replace(/[^0-9\-]/g, '');
+      // only one minus, only at front
+      if (s.indexOf('-') > 0) s = s.replace(/-/g, '');
+      if (s.startsWith('-')) {
+        s = '-' + s.slice(1).replace(/-/g, '').slice(0, 18);
+      } else {
+        s = s.replace(/-/g, '').slice(0, 18);
+      }
+      return s;
+    }
+
+    function onInput(e) {
+      const cur = e.target.selectionStart;
+      const raw = e.target.value;
+      const clean = sanitize(raw);
+      e.target.value = clean;
+      validate();
+    }
+
+    minInput.addEventListener('input', onInput);
+    maxInput.addEventListener('input', onInput);
+
+    function validate() {
+      const minRaw = minInput.value.trim();
+      const maxRaw = maxInput.value.trim();
+
+      const minOk = /^-?\d+$/.test(minRaw);
+      const maxOk = /^-?\d+$/.test(maxRaw);
+
+      minInput.classList.toggle('invalid', !minOk && minRaw !== '');
+      maxInput.classList.toggle('invalid', !maxOk && maxRaw !== '');
+
+      if (!minOk || !maxOk) {
+        errorMsg.textContent = 'Enter valid integers.';
+        generateBtn.disabled = true;
+        return false;
+      }
+
+      let minVal, maxVal;
+      try { minVal = BigInt(minRaw); maxVal = BigInt(maxRaw); } catch { return false; }
+
+      if (minVal > maxVal) {
+        errorMsg.textContent = 'Min value must be less than or equal to Max value.';
+        generateBtn.disabled = true;
+        minInput.classList.add('invalid');
+        maxInput.classList.add('invalid');
+        return false;
+      }
+
+      errorMsg.textContent = '';
+      generateBtn.disabled = false;
+      minInput.classList.remove('invalid');
+      maxInput.classList.remove('invalid');
+      return true;
+    }
+
+    // ── BigInt random ──
+    function randomBigInt(min, max) {
+      const range = max - min + 1n;
+      const bits  = range.toString(2).length;
+      const bytes = Math.ceil(bits / 8);
+      const mask  = (1n << BigInt(bits)) - 1n;
+      let result;
+      do {
+        const arr = new Uint8Array(bytes);
+        crypto.getRandomValues(arr);
+        result = arr.reduce((acc, b) => (acc << 8n) | BigInt(b), 0n) & mask;
+      } while (result >= range);
+      return min + result;
+    }
+
+    // ── Font sizing ──
+    function fontSize(digits) {
+      if (digits <= 5)  return '72px';
+      if (digits <= 9)  return '54px';
+      if (digits <= 13) return '40px';
+      if (digits <= 16) return '30px';
+      return '22px';
+    }
+
+    // ── Generate ──
+    generateBtn.addEventListener('click', () => {
+      if (!validate()) return;
+      const min = BigInt(minInput.value.trim());
+      const max = BigInt(maxInput.value.trim());
+      const num = randomBigInt(min, max);
+      const str = num.toString();
+
+      numDisplay.style.fontSize = fontSize(str.length);
+      numDisplay.innerHTML = str;
+
+      // pop animation
+      numDisplay.classList.remove('pop');
+      void numDisplay.offsetWidth; // reflow
+      numDisplay.classList.add('pop');
+    });
+
+    // Keyboard: Enter to generate
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !generateBtn.disabled && document.activeElement !== document.getElementById('settingsBtn')) {
+        generateBtn.click();
+      }
+    });
+
+    validate();
+  </script>
+</body>
+</html>

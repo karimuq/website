@@ -11,7 +11,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="has-dev-bar">
+  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+    This website is currently under development
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
   <header>
     <div class="header-content">
       <div class="header-left">
@@ -55,7 +62,20 @@
         </div>
 
         <div class="category-card">
-          <h3><i class="fas fa-paint-brush"></i> Pixel Art Gallery</h3>
+          <h3><i class="fas fa-mobile-alt"></i> Apps <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Concepts</span></h3>
+          <p>App concepts and web app prototypes.</p>
+          <div class="tags">
+            <span class="tag"><i class="fab fa-android"></i> Android</span>
+            <span class="tag"><i class="fas fa-desktop"></i> Desktop</span>
+            <span class="tag"><i class="fas fa-globe"></i> Web</span>
+          </div>
+          <a href="projects-apps.html" class="category-link">
+            <i class="fas fa-arrow-right"></i> View Apps
+          </a>
+        </div>
+
+        <div class="category-card">
+          <h3><i class="fas fa-paint-brush"></i> Pixel Art</h3>
           <p>Custom pixel art creations, character designs, sprites, and animations for games and personal projects.</p>
           <div class="tags">
             <span class="tag"><i class="fas fa-image"></i> Pixel</span>
@@ -80,15 +100,29 @@
           </a>
         </div>
 
+      
+
         <div class="category-card">
-          <h3><i class="fas fa-mobile-alt"></i> Apps <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Coming Soon</span></h3>
-          <p>Mobile and desktop applications.</p>
+          <h3><i class="fas fa-microchip"></i> Arduino <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Coming Soon</span></h3>
+          <p>Electronics and robotics projects powered by Arduino microcontrollers.</p>
           <div class="tags">
-            <span class="tag"><i class="fab fa-android"></i> Android</span>
-            <span class="tag"><i class="fas fa-desktop"></i> Desktop</span>
+            <span class="tag"><i class="fas fa-bolt"></i> Electronics</span>
+            <span class="tag"><i class="fas fa-code"></i> C++</span>
           </div>
-          <a href="projects-apps.html" class="category-link">
-            <i class="fas fa-arrow-right"></i> View Apps
+          <a href="projects-arduino.html" class="category-link">
+            <i class="fas fa-arrow-right"></i> View Arduino
+          </a>
+        </div>
+
+        <div class="category-card">
+          <h3><i class="fas fa-drafting-pencil"></i> CAD <span class="coming-soon-badge" style="font-size: 0.55em; padding: 0.25em 0.5em;">Coming Soon</span></h3>
+          <p>Computer-Aided Design projects, technical drawings, and 3D printable designs.</p>
+          <div class="tags">
+            <span class="tag"><i class="fas fa-ruler-combined"></i> Design</span>
+            <span class="tag"><i class="fas fa-print"></i> 3D Printing</span>
+          </div>
+          <a href="projects-cad.html" class="category-link">
+            <i class="fas fa-arrow-right"></i> View CAD
           </a>
         </div>
       </div>
@@ -97,9 +131,9 @@
 
   <footer>
     <div class="footer-links">
-      <a href="mailto:karimabdelnour25@gmail.com">
+      <a href="contact.html">
         <i class="fas fa-envelope"></i>
-        karimabdelnour25@gmail.com
+        Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
         <i class="fab fa-github"></i>
@@ -118,6 +152,18 @@
       <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
     </div>
   </footer>
+
+  <div class="cookie-consent">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn accept">Accept Cookies</button>
+        <button class="cookie-btn decline">Decline</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
