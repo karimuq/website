@@ -4,263 +4,412 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Counter App</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            bgDark: '#000000',
-            bgLight: '#f8fafc',
-            cardDark: '#09090b',
-            cardLight: '#ffffff',
-            rowDark: '#18181b',
-            borderDark: '#27272a',
-            textMuted: '#a1a1aa'
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <script>
-    const savedTheme = localStorage.getItem('tapTheme');
-    if (savedTheme !== 'light') {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-    
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #000000;
+      --card:         #09090b;
+      --row:          #18181b;
+      --border:       #27272a;
+      --muted:        #a1a1aa;
+      --text:         #ffffff;
+      --text-inv:     #09090b;
+      --btn-plus-bg:  #ffffff;
+      --btn-plus-fg:  #000000;
+      --btn-minus-bg: #000000;
+      --btn-minus-fg: #ffffff;
+      --btn-reset-bg: #000000;
+      --btn-reset-fg: #ffffff;
+      --toggle-track: #09090b;
+    }
+
+    html.light {
+      --bg:           #f8fafc;
+      --card:         #ffffff;
+      --row:          #f9fafb;
+      --border:       #e5e7eb;
+      --muted:        #6b7280;
+      --text:         #000000;
+      --text-inv:     #ffffff;
+      --btn-plus-bg:  #000000;
+      --btn-plus-fg:  #ffffff;
+      --btn-minus-bg: #ffffff;
+      --btn-minus-fg: #000000;
+      --btn-reset-bg: #ffffff;
+      --btn-reset-fg: #000000;
+      --toggle-track: #e2e8f0;
+    }
+
     body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
       transition: background-color 0.2s, color 0.2s;
       -webkit-tap-highlight-color: transparent;
-    }
-    
-    button {
-      touch-action: manipulation;
-    }
-    
-    /* Toggle Switch styles */
-    .theme-toggle .toggle-checkbox {
-      right: 0;
-      z-index: 1;
-      border-color: #e2e8f0;
-      transition: all 0.2s;
-    }
-    .theme-toggle .toggle-label {
-      width: 3rem;
-      height: 1.5rem;
-      background-color: #e2e8f0;
-      border-radius: 9999px;
-      position: relative;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .theme-toggle .toggle-circle {
-      position: absolute;
-      top: 0.125rem;
-      left: 0.125rem;
-      width: 1.25rem;
-      height: 1.25rem;
-      background-color: white;
-      border-radius: 50%;
-      transition: all 0.2s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .theme-toggle input:checked ~ .toggle-label {
-      background-color: white;
-    }
-    .theme-toggle input:checked ~ .toggle-label .toggle-circle {
-      transform: translateX(1.5rem);
-      background-color: #09090b;
+      user-select: none;
+      overflow: hidden;
+      padding: 2rem 1rem;
     }
 
-    .dark .theme-toggle input:not(:checked) ~ .toggle-label {
-      background-color: #09090b;
+    /* ── Layout ── */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      width: 100%;
+      max-width: 24rem;
+      padding: 0 1.5rem;
     }
+
+    /* ── Counter Number ── */
+    #counter {
+      font-size: clamp(5rem, 20vw, 9rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      font-variant-numeric: tabular-nums;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    /* ── Buttons ── */
+    button { touch-action: manipulation; cursor: pointer; border: none; font-family: inherit; }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .btn-plus {
+      width: clamp(8rem, 40vw, 10rem);
+      height: clamp(5rem, 12vw, 6rem);
+      background: var(--btn-plus-bg);
+      color: var(--btn-plus-fg);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.1s, background 0.2s, color 0.2s;
+    }
+    .btn-plus:hover  { transform: scale(1.02); }
+    .btn-plus:active { transform: scale(0.95); }
+
+    .btn-minus {
+      width: clamp(8rem, 40vw, 10rem);
+      height: clamp(4rem, 10vw, 5rem);
+      background: var(--btn-minus-bg);
+      color: var(--btn-minus-fg);
+      border: 1px solid var(--border);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 300;
+      border-radius: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.1s, background 0.2s, color 0.2s;
+    }
+    .btn-minus:hover  { opacity: 0.85; }
+    .btn-minus:active { transform: scale(0.95); }
+
+    /* ── Bottom Actions ── */
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 2rem;
+    }
+
+    .btn-reset {
+      padding: 0.625rem 1.25rem;
+      background: var(--btn-reset-bg);
+      color: var(--btn-reset-fg);
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: transform 0.1s, opacity 0.15s, background 0.2s, color 0.2s;
+    }
+    .btn-reset:hover  { opacity: 0.8; }
+    .btn-reset:active { transform: scale(0.95); }
+
+    .btn-settings {
+      background: transparent;
+      color: var(--muted);
+      padding: 0.75rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: color 0.15s, transform 0.1s;
+    }
+    .btn-settings:hover  { color: var(--text); }
+    .btn-settings:active { transform: scale(0.95); }
+
+    /* ── SVG Icons ── */
+    .icon { width: 1.25rem; height: 1.25rem; fill: currentColor; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+    .icon-lg { width: 1.5rem; height: 1.5rem; }
+
+    /* ── Modal Backdrop ── */
+    #modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    #modal-backdrop.visible { display: flex; }
+
+    /* ── Modal ── */
+    #modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 380px;
+      border-radius: 1.25rem;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      transform: scale(0.95);
+      opacity: 0;
+      transition: transform 0.2s, opacity 0.2s, background 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      margin: 1rem;
+    }
+    #modal.open { transform: scale(1); opacity: 1; }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 1.5rem 1rem;
+    }
+    .modal-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .btn-close {
+      background: transparent;
+      color: var(--muted);
+      padding: 0.25rem;
+      display: flex;
+      transition: color 0.15s;
+    }
+    .btn-close:hover { color: var(--text); }
+
+    .modal-body { padding: 0 1.5rem 1.5rem; }
+
+    .setting-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background: var(--row);
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .setting-label {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .setting-label .icon { color: var(--muted); }
+
+    .modal-footer {
+      padding: 0 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .modal-footer p {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* ── Toggle Switch ── */
+    .toggle-wrap { position: relative; display: inline-block; width: 3rem; height: 1.5rem; }
+    .toggle-wrap input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: var(--toggle-track);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .toggle-thumb {
+      position: absolute;
+      top: 0.125rem; left: 0.125rem;
+      width: 1.25rem; height: 1.25rem;
+      background: #ffffff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      pointer-events: none;
+    }
+    .toggle-wrap input:checked ~ .toggle-track { background: #ffffff; }
+    .toggle-wrap input:checked ~ .toggle-track .toggle-thumb {
+      transform: translateX(1.5rem);
+      background: #09090b;
+    }
+    html.light .toggle-wrap input:not(:checked) ~ .toggle-track { background: #e2e8f0; }
+    html.light .toggle-wrap input:not(:checked) ~ .toggle-track .toggle-thumb { background: #ffffff; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center bg-[#000000] dark:bg-bgLight text-white dark:text-gray-900 font-sans overflow-hidden select-none px-4 py-8">
+<body>
 
   <!-- Main UI -->
-  <div class="flex flex-col items-center space-y-12 w-full max-w-sm px-6">
-    
-    <!-- Counter Number -->
-    <div id="counter" class="text-[4rem] sm:text-[6rem] md:text-[9rem] leading-none font-black tracking-tighter tabular-nums text-white dark:text-black">0</div>
-    
-    <!-- Controls -->
-    <div class="flex flex-col items-center space-y-4 w-full">
-      <!-- Plus Button -->
-      <button id="btn-plus" class="w-32 sm:w-40 h-20 sm:h-24 bg-white dark:bg-black text-black dark:text-white text-3xl sm:text-5xl font-light rounded-2xl shadow-md hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center">
-        +
-      </button>
-      
-      <!-- Minus Button -->
-      <button id="btn-minus" class="w-32 sm:w-40 h-16 sm:h-20 bg-black dark:bg-white border border-borderDark dark:border-gray-300 text-white dark:text-black text-3xl sm:text-4xl font-light rounded-2xl shadow-sm hover:bg-borderDark/50 dark:hover:bg-gray-50 active:scale-95 transition-all flex items-center justify-center">
-        −
-      </button>
+  <div class="container">
+    <div id="counter">0</div>
+
+    <div class="controls">
+      <button class="btn-plus" id="btn-plus">+</button>
+      <button class="btn-minus" id="btn-minus">−</button>
     </div>
-    
-    <!-- Bottom Actions -->
-    <div class="flex items-center space-x-4 sm:space-x-6 pt-8 sm:pt-12">
-      <!-- Reset Button -->
-      <button id="btn-reset" class="px-4 sm:px-6 py-2 sm:py-3 bg-black dark:bg-white border border-borderDark dark:border-gray-300 text-white dark:text-black font-medium text-sm sm:text-base rounded-xl hover:bg-borderDark/50 dark:hover:bg-gray-50 active:scale-95 transition-all flex items-center space-x-2 sm:space-x-3 shadow-sm">
-        <i class="fa-solid fa-arrow-rotate-right opacity-80"></i>
+
+    <div class="actions">
+      <!-- Reset -->
+      <button class="btn-reset" id="btn-reset">
+        <!-- Rotate-right icon (inline SVG) -->
+        <svg class="icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path d="M370.7 133.3C339.5 104 297.5 85.3 251 85.3c-93.1 0-168.5 75.4-168.5 168.5s75.4 168.5 168.5 168.5c78.3 0 144.3-53.6 163.3-126h-44c-17.8 55.2-69.4 95-119.3 95-74.2 0-134.4-60.2-134.4-134.4S176.8 122.9 251 122.9c37.2 0 70.7 15.1 95.2 39.5l-72.6 72.6H432V77.3l-61.3 56z"/>
+        </svg>
         <span>Reset</span>
       </button>
-      
-      <!-- Settings Icon -->
-      <button id="btn-settings" class="text-white dark:text-gray-500 hover:text-gray-300 dark:hover:text-black transition-colors p-3 active:scale-95">
-        <i class="fa-solid fa-gear text-2xl"></i>
+
+      <!-- Settings -->
+      <button class="btn-settings" id="btn-settings">
+        <!-- Gear icon (inline SVG) -->
+        <svg class="icon icon-lg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/>
+        </svg>
       </button>
     </div>
   </div>
 
   <!-- Settings Modal -->
-  <div id="modal-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden flex items-center justify-center opacity-0 transition-opacity duration-200">
-    
-    <!-- Modal Content -->
-    <div id="modal" class="bg-cardDark dark:bg-cardLight border border-borderDark dark:border-gray-200 w-full max-w-[380px] rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-200 flex flex-col mx-4">
-      
-      <!-- Header -->
-      <div class="flex justify-between items-center p-6 pb-4">
-        <h2 class="text-2xl font-bold tracking-tight text-white dark:text-black">Settings</h2>
-        <button id="btn-close" class="text-white dark:text-gray-400 hover:text-gray-300 dark:hover:text-gray-700 transition-colors p-1">
-          <i class="fa-solid fa-xmark text-xl"></i>
+  <div id="modal-backdrop">
+    <div id="modal">
+
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button class="btn-close" id="btn-close">
+          <!-- X icon -->
+          <svg class="icon" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.3 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256l105.3-105.4z"/>
+          </svg>
         </button>
       </div>
-      
-      <!-- Body -->
-      <div class="px-6 pb-6 pt-2">
-        <div class="flex justify-between items-center p-4 rounded-xl bg-rowDark dark:bg-gray-50 border border-borderDark dark:border-gray-100 shadow-sm">
-          <div class="flex items-center space-x-3">
-            <i class="fa-regular fa-moon text-gray-400 dark:text-gray-500 text-lg"></i>
-            <span class="font-medium text-base text-white dark:text-black">Dark Mode</span>
+
+      <div class="modal-body">
+        <div class="setting-row">
+          <div class="setting-label">
+            <!-- Moon icon -->
+            <svg class="icon" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.2c-6.3-.3-12.6-.4-19-.4z"/>
+            </svg>
+            <span>Dark Mode</span>
           </div>
-          
-          <!-- Toggle -->
-          <div class="theme-toggle relative inline-block w-12 align-middle select-none">
-            <input type="checkbox" name="toggle" id="dark-mode-toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer opacity-0" checked/>
-            <label for="dark-mode-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer">
-              <span class="toggle-circle"></span>
-            </label>
-          </div>
+
+          <label class="toggle-wrap">
+            <input type="checkbox" id="dark-mode-toggle" />
+            <div class="toggle-track">
+              <div class="toggle-thumb"></div>
+            </div>
+          </label>
         </div>
       </div>
-      
-      <!-- Footer -->
-      <div class="p-6 pt-0 text-center pb-6">
-        <p class="text-sm font-medium text-textMuted dark:text-gray-500">Made by Karim Abdelnour</p>
+
+      <div class="modal-footer">
+        <p>Made by Karim Abdelnour</p>
       </div>
-      
+
     </div>
   </div>
 
   <script>
-    // State
-    const savedCount = Number.parseInt(localStorage.getItem('tapCount') ?? '0', 10);
-    let count = Number.isFinite(savedCount) ? Math.max(0, savedCount) : 0;
-    let isDarkMode = localStorage.getItem('tapTheme') !== 'light';
+    // ── State ──
+    const savedCount = parseInt(localStorage.getItem('tapCount') ?? '0', 10);
+    let count = isFinite(savedCount) ? Math.max(0, savedCount) : 0;
+    let isDark = localStorage.getItem('tapTheme') !== 'light';
     let isModalOpen = false;
 
-    // Elements
-    const counterEl = document.getElementById('counter');
-    const btnPlus = document.getElementById('btn-plus');
-    const btnMinus = document.getElementById('btn-minus');
-    const btnReset = document.getElementById('btn-reset');
-    const btnSettings = document.getElementById('btn-settings');
-    const btnClose = document.getElementById('btn-close');
-    const modalBackdrop = document.getElementById('modal-backdrop');
-    const modal = document.getElementById('modal');
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    // ── Elements ──
+    const counterEl        = document.getElementById('counter');
+    const btnPlus          = document.getElementById('btn-plus');
+    const btnMinus         = document.getElementById('btn-minus');
+    const btnReset         = document.getElementById('btn-reset');
+    const btnSettings      = document.getElementById('btn-settings');
+    const btnClose         = document.getElementById('btn-close');
+    const modalBackdrop    = document.getElementById('modal-backdrop');
+    const modal            = document.getElementById('modal');
+    const darkModeToggle   = document.getElementById('dark-mode-toggle');
 
-    // Update Counter
+    // ── Counter ──
     function updateCounter() {
       counterEl.textContent = count;
       localStorage.setItem('tapCount', count);
     }
-    
-    // Initialize
     updateCounter();
 
-    // Event Listeners for Counter
-    btnPlus.addEventListener('click', () => {
-      count++;
-      updateCounter();
-    });
+    btnPlus.addEventListener('click', () => { count++; updateCounter(); });
+    btnMinus.addEventListener('click', () => { if (count > 0) { count--; updateCounter(); } });
+    btnReset.addEventListener('click', () => { count = 0; updateCounter(); });
 
-    btnMinus.addEventListener('click', () => {
-      if (count > 0) {
-        count--;
-        updateCounter();
-      }
-    });
-
-    btnReset.addEventListener('click', () => {
-      count = 0;
-      updateCounter();
-    });
-
-    // Modal Logic
+    // ── Modal ──
     function openModal() {
       isModalOpen = true;
-      modalBackdrop.classList.remove('hidden');
-      // Trigger reflow
-      void modalBackdrop.offsetWidth;
-      modalBackdrop.classList.remove('opacity-0');
-      modal.classList.remove('scale-95', 'opacity-0');
-      modal.classList.add('scale-100', 'opacity-100');
+      modalBackdrop.classList.add('visible');
+      void modalBackdrop.offsetWidth; // reflow
+      modalBackdrop.style.opacity = '1';
+      modal.classList.add('open');
     }
 
     function closeModal() {
       isModalOpen = false;
-      modalBackdrop.classList.add('opacity-0');
-      modal.classList.remove('scale-100', 'opacity-100');
-      modal.classList.add('scale-95', 'opacity-0');
-      
-      setTimeout(() => {
-        if (!isModalOpen) {
-          modalBackdrop.classList.add('hidden');
-        }
-      }, 200);
+      modalBackdrop.style.opacity = '0';
+      modal.classList.remove('open');
+      setTimeout(() => { if (!isModalOpen) modalBackdrop.classList.remove('visible'); }, 200);
     }
 
     btnSettings.addEventListener('click', openModal);
     btnClose.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', (e) => {
-      if (e.target === modalBackdrop) closeModal();
-    });
+    modalBackdrop.addEventListener('click', e => { if (e.target === modalBackdrop) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && isModalOpen) closeModal(); });
 
-    // Dark Mode Toggle
+    // ── Theme ──
     function applyTheme() {
-      if (isDarkMode) {
-        document.documentElement.classList.add('dark');
-        document.body.classList.add('dark');
-        localStorage.setItem('tapTheme', 'dark');
+      if (isDark) {
+        document.documentElement.classList.remove('light');
       } else {
-        document.documentElement.classList.remove('dark');
-        document.body.classList.remove('dark');
-        localStorage.setItem('tapTheme', 'light');
+        document.documentElement.classList.add('light');
       }
-      darkModeToggle.checked = !isDarkMode;
+      localStorage.setItem('tapTheme', isDark ? 'dark' : 'light');
+      darkModeToggle.checked = isDark;
     }
-    
+
     applyTheme();
 
-    darkModeToggle.addEventListener('change', (e) => {
-      isDarkMode = !e.target.checked;
+    darkModeToggle.addEventListener('change', e => {
+      isDark = e.target.checked;
       applyTheme();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isModalOpen) {
-        closeModal();
-      }
     });
   </script>
 </body>
