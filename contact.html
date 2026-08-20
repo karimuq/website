@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+  <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Karim Abdelnour - Student Portfolio">
   <meta name="keywords" content="Contact, Karim Abdelnour, Portfolio">
   <meta name="author" content="Karim Abdelnour">
   <title>Contact - Karim Abdelnour</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/contact.html">
+  <meta property="og:title" content="Contact Karim Abdelnour - Mechatronics Engineering Student">
+  <meta property="og:description" content="Get in touch with Karim Abdelnour for engineering internships, collaborations, or project inquiries.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/contact.html">
+  <meta name="twitter:title" content="Contact Karim Abdelnour - Mechatronics Engineering Student">
+  <meta name="twitter:description" content="Get in touch with Karim Abdelnour for engineering internships, collaborations, or project inquiries.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
   <style>
+    
+
     .contact-section {
       max-width: 800px;
       margin: 0 auto;
@@ -18,11 +38,11 @@
     }
 
     .contact-form {
-      background: white;
+      background: var(--bg-card-solid);
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      margin: 2rem 0;
+      box-shadow: 0 4px 20px var(--shadow-sm);
+      margin: 2rem auto;
     }
 
     .form-group {
@@ -32,7 +52,7 @@
     .form-group label {
       display: block;
       margin-bottom: 0.5rem;
-      color: #2c3e50;
+      color: var(--text-primary);
       font-weight: 500;
     }
 
@@ -40,7 +60,9 @@
     .form-group textarea {
       width: 100%;
       padding: 0.8rem;
-      border: 2px solid #e0e0e0;
+      border: 2px solid var(--border-color);
+      background: var(--input-bg);
+      color: var(--text-primary);
       border-radius: 8px;
       font-size: 1rem;
       transition: all 0.3s ease;
@@ -48,9 +70,9 @@
 
     .form-group input:focus,
     .form-group textarea:focus {
-      border-color: #3498db;
+      border-color: var(--accent);
       outline: none;
-      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      box-shadow: 0 0 0 3px var(--accent-soft);
     }
 
     .form-group textarea {
@@ -70,6 +92,8 @@
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      justify-self: center;
       gap: 0.5rem;
     }
 
@@ -78,15 +102,26 @@
       transform: translateY(-2px);
     }
 
+    [data-theme="dark"] button[type="submit"] {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    [data-theme="dark"] button[type="submit"]:hover {
+      background: var(--accent-soft-hover);
+      transform: translateY(-2px);
+    }
+
     .section-description {
-      color: #666;
+      color: var(--text-secondary);
       text-align: center;
       margin-bottom: 2rem;
     }
 
     .contact-section h2 {
       text-align: center;
-      color: #2c3e50;
+      color: var(--text-primary);
       margin-bottom: 1rem;
     }
 
@@ -100,11 +135,8 @@
 </head>
 <body class="has-dev-bar">
   <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
     This website is currently under development
-    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
-      <i class="fas fa-times"></i>
-    </button>
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
   </div>
   <header>
     <div class="header-content">
@@ -128,11 +160,11 @@
   <main>
     <section class="contact-section">
       <div class="container">
-        <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+        <h2>Get in Touch</h2>
         <p class="section-description">Have a question or want to work together? Feel free to reach out!</p>
         <p class="section-description">
-          <a href="mailto:karimabdelnour25@gmail.com" style="color: #3498db; text-decoration: none;">
-            <i class="fas fa-envelope"></i> karimabdelnour25@gmail.com
+          <a href="mailto:karimabdelnour25@gmail.com" style="color: var(--accent); text-decoration: none;">
+            karimabdelnour25@gmail.com
           </a>
         </p>
 
@@ -164,65 +196,44 @@
           </div>
 
           <button type="submit">
-            <i class="fas fa-paper-plane"></i>
             Send Message
           </button>
         </form>
 
         <div class="social-links">
           <a href="https://github.com/karimuq" target="_blank">
-            <i class="fab fa-github"></i>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
-            <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
             LinkedIn
           </a>
           <a href="https://karim25.itch.io" target="_blank">
-            <i class="fab fa-itch-io"></i>
             Itch.io
           </a>
         </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="footer-links">
       <a href="contact.html">
-        <i class="fas fa-envelope"></i>
-        Contact Me
+        <i class="fa-solid fa-envelope"></i> Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
-        <i class="fab fa-github"></i>
-        GitHub
+        <i class="fa-brands fa-github"></i> GitHub
       </a>
-      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        LinkedIn
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
       <a href="https://karim25.itch.io" target="_blank">
-        <i class="fab fa-itch-io"></i>
-        Itch.io
+        <i class="fa-brands fa-itch-io"></i> Itch.io
       </a>
     </div>
     <div class="footer-copyright">
-      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
     </div>
   </footer>
 
-  <div class="cookie-consent">
-    <div class="cookie-content">
-      <div class="cookie-text">
-        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies.</p>
-      </div>
-      <div class="cookie-buttons">
-        <button class="cookie-btn accept">Accept Cookies</button>
-        <button class="cookie-btn decline">Decline</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/script.js?v=17.0"></script>
 </body>
 </html>

@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+  <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Karim Abdelnour, Mechatronics Engineering Student, Portfolio">
   <meta name="author" content="Karim Abdelnour">
   <title>Karim Abdelnour - Student Portfolio</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="pixelart-new.css">
-  <link rel="stylesheet" href="home-featured.css">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/index.html">
+  <meta property="og:title" content="Karim Abdelnour - Mechatronics Engineering Student Portfolio">
+  <meta property="og:description" content="Explore the portfolio of Karim Abdelnour, featuring CAD designs, embedded systems, Unity game development, and pixel art.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/index.html">
+  <meta name="twitter:title" content="Karim Abdelnour - Mechatronics Engineering Student Portfolio">
+  <meta name="twitter:description" content="Explore the portfolio of Karim Abdelnour, featuring CAD designs, embedded systems, Unity game development, and pixel art.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.1">
+  <link rel="stylesheet" href="css/pixelart-new.css">
+  
 </head>
 <body class="has-dev-bar">
   <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
     This website is currently under development
-    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
-      <i class="fas fa-times"></i>
-    </button>
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
   </div>
 
-  <!-- Remove this inline style -->
   <header>
     <div class="header-content">
       <div class="header-left">
@@ -43,69 +57,83 @@
 
   <main>
     <section class="home-hero">
-      <div class="container">
+      <div class="container home-hero-container">
         <div class="hero-text">
           <h2>Welcome</h2>
           <p class="hero-subtitle">I’m Karim, a first-year Mechatronics Engineering student with an interest in all areas of the field.</p>
           <div class="hero-cta">
             <a href="projects.html" class="cta-button primary">
-              <i class="fas fa-folder-open"></i>
-              View My Projects
+              <i class="fa-solid fa-folder-open"></i> View My Projects
             </a>
 
             <a class="cta-button secondary disabled">
-              <i class="fas fa-file-alt"></i>
-              View Resume
+              <i class="fa-solid fa-file-pdf"></i> View Resume
             </a>
             
             <a href="contact.html" class="cta-button secondary">
-              <i class="fas fa-envelope"></i>
-              Get in Touch
+              <i class="fa-solid fa-paper-plane"></i> Get in Touch
             </a>
-
-
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div id="dynamic-showcase" class="dynamic-showcase-card">
+            <div class="showcase-glow" id="showcase-glow"></div>
+            <div class="showcase-header">
+              <span class="showcase-badge" id="showcase-badge">Skill</span>
+              <div class="showcase-controls">
+                <button class="showcase-nav-btn" id="showcase-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="showcase-nav-btn" id="showcase-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+            <div class="showcase-content">
+              <div class="showcase-icon-wrapper">
+                <div class="showcase-icon" id="showcase-icon"><i class="fa-solid fa-code"></i></div>
+              </div>
+              <h3 id="showcase-title">Loading...</h3>
+              <p id="showcase-desc">Loading...</p>
+              <div class="showcase-actions">
+                <a href="projects.html" class="showcase-action-btn" id="showcase-link">
+                  <span id="showcase-link-text">Explore</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#" class="showcase-secondary-btn" id="showcase-secondary-link" target="_blank" rel="noopener noreferrer" style="display: none;">
+                  <i class="fa-brands fa-linkedin"></i>
+                  <span id="showcase-secondary-text">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+            <div class="showcase-footer">
+              <div class="showcase-dots" id="showcase-dots"></div>
+            </div>
+            <div class="showcase-progress-bar">
+              <div class="showcase-progress-fill" id="showcase-progress"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="footer-links">
       <a href="contact.html">
-        <i class="fas fa-envelope"></i>
-        Contact Me
+        <i class="fa-solid fa-envelope"></i> Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
-        <i class="fab fa-github"></i>
-        GitHub
+        <i class="fa-brands fa-github"></i> GitHub
       </a>
-      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        LinkedIn
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
       <a href="https://karim25.itch.io" target="_blank">
-        <i class="fab fa-itch-io"></i>
-        Itch.io
+        <i class="fa-brands fa-itch-io"></i> Itch.io
       </a>
     </div>
     <div class="footer-copyright">
-      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
     </div>
   </footer>
 
-  <div class="cookie-consent">
-    <div class="cookie-content">
-      <div class="cookie-text">
-        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies.</p>
-      </div>
-      <div class="cookie-buttons">
-        <button class="cookie-btn accept">Accept Cookies</button>
-        <button class="cookie-btn decline">Decline</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/script.js?v=17.0"></script>
 </body>
 </html>

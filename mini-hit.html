@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mini Hit - A fast-paced action game by Karim Abdelnour">
+  <meta name="description" content="Mini Hit - An arcade action game by Karim Abdelnour">
   <meta name="keywords" content="Mini Hit, Action Game, Unity Game, Browser Game, Karim Abdelnour">
   <meta name="author" content="Karim Abdelnour">
   <title>Mini Hit - Game Details</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="game-styles.css">
-  <style>
-    .game-embed-wrapper {
-      width: 100%;
-      max-width: 1380px;
-      margin: 2rem auto;
-      background: #1b1b1b;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-    
-    .game-embed-wrapper iframe {
-      width: 100%;
-      display: block;
-    }
 
-    @media (max-width: 768px) {
-      .game-embed-wrapper {
-        margin: 1rem auto;
-        border-radius: 8px;
-      }
-    }
-  </style>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/mini-hit.html">
+  <meta property="og:title" content="Mini Hit - Reflex Arcade Game by Karim Abdelnour">
+  <meta property="og:description" content="A fast-paced reflex arcade game with progressive difficulty stages, playable across Web, Windows, and macOS.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/mini-hit.html">
+  <meta name="twitter:title" content="Mini Hit - Reflex Arcade Game by Karim Abdelnour">
+  <meta name="twitter:description" content="A fast-paced reflex arcade game with progressive difficulty stages, playable across Web, Windows, and macOS.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <link rel="stylesheet" href="css/game-styles.css?v=2.0">
 </head>
+
 <body class="has-dev-bar">
-  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+  <div id="development-bar"
+    style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
     This website is currently under development
-    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
-      <i class="fas fa-times"></i>
-    </button>
+    <button id="close-dev-bar"
+      style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
   </div>
   <header>
     <div class="header-content">
@@ -64,102 +62,185 @@
 
   <main>
     <section class="game-details">
-      <div class="container">
-        <nav class="breadcrumb">
-          <a href="projects.html">Projects</a> /
-          <a href="projects-games.html">Games</a> /
-          <span>Mini Hit</span>
-        </nav>
-        
-        <div class="game-header">
-          <h1>Mini Hit</h1>
+      <nav class="breadcrumb">
+        <a href="projects.html">Projects</a> /
+        <a href="projects-games.html">Games</a> /
+        <span>Mini Hit</span>
+      </nav>
+
+      <div class="game-header">
+        <div class="game-header-main">
+          <div class="game-title-row">
+            <h1>Mini Hit</h1>
+            <span class="game-status-pill pulse-dot">In Development</span>
+          </div>
+          <p class="game-subtitle">
+            An action game testing timing and precision across progressive difficulty stages directly
+            in your browser.
+          </p>
           <div class="tags">
-            <span class="tag"><i class="fab fa-unity"></i> Unity</span>
-            <span class="tag"><i class="fas fa-code"></i> C#</span>
-            <span class="tag"><i class="fas fa-gamepad"></i> Action</span>
+            <span class="tag"><i class="fa-solid fa-cube"></i> Unity</span>
+            <span class="tag"><i class="fa-solid fa-code"></i> C#</span>
+            <span class="tag"><i class="fa-solid fa-bolt"></i> Arcade</span>
+            <span class="tag"><i class="fa-solid fa-globe"></i> Browser Playable</span>
           </div>
         </div>
+        <div>
+          <span class="dev-banner">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Active Development
+          </span>
+        </div>
+      </div>
 
-        <div class="game-embed-wrapper">
-          <iframe frameborder="0" src="https://itch.io/embed-upload/4501072?color=1b1b1b" allowfullscreen="" width="1380" height="800"><a href="https://karim25.itch.io/mini-hit">Play Mini hit on itch.io</a></iframe>
+      <!-- Interactive WebGL Console Stage -->
+      <div class="game-stage-console">
+        <div class="game-console-topbar">
+          <div class="console-title">
+            <span>Mini Hit</span>
+          </div>
+          <div class="console-actions">
+            <a href="https://karim25.itch.io/mini-hit" target="_blank" class="console-btn accent">
+              <i class="fa-solid fa-up-right-from-square"></i> Fullscreen on itch.io
+            </a>
+          </div>
+        </div>
+        <div class="game-iframe-wrapper widescreen">
+          <iframe frameborder="0" src="https://itch.io/embed-upload/4501072?color=1b1b1b" allowfullscreen=""
+            width="1380" height="800"><a href="https://karim25.itch.io/mini-hit">Play Mini hit on itch.io</a></iframe>
+        </div>
+      </div>
+
+      <!-- Showcase Overview Grid -->
+      <div class="game-showcase-grid">
+        <div class="game-main-content">
+          <article class="game-section-card">
+            <div class="game-section-header">
+              <div class="game-section-icon">
+                <i class="fa-solid fa-keyboard"></i>
+              </div>
+              <h2>Controls</h2>
+            </div>
+            <ul class="tech-list">
+              <li>
+                <span><strong>Aim:</strong> Move Mouse</span>
+              </li>
+              <li>
+                <span><strong>Hit / Shoot:</strong> <kbd>Left Click</kbd></span>
+              </li>
+              <li>
+                <span><strong>Restart Match:</strong> Press <kbd>R</kbd></span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="game-section-card">
+            <div class="game-section-header">
+              <div class="game-section-icon">
+                <i class="fa-solid fa-gamepad"></i>
+              </div>
+              <h2>About the Game & Key Features</h2>
+            </div>
+            <p>
+              An arcade target shooter built in Unity with C#, testing reflexes across escalating difficulty stages.
+            </p>
+            <div class="game-feature-grid">
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3>Fast Reflex Action</h3>
+                <p>Quick-hit target rounds testing your reaction time.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <h3>Play in Browser</h3>
+                <p>Jump right in from any browser without downloads.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3>Ramping Speed</h3>
+                <p>Targets speed up and get trickier the longer you survive.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-fire"></i>
+                </div>
+                <h3>Combo Scoring</h3>
+                <p>Chain consecutive hits without missing to boost your score.</p>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <div class="game-content">
-          <div class="game-description">
-            <h2>About the Game</h2>
-            <p>Mini Hit is a fast-paced action game where quick reflexes and precise timing are key. Built with Unity and C#, this game offers an engaging gameplay experience directly in your browser.</p>
-
-            <h2>Platforms</h2>
-            <ul>
-              <li><i class="fas fa-desktop"></i> Web Browser</li>
-              <li><i class="fab fa-windows"></i> Windows</li>
-            </ul>
-
-            <h2>Key Features</h2>
-            <ul>
-              <li>Fast-paced action gameplay</li>
-              <li>Browser-based experience</li>
-              <li>Intuitive controls</li>
-              <li>Progressive difficulty</li>
-            </ul>
-
-            <h2>Development Journey</h2>
-            <p>Mini Hit was developed with Unity game engine as a school project in the first place. Using the help of a youtube tutorial, it was running in less than a few hours.</p>
-
-            <h2>Technical Highlights</h2>
-            <ul>
-              <li>Optimized for web deployment (current bugs will be fixed in the near future)</li>
-              <li>Responsive input system</li>
-              <li>Efficient collision detection</li>
-            </ul>
-
-            <div class="game-links">
-              <a href="https://karim25.itch.io/mini-hit" target="_blank" class="cta-button primary">
-                <i class="fab fa-itch-io"></i> Play on Itch.io
-              </a>
+        <!-- Sidebar Specs Panel -->
+        <aside class="game-specs-card">
+          <h3 class="game-specs-title">
+            <i class="fa-solid fa-circle-info"></i> Project Specs
+          </h3>
+          <div class="spec-rows">
+            <div class="spec-row">
+              <span class="spec-label">Engine</span>
+              <span class="spec-value">Unity</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Language</span>
+              <span class="spec-value">C#</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Genre</span>
+              <span class="spec-value">Arcade Reflex Action</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Platform</span>
+              <span class="spec-value">Web, Windows, macOS</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Input</span>
+              <span class="spec-value">Keyboard, Mouse</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Status</span>
+              <span class="spec-value">In Development</span>
             </div>
           </div>
-        </div>
-        </div>
+
+          <div class="specs-cta-group">
+            <a href="https://karim25.itch.io/mini-hit" target="_blank" class="game-cta-btn primary">
+              <i class="fa-solid fa-play"></i> Play on itch.io
+            </a>
+            <a href="projects-games.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> All Games
+            </a>
+          </div>
+        </aside>
+      </div>
     </section>
   </main>
-
   <footer>
     <div class="footer-links">
       <a href="contact.html">
-        <i class="fas fa-envelope"></i>
-        Contact Me
+        <i class="fa-solid fa-envelope"></i> Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
-        <i class="fab fa-github"></i>
-        GitHub
+        <i class="fa-brands fa-github"></i> GitHub
       </a>
-      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        LinkedIn
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
       <a href="https://karim25.itch.io" target="_blank">
-        <i class="fab fa-itch-io"></i>
-        Itch.io
+        <i class="fa-brands fa-itch-io"></i> Itch.io
       </a>
     </div>
     <div class="footer-copyright">
-      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
     </div>
   </footer>
 
-  <div class="cookie-consent">
-    <div class="cookie-content">
-      <div class="cookie-text">
-        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies. Game assets and content are protected by copyright.</p>
-      </div>
-      <div class="cookie-buttons">
-        <button class="cookie-btn accept">Accept Cookies</button>
-        <button class="cookie-btn decline">Decline</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/script.js?v=17.0"></script>
 </body>
+
 </html>

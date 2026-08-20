@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive 3D Model Viewer - Karim Abdelnour Portfolio">
+  <meta name="keywords" content="3D Viewer, GLB Viewer, Blender, CAD, Karim Abdelnour">
+  <meta name="author" content="Karim Abdelnour">
+  <title>3D Model Viewer - Karim Abdelnour</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/3d-viewer.html">
+  <meta property="og:title" content="Interactive 3D Model Viewer - Karim Abdelnour">
+  <meta property="og:description" content="A standalone web tool to view, rotate, inspect, and drag-and-drop .GLB and .GLTF 3D models in real time.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/3d-viewer.html">
+  <meta name="twitter:title" content="Interactive 3D Model Viewer - Karim Abdelnour">
+  <meta name="twitter:description" content="A standalone web tool to view, rotate, inspect, and drag-and-drop .GLB and .GLTF 3D models in real time.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+
+  <style>
+    /* Standalone 3D Viewer Layout & Aesthetics */
+    .viewer-container {
+      max-width: 1350px;
+      margin: 2rem auto 4rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .viewer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .viewport-main {
+        height: 440px !important;
+      }
+      .viewport-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+      .viewport-actions {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .viewport-btn {
+        flex: 1;
+        justify-content: center;
+        min-height: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .viewport-main {
+        height: 360px !important;
+      }
+      .viewer-container {
+        margin: 1rem auto 3rem;
+        padding: 0 1rem;
+      }
+    }
+
+    /* 3D Viewport Card */
+    .viewport-card {
+      background: rgba(18, 18, 24, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .viewport-header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .viewport-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0;
+    }
+
+    .viewport-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .viewport-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .viewport-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .viewport-main {
+      height: 650px;
+      width: 100%;
+      position: relative;
+      background: radial-gradient(ellipse at center, #1e2029 0%, #0d0e12 100%);
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+    }
+
+    /* Drag & Drop Overlay */
+    .drop-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(14, 15, 23, 0.88);
+      border: 2px dashed rgba(100, 181, 246, 0.6);
+      border-radius: 24px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      color: #fff;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+    }
+
+    .drop-overlay.active {
+      display: flex;
+    }
+
+    .drop-overlay i {
+      font-size: 3rem;
+      color: #64b5f6;
+      margin-bottom: 1rem;
+    }
+
+    /* Controls Panel */
+    .controls-card {
+      background: rgba(18, 18, 24, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .panel-section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    /* File Drop Box inside Panel */
+    .file-drop-area {
+      border: 2px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .file-drop-area:hover {
+      border-color: #64b5f6;
+      background: rgba(100, 181, 246, 0.06);
+    }
+
+    .file-drop-area i {
+      font-size: 1.8rem;
+      color: #64b5f6;
+      margin-bottom: 0.6rem;
+    }
+
+    .file-drop-area p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    .file-drop-area span {
+      display: block;
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+
+    /* Control Rows */
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: #bbb;
+      font-weight: 500;
+    }
+
+    .control-label span.value {
+      color: #64b5f6;
+      font-weight: 600;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #64b5f6;
+      cursor: pointer;
+    }
+
+    select.control-select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      color: #fff;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select.control-select option {
+      background: #181920;
+      color: #fff;
+    }
+
+    .preset-btn {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(100, 181, 246, 0.15), rgba(66, 165, 245, 0.08));
+      border: 1px solid rgba(100, 181, 246, 0.35);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .preset-btn:hover {
+      background: linear-gradient(135deg, rgba(100, 181, 246, 0.28), rgba(66, 165, 245, 0.18));
+      border-color: #64b5f6;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body class="has-dev-bar">
+  <div id="development-bar"
+    style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    This website is currently under development
+    <button id="close-dev-bar"
+      style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
+  </div>
+
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Interactive 3D Model Viewer</h2>
+        <p>A standalone tool to view, rotate, and inspect 3D models in real time.</p>
+      </div>
+    </section>
+
+    <div class="viewer-container">
+      <!-- 3D Viewport Section -->
+      <div class="viewport-card" id="viewport-card">
+        <div class="viewport-header">
+          <h3 class="viewport-title">
+            <i class="fas fa-cube" style="color: #64b5f6;"></i>
+            <span id="model-name-label">Samsung Galaxy S24+ (Preset)</span>
+          </h3>
+          <div class="viewport-actions">
+            <button class="viewport-btn" id="btn-open-glb-top" title="Open Local .GLB File" style="background: rgba(100, 181, 246, 0.18); border-color: rgba(100, 181, 246, 0.4); color: #64b5f6;">
+              <i class="fas fa-folder-open"></i> Open GLB
+            </button>
+            <button class="viewport-btn" id="btn-reset-cam" title="Reset Camera">
+              <i class="fas fa-video"></i> Reset View
+            </button>
+            <button class="viewport-btn" id="btn-fullscreen" title="Full Screen">
+              <i class="fas fa-expand"></i> Fullscreen
+            </button>
+          </div>
+        </div>
+
+        <div class="viewport-main">
+          <model-viewer id="main-viewer"
+            src="models/s24-plus.glb"
+            alt="3D Model Viewer"
+            auto-rotate
+            rotation-per-second="20deg"
+            interaction-prompt="none"
+            camera-controls
+            shadow-intensity="1"
+            shadow-softness="1"
+            exposure="1.2"
+            environment-image="neutral">
+          </model-viewer>
+
+          <div class="drop-overlay" id="drop-overlay">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h3>Drop 3D Model File Here</h3>
+            <p>Supports .glb and .gltf files</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control Panel -->
+      <aside class="controls-card">
+        <!-- Custom File Loader -->
+        <div>
+          <div class="panel-section-title">
+            <i class="fas fa-folder-open" style="color: #64b5f6;"></i> Load Custom Model
+          </div>
+          <input type="file" id="file-input" accept=".glb,.gltf" style="display: none;">
+          <div class="file-drop-area" id="drop-area-btn">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Click or Drop .GLB / .GLTF</p>
+            <span>Inspect any 3D file locally</span>
+          </div>
+        </div>
+
+        <!-- Preset Loader -->
+        <div>
+          <div class="panel-section-title">
+            <i class="fas fa-star" style="color: #ffb74d;"></i> Portfolio Presets
+          </div>
+          <button class="preset-btn" id="btn-load-s24">
+            <i class="fas fa-mobile-alt"></i> Load Galaxy S24+ CAD Model
+          </button>
+          <button class="preset-btn" id="btn-load-drill" style="margin-top: 0.5rem;">
+            <i class="fas fa-tools"></i> Load Electric Screwdriver (FBX)
+          </button>
+        </div>
+
+        <!-- Visual Settings -->
+        <div>
+          <div class="panel-section-title">
+            <i class="fas fa-sliders-h" style="color: #81c784;"></i> Viewer Settings
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Auto-Rotate</span>
+              <span class="value" id="val-rotate">ON</span>
+            </div>
+            <select class="control-select" id="select-rotate">
+              <option value="true">Enabled (Spinning)</option>
+              <option value="false">Disabled (Manual Only)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Exposure / Brightness</span>
+              <span class="value" id="val-exposure">1.2</span>
+            </div>
+            <input type="range" id="range-exposure" min="0.5" max="2.5" step="0.1" value="1.2">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Shadow Intensity</span>
+              <span class="value" id="val-shadow">1.0</span>
+            </div>
+            <input type="range" id="range-shadow" min="0" max="2" step="0.1" value="1.0">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Environment Lighting</span>
+            </div>
+            <select class="control-select" id="select-env">
+              <option value="neutral">Neutral Studio</option>
+              <option value="legacy">Legacy Light</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i> Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fa-brands fa-itch-io"></i> Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <script src="js/script.js?v=17.0"></script>
+  <script src="js/s24-model.js"></script>
+  <script src="js/drill-model.js"></script>
+  <script>
+    (function () {
+      const viewer = document.getElementById('main-viewer');
+      const modelLabel = document.getElementById('model-name-label');
+      const dropOverlay = document.getElementById('drop-overlay');
+      const dropAreaBtn = document.getElementById('drop-area-btn');
+      const fileInput = document.getElementById('file-input');
+      const btnResetCam = document.getElementById('btn-reset-cam');
+      const btnFullscreen = document.getElementById('btn-fullscreen');
+      const btnLoadS24 = document.getElementById('btn-load-s24');
+      const btnLoadDrill = document.getElementById('btn-load-drill');
+      const btnOpenGlbTop = document.getElementById('btn-open-glb-top');
+
+      const selectRotate = document.getElementById('select-rotate');
+      const valRotate = document.getElementById('val-rotate');
+      const rangeExposure = document.getElementById('range-exposure');
+      const valExposure = document.getElementById('val-exposure');
+      const rangeShadow = document.getElementById('range-shadow');
+      const valShadow = document.getElementById('val-shadow');
+      const selectEnv = document.getElementById('select-env');
+
+      // Load preset s24 model cleanly (supporting offline/file:// protocol)
+      function loadS24Preset() {
+        modelLabel.textContent = 'Samsung Galaxy S24+ CAD Model';
+        viewer.src = window.S24_MODEL_DATA || ('models/s24-plus.glb?v=' + Date.now());
+      }
+
+      function loadDrillPreset() {
+        modelLabel.textContent = 'Cordless Electric Screwdriver (FBX Model)';
+        viewer.src = window.DRILL_MODEL_DATA || ('models/Drill.glb?v=' + Date.now());
+      }
+
+      // Initial load
+      loadS24Preset();
+
+      btnLoadS24.addEventListener('click', loadS24Preset);
+      if (btnLoadDrill) btnLoadDrill.addEventListener('click', loadDrillPreset);
+
+      // File loader
+      if (btnOpenGlbTop) {
+        btnOpenGlbTop.addEventListener('click', () => fileInput.click());
+      }
+      dropAreaBtn.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          loadCustomFile(file);
+        }
+      });
+
+      function loadCustomFile(file) {
+        const url = URL.createObjectURL(file);
+        viewer.src = url;
+        modelLabel.textContent = file.name;
+      }
+
+      // Drag and Drop
+      const viewportCard = document.getElementById('viewport-card');
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        viewportCard.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropOverlay.classList.add('active');
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        viewportCard.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropOverlay.classList.remove('active');
+        }, false);
+      });
+
+      viewportCard.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files && files.length > 0) {
+          loadCustomFile(files[0]);
+        }
+      });
+
+      // Camera Reset
+      btnResetCam.addEventListener('click', () => {
+        viewer.cameraOrbit = '0deg 75deg 105%';
+      });
+
+      // Fullscreen
+      btnFullscreen.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          viewportCard.requestFullscreen().catch(err => {
+            console.log(`Error attempting fullscreen: ${err.message}`);
+          });
+        } else {
+          document.exitFullscreen();
+        }
+      });
+
+      // Settings
+      selectRotate.addEventListener('change', (e) => {
+        const isEnabled = e.target.value === 'true';
+        if (isEnabled) {
+          viewer.setAttribute('auto-rotate', '');
+          valRotate.textContent = 'ON';
+        } else {
+          viewer.removeAttribute('auto-rotate');
+          valRotate.textContent = 'OFF';
+        }
+      });
+
+      rangeExposure.addEventListener('input', (e) => {
+        viewer.exposure = e.target.value;
+        valExposure.textContent = e.target.value;
+      });
+
+      rangeShadow.addEventListener('input', (e) => {
+        viewer.shadowIntensity = e.target.value;
+        valShadow.textContent = e.target.value;
+      });
+
+      selectEnv.addEventListener('change', (e) => {
+        viewer.environmentImage = e.target.value;
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Platformer - A challenging 2D platformer game by Karim Abdelnour">
   <meta name="keywords" content="Platformer, 2D Game, Unity Game, Pixel Art, Karim Abdelnour">
   <meta name="author" content="Karim Abdelnour">
   <title>Platformer - Game Details</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/platformer.html">
+  <meta property="og:title" content="2D Pixel Art Platformer by Karim Abdelnour">
+  <meta property="og:description" content="A 2D platformer combining hand-crafted pixel art with fluid controller movement, built in Unity & C#.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Mimi1_run.gif">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/platformer.html">
+  <meta name="twitter:title" content="2D Pixel Art Platformer by Karim Abdelnour">
+  <meta name="twitter:description" content="A 2D platformer combining hand-crafted pixel art with fluid controller movement, built in Unity & C#.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Mimi1_run.gif">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="game-styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <link rel="stylesheet" href="css/game-styles.css?v=2.0">
 </head>
+
 <body class="has-dev-bar">
-  <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+  <div id="development-bar"
+    style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
     This website is currently under development
-    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
-      <i class="fas fa-times"></i>
-    </button>
+    <button id="close-dev-bar"
+      style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
   </div>
   <header>
     <div class="header-content">
@@ -41,97 +62,201 @@
 
   <main>
     <section class="game-details">
-      <div class="container">
-        <nav class="breadcrumb">
-          <a href="projects.html">Projects</a> /
-          <a href="projects-games.html">Games</a> /
-          <span>Platformer</span>
-        </nav>
-        
-        <div class="game-header">
-          <div class="dev-banner">
-            <i class="fas fa-code-branch"></i> Under Development
+      <nav class="breadcrumb">
+        <a href="projects.html">Projects</a> /
+        <a href="projects-games.html">Games</a> /
+        <span>Platformer</span>
+      </nav>
+
+      <div class="game-header">
+        <div class="game-header-main">
+          <div class="game-title-row">
+            <h1>Platformer</h1>
+            <span class="game-status-pill pulse-dot">In Development</span>
           </div>
-          <h1>Platformer</h1>
+          <p class="game-subtitle">
+            A 2D platformer combining hand-crafted pixel art with physics and responsive gamepad & keyboard controls.
+          </p>
           <div class="tags">
-            <span class="tag"><i class="fab fa-unity"></i> Unity</span>
-            <span class="tag"><i class="fas fa-code"></i> C#</span>
-            <span class="tag"><i class="fas fa-paint-brush"></i> Pixel Art</span>
+            <span class="tag"><i class="fa-solid fa-cube"></i> Unity 2D</span>
+            <span class="tag"><i class="fa-solid fa-code"></i> C#</span>
+            <span class="tag"><i class="fa-solid fa-palette"></i> Pixel Art</span>
+            <span class="tag"><i class="fa-solid fa-gamepad"></i> PS4 Controller Support</span>
           </div>
         </div>
+        <div>
+          <span class="dev-banner">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Active Development
+          </span>
+        </div>
+      </div>
 
-        <div class="game-content">
-          <div class="game-description">
-            <div class="iframe-float">
-              <iframe frameborder="0" src="https://itch.io/embed/1626602" width="552" height="167"><a href="https://karim25.itch.io/unnamed">Unnamed by Karim Abdelnour</a></iframe>
+      <!-- Interactive Embed Console Stage -->
+      <div class="game-stage-console">
+        <div class="game-console-topbar">
+          <div class="console-title">
+            <span>Platformer Web Demo — Under Active Development</span>
+          </div>
+          <div class="console-actions">
+            <a href="https://karim25.itch.io/unnamed" target="_blank" class="console-btn accent">
+              <i class="fa-solid fa-up-right-from-square"></i> View on itch.io
+            </a>
+          </div>
+        </div>
+        <div class="game-dev-placeholder">
+          <div class="dev-placeholder-content">
+            <div class="dev-icon-ring">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
             </div>
-            <h2>About the Game</h2>
-            <p>A challenging 2D platformer featuring custom pixel art and smooth animations. The game combines precise controls with engaging level design to create an immersive platforming experience.</p>
-
-            <h2>Key Features</h2>
-            <ul>
-              <li>Hand-crafted pixel art assets</li>
-              <li>Fluid character animations</li>
-              <li>Controller support (PS4)</li>
-            </ul>
-
-            <h2>Development Journey</h2>
-            <p>This project was an exploration of both game development and pixel art creation. Each sprite and animation was carefully crafted to ensure smooth gameplay and visual appeal.</p>
-
-            <h2>Technical Highlights</h2>
-            <ul>
-              <li>Custom character controller</li>
-              <li>Pixel-perfect collision detection</li>
-              <li>Particle effects system</li>
-            </ul>
-
-            <div class="game-links">
-              <a href="https://karim25.itch.io/unnamed" target="_blank" class="cta-button primary">
-                <i class="fab fa-itch-io"></i> Play on Itch.io
-              </a>
+            <h3>Web Demo Under Active Development</h3>
+            <p>The interactive browser build for <strong>Platformer</strong> is currently under active development and
+              optimization. You can download and test the latest PC build directly below:</p>
+            <div class="itch-badge-container">
+              <iframe frameborder="0"
+                src="https://itch.io/embed/1626602?bg_color=1e293b&amp;fg_color=f8fafc&amp;link_color=3b82f6&amp;border_color=334155"
+                width="552" height="167"><a href="https://karim25.itch.io/unnamed">Unnamed by Karim
+                  Abdelnour</a></iframe>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Showcase Overview Grid -->
+      <div class="game-showcase-grid">
+        <div class="game-main-content">
+          <article class="game-section-card">
+            <div class="game-section-header">
+              <div class="game-section-icon">
+                <i class="fa-solid fa-keyboard"></i>
+              </div>
+              <h2>Controls</h2>
+            </div>
+            <ul class="tech-list">
+              <li>
+                <span><strong>Move:</strong> <kbd>A</kbd> / <kbd>D</kbd> or <kbd>&larr;</kbd> / <kbd>&rarr;</kbd> Arrow
+                  Keys</span>
+              </li>
+              <li>
+                <span><strong>Jump:</strong> <kbd>Space</kbd> or <kbd>W</kbd> / <kbd>&uarr;</kbd></span>
+              </li>
+              <li>
+                <span><strong>Gamepad:</strong> Seamless native PS4 Controller support</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="game-section-card">
+            <div class="game-section-header">
+              <div class="game-section-icon">
+                <i class="fa-solid fa-gamepad"></i>
+              </div>
+              <h2>About the Game & Key Features</h2>
+            </div>
+            <p>
+              A precision 2D platformer built in Unity with custom pixel art, responsive physics, and gamepad support.
+            </p>
+            <div class="game-feature-grid">
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-palette"></i>
+                </div>
+                <h3>Custom Pixel Art</h3>
+                <p>Hand-drawn sprites, animations, and level tiles.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-angles-up"></i>
+                </div>
+                <h3>Precision Jumping</h3>
+                <p>Coyote time and jump buffering make every hop consistent.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h3>Level Hazards</h3>
+                <p>Navigate moving platforms, spikes, and tight gaps.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-wand-magic"></i>
+                </div>
+                <h3>Game Juice</h3>
+                <p>Particle dust trails, landing impacts, and screen shake.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar Specs Panel -->
+        <aside class="game-specs-card">
+          <h3 class="game-specs-title">
+            <i class="fa-solid fa-circle-info"></i> Project Specs
+          </h3>
+          <div class="spec-rows">
+            <div class="spec-row">
+              <span class="spec-label">Engine</span>
+              <span class="spec-value">Unity</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Language</span>
+              <span class="spec-value">C#</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Genre</span>
+              <span class="spec-value">2D Platformer</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Platform</span>
+              <span class="spec-value">Web, Windows</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Input</span>
+              <span class="spec-value">Keyboard, Controller</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Art Style</span>
+              <span class="spec-value">Pixel Art</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Status</span>
+              <span class="spec-value">In Development</span>
+            </div>
+          </div>
+
+          <div class="specs-cta-group">
+            <a href="https://karim25.itch.io/unnamed" target="_blank" class="game-cta-btn primary">
+              <i class="fa-solid fa-play"></i> Play on itch.io
+            </a>
+            <a href="projects-games.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> All Games
+            </a>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="footer-links">
       <a href="contact.html">
-        <i class="fas fa-envelope"></i>
-        Contact Me
+        <i class="fa-solid fa-envelope"></i> Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
-        <i class="fab fa-github"></i>
-        GitHub
+        <i class="fa-brands fa-github"></i> GitHub
       </a>
-      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        LinkedIn
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
       <a href="https://karim25.itch.io" target="_blank">
-        <i class="fab fa-itch-io"></i>
-        Itch.io
+        <i class="fa-brands fa-itch-io"></i> Itch.io
       </a>
     </div>
     <div class="footer-copyright">
-      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
     </div>
   </footer>
 
-  <div class="cookie-consent">
-    <div class="cookie-content">
-      <div class="cookie-text">
-        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies. Game assets and content are protected by copyright.</p>
-      </div>
-      <div class="cookie-buttons">
-        <button class="cookie-btn accept">Accept Cookies</button>
-        <button class="cookie-btn decline">Decline</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/script.js?v=17.0"></script>
 </body>
+
 </html>

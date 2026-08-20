@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+  <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Karim Abdelnour's 3D modeling and Blender projects">
   <meta name="keywords" content="Karim Abdelnour, 3D Modeling, Blender, Game Assets">
   <meta name="author" content="Karim Abdelnour">
   <title>3D Modeling Projects - Karim Abdelnour</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/projects-3d.html">
+  <meta property="og:title" content="3D Modeling Projects - Karim Abdelnour">
+  <meta property="og:description" content="A collection of 3D models, environments, and game assets created in Blender by Karim Abdelnour.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/projects-3d.html">
+  <meta name="twitter:title" content="3D Modeling Projects - Karim Abdelnour">
+  <meta name="twitter:description" content="A collection of 3D models, environments, and game assets created in Blender by Karim Abdelnour.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
 </head>
 <body class="has-dev-bar">
   <div id="development-bar" style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <i class="fas fa-code-branch" style="margin-right: 10px;"></i>
+    
     This website is currently under development
-    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">
-      <i class="fas fa-times"></i>
-    </button>
+    <button id="close-dev-bar" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
   </div>
   <header>
     <div class="header-content">
@@ -48,23 +64,23 @@
 
     <section class="projects">
       <div class="project-nav">
-        <a href="projects.html"><i class="fas fa-arrow-left"></i> All Projects</a>
-        <a href="projects-games.html"><i class="fas fa-gamepad"></i> Games</a>
-        <a href="projects-pixelart.html"><i class="fas fa-paint-brush"></i> Pixel Art</a>
-        <a href="projects-3d.html" class="active"><i class="fas fa-cube"></i> 3D Models</a>
-        <a href="projects-apps.html"><i class="fas fa-mobile-alt"></i> Apps</a>
-        <a href="projects-arduino.html"><i class="fas fa-microchip"></i> Arduino</a>
-        <a href="projects-cad.html"><i class="fas fa-drafting-pencil"></i> CAD</a>
+        <a href="projects.html">All Projects</a>
+        <a href="projects-games.html">Games</a>
+        <a href="projects-pixelart.html">Pixel Art</a>
+        <a href="projects-3d.html" class="active">3D Models</a>
+        <a href="projects-apps.html">Apps</a>
+        <a href="projects-arduino.html">Arduino</a>
+        <a href="projects-cad.html">CAD</a>
       </div>
 
       <details class="copyright-disclosure">
         <summary class="copyright-toggle-wrap">
           <span class="copyright-toggle-btn">
-            <i class="fas fa-copyright"></i> Copyright Notice
+            Copyright Notice
           </span>
         </summary>
         <div class="copyright-notice">
-          <h4><i class="fas fa-copyright"></i> Copyright Notice</h4>
+          <h4>Copyright Notice</h4>
           <p>All 3D models, textures, and related assets are protected under copyright law.</p>
           <ul>
             <li>3D models and assets are displayed for portfolio purposes only</li>
@@ -80,54 +96,38 @@
       <div class="coming-soon">
         <div class="card">
           <div class="card-content">
-            <h3><i class="fas fa-clock"></i> Coming Soon</h3>
+            <h3>Coming Soon</h3>
             <p>The 3D models gallery is currently under development. Check back soon to see my collection!</p>
             <div class="tags">
-              <span class="tag"><i class="fas fa-cube"></i> Blender</span>
-              <span class="tag"><i class="fas fa-hourglass-half"></i> In Progress</span>
-              <span class="tag"><i class="fas fa-palette"></i> 3D Models</span>
+              <span class="tag">Blender</span>
+              <span class="tag">In Progress</span>
+              <span class="tag">3D Models</span>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="footer-links">
       <a href="contact.html">
-        <i class="fas fa-envelope"></i>
-        Contact Me
+        <i class="fa-solid fa-envelope"></i> Contact Me
       </a>
       <a href="https://github.com/karimuq" target="_blank">
-        <i class="fab fa-github"></i>
-        GitHub
+        <i class="fa-brands fa-github"></i> GitHub
       </a>
-      <a href="https://www.linkedin.com/in/karimabdelnour25" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        LinkedIn
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
       <a href="https://karim25.itch.io" target="_blank">
-        <i class="fab fa-itch-io"></i>
-        Itch.io
+        <i class="fa-brands fa-itch-io"></i> Itch.io
       </a>
     </div>
     <div class="footer-copyright">
-      <p>&copy; 2025 Karim Abdelnour | Portfolio</p>
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
     </div>
   </footer>
 
-  <div class="cookie-consent">
-    <div class="cookie-content">
-      <div class="cookie-text">
-        <p>This website uses cookies to enhance your experience and analyze site traffic. By clicking "Accept," you consent to our use of cookies. All 3D models and assets are protected by copyright.</p>
-      </div>
-      <div class="cookie-buttons">
-        <button class="cookie-btn accept">Accept Cookies</button>
-        <button class="cookie-btn decline">Decline</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="js/script.js?v=17.0"></script>
 </body>
+</html>

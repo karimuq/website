@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bounce Pong - A fun arcade web game by Karim Abdelnour">
+  <meta name="keywords" content="Bounce Pong, Arcade Game, HTML5 Game, Browser Game, Karim Abdelnour">
+  <meta name="author" content="Karim Abdelnour">
+  <title>Bounce Pong - Game Details</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/bounce-pong.html">
+  <meta property="og:title" content="Bounce Pong - Arcade Web Game by Karim Abdelnour">
+  <meta property="og:description" content="An engaging Classic 2D Pong spin-off built for browser gameplay using Unity & C#.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/bounce-pong.html">
+  <meta name="twitter:title" content="Bounce Pong - Arcade Web Game by Karim Abdelnour">
+  <meta name="twitter:description" content="An engaging Classic 2D Pong spin-off built for browser gameplay using Unity & C#.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <link rel="stylesheet" href="css/game-styles.css?v=2.0">
+</head>
+
+<body class="has-dev-bar">
+  <div id="development-bar"
+    style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
+    This website is currently under development
+    <button id="close-dev-bar"
+      style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
+  </div>
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="game-details">
+      <nav class="breadcrumb">
+        <a href="projects.html">Projects</a> /
+        <a href="projects-games.html">Games</a> /
+        <span>Bounce Pong</span>
+      </nav>
+
+      <div class="game-header">
+        <div class="game-header-main">
+          <div class="game-title-row">
+            <h1>Bounce Pong</h1>
+            <span class="game-status-pill pulse-dot">In Development</span>
+          </div>
+          <p class="game-subtitle">
+            An engaging Classic 2D Pong spin-off built for browser gameplay.
+          </p>
+          <div class="tags">
+            <span class="tag"><i class="fa-solid fa-cube"></i> Unity</span>
+            <span class="tag"><i class="fa-solid fa-code"></i> C#</span>
+            <span class="tag"><i class="fa-solid fa-gamepad"></i> Arcade Classic</span>
+          </div>
+        </div>
+        <div>
+          <span class="dev-banner">
+            <i class="fa-solid fa-rocket"></i> Browser Playable
+          </span>
+        </div>
+      </div>
+
+      <!-- Interactive Embed Console Stage -->
+      <div class="game-stage-console">
+        <div class="game-console-topbar">
+          <div class="console-title">
+            <span>Bounce Pong</span>
+          </div>
+          <div class="console-actions">
+            <a href="https://karim25.itch.io/bounce-pong" target="_blank" class="console-btn accent">
+              <i class="fa-solid fa-up-right-from-square"></i> Play Fullscreen on itch.io
+            </a>
+          </div>
+        </div>
+        <div class="game-iframe-wrapper widescreen">
+          <iframe frameborder="0" src="https://itch.io/embed-upload/18459170?color=121e3e" allowfullscreen=""
+            width="1380" height="800"><a href="https://karim25.itch.io/bounce-pong">Play Bounce Pong on
+              itch.io</a></iframe>
+        </div>
+      </div>
+
+      <!-- Showcase Overview Grid -->
+      <div class="game-showcase-grid">
+        <div class="game-main-content">
+          <article class="game-section-card">
+            <div class="game-section-header">
+              <div class="game-section-icon">
+                <i class="fa-solid fa-keyboard"></i>
+              </div>
+              <h2>Controls</h2>
+            </div>
+            <ul class="tech-list">
+              <li>
+                <span><strong>Player 1 (Left Paddle):</strong> <kbd>W</kbd> Up / <kbd>S</kbd> Down</span>
+              </li>
+              <li>
+                <span><strong>Player 2 (Right Paddle):</strong> <kbd>&uarr;</kbd> Up Arrow / <kbd>&darr;</kbd> Down
+                  Arrow</span>
+              </li>
+              <li>
+                <span><strong>Restart Match:</strong> Press <kbd>R</kbd></span>
+              </li>
+              <li>
+                <span><strong>Pause Game:</strong> Press <kbd>Tab</kbd>, <kbd>Esc</kbd>, or <kbd>P</kbd></span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="game-section-card">
+            <div class="game-section-header">
+              <div class="game-section-icon">
+                <i class="fa-solid fa-gamepad"></i>
+              </div>
+              <h2>About Bounce Pong & Key Features</h2>
+            </div>
+            <p>
+              A browser paddle game featuring angle-based ball physics and local two-player matches.
+            </p>
+            <div class="game-feature-grid">
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                </div>
+                <h3>Angle-Based Bounces</h3>
+                <p>Ball trajectory changes based on where it strikes your paddle.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <h3>Play in Browser</h3>
+                <p>Runs directly in your browser with zero downloads.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3>Arcade Rounds</h3>
+                <p>Quick rounds built for chasing high scores.</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon">
+                  <i class="fa-solid fa-user-group"></i>
+                </div>
+                <h3>Local Versus</h3>
+                <p>Play head-to-head matches against a friend on the same screen.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sidebar Specs Panel -->
+        <aside class="game-specs-card">
+          <h3 class="game-specs-title">
+            <i class="fa-solid fa-circle-info"></i> Specs
+          </h3>
+          <div class="spec-rows">
+            <div class="spec-row">
+              <span class="spec-label">Engine</span>
+              <span class="spec-value">Unity</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Language</span>
+              <span class="spec-value">C#</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Genre</span>
+              <span class="spec-value">Arcade Pong</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Platform</span>
+              <span class="spec-value">Web</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Input</span>
+              <span class="spec-value">Keyboard</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Status</span>
+              <span class="spec-value">In Development</span>
+            </div>
+          </div>
+
+          <div class="specs-cta-group">
+            <a href="https://karim25.itch.io/bounce-pong" target="_blank" class="game-cta-btn primary">
+              <i class="fa-solid fa-play"></i> Play on itch.io
+            </a>
+            <a href="projects-games.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> All Games
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i> Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fa-brands fa-itch-io"></i> Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=17.0"></script>
+</body>
+
+</html>
