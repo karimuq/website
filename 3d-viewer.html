@@ -305,13 +305,8 @@
   </style>
 </head>
 
-<body class="has-dev-bar">
-  <div id="development-bar"
-    style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    This website is currently under development
-    <button id="close-dev-bar"
-      style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
-  </div>
+<body>
+  
 
   <header>
     <div class="header-content">
@@ -480,8 +475,6 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <script src="js/script.js?v=17.0"></script>
-  <script src="js/s24-model.js"></script>
-  <script src="js/drill-model.js"></script>
   <script>
     (function () {
       const viewer = document.getElementById('main-viewer');
@@ -506,12 +499,12 @@
       // Load preset s24 model cleanly (supporting offline/file:// protocol)
       function loadS24Preset() {
         modelLabel.textContent = 'Samsung Galaxy S24+ CAD Model';
-        viewer.src = window.S24_MODEL_DATA || ('models/s24-plus.glb?v=' + Date.now());
+        viewer.src = 'models/s24-plus.glb';
       }
 
       function loadDrillPreset() {
         modelLabel.textContent = 'Cordless Electric Screwdriver (FBX Model)';
-        viewer.src = window.DRILL_MODEL_DATA || ('models/Drill-fbx.glb?v=' + Date.now());
+        viewer.src = 'models/Drill-fbx.glb';
       }
 
       // Initial load

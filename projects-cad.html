@@ -135,14 +135,8 @@
 
 </head>
 
-<body class="has-dev-bar">
-  <div id="development-bar"
-    style="position: fixed; top: 0; left: 0; right: 0; background-color: #ff3333; color: white; text-align: center; padding: 8px; z-index: 9999; font-family: Arial, sans-serif; font-size: 14px; font-weight: 500; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-
-    This website is currently under development
-    <button id="close-dev-bar"
-      style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; cursor: pointer; padding: 5px 10px; border-radius: 3px; transition: all 0.2s ease;">X</button>
-  </div>
+<body>
+  
   <header>
     <div class="header-content">
       <div class="header-left">
@@ -295,8 +289,6 @@
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <script src="js/script.js?v=17.0"></script>
-  <script src="js/s24-model.js"></script>
-  <script src="js/drill-model.js"></script>
   <script>
     (function () {
       // ── Portfolio CAD Viewer Logic ──
@@ -306,15 +298,10 @@
       const cadCloseBtn = document.getElementById('cad-preview-close');
       const cadViewer = document.getElementById('cad-viewer');
 
-      function openCadPreview(appTitle, modelSrc, fallbackKey) {
+      function openCadPreview(appTitle, modelSrc) {
         if (cadTitle) cadTitle.textContent = appTitle || '3D CAD Model';
         if (cadViewer) {
-          const isFileProtocol = window.location.protocol === 'file:';
-          const fallbackData = fallbackKey ? window[fallbackKey] : null;
-          const src = modelSrc || 'models/s24-plus.glb';
-          cadViewer.src = isFileProtocol
-            ? (fallbackData || (src + '?v=' + Date.now()))
-            : (src + '?v=' + Date.now());
+          cadViewer.src = modelSrc || 'models/s24-plus.glb';
         }
         if (cadOverlay) {
           cadOverlay.classList.add('active');
