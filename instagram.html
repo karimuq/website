@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Karim Abdelnour</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.1">
+  <style>
+    .insta-welcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .insta-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      max-width: 600px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .insta-icon {
+      font-size: 3rem;
+      color: #E1306C;
+      margin-bottom: 1rem;
+    }
+    .insta-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+    .insta-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .pc-notice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(var(--accent-primary-rgb), 0.1);
+      color: var(--accent-primary);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 480px) {
+      .insta-card {
+        padding: 2rem 1.5rem;
+        width: 95%;
+      }
+      .insta-title {
+        font-size: 1.5rem;
+      }
+      .insta-text {
+        font-size: 1rem;
+      }
+      .pc-notice {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="insta-welcome container">
+      <div class="insta-card">
+        <i class="fa-brands fa-instagram insta-icon"></i>
+        <h2 class="insta-title">Welcome Instagram Visitors!</h2>
+        <div class="pc-notice">
+          <span>For the best experience, a PC is highly recommended!</span>
+        </div>
+        <p class="insta-text">
+          Thank you so much for taking the time to visit and test out my website. I truly appreciate any feedback you might have!
+        </p>
+        <a href="index.html" class="cta-button primary" style="width: 100%; justify-content: center;">
+          Enter Website <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i> Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fa-brands fa-itch-io"></i> Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=17.0"></script>
+</body>
+</html>

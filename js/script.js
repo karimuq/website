@@ -403,49 +403,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Dynamic Showcase Rotation for Home Screen
 const SHOWCASE_ITEMS = [
-  { 
-    type: 'Mechanical Design', 
-    title: 'CAD & Mechanical Design', 
-    desc: 'Precision 3D modeling, parametric mechanical assemblies, and technical engineering drawings in SOLIDWORKS.', 
-    icon: 'fa-solid fa-compass-drafting', 
+  {
+    type: 'Mechanical Design',
+    title: 'CAD & Mechanical Design',
+    desc: 'Precision 3D modeling, parametric mechanical assemblies, and technical engineering drawings.',
+    icon: 'fa-solid fa-compass-drafting',
     color: '#f39c12',
     link: 'projects-cad.html',
     linkText: 'Explore CAD Portfolio'
   },
-  { 
-    type: 'Hardware & Control', 
-    title: 'Embedded Systems & Robotics', 
-    desc: 'Microcontroller programming, sensor/actuator interfacing, and C++ logic for automated hardware systems.', 
-    icon: 'fa-solid fa-microchip', 
+  {
+    type: 'Hardware & Control',
+    title: 'Embedded Systems & Robotics',
+    desc: 'Microcontroller programming, sensor/actuator interfacing',
+    icon: 'fa-solid fa-microchip',
     color: '#008184',
     link: 'projects-arduino.html',
     linkText: 'Explore Electronics'
   },
-  { 
-    type: 'Software & Simulation', 
-    title: 'C# & Unity Interactive Dev', 
-    desc: 'Developing interactive real-time physics, algorithmic logic, and custom systems architecture using Unity & C#.', 
-    icon: 'fa-brands fa-unity', 
+  {
+    type: 'Software & Simulation',
+    title: 'C# & Unity Interactive Dev',
+    desc: 'Developing interactive real-time physics ,and custom systems architecture using Unity & C#.',
+    icon: 'fa-brands fa-unity',
     color: '#2ecc71',
     link: 'projects-games.html',
     linkText: 'Explore Interactive Work'
   },
-  { 
-    type: 'Profile', 
-    title: 'Mechatronics Engineer', 
-    desc: 'First-year Mechatronics Engineering student integrating mechanical design, robotics, and software systems.', 
-    icon: 'fa-solid fa-user-gear', 
+  {
+    type: 'Profile',
+    title: 'Mechatronics Engineer',
+    desc: 'Mechatronics Engineering student integrating mechanical design, robotics, and software systems.',
+    icon: 'fa-solid fa-user-gear',
     color: '#3498db',
     link: 'about.html',
     linkText: 'View About Me',
     secondaryLink: 'https://www.linkedin.com/in/karimabdelnour26/',
     secondaryText: 'LinkedIn'
   },
-  { 
-    type: 'Credential', 
-    title: 'SOLIDWORKS CAD Certified', 
-    desc: '3D CAD for Education Specialization earned from Dassault Systèmes & Coursera.', 
-    icon: 'fa-solid fa-certificate', 
+  {
+    type: 'Credential',
+    title: 'SOLIDWORKS CAD Certified',
+    desc: '3D CAD for Education Specialization earned from Dassault Systèmes & Coursera.',
+    icon: 'fa-solid fa-certificate',
     color: '#f1c40f',
     link: 'about.html#certifications',
     linkText: 'View Credentials'
@@ -456,7 +456,7 @@ class DynamicShowcase {
   constructor() {
     this.container = document.getElementById('dynamic-showcase');
     if (!this.container) return;
-    
+
     this.content = this.container.querySelector('.showcase-content');
     this.icon = document.getElementById('showcase-icon');
     this.title = document.getElementById('showcase-title');
@@ -469,19 +469,19 @@ class DynamicShowcase {
     this.glow = document.getElementById('showcase-glow');
     this.dotsContainer = document.getElementById('showcase-dots');
     this.progress = document.getElementById('showcase-progress');
-    
+
     this.prevBtn = document.getElementById('showcase-prev');
     this.nextBtn = document.getElementById('showcase-next');
-    
+
     this.currentIndex = 0;
     this.timer = null;
     this.progressTimer = null;
     this.duration = 5000;
     this.isPaused = false;
-    
+
     this.init();
   }
-  
+
   init() {
     // Build dots
     if (this.dotsContainer) {
@@ -493,7 +493,7 @@ class DynamicShowcase {
         this.dotsContainer.appendChild(dot);
       });
     }
-    
+
     // Control events
     if (this.prevBtn) {
       this.prevBtn.addEventListener('click', () => {
@@ -507,7 +507,7 @@ class DynamicShowcase {
         this.goTo(nextIdx);
       });
     }
-    
+
     // Pause on hover
     this.container.addEventListener('mouseenter', () => {
       this.isPaused = true;
@@ -520,21 +520,21 @@ class DynamicShowcase {
         this.progress.style.width = '100%';
       }
     });
-    
+
     this.renderCurrent(false);
     this.startCycle();
   }
-  
+
   goTo(index) {
     if (index === this.currentIndex) return;
     this.currentIndex = index;
     this.renderCurrent(true);
     this.resetTimer();
   }
-  
+
   renderCurrent(animate = true) {
     const item = SHOWCASE_ITEMS[this.currentIndex];
-    
+
     const applyContent = () => {
       if (this.icon) {
         this.icon.innerHTML = `<i class="${item.icon}"></i>`;
@@ -572,7 +572,7 @@ class DynamicShowcase {
       if (this.glow) {
         this.glow.style.background = `radial-gradient(circle, ${item.color}33 0%, transparent 70%)`;
       }
-      
+
       // Update dots
       if (this.dotsContainer) {
         Array.from(this.dotsContainer.children).forEach((dot, idx) => {
@@ -594,7 +594,7 @@ class DynamicShowcase {
       applyContent();
     }
   }
-  
+
   startProgress() {
     if (!this.progress) return;
     this.progress.style.transition = 'none';
@@ -605,7 +605,7 @@ class DynamicShowcase {
       this.progress.style.width = '100%';
     }, 50);
   }
-  
+
   startCycle() {
     this.startProgress();
     this.timer = setInterval(() => {
@@ -615,7 +615,7 @@ class DynamicShowcase {
       this.startProgress();
     }, this.duration);
   }
-  
+
   resetTimer() {
     clearInterval(this.timer);
     this.startCycle();
