@@ -148,6 +148,25 @@
       --poster-color: transparent;
     }
 
+    .cad-viewer-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
     /* Drag & Drop Overlay */
     .drop-overlay {
       position: absolute;
@@ -362,13 +381,16 @@
             alt="3D Model Viewer"
             auto-rotate
             rotation-per-second="20deg"
-            interaction-prompt="none"
             camera-controls
             shadow-intensity="1"
             shadow-softness="1"
             exposure="1.2"
             environment-image="neutral">
           </model-viewer>
+
+          <div class="cad-viewer-hint">
+            <i class="fas fa-hand-pointer"></i> Drag to interact, scroll to zoom
+          </div>
 
           <div class="drop-overlay" id="drop-overlay">
             <i class="fas fa-cloud-upload-alt"></i>

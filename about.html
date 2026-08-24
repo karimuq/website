@@ -252,13 +252,123 @@
       max-width: 380px;
       padding: 1.5rem;
       display: flex;
-      align-items: center;
-      gap: 1.2rem;
+      flex-direction: column;
       border: 1px solid var(--border-color);
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.01)), var(--bg-color, #ffffff);
       transition: border-color 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: default;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .cert-header {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      width: 100%;
+    }
+
+    .cert-card.expandable-cert.expanded {
+      border-color: var(--text-primary);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    [data-theme="dark"] .cert-card.expandable-cert.expanded {
+      border-color: #ffffff !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .cert-card.expandable-cert::after {
+      content: '\f078';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      top: 1.8rem;
+      right: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted, #777);
+      background: rgba(128, 128, 128, 0.15);
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    [data-theme="dark"] .cert-card.expandable-cert::after {
+      color: #aaa;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .cert-card.expandable-cert:hover::after {
+      background: var(--text-primary);
+      color: var(--bg-color, #fff);
+    }
+
+    [data-theme="dark"] .cert-card.expandable-cert:hover::after {
+      background: #fff;
+      color: #111;
+    }
+
+    .cert-card.expandable-cert.expanded::after {
+      transform: rotate(180deg);
+    }
+
+    .cert-detail-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+    }
+
+    .cert-card.expandable-cert.expanded .cert-detail-wrapper {
+      grid-template-rows: 1fr;
+    }
+
+    .cert-detail {
+      overflow: hidden;
+    }
+
+    .cert-detail-inner {
+      padding-top: 1.2rem;
+      margin-top: 1rem;
+      border-top: 1px solid rgba(128, 128, 128, 0.2);
+    }
+
+    .cert-detail-inner p {
+      font-size: 0.9rem;
+      color: var(--text-muted, #666);
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+
+    [data-theme="dark"] .cert-detail-inner p {
+      color: #bbb;
+    }
+
+    .cert-btn {
+      display: inline-block;
+      background: var(--text-primary);
+      color: var(--bg-color, #ffffff);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    [data-theme="dark"] .cert-btn {
+      background: #ffffff;
+      color: #111;
+    }
+
+    .cert-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
 
     [data-theme="dark"] .cert-card {
@@ -585,18 +695,27 @@
 
         <div class="certs-grid">
 
-          <a href="https://coursera.org/share/3af66652b0ec29dcd9b23f9647620b36" target="_blank"
-            style="text-decoration: none;">
-            <div class="cert-card" id="solidworks-cert">
+          <div class="cert-card expandable-cert" id="solidworks-cert">
+            <div class="cert-header">
               <div class="cert-icon">
                 <i class="fa-solid fa-certificate"></i>
               </div>
               <div class="cert-info">
-                <div class="cert-name">SOLIDWORKS 3D CAD for Education Specialization</div>
+                <div class="cert-name" style="padding-right: 24px;">SOLIDWORKS 3D CAD for Education Specialization</div>
                 <div class="cert-issuer">Dassault Systèmes &bull; Coursera</div>
               </div>
             </div>
-          </a>
+            <div class="cert-detail-wrapper">
+              <div class="cert-detail">
+                <div class="cert-detail-inner">
+                  <p>Completed comprehensive training on parametric modeling, assembly design, and technical drawing in SOLIDWORKS.</p>
+                  <a href="https://coursera.org/share/3af66652b0ec29dcd9b23f9647620b36" target="_blank" class="cert-btn">
+                    View Credential <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 4px;"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Add more certifications here -->
 
@@ -781,10 +900,25 @@
       if (!e.target.closest('.expandable-hobby')) {
         document.querySelectorAll('.expandable-hobby').forEach(c => c.classList.remove('expanded'));
       }
+      if (!e.target.closest('.expandable-cert')) {
+        document.querySelectorAll('.expandable-cert').forEach(c => c.classList.remove('expanded'));
+      }
       if (isTouch && !e.target.closest('.skill-card')) {
         tooltip.style.opacity = '0';
         tooltip.style.visibility = 'hidden';
       }
+    });
+
+    document.querySelectorAll('.expandable-cert').forEach(cert => {
+      cert.addEventListener('click', e => {
+        // Prevent expanding/collapsing if clicking the actual button
+        if (e.target.closest('.cert-btn')) return;
+        
+        e.stopPropagation();
+        const isExpanded = cert.classList.contains('expanded');
+        document.querySelectorAll('.expandable-cert').forEach(c => c.classList.remove('expanded'));
+        if (!isExpanded) cert.classList.add('expanded');
+      });
     });
 
     // Smooth scroll and highlight when navigating with hash (e.g. #certifications)

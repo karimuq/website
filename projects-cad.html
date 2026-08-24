@@ -109,6 +109,25 @@
       flex: 1;
     }
 
+    .cad-viewer-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
     @media (max-width: 600px) {
       .cad-preview-window {
         width: 96vw;
@@ -279,10 +298,13 @@
       </div>
       <div class="cad-viewer-wrap" id="cad-preview-frame">
         <model-viewer id="cad-viewer" src="models/s24-plus.glb" alt="3D CAD Model" auto-rotate auto-rotate-delay="0"
-          rotation-per-second="20deg" interaction-prompt="none" camera-controls min-camera-orbit="auto 0deg auto"
+          rotation-per-second="20deg" camera-controls min-camera-orbit="auto 0deg auto"
           max-camera-orbit="auto 180deg auto" field-of-view="30deg" shadow-intensity="1" shadow-softness="1"
           exposure="1.2" environment-image="neutral" style="width: 100%; height: 100%; background: transparent;">
         </model-viewer>
+        <div class="cad-viewer-hint">
+          <i class="fas fa-hand-pointer"></i> Drag to interact, scroll to zoom
+        </div>
       </div>
     </div>
   </div>
