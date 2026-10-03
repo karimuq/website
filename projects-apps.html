@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
+<meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karim Abdelnour's App Development Projects">
+  <meta name="keywords" content="Karim Abdelnour, App Development, Mobile Apps, Desktop Apps, Android">
+  <meta name="author" content="Karim Abdelnour">
+  <title>App Projects - Karim Abdelnour</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/projects-apps.html">
+  <meta property="og:title" content="App Development Projects & Concepts - Karim Abdelnour">
+  <meta property="og:description" content="Explore mobile, desktop, and interactive web application concepts built by Karim Abdelnour.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/projects-apps.html">
+  <meta name="twitter:title" content="App Development Projects & Concepts - Karim Abdelnour">
+  <meta name="twitter:description" content="Explore mobile, desktop, and interactive web application concepts built by Karim Abdelnour.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <link rel="stylesheet" href="css/game-styles.css?v=2.0">
+  <style>
+    
+
+    .app-preview-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+
+    .app-preview-overlay.active {
+      display: flex;
+    }
+
+    .app-preview-window {
+      width: min(420px, 94vw);
+      height: min(860px, 90vh);
+      aspect-ratio: 9 / 19.5;
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .app-preview-title {
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .app-preview-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .app-preview-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .app-preview-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .app-preview-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #fff;
+      flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .app-preview-window {
+        width: min(380px, 94vw);
+        height: min(760px, 88vh);
+      }
+    }
+
+    .copyright-toggle-wrap {
+      display: block;
+      text-align: right;
+      margin: 8px 0 14px;
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .copyright-toggle-btn {
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 10px 16px;
+      background: #3498db;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copyright-toggle-btn:hover {
+      background: #2980b9;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+    }
+
+    .copyright-toggle-btn::-webkit-details-marker {
+      display: none;
+    }
+
+    .copyright-toggle-wrap::marker,
+    .copyright-toggle-wrap::-webkit-details-marker {
+      display: none;
+      content: "";
+    }
+
+    .copyright-disclosure:not([open]) .copyright-notice {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>App Development Projects</h2>
+        <p>A showcase of my mobile and desktop applications.</p>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="project-nav">
+        <a href="projects.html">All Projects</a>
+        <a href="projects-games.html">Games</a>
+        <a href="projects-pixelart.html">Pixel Art</a>
+        <a href="projects-3d.html">3D Models</a>
+        <a href="projects-apps.html" class="active">Apps</a>
+        <a href="projects-arduino.html">Arduino</a>
+        <a href="projects-cad.html">CAD</a>
+      </div>
+
+      <details class="copyright-disclosure">
+        <summary class="copyright-toggle-wrap">
+          <span class="copyright-toggle-btn">
+            Copyright Notice
+          </span>
+        </summary>
+        <div class="copyright-notice" id="apps-copyright-notice">
+          <h4>Copyright Notice</h4>
+          <p>All app development projects, including but not limited to source code, assets, and designs, are protected by copyright law.</p>
+          <ul>
+            <li>Applications are displayed for portfolio purposes only</li>
+            <li>Source code and assets may not be copied, modified, or used in other projects without explicit permission</li>
+            <li>Commercial use of any content is strictly prohibited</li>
+            <li>Distribution or sharing of application files is not permitted</li>
+          </ul>
+          <p>For licensing inquiries or permissions, please contact me through the contact form.</p>
+        </div>
+      </details>
+
+      <div class="games-showcase-container">
+        <!-- Sober Tracker -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background-image: url('https://raw.githubusercontent.com/karimuq/Sober-tracker/main/icon.png'); background-size: 110px auto; background-repeat: no-repeat; background-position: center; background-color: #0f172a;">
+            <span class="banner-genre-tag">Health</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Sober Tracker</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A 100% local, privacy-focused sobriety streak tracker with live timers, milestone progression, and relapse logging.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Android</span>
+                <span class="game-card-tag">App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions">
+              <a href="https://github.com/karimuq/Sober-tracker" target="_blank" rel="noopener noreferrer" class="action-details" style="text-align: center; display: block;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Stock Tracker -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #0b192c, #1e3e62); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-chart-line" style="font-size: 3.5rem; color: #00e676; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">Finance</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Stock Tracker</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A mobile stock and portfolio tracking application designed for monitoring asset prices, market trends, and trade positions.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Android</span>
+                <span class="game-card-tag">App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions">
+              <a href="https://github.com/karimuq/Stock-Tracker" target="_blank" rel="noopener noreferrer" class="action-details" style="text-align: center; display: block;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Speedometer -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #ea580c, #7c2d12); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-gauge-high" style="font-size: 3.5rem; color: #fef08a; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">Utility</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Speedometer</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A GPS-based mobile speedometer application for real-time speed tracking and trip velocity metrics.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Android</span>
+                <span class="game-card-tag">App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions" style="display: flex; gap: 0.5rem;">
+              <a href="https://github.com/karimuq/Speedometer" target="_blank" rel="noopener noreferrer" class="action-details" style="flex: 1; text-align: center;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> GitHub
+              </a>
+              <a href="https://github.com/karimuq/Speedometer/releases/latest" target="_blank" rel="noopener noreferrer" class="action-details" style="display: flex; align-items: center; justify-content: center; width: auto; padding: 0.5rem 1rem;" title="Download APK Release">
+                <i class="fa-solid fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tap to Add -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background-image: url('https://img.itch.zone/aW1nLzI2OTMxNTYxLnBuZw==/original/U0kwrx.png'); background-size: cover; background-position: center;">
+            <span class="banner-genre-tag">Utility</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Tap to Add</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A tap-to-add counter application available both as an interactive web concept and Android APK download.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Android</span>
+                <span class="game-card-tag">Web App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions" style="display: flex; gap: 0.5rem;">
+              <a href="#" class="action-details app-concept-link" data-app-title="Tap to Add Concept" data-app-url="Webapps/Counter-app.html" style="flex: 1; text-align: center;">
+                View Concept
+              </a>
+              <a href="https://github.com/karimuq/Tap-to-add" target="_blank" rel="noopener noreferrer" class="action-details" style="display: flex; align-items: center; justify-content: center; width: auto; padding: 0.5rem 0.85rem;" title="GitHub Repository">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://github.com/karimuq/Tap-to-add/releases/latest" target="_blank" rel="noopener noreferrer" class="action-details" style="display: flex; align-items: center; justify-content: center; width: auto; padding: 0.5rem 0.85rem;" title="Download APK">
+                <i class="fa-solid fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- The Lock In Detector -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #1e293b, #0f172a); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-brain" style="font-size: 3.5rem; color: #38bdf8; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">AI / Utility</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>The Lock In Detector</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>An AI-powered offline desktop utility using webcam tracking to detect phone distraction and keep you locked in.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Desktop</span>
+                <span class="game-card-tag">AI</span>
+                <span class="game-card-tag">App</span>
+              </div>
+            </div>
+            <div class="game-card-actions" style="display: flex; gap: 0.5rem;">
+              <a href="https://github.com/karimuq/The-Lock-In-Detector" target="_blank" rel="noopener noreferrer" class="action-details" style="flex: 1; text-align: center;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> GitHub
+              </a>
+              <a href="https://github.com/karimuq/The-Lock-In-Detector/releases/latest" target="_blank" rel="noopener noreferrer" class="action-details" style="display: flex; align-items: center; justify-content: center; width: auto; padding: 0.5rem 1rem;" title="Download Executable">
+                <i class="fa-solid fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Media Downloader -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background-image: url('https://raw.githubusercontent.com/karimuq/Media-Downloader/main/Logo.png'); background-size: 110px auto; background-repeat: no-repeat; background-position: center; background-color: #0f172a;">
+            <span class="banner-genre-tag">Utility</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Media Downloader</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A universal media downloading desktop utility built for personal archiving, educational research, and offline accessibility.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Desktop</span>
+                <span class="game-card-tag">App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions" style="display: flex; gap: 0.5rem;">
+              <a href="https://github.com/karimuq/Media-Downloader" target="_blank" rel="noopener noreferrer" class="action-details" style="flex: 1; text-align: center;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> GitHub
+              </a>
+              <a href="https://github.com/karimuq/Media-Downloader/releases/latest" target="_blank" rel="noopener noreferrer" class="action-details" style="display: flex; align-items: center; justify-content: center; width: auto; padding: 0.5rem 1rem;" title="Download Latest Release">
+                <i class="fa-solid fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- File Converter -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-file-arrow-up" style="font-size: 3.5rem; color: #60a5fa; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">Utility</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>File Converter</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A universal multi-platform file format converter for images, audio, video, and documents running 100% offline.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Desktop</span>
+                <span class="game-card-tag">App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions">
+              <a href="https://github.com/karimuq/File-Converter" target="_blank" rel="noopener noreferrer" class="action-details" style="text-align: center; display: block;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Scroll Player -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #4c1d95, #1e1b4b); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-circle-play" style="font-size: 3.5rem; color: #c4b5fd; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">Media</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Scroll Player</h3>
+              <span class="game-status-pill">GitHub</span>
+            </div>
+            <p>A scrolling media player application built for fluid media viewing and playback controls.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Desktop</span>
+                <span class="game-card-tag">App</span>
+                <span class="game-card-tag">Proprietary</span>
+              </div>
+            </div>
+            <div class="game-card-actions">
+              <a href="https://github.com/karimuq/scroll-player" target="_blank" rel="noopener noreferrer" class="action-details" style="text-align: center; display: block;">
+                <i class="fa-brands fa-github" style="margin-right: 5px;"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ScreenSync -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #0f766e, #134e4a); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-mobile-screen-button" style="font-size: 3.5rem; color: #5eead4; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">Concept</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>ScreenSync</h3>
+              <span class="game-status-pill pulse-dot">Concept</span>
+            </div>
+            <p>A screen-time accountability app concept that lets you share your usage with friends and family to stay productive.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Web App</span>
+                <span class="game-card-tag">Concept</span>
+              </div>
+            </div>
+            <div class="game-card-actions">
+              <a href="#" class="action-details app-concept-link" data-app-title="ScreenSync Concept" data-app-url="Webapps/screensync.html" style="text-align: center; display: block;">
+                View Concept
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Random Number Generator -->
+        <article class="game-hub-card">
+          <div class="game-card-banner" style="background: linear-gradient(135deg, #7e22ce, #3b0764); display: flex; align-items: center; justify-content: center; position: relative;">
+            <i class="fa-solid fa-dice" style="font-size: 3.5rem; color: #e9d5ff; position: absolute; z-index: 1;"></i>
+            <span class="banner-genre-tag" style="position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;">Concept</span>
+          </div>
+          <div class="game-card-body">
+            <div class="game-card-header">
+              <h3>Random Number Generator</h3>
+              <span class="game-status-pill pulse-dot">Concept</span>
+            </div>
+            <p>A lightweight random number generator web app concept with quick min/max configuration and instant roll animation.</p>
+            <div class="game-card-meta">
+              <div class="game-card-tags">
+                <span class="game-card-tag">Web App</span>
+                <span class="game-card-tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="game-card-actions">
+              <a href="#" class="action-details app-concept-link" data-app-title="Random Number Generator Concept" data-app-url="Webapps/random-number-generator.html" style="text-align: center; display: block;">
+                View Concept
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i> Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fa-brands fa-itch-io"></i> Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <div class="app-preview-overlay" id="app-preview-overlay" aria-hidden="true">
+    <div class="app-preview-window" id="app-preview-window" role="dialog" aria-modal="true" aria-label="App Concept Preview">
+      <div class="app-preview-header">
+        <p class="app-preview-title" id="app-preview-title">App Concept Preview</p>
+        <div class="app-preview-controls">
+          <button class="app-preview-btn" id="app-preview-fullscreen" type="button" aria-label="Toggle Fullscreen">
+            <i class="fas fa-expand"></i>
+          </button>
+          <button class="app-preview-btn" id="app-preview-close" type="button" aria-label="Close Preview">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <iframe id="app-preview-frame" class="app-preview-frame" src="about:blank" title="App Concept"></iframe>
+    </div>
+  </div>
+
+  <script src="js/script.js?v=17.0"></script>
+  <script>
+    (function() {
+      const conceptLinks = document.querySelectorAll('.app-concept-link');
+      const overlay = document.getElementById('app-preview-overlay');
+      const previewWindow = document.getElementById('app-preview-window');
+      const frame = document.getElementById('app-preview-frame');
+      const title = document.getElementById('app-preview-title');
+      const closeBtn = document.getElementById('app-preview-close');
+      const fullscreenBtn = document.getElementById('app-preview-fullscreen');
+      const fullscreenIcon = fullscreenBtn ? fullscreenBtn.querySelector('i') : null;
+
+      if (!conceptLinks.length || !overlay || !previewWindow || !frame || !title || !closeBtn || !fullscreenBtn) {
+        return;
+      }
+
+      function openPreview(appUrl, appTitle) {
+        title.textContent = appTitle || 'App Concept Preview';
+        frame.src = appUrl;
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePreview() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen().catch(() => {});
+        }
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        frame.src = 'about:blank';
+        document.body.style.overflow = '';
+      }
+
+      conceptLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          openPreview(this.dataset.appUrl, this.dataset.appTitle);
+        });
+      });
+
+      closeBtn.addEventListener('click', closePreview);
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closePreview();
+        }
+      });
+
+      fullscreenBtn.addEventListener('click', async function() {
+        try {
+          if (!document.fullscreenElement) {
+            await previewWindow.requestFullscreen();
+          } else {
+            await document.exitFullscreen();
+          }
+        } catch (err) {
+          window.open(frame.src, '_blank');
+        }
+      });
+
+      document.addEventListener('fullscreenchange', function() {
+        if (!fullscreenIcon) return;
+        fullscreenIcon.className = document.fullscreenElement ? 'fas fa-compress' : 'fas fa-expand';
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active') && !document.fullscreenElement) {
+          closePreview();
+        }
+      });
+    })();
+
+  </script>
+</body>
+</html>

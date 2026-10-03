@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
+  <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karim's CAD and Design projects">
+  <meta name="keywords" content="Karim Abdelnour, CAD, Design,Technical Drawing, SOLIDWORKS, Autodesk Fusion">
+  <meta name="author" content="Karim Abdelnour">
+  <title>CAD Projects - Karim Abdelnour</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/projects-cad.html">
+  <meta property="og:title" content="CAD & 3D Modeling Projects - Karim Abdelnour">
+  <meta property="og:description"
+    content="Explore 3D parametric CAD models built using SOLIDWORKS and Autodesk Fusion.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/projects-cad.html">
+  <meta name="twitter:title" content="CAD & 3D Modeling Projects - Karim Abdelnour">
+  <meta name="twitter:description"
+    content="Explore 3D parametric CAD models including a Samsung Galaxy S24+ and Cordless Electric Screwdriver, built using SOLIDWORKS and Autodesk Fusion.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+
+  <style>
+    /* CAD 3D Viewer Styles */
+    .cad-preview-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+
+    .cad-preview-overlay.active {
+      display: flex;
+    }
+
+    .cad-preview-window {
+      width: min(900px, 94vw);
+      height: min(600px, 90vh);
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cad-preview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cad-preview-title {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .cad-preview-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .cad-preview-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .cad-preview-btn.open-glb-btn {
+      background: rgba(100, 181, 246, 0.18);
+      border: 1px solid rgba(100, 181, 246, 0.4);
+      color: #64b5f6;
+    }
+
+    .cad-preview-btn.open-glb-btn:hover {
+      background: rgba(100, 181, 246, 0.32);
+    }
+
+    .cad-viewer-wrap {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #ffffff 0%, #e9ecef 100%);
+      position: relative;
+      flex: 1;
+    }
+
+    .cad-viewer-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .cad-preview-window {
+        width: 96vw;
+        height: 84vh;
+        border-radius: 16px;
+      }
+
+      .cad-preview-header {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .cad-preview-title {
+        font-size: 0.9rem;
+      }
+
+      .cad-preview-btn {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>CAD Projects</h2>
+        <p>A collection of Computer-Aided Design projects.</p>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="project-nav">
+        <a href="projects.html">All Projects</a>
+        <a href="projects-games.html">Games</a>
+        <a href="projects-pixelart.html">Pixel Art</a>
+        <a href="projects-3d.html">3D Models</a>
+        <a href="projects-apps.html">Apps</a>
+        <a href="projects-arduino.html">Arduino</a>
+        <a href="projects-cad.html" class="active">CAD</a>
+      </div>
+
+      <details class="copyright-disclosure">
+        <summary class="copyright-toggle-wrap">
+          <span class="copyright-toggle-btn">
+            Copyright Notice
+          </span>
+        </summary>
+        <div class="copyright-notice">
+          <h4>Copyright Notice</h4>
+          <p>All CAD designs, technical drawings, and 3D printable models are protected under copyright law.</p>
+          <ul>
+            <li>CAD designs are displayed for portfolio purposes only</li>
+            <li>All rights reserved for all 3D models and technical documentation</li>
+            <li>Models may not be downloaded, copied, or used without explicit permission</li>
+            <li>Commercial use or redistribution is strictly prohibited</li>
+            <li>Technical drawings and renders may not be used without written consent</li>
+            <li><strong>Disclaimer:</strong> Any third-party trademarks or brand names (e.g., Samsung) depicted in these
+              models remain the property of their respective owners. These are unofficial, fan-made educational projects
+              not affiliated with or endorsed by the brand owners.</li>
+          </ul>
+          <p>For licensing inquiries or permissions, please contact me through the contact form.</p>
+        </div>
+      </details>
+
+      <div class="grid-container" style="grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));">
+        <div class="card">
+          <div class="card-content">
+            <h3>Samsung Galaxy S24+</h3>
+            <p>3D CAD model of the Samsung Galaxy S24+ smartphone.</p>
+            <p style="font-size: 0.85em; color: var(--text-muted, #888); margin-top: 0.5rem; line-height: 1.4;">
+              <em>Created using SOLIDWORKS Education Edition for educational/portfolio purposes only. "Samsung" and
+                "Galaxy S24+" are trademarks of Samsung Electronics. This project is unofficial and not affiliated with
+                Samsung.</em>
+            </p>
+            <div class="tags">
+              <span class="tag">SOLIDWORKS</span>
+              <span class="tag">CAD</span>
+              <span class="tag">3D Model</span>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
+              <a href="#" class="project-link cad-concept-link" data-cad-title="Samsung Galaxy S24+ CAD Model"
+                data-cad-src="models/s24-plus.glb" data-cad-fallback="S24_MODEL_DATA">
+                <i class="fas fa-cube"></i> View 3D Model
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>Cordless Electric Screwdriver</h3>
+            <p>3D CAD model of a cordless drill</p>
+            <p style="font-size: 0.85em; color: var(--text-muted, #888); margin-top: 0.5rem; line-height: 1.4;">
+              <em>Created using Autodesk Fusion Education Version.</em>
+            </p>
+            <div class="tags">
+              <span class="tag">Autodesk Fusion</span>
+              <span class="tag">CAD</span>
+              <span class="tag">3D Model</span>
+              <span class="tag">Product Design</span>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
+              <a href="#" class="project-link cad-concept-link" data-cad-title="Cordless Electric Screwdriver CAD Model"
+                data-cad-src="models/Drill-fbx.glb" data-cad-fallback="DRILL_MODEL_DATA">
+                <i class="fas fa-cube"></i> View 3D Model
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i> Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fa-brands fa-itch-io"></i> Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <!-- 1. Portfolio CAD Model Viewer Modal -->
+  <div class="cad-preview-overlay" id="cad-preview-overlay" aria-hidden="true">
+    <div class="cad-preview-window" id="cad-preview-window" role="dialog" aria-modal="true"
+      aria-label="CAD Model Viewer">
+      <div class="cad-preview-header">
+        <p class="cad-preview-title" id="cad-preview-title">CAD Model Viewer</p>
+        <button class="cad-preview-btn" id="cad-preview-close" type="button" aria-label="Close Preview">
+          <i class="fas fa-times"></i> Close
+        </button>
+      </div>
+      <div class="cad-viewer-wrap" id="cad-preview-frame">
+        <model-viewer id="cad-viewer" src="models/s24-plus.glb" alt="3D CAD Model" auto-rotate auto-rotate-delay="0"
+          rotation-per-second="20deg" camera-controls min-camera-orbit="auto 0deg auto"
+          max-camera-orbit="auto 180deg auto" field-of-view="30deg" shadow-intensity="1" shadow-softness="1"
+          exposure="1.2" environment-image="neutral" style="width: 100%; height: 100%; background: transparent;">
+        </model-viewer>
+        <div class="cad-viewer-hint">
+          <i class="fas fa-hand-pointer"></i> Drag to interact, scroll to zoom
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <script src="js/script.js?v=17.0"></script>
+  <script>
+    (function () {
+      // ── Portfolio CAD Viewer Logic ──
+      const conceptLinks = document.querySelectorAll('.cad-concept-link');
+      const cadOverlay = document.getElementById('cad-preview-overlay');
+      const cadTitle = document.getElementById('cad-preview-title');
+      const cadCloseBtn = document.getElementById('cad-preview-close');
+      const cadViewer = document.getElementById('cad-viewer');
+
+      function openCadPreview(appTitle, modelSrc) {
+        if (cadTitle) cadTitle.textContent = appTitle || '3D CAD Model';
+        if (cadViewer) {
+          cadViewer.src = modelSrc || 'models/s24-plus.glb';
+        }
+        if (cadOverlay) {
+          cadOverlay.classList.add('active');
+          cadOverlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeCadPreview() {
+        if (cadOverlay) {
+          cadOverlay.classList.remove('active');
+          cadOverlay.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      }
+
+      conceptLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          openCadPreview(this.dataset.cadTitle, this.dataset.cadSrc, this.dataset.cadFallback);
+        });
+      });
+
+      if (cadCloseBtn) cadCloseBtn.addEventListener('click', closeCadPreview);
+      if (cadOverlay) {
+        cadOverlay.addEventListener('click', function (e) {
+          if (e.target === cadOverlay) closeCadPreview();
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          if (cadOverlay && cadOverlay.classList.contains('active')) closeCadPreview();
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

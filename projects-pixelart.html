@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
+<meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karim Abdelnour's Pixel Art Gallery - Character designs and animations">
+  <meta name="keywords" content="Karim Abdelnour, Pixel Art, Character Design, Animation, Game Development, Digital Art">
+  <meta name="author" content="Karim Abdelnour">
+  <title>Pixel Art Gallery - Karim Abdelnour</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/projects-pixelart.html">
+  <meta property="og:title" content="Pixel Art Gallery & Animations - Karim Abdelnour">
+  <meta property="og:description" content="A showcase of original pixel art characters, custom sprite animations, and digital art created by Karim Abdelnour.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Mimi1.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/projects-pixelart.html">
+  <meta name="twitter:title" content="Pixel Art Gallery & Animations - Karim Abdelnour">
+  <meta name="twitter:description" content="A showcase of original pixel art characters, custom sprite animations, and digital art created by Karim Abdelnour.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Mimi1.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <link rel="stylesheet" href="css/pixelart-new.css?v=1.4">
+  
+</head>
+<body>
+  
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Pixel Art Gallery</h2>
+        <p>A showcase of my pixel art characters, animations, and game assets</p>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="project-nav">
+        <a href="projects.html">All Projects</a>
+        <a href="projects-games.html">Games</a>
+        <a href="projects-pixelart.html" class="active">Pixel Art</a>
+        <a href="projects-3d.html">3D Models</a>
+        <a href="projects-apps.html">Apps</a>
+        <a href="projects-arduino.html">Arduino</a>
+        <a href="projects-cad.html">CAD</a>
+      </div>
+
+      <details class="copyright-disclosure">
+        <summary class="copyright-toggle-wrap">
+          <span class="copyright-toggle-btn">
+            Copyright Notice
+          </span>
+        </summary>
+        <div class="copyright-notice">
+          <h4>Copyright Notice</h4>
+          <p>All pixel art works, including sprites, animations, and designs, are protected under copyright law.</p>
+          <ul>
+            <li>Artwork is displayed for portfolio purposes only</li>
+            <li>All rights reserved for all pixel art assets and animations</li>
+            <li>No permission is granted for reproduction or use in any form</li>
+            <li>Commercial use or redistribution is strictly prohibited</li>
+            <li>Screenshots and artwork may not be used without explicit written permission</li>
+          </ul>
+          <p>For licensing inquiries or permissions, please contact me through the contact form.</p>
+        </div>
+      </details>
+
+      <div class="character-showcase">
+        <div class="gallery-controls">
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid" title="Grid View">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="list" title="List View">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Characters Section -->
+        <div class="character-section characters-section" data-aos="fade-up" data-character="characters">
+          <h3 class="character-title">Characters</h3>
+          <div class="character-grid">
+            <div class="character-card" data-character="mimi" data-animation-type="static">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Mimi1.png" alt="Mimi - Static" loading="lazy" data-character="mimi">
+              </div>
+              <div class="card-info">
+                <h4>Static Design</h4>
+                <p>Base character design</p>
+              </div>
+            </div>
+
+            <div class="character-card" data-character="mimi" data-animation-type="idle">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Mimi_idel2.gif" alt="Mimi - Idle" loading="lazy" data-character="mimi">
+              </div>
+              <div class="card-info">
+                <h4>Idle Animation</h4>
+                <p>Breathing and subtle movements</p>
+              </div>
+            </div>
+
+            <div class="character-card" data-character="mimi" data-animation-type="run">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Mimi_run2.gif" alt="Mimi - Run Animation" loading="lazy" data-character="mimi">
+              </div>
+              <div class="card-info">
+                <h4>Run Animation</h4>
+                <p>Dynamic movement sequence</p>
+              </div>
+            </div>
+
+            <div class="character-card" data-character="mimi" data-animation-type="run-alt">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Mimi1_run.gif" alt="Mimi - Alternative Run" loading="lazy" data-character="mimi">
+              </div>
+              <div class="card-info">
+                <h4>Run Animation 2</h4>
+                <p>Alternative running style</p>
+              </div>
+            </div>
+
+            <div class="character-card" data-character="kamila" data-animation-type="static">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Kamilaaaaaa.png" alt="Kaka - Character Design" loading="lazy" data-character="kamila">
+              </div>
+              <div class="card-info">
+                <h4>Character Design</h4>
+                <p>Main character artwork</p>
+              </div>
+            </div>
+
+            <div class="character-card" data-animation-type="static">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/1_Character .gif" alt="Unnamed Character - Static" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Character Design</h4>
+                <p>Base character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card" data-animation-type="run">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/1_run.gif" alt="Unnamed Character - Running" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Run Animation</h4>
+                <p>Dynamic running sequence</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Mar.png" alt="Mar - Character Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Mar</h4>
+                <p>Character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Wdr.png" alt="Wdr - Character Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Wdr</h4>
+                <p>Character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/nou.png" alt="Nou - Character Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Nou</h4>
+                <p>Character concept</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Monster.gif" alt="Monster Animation" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Monster</h4>
+                <p>Animated creature design</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Cat.png" alt="Cat Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Cat</h4>
+                <p>Pixel art cat design</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Dog.png" alt="Dog Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Dog</h4>
+                <p>Pixel art dog design</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner"><i class="fas fa-spinner"></i></div>
+                <img src="pixel-art/Mermaid .png" alt="Mermaid Design" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Mermaid</h4>
+                <p>Mythical creature design</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Objects Section -->
+        <div class="character-section objects-section" data-aos="fade-up" data-character="objects">
+          <h3 class="character-title">Objects & Environment</h3>
+          <div class="character-grid">
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  
+                </div>
+                <img src="pixel-art/Ice cream.gif" alt="Ice Cream Animation" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Ice Cream</h4>
+                <p>Animated food item</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  
+                </div>
+                <img src="pixel-art/chips.gif" alt="Chips Animation" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Chips</h4>
+                <p>Animated snack item</p>
+              </div>
+            </div>
+
+            <div class="character-card">
+              <div class="card-preview">
+                <div class="loading-spinner">
+                  <i class="fas fa-spinner"></i>
+                </div>
+                <img src="pixel-art/Sakara tree.png" alt="Sakura Tree" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h4>Sakura Tree</h4>
+                <p>Environmental element</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fullscreen Modal -->
+    <div class="fullscreen-modal">
+      <div class="modal-content">
+        <button class="close-modal">
+          <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Fullscreen view">
+        <div class="modal-protect-shield" title="Protected Artwork - All Rights Reserved"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html">
+        <i class="fa-solid fa-envelope"></i> Contact Me
+      </a>
+      <a href="https://github.com/karimuq" target="_blank">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://karim25.itch.io" target="_blank">
+        <i class="fa-brands fa-itch-io"></i> Itch.io
+      </a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=17.0"></script>
+  <script src="js/pixelart.js"></script>
+</body>
+</html>
