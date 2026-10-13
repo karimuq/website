@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Prevent search engines from indexing error & redirect utility pages
+Disallow: /404.html
+Disallow: /thanks.html
+
+# Sitemap location
+Sitemap: https://karimuq.github.io/website/sitemap.xml
