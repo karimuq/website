@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
+  <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <link rel="stylesheet" href="css/game-styles.css?v=2.0">
+  
+  <meta name="description" content="Official Privacy Policy for TIST — Sobriety & 75 Hard Tracker (com.tist.sobriety) by Karim Abdelnour. Full disclosure on local storage, data deletion, and Google Play compliance.">
+  <meta name="keywords" content="Privacy Policy, TIST, Sobriety Tracker, 75 Hard, com.tist.sobriety, Karim Abdelnour, Google Play Privacy Policy">
+  <meta name="author" content="Karim Abdelnour">
+  <title>Privacy Policy — TIST: Sobriety &amp; 75 Hard Tracker (com.tist.sobriety)</title>
+  <link rel="canonical" href="https://karimuq.github.io/website/privacy-policy-tist.html">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/privacy-policy-tist.html">
+  <meta property="og:title" content="Privacy Policy — TIST: Sobriety &amp; 75 Hard Tracker">
+  <meta property="og:description" content="100% on-device privacy guarantee for TIST (com.tist.sobriety). Zero server tracking, local habits, full user data control.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <style>
+    .policy-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .policy-hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px var(--shadow-sm);
+    }
+
+    .policy-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .policy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-primary {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-neutral {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .policy-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .policy-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    .policy-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .policy-meta-item strong {
+      color: var(--text-primary);
+    }
+
+    /* Table of contents card */
+    .policy-toc-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .policy-toc-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .policy-toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.6rem 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .policy-toc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+      padding: 0.2rem 0;
+    }
+
+    .policy-toc-link:hover {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .policy-toc-link i {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    /* Policy section cards */
+    .policy-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 4px 20px var(--shadow-sm);
+    }
+
+    .policy-section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .policy-section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .policy-section h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .policy-section h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    .policy-section p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    .policy-section ul,
+    .policy-section ol {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+
+    .policy-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-section a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    .policy-section a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Callout Boxes */
+    .policy-callout {
+      border-radius: 10px;
+      padding: 1.15rem 1.4rem;
+      margin: 1.25rem 0;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .policy-callout.success {
+      border-left-color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .policy-callout.warning {
+      border-left-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.1);
+    }
+
+    .policy-callout-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .policy-callout p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+    }
+
+    /* Data Table */
+    .policy-table-wrapper {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .policy-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .policy-table th,
+    .policy-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .policy-table th {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .policy-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .policy-table tr:hover td {
+      background: var(--accent-soft);
+    }
+
+    /* Step boxes */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 768px) {
+      .policy-container {
+        padding: 1.5rem 1rem 3rem;
+      }
+      .policy-hero {
+        padding: 1.75rem 1.25rem;
+      }
+      .policy-title {
+        font-size: 1.75rem;
+      }
+      .policy-section {
+        padding: 1.5rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="header-left"><h1>Karim Abdelnour</h1></div>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="policy-container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> /
+        <a href="projects-apps.html">Apps</a> /
+        <a href="app-sober-tracker.html">TIST</a> /
+        <span>Privacy Policy</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="policy-hero">
+        <div class="policy-hero-badges">
+          <span class="policy-badge badge-primary"><i class="fa-brands fa-android"></i> TIST (Sobriety &amp; 75 Hard Tracker)</span>
+          <span class="policy-badge badge-neutral">Package ID: <strong>com.tist.sobriety</strong></span>
+          <span class="policy-badge badge-success"><i class="fa-solid fa-lock"></i> 100% Local-First Storage</span>
+          <span class="policy-badge badge-neutral"><i class="fa-solid fa-check-double"></i> Google Play Store Compliant</span>
+        </div>
+        <h1 class="policy-title">Privacy Policy for TIST — Sobriety &amp; 75 Hard Tracker</h1>
+        <p class="policy-subtitle">
+          This Privacy Policy strictly governs the mobile application <strong>TIST — Sobriety &amp; 75 Hard Tracker</strong> (Application ID: <code>com.tist.sobriety</code>), developed by <strong>Karim Abdelnour</strong>. We provide comprehensive disclosures regarding user data collection, device permissions, local storage, data deletion, and third-party advertising SDKs in full compliance with the Google Play Developer Policy.
+        </p>
+        <div class="policy-meta-row">
+          <div class="policy-meta-item">
+            <i class="fa-regular fa-calendar-check"></i>
+            <span><strong>Effective Date:</strong> October 16, 2026</span>
+          </div>
+          <div class="policy-meta-item">
+            <i class="fa-solid fa-rotate"></i>
+            <span><strong>Last Updated:</strong> October 16, 2026</span>
+          </div>
+          <div class="policy-meta-item">
+            <i class="fa-solid fa-user-shield"></i>
+            <span><strong>Developer:</strong> Karim Abdelnour</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Table of Contents -->
+      <nav class="policy-toc-card" aria-label="Table of Contents">
+        <div class="policy-toc-title">
+          <i class="fa-solid fa-list-ul"></i> Table of Contents
+        </div>
+        <ul class="policy-toc-grid">
+          <li><a href="#overview" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 1. App Identity &amp; Overview</a></li>
+          <li><a href="#data-collection" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 2. User Data Handling</a></li>
+          <li><a href="#local-storage" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 3. 100% On-Device Storage</a></li>
+          <li><a href="#permissions" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 4. Device Permissions Requested</a></li>
+          <li><a href="#third-party" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 5. Third-Party SDKs &amp; Advertising</a></li>
+          <li><a href="#data-sharing" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 6. Data Sharing &amp; Disclosure</a></li>
+          <li><a href="#data-deletion" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 7. Data Retention &amp; Deletion (Google Play)</a></li>
+          <li><a href="#export-backup" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 8. Manual Backup &amp; Portability</a></li>
+          <li><a href="#children" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 9. Children's Privacy (COPPA)</a></li>
+          <li><a href="#security" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 10. Data Security Measures</a></li>
+          <li><a href="#user-rights" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 11. User Rights (GDPR &amp; CCPA)</a></li>
+          <li><a href="#changes" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 12. Updates to This Policy</a></li>
+          <li><a href="#contact" class="policy-toc-link"><i class="fa-solid fa-angle-right"></i> 13. Developer Contact Information</a></li>
+        </ul>
+      </nav>
+
+      <!-- Section 1: Overview -->
+      <section id="overview" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-compass"></i></div>
+          <h2>1. App Identity &amp; Overview</h2>
+        </div>
+        <p>
+          This document represents the official Privacy Policy for the Android application <strong>TIST — Sobriety &amp; 75 Hard Tracker</strong> (Application ID: <code>com.tist.sobriety</code>), created and maintained by developer <strong>Karim Abdelnour</strong>.
+        </p>
+        <p>
+          TIST is built as a self-contained, offline-first personal tracker for sobriety streaks, milestones, relapse tracking, and 75 Hard daily fitness challenges. We hold a strict belief that personal recovery, habit logs, and self-improvement journeys must remain private to the device owner.
+        </p>
+        <div class="policy-callout success">
+          <div class="policy-callout-title">
+            <i class="fa-solid fa-circle-check"></i> Zero Developer Servers
+          </div>
+          <p>
+            The developer operates no user accounts, no login portals, no analytics databases, and no cloud backends for TIST. All your data stays locally within your device.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2: Data Collection -->
+      <section id="data-collection" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-database"></i></div>
+          <h2>2. User Data Handling</h2>
+        </div>
+        <p>
+          The developer does <strong>not</strong> collect, harvest, or transmit your Personal Identifiable Information (PII) such as your name, email, phone number, contacts, or location.
+        </p>
+        <h3>Data You Store Within TIST:</h3>
+        <ul>
+          <li><strong>Sobriety Timers:</strong> Habit titles (e.g. alcohol, smoking, custom habit), clean start dates, and time milestones.</li>
+          <li><strong>Relapse Records:</strong> Timestamps of resets, streaks achieved, and optional reflection notes.</li>
+          <li><strong>75 Hard Challenge Items:</strong> Daily completion checklists (two 45-minute workouts, hydration tracking, diet rules, reading goals, and optional local progress photo markers).</li>
+          <li><strong>Custom App Preferences:</strong> Daily check-in reminder times, notification sound toggles, and display preferences.</li>
+        </ul>
+        <p>
+          <em>All such information is stored in local sandboxed storage on your device and is never transmitted off your device to the developer.</em>
+        </p>
+      </section>
+
+      <!-- Section 3: On-Device Storage -->
+      <section id="local-storage" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h2>3. 100% On-Device Storage</h2>
+        </div>
+        <p>
+          All information is held in the application's local WebView storage and Android sandboxed files.
+        </p>
+        <ul>
+          <li><strong>No Cloud Sync:</strong> No automatic synchronization to any remote server or cloud database.</li>
+          <li><strong>Explicitly Disabled Cloud Backup:</strong> TIST sets <code>android:allowBackup="false"</code> to ensure habit and relapse data is not copied silently to Google Drive cloud backups.</li>
+          <li><strong>Data Ownership:</strong> You have complete, unrestricted ownership and custody of your records.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Device Permissions -->
+      <section id="permissions" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-key"></i></div>
+          <h2>4. Device Permissions Requested</h2>
+        </div>
+        <p>
+          TIST only requests Android permissions strictly necessary for its advertised features:
+        </p>
+        <div class="policy-table-wrapper">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Type</th>
+                <th>Purpose &amp; Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>POST_NOTIFICATIONS</code></td>
+                <td>Optional (Android 13+)</td>
+                <td>Allows TIST to send you scheduled local notifications for daily 75 Hard check-ins and sobriety milestones. All notifications run locally on the device without external push servers.</td>
+              </tr>
+              <tr>
+                <td><code>SCHEDULE_EXACT_ALARM</code></td>
+                <td>Normal</td>
+                <td>Enables the Android system alarm manager to trigger your configured reminder notifications at your chosen exact time.</td>
+              </tr>
+              <tr>
+                <td><code>INTERNET</code></td>
+                <td>Normal</td>
+                <td>Required by the Android WebView runtime to load local app assets and connect to authorized Google AdMob ad networks.</td>
+              </tr>
+              <tr>
+                <td><code>STORAGE / DOWNLOADS</code></td>
+                <td>Optional / Scoped</td>
+                <td>Required only when you choose to export your data backup JSON file to your device's Downloads directory or share a progress card.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 5: Third-Party SDKs & Advertising -->
+      <section id="third-party" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h2>5. Third-Party SDKs &amp; Advertising</h2>
+        </div>
+        <p>
+          To support free distribution and ongoing maintenance, TIST integrates advertising SDKs provided by <strong>Google AdMob</strong> (Google LLC).
+        </p>
+        <p>
+          Google AdMob and Google Play Services may automatically collect certain diagnostic and device data to deliver relevant ads and maintain service reliability:
+        </p>
+        <ul>
+          <li>Device information (hardware model, operating system version).</li>
+          <li>Approximate geographical location based on IP address.</li>
+          <li>Google Advertising ID (AAID) for personalized or non-personalized advertising.</li>
+          <li>Ad interaction metrics (views, clicks, and crash diagnostics).</li>
+        </ul>
+
+        <div class="policy-callout warning">
+          <div class="policy-callout-title">
+            <i class="fa-solid fa-shield"></i> Privacy Safeguard
+          </div>
+          <p>
+            Your personal habit trackers, sobriety dates, and 75 Hard checklists are strictly isolated from advertising SDKs. No habit, relapse, or health data is ever accessible to Google AdMob.
+          </p>
+        </div>
+
+        <h3>Google Privacy Links:</h3>
+        <ul>
+          <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></li>
+          <li><strong>How Google Uses Data:</strong> <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/partner-sites</a></li>
+          <li><strong>Google Ad Personalization Controls:</strong> <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">https://adssettings.google.com/</a></li>
+        </ul>
+        <p>
+          <strong>Opting Out / Resetting Advertising ID:</strong> You can manage or delete your Android Advertising ID at any time via <code>Settings &gt; Google &gt; Ads &gt; Delete advertising ID</code> (or <code>Reset advertising ID</code>).
+        </p>
+      </section>
+
+      <!-- Section 6: Data Sharing -->
+      <section id="data-sharing" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-share-nodes"></i></div>
+          <h2>6. Data Sharing &amp; Disclosure</h2>
+        </div>
+        <p>
+          We do <strong>not</strong> sell, rent, lease, trade, or transfer any user data to third parties.
+        </p>
+        <ul>
+          <li>Data processing by third parties is limited strictly to Google LLC for serving ads and Google Play platform services.</li>
+          <li>We do not share any data with data brokers, marketing agencies, or analytics firms.</li>
+          <li>Because no user records are stored on our servers, we have no user data to produce for third-party requests.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7: Data Retention & Deletion -->
+      <section id="data-deletion" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-trash-can"></i></div>
+          <h2>7. Data Retention &amp; Deletion (Google Play Compliance)</h2>
+        </div>
+        <p>
+          Google Play Developer Policy requires developers to state retention periods and provide clear data deletion mechanisms. Because all data in TIST is stored locally on your device with no remote account, you have immediate, direct control over deleting your data:
+        </p>
+        <div class="steps-list">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>Delete Within the App</strong>
+              <p>You can delete any tracker or reset your 75 Hard challenge directly inside the app using the tracker settings menu.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>Clear App Data in Android Settings</strong>
+              <p>Navigate to <em>Settings &gt; Apps &gt; TIST &gt; Storage &amp; Cache &gt; Clear Storage</em>. This instantly erases all local database records and settings.</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>Uninstalling TIST</strong>
+              <p>Uninstalling the application from your device permanently purges all application storage, local files, and cache immediately.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Manual Backup & Portability -->
+      <section id="export-backup" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-file-export"></i></div>
+          <h2>8. Manual Backup &amp; Portability</h2>
+        </div>
+        <p>
+          TIST provides a built-in JSON export and import feature in <em>Settings &gt; Data</em>:
+        </p>
+        <ul>
+          <li>You can export a complete snapshot of your trackers as a plain <code>.json</code> file (e.g. <code>tist-backup.json</code>).</li>
+          <li>You can restore or merge your data on another device without any external server or account requirement.</li>
+          <li>The export file is controlled solely by you and is never uploaded automatically to any server.</li>
+        </ul>
+      </section>
+
+      <!-- Section 9: Children's Privacy -->
+      <section id="children" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-child-reaching"></i></div>
+          <h2>9. Children's Privacy (COPPA Compliance)</h2>
+        </div>
+        <p>
+          TIST is intended for a general audience and is not directed at children under the age of 13. We do not knowingly collect personal identifiable information from children under 13. If you believe a child has provided personal information, please contact us immediately so we can address the situation.
+        </p>
+      </section>
+
+      <!-- Section 10: Security -->
+      <section id="security" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h2>10. Data Security Measures</h2>
+        </div>
+        <p>
+          Your data security is guaranteed by design:
+        </p>
+        <ul>
+          <li><strong>Local Device Sandboxing:</strong> Android's application sandbox prevents other apps from accessing TIST's local data.</li>
+          <li><strong>Zero Remote Attack Surface:</strong> Because there is no centralized database holding user recovery logs, your data cannot be exposed through server database leaks.</li>
+          <li><strong>Encrypted Connections:</strong> Any outbound ad requests use encrypted HTTPS/TLS protocols.</li>
+        </ul>
+      </section>
+
+      <!-- Section 11: User Rights -->
+      <section id="user-rights" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h2>11. User Rights (GDPR &amp; CCPA Compliance)</h2>
+        </div>
+        <p>
+          In accordance with global privacy frameworks (including the European GDPR and California CCPA/CPRA):
+        </p>
+        <ul>
+          <li><strong>Right to Know &amp; Access:</strong> All your data is visible to you inside the app at all times.</li>
+          <li><strong>Right to Portability:</strong> You can export all your data in standard JSON format anytime.</li>
+          <li><strong>Right to Deletion:</strong> You can permanently wipe all records anytime directly from your device.</li>
+          <li><strong>Right to Opt-Out:</strong> You can disable advertising personalization via Android OS system settings.</li>
+        </ul>
+      </section>
+
+      <!-- Section 12: Changes to This Policy -->
+      <section id="changes" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <h2>12. Updates to This Policy</h2>
+        </div>
+        <p>
+          We may revise this Privacy Policy periodically to maintain compliance with Google Play Developer Policies and applicable laws. Updates are effective immediately upon posting to this URL with the <strong>Last Updated</strong> date refreshed.
+        </p>
+      </section>
+
+      <!-- Section 13: Developer Contact -->
+      <section id="contact" class="policy-section">
+        <div class="policy-section-header">
+          <div class="policy-section-icon"><i class="fa-solid fa-envelope"></i></div>
+          <h2>13. Developer Contact Information</h2>
+        </div>
+        <p>
+          For any questions, clarifications, or requests concerning this Privacy Policy for <strong>TIST</strong>, please contact:
+        </p>
+        <ul>
+          <li><strong>Developer:</strong> Karim Abdelnour</li>
+          <li><strong>Application:</strong> TIST — Sobriety &amp; 75 Hard Tracker (<code>com.tist.sobriety</code>)</li>
+          <li><strong>Website:</strong> <a href="https://karimuq.github.io/website/" target="_blank" rel="noopener noreferrer">https://karimuq.github.io/website/</a></li>
+          <li><strong>Contact Page:</strong> <a href="contact.html">https://karimuq.github.io/website/contact.html</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/karimuq" target="_blank" rel="noopener noreferrer">https://github.com/karimuq</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+      <a href="privacy-policy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+      <a href="https://github.com/karimuq" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://karim25.itch.io" target="_blank"><i class="fa-brands fa-itch-io"></i> Itch.io</a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=17.0"></script>
+</body>
+</html>
