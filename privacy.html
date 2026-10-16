@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Master Privacy Policy for all Android applications and games developed by Karim Abdelnour. Full transparency on data handling, permissions, Google AdMob, and local storage.">
+  <meta name="author" content="Karim Abdelnour">
+  <title>Privacy Policy — Karim Abdelnour Android Applications</title>
+  <link rel="canonical" href="https://karimuq.github.io/website/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #0f1419;
+      --bg-secondary: #151b23;
+      --bg-card: rgba(26, 34, 45, 0.85);
+      --border-color: rgba(255, 255, 255, 0.12);
+      --text-primary: #f0f6fc;
+      --text-secondary: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+      --accent-soft: rgba(88, 166, 255, 0.12);
+      --success: #3fb950;
+      --success-soft: rgba(63, 185, 80, 0.12);
+      --warning: #d29922;
+      --warning-soft: rgba(210, 153, 34, 0.12);
+      --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-primary: #f6f8fa;
+        --bg-secondary: #ffffff;
+        --bg-card: #ffffff;
+        --border-color: #d0d7de;
+        --text-primary: #1f2328;
+        --text-secondary: #424a53;
+        --text-muted: #656d76;
+        --accent: #0969da;
+        --accent-hover: #0854ad;
+        --accent-soft: rgba(9, 105, 218, 0.08);
+        --success: #1a7f37;
+        --success-soft: rgba(26, 127, 55, 0.08);
+        --warning: #9a6700;
+        --warning-soft: rgba(154, 103, 0, 0.08);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      line-height: 1.68;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 2.5rem 1.25rem 4rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header & Hero */
+    header {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .badge-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .badge-success {
+      background: var(--success-soft);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .badge-neutral {
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .meta-box strong {
+      color: var(--text-primary);
+    }
+
+    /* Quick Navigation TOC */
+    .toc-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.85rem;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.5rem 1.25rem;
+      list-style: none;
+    }
+
+    .toc-grid a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .toc-grid a:hover {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    /* Content Sections */
+    section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.35rem 0 0.5rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    ul, ol {
+      color: var(--text-secondary);
+      padding-left: 1.4rem;
+      margin-bottom: 1.15rem;
+      font-size: 0.98rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      font-size: 0.88em;
+      padding: 0.2em 0.4em;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 6px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 1.15rem 1.4rem;
+      margin: 1.25rem 0;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .callout.success {
+      border-left-color: var(--success);
+      background: var(--success-soft);
+    }
+
+    .callout.warning {
+      border-left-color: var(--warning);
+      background: var(--warning-soft);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    /* App Table / Tag List */
+    .app-tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .app-tag {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Steps list */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-body strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-body p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2.5rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.25rem 0.85rem 3rem;
+      }
+      header {
+        padding: 1.75rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      section {
+        padding: 1.5rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-accent">Google Play Store Compliant</span>
+        <span class="badge badge-success">100% Local User Data</span>
+        <span class="badge badge-neutral">Developer: Karim Abdelnour</span>
+      </div>
+      <h1>Privacy Policy</h1>
+      <p class="lead">
+        This Master Privacy Policy applies to all Android applications, utilities, and Unity-based mobile games developed and published by <strong>Karim Abdelnour</strong>. We are committed to complete transparency regarding how our applications handle device permissions, sensitive user data, and third-party advertising SDKs.
+      </p>
+      <div class="meta-box">
+        <div><strong>Effective Date:</strong> October 16, 2026</div>
+        <div><strong>Last Updated:</strong> October 16, 2026</div>
+        <div><strong>Developer:</strong> Karim Abdelnour</div>
+      </div>
+    </header>
+
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">Table of Contents</div>
+      <ul class="toc-grid">
+        <li><a href="#covered-apps">&rarr; 1. Covered Applications</a></li>
+        <li><a href="#admob">&rarr; 2. Third-Party Advertising (Google AdMob)</a></li>
+        <li><a href="#location">&rarr; 3. Location Permissions (GPS Speedometer)</a></li>
+        <li><a href="#local-data">&rarr; 4. Local User Data (Health, Utility &amp; Finance)</a></li>
+        <li><a href="#children">&rarr; 5. Children's Privacy</a></li>
+        <li><a href="#security">&rarr; 6. Data Security &amp; Retention</a></li>
+        <li><a href="#contact">&rarr; 7. Contact Us &amp; Inquiries</a></li>
+      </ul>
+    </nav>
+
+    <!-- 1. Covered Applications -->
+    <section id="covered-apps">
+      <h2>1. Covered Applications</h2>
+      <p>
+        This Privacy Policy strictly governs all mobile applications, software tools, and interactive games distributed under the developer name <strong>Karim Abdelnour</strong> on the Google Play Store and other distribution channels.
+      </p>
+      <p>Explicitly covered titles include, but are not limited to:</p>
+      <div class="app-tag-grid">
+        <span class="app-tag">TIST — Sobriety &amp; 75 Hard Tracker (<code>com.tist.sobriety</code>)</span>
+        <span class="app-tag">GPS Speedometer &amp; Odometer</span>
+        <span class="app-tag">Stock &amp; Portfolio Tracker</span>
+        <span class="app-tag">BMI Calculator &amp; Health Companion</span>
+        <span class="app-tag">Tap To Add (Quick Counter &amp; Tracker)</span>
+        <span class="app-tag">Lock-In Detector &amp; Productivity Tools</span>
+        <span class="app-tag">ScreenSync &amp; Media Converters</span>
+        <span class="app-tag">Bounce Pong (Unity Game)</span>
+        <span class="app-tag">FPS 2 &amp; Platformer Interactive Titles (Unity Games)</span>
+        <span class="app-tag">O-Cars &amp; Mini-Hit Mobile Games</span>
+      </div>
+      <p>
+        Any new utility application, mobile game, or software release published under this developer account automatically adheres to the principles and terms detailed in this document.
+      </p>
+    </section>
+
+    <!-- 2. Third-Party Advertising (Google AdMob) -->
+    <section id="admob">
+      <h2>2. Third-Party Advertising (Google AdMob)</h2>
+      <p>
+        To support free distribution and ongoing maintenance across our mobile applications, our apps may integrate the <strong>Google Mobile Ads (AdMob) SDK</strong>, provided by Google LLC.
+      </p>
+      <p>
+        The Google AdMob SDK automatically collects and processes certain device information and telemetry to serve personalized and non-personalized advertisements, manage ad frequency, and prevent invalid traffic and ad fraud. This data may include:
+      </p>
+      <ul>
+        <li><strong>Device Identifiers:</strong> Such as the Android Advertising ID (AAID) and vendor-specific hardware identifiers.</li>
+        <li><strong>Coarse Location &amp; Network Information:</strong> IP address, general country/region location, and connection type.</li>
+        <li><strong>App Interaction &amp; Diagnostic Data:</strong> Ad views, click interactions, session durations, and crash/diagnostic logs.</li>
+      </ul>
+      <p>
+        For detailed information on how Google uses information from sites or apps that use their services, please review Google's official documentation:
+      </p>
+      <p>
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">
+          &rarr; Google's Privacy &amp; Terms: How Google uses data when you use our partners' sites or apps
+        </a>
+      </p>
+
+      <div class="callout warning">
+        <div class="callout-title">How to Opt Out or Reset Your Android Advertising ID</div>
+        <p>
+          You have full control over personalized advertising directly through your Android device operating system:
+        </p>
+        <ol style="margin-top: 0.5rem; margin-bottom: 0;">
+          <li>Open your device <strong>Settings</strong>.</li>
+          <li>Tap <strong>Google</strong> &rarr; <strong>Ads</strong> (or <strong>Privacy</strong> &rarr; <strong>Ads</strong>).</li>
+          <li>Select <strong>Delete advertising ID</strong> to remove personalized ad tracking entirely, or tap <strong>Reset advertising ID</strong> to generate a fresh, unlinked identifier.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3. Location Permissions (GPS Speedometer) -->
+    <section id="location">
+      <h2>3. Location Permissions (GPS Speedometer)</h2>
+      <p>
+        Certain utility applications published under this account — notably our <strong>GPS Speedometer &amp; Odometer</strong> utility — require device location permissions (<code>ACCESS_FINE_LOCATION</code> and <code>ACCESS_COARSE_LOCATION</code>) to perform their advertised functions.
+      </p>
+      <div class="callout success">
+        <div class="callout-title">100% Local GPS Processing Guarantee</div>
+        <p>
+          Real-time GPS satellite coordinates are used <strong>strictly locally on your device</strong> to calculate velocity, instantaneous speed, heading, and trip distance.
+        </p>
+      </div>
+      <ul>
+        <li><strong>Zero Developer Transmission:</strong> Your location coordinates and location history are <strong>never</strong> transmitted to, collected by, or stored on external developer servers.</li>
+        <li><strong>No Continuous Background Tracking:</strong> Location access operates strictly while the speedometer active session is running and stops immediately when you close the utility.</li>
+        <li><strong>No Third-Party Location Selling:</strong> We never share, broker, or sell user location data to data brokers, advertising aggregators, or analytics providers.</li>
+      </ul>
+    </section>
+
+    <!-- 4. Local User Data (Health, Utility & Finance Data) -->
+    <section id="local-data">
+      <h2>4. Local User Data (Health, Utility &amp; Finance Data)</h2>
+      <p>
+        Applications published by Karim Abdelnour frequently provide personal tracking capabilities — including <strong>sobriety timers and relapse history</strong> (TIST), <strong>Body Mass Index (BMI) metrics and weight logs</strong>, and <strong>financial asset watchlists and trade positions</strong> (Stock Tracker).
+      </p>
+      <h3>Zero-Server / Local-First Architecture</h3>
+      <p>
+        All personal records, numerical metrics, habits, and notes entered by the user are saved <strong>100% locally on the user's device</strong> (utilizing private Android internal storage, SQLite databases, or sandboxed WebView storage).
+      </p>
+      <ul>
+        <li>The developer does <strong>not</strong> operate, host, or maintain any external databases or cloud servers to collect or review this personal input.</li>
+        <li>No user registration, account sign-up, or cloud login is required to access full functionality.</li>
+        <li>Android cloud backup is explicitly disabled (<code>android:allowBackup="false"</code>) in sensitive health tools to prevent unsolicited cloud mirroring.</li>
+      </ul>
+
+      <h3>Complete User Data Deletion Rights</h3>
+      <p>
+        Because your data is housed solely on your physical device, you maintain unrestricted, unilateral control over deleting your information at any moment:
+      </p>
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <strong>In-App Deletion</strong>
+            <p>Delete, edit, or reset individual trackers, habit streaks, or stock watchlists directly inside the respective application interface.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <strong>Clear Storage via Android Settings</strong>
+            <p>Open <em>Settings &gt; Apps &gt; [App Name] &gt; Storage &amp; Cache &gt; Clear Storage</em>. This permanently wipes all saved data, database files, and local preferences.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <strong>Uninstalling the Application</strong>
+            <p>Uninstalling the application from your Android device instantly and permanently destroys the app's sandboxed storage directory. No orphaned copies remain on any remote server.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Children's Privacy -->
+    <section id="children">
+      <h2>5. Children's Privacy (COPPA Compliance)</h2>
+      <p>
+        Our mobile applications and interactive games are intended for general audiences aged 16 and older (or 18 and older where applicable).
+      </p>
+      <p>
+        Our applications are not directed toward children under the age of 13, and we do not knowingly collect, request, or solicit personally identifiable information from children under 13 in compliance with the U.S. Children's Online Privacy Protection Act (COPPA) and international child privacy regulations. If you believe that a child has provided us with personal information, please notify us at our support email so that we can promptly remove any associated technical identifiers.
+      </p>
+    </section>
+
+    <!-- 6. Data Security & Retention -->
+    <section id="security">
+      <h2>6. Data Security &amp; Retention</h2>
+      <p>
+        We implement rigorous safeguards to safeguard user data integrity:
+      </p>
+      <ul>
+        <li><strong>Operating System Sandboxing:</strong> All local files, preferences, and database records reside within the secure Android application sandbox, preventing unauthorized access by other installed applications.</li>
+        <li><strong>Encrypted Network Transmission:</strong> Any network communication with authorized third-party endpoints (such as Google AdMob or Google Play Core libraries) is strictly enforced via industry-standard <strong>HTTPS / TLS encryption</strong>.</li>
+        <li><strong>Zero Retention on Remote Servers:</strong> Because we do not transmit or store personal health, financial, or location records on developer servers, there is no remote database susceptible to external breaches or unauthorized retention.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Contact Us -->
+    <section id="contact">
+      <h2>7. Contact Us &amp; Inquiries</h2>
+      <p>
+        If you have any questions, clarifications, feedback, or data requests regarding this Master Privacy Policy or any mobile application published by Karim Abdelnour, please contact us:
+      </p>
+      <ul>
+        <li><strong>Developer:</strong> Karim Abdelnour</li>
+        <li><strong>Support Email:</strong> <a href="mailto:karimabdelnour25@gmail.com">karimabdelnour25@gmail.com</a></li>
+        <li><strong>Developer Website:</strong> <a href="https://karimuq.github.io/website/" target="_blank" rel="noopener noreferrer">https://karimuq.github.io/website/</a></li>
+        <li><strong>Contact Page:</strong> <a href="contact.html">https://karimuq.github.io/website/contact.html</a></li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+        We aim to respond to all legitimate privacy inquiries and technical questions within 48 business hours.
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Karim Abdelnour. All rights reserved. | <a href="privacy.html">Master Privacy Policy</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+  </div>
+</body>
+</html>
