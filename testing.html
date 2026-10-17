@@ -102,16 +102,85 @@
       display: inline !important;
     }
 
-    /* Arabic font styling (retaining stable layout without flipping header or grid) */
+    /* Arabic styling & BiDi direction fix (prevents inverted/scrambled text around English words) */
     html[lang="ar"] [data-lang="ar"] {
       font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      direction: rtl;
+      unicode-bidi: isolate;
+      text-align: right;
+    }
+
+    /* Centered text elements in Arabic */
+    html[lang="ar"] .testing-hero p[data-lang="ar"],
+    html[lang="ar"] .section-heading-wrap p[data-lang="ar"] {
+      text-align: center;
+      direction: rtl;
+    }
+
+    /* Card and Alert RTL layout alignment */
+    html[lang="ar"] .requirement-alert {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .requirement-content {
+      text-align: right;
+      direction: rtl;
+    }
+
+    html[lang="ar"] .group-step-card {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .group-step-info {
+      text-align: right;
+      direction: rtl;
+    }
+
+    html[lang="ar"] .test-card {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .test-card-body {
+      text-align: right;
+      direction: rtl;
+    }
+
+    html[lang="ar"] .test-card-specs {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .t4t-section {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .t4t-header,
+    html[lang="ar"] .t4t-step-content {
+      text-align: right;
+      direction: rtl;
+    }
+
+    html[lang="ar"] .faq-section {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .faq-item summary {
+      text-align: right;
+      direction: rtl;
+    }
+
+    html[lang="ar"] .faq-answer {
+      text-align: right;
+      direction: rtl;
     }
 
     /* Site header, breadcrumb, and main title remain fixed in English and LTR */
     header,
     header *,
+    .top-toolbar,
     .breadcrumb,
     .breadcrumb *,
+    .lang-switch-wrap,
+    .lang-switch-wrap *,
     .testing-hero h1,
     .testing-hero h1 * {
       direction: ltr !important;
