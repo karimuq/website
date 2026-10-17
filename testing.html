@@ -107,6 +107,21 @@
       font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
+    /* Site header, breadcrumb, and main title remain fixed in English and LTR */
+    header,
+    header *,
+    .breadcrumb,
+    .breadcrumb *,
+    .testing-hero h1,
+    .testing-hero h1 * {
+      direction: ltr !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+
+    .testing-hero h1 {
+      text-align: center !important;
+    }
+
     /* ==========================================
        PAGE LAYOUT & HERO
        ========================================== */
@@ -856,8 +871,7 @@
       <!-- Top Toolbar: Breadcrumb & Bilingual Language Toggle -->
       <div class="top-toolbar">
         <nav class="breadcrumb">
-          <span data-lang="en"><a href="index.html">Home</a> / <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Google Play Closed Testing</span></span>
-          <span data-lang="ar"><a href="index.html">الرئيسية</a> / <a href="projects.html">المشاريع</a> / <a href="projects-apps.html">التطبيقات</a> / <span>الاختبار المغلق (Google Play)</span></span>
+          <a href="index.html">Home</a> / <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Google Play Closed Testing</span>
         </nav>
 
         <div class="lang-switch-wrap" role="radiogroup" aria-label="Language selector">
@@ -873,13 +887,10 @@
       <!-- Hero Header -->
       <section class="testing-hero">
         <span class="game-status-pill">
-          <i class="fa-brands fa-google-play"></i>
-          <span data-lang="en">14-Day Google Play Testing Program</span>
-          <span data-lang="ar">برنامج اختبار Google Play لمدة 14 يوماً</span>
+          <i class="fa-brands fa-google-play"></i> 14-Day Google Play Testing Program
         </span>
         
-        <h1 data-lang="en">Help Test My <span class="highlight-blue">Android Apps</span></h1>
-        <h1 data-lang="ar">ساعدني في اختبار <span class="highlight-blue">تطبيقاتي على أندرويد</span></h1>
+        <h1>Help Test My <span class="highlight-blue">Android Apps</span></h1>
 
         <p class="lead" data-lang="en">
           Google Play requires <strong>12+ opt-in testers for 14 continuous days</strong> before an Android application can be published publicly. I am looking for community testers for my 4 new apps. If you are an indie developer, I also do <strong>100% Test-for-Test</strong>!
