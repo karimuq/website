@@ -194,14 +194,31 @@
 
     /* Site navigation header, breadcrumb, and language toggle remain fixed in English and LTR */
     header,
-    header *,
+    header h1,
+    header nav,
+    header nav a,
     .top-toolbar,
     .breadcrumb,
-    .breadcrumb *,
+    .breadcrumb a,
+    .breadcrumb span,
     .lang-switch-wrap,
-    .lang-switch-wrap * {
+    .lang-btn {
       direction: ltr !important;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+
+    /* Ensure Font Awesome icons inside header (such as the theme toggle sun/moon icon) always render correctly */
+    #theme-toggle,
+    .theme-toggle {
+      direction: ltr !important;
+    }
+
+    #theme-toggle i,
+    .theme-toggle i {
+      font-family: "Font Awesome 6 Free" !important;
+      font-weight: 900 !important;
+      font-style: normal !important;
+      display: inline-block !important;
     }
 
     .testing-hero h1 {
