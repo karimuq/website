@@ -475,6 +475,72 @@
         white-space: nowrap;
       }
     }
+
+    /* Closed Testing Hub Banner */
+    .beta-alert-banner {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 16px;
+      padding: 1.25rem 1.75rem;
+      margin: 1.5rem auto 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .beta-alert-banner:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+    }
+
+    .beta-alert-text {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .beta-alert-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #10b981);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .beta-alert-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+
+    .beta-alert-cta:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+      color: #ffffff;
+    }
   </style>
 </head>
 
@@ -513,6 +579,24 @@
         <a href="projects-cad.html">CAD</a>
       </div>
 
+      <!-- Google Play Closed Beta Banner -->
+      <div class="beta-alert-banner">
+        <div class="beta-alert-text">
+          <div class="beta-alert-icon">
+            <i class="fa-brands fa-google-play"></i>
+          </div>
+          <div>
+            <h4 style="margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--text-primary);">Help Test My Android Apps (Google Play Closed Beta)</h4>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.45;">
+              Help me pass the 12 testers / 14 days Google Play requirement! Full <strong>100% Test-for-Test</strong> mutual support for fellow indie developers.
+            </p>
+          </div>
+        </div>
+        <a href="testing.html" class="beta-alert-cta">
+          <i class="fa-solid fa-users"></i> Join Beta Program &rarr;
+        </a>
+      </div>
+
       <details class="copyright-disclosure">
         <summary class="copyright-toggle-wrap">
           <span class="copyright-toggle-btn">
@@ -537,10 +621,10 @@
       <!-- Interactive Category Filter -->
       <div class="app-filter-bar" role="tablist" aria-label="Filter apps by platform">
         <button type="button" class="app-filter-pill active" data-filter="all">
-          <i class="fa-solid fa-shapes"></i> All Apps <span class="filter-count">10</span>
+          <i class="fa-solid fa-shapes"></i> All Apps <span class="filter-count">12</span>
         </button>
         <button type="button" class="app-filter-pill" data-filter="android">
-          <i class="fa-brands fa-android"></i> Android <span class="filter-count">4</span>
+          <i class="fa-brands fa-android"></i> Android <span class="filter-count">6</span>
         </button>
         <button type="button" class="app-filter-pill" data-filter="desktop">
           <i class="fa-solid fa-desktop"></i> Desktop <span class="filter-count">4</span>
@@ -553,7 +637,7 @@
       <!-- App Showcase Grid -->
       <div class="app-cards-grid">
 
-        <!-- 1. TIST (There Is Still Time) -->
+        <!-- 1. TIST: Sobriety Tracker -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #064e3b, #022c22); --banner-glow: #10b981;">
@@ -563,7 +647,7 @@
           </div>
           <div class="app-card-body">
             <div class="app-card-header">
-              <h3>TIST (There Is Still Time)</h3>
+              <h3>TIST: Sobriety Tracker</h3>
             </div>
             <p>A 100% local, privacy-focused sobriety streak tracker with live timers, milestone progression, and
               relapse logging.</p>
@@ -584,7 +668,98 @@
           </div>
         </article>
 
-        <!-- 2. Stock Tracker -->
+        <!-- 2. Speedometer -->
+        <article class="app-hub-card" data-category="android">
+          <div class="app-card-banner"
+            style="background: linear-gradient(135deg, #9a3412, #431407); --banner-glow: #fbbf24;">
+            <div class="app-icon-squircle">
+              <i class="fa-solid fa-gauge-high" style="color: #fbbf24;"></i>
+            </div>
+          </div>
+          <div class="app-card-body">
+            <div class="app-card-header">
+              <h3>Speedometer</h3>
+            </div>
+            <p>A GPS-based mobile speedometer for real-time speed tracking and trip velocity metrics with responsive HUD
+              dials.</p>
+            <div class="app-card-meta">
+              <div class="app-card-tags">
+                <span class="app-card-tag">Utility</span>
+                <span class="app-card-tag">GPS</span>
+              </div>
+            </div>
+            <div class="app-card-actions">
+              <a href="app-speedometer.html" class="action-play-btn">View Details <i
+                  class="fa-solid fa-arrow-right"></i></a>
+              <a href="privacy.html" class="action-icon-btn" title="Privacy Policy" aria-label="Privacy Policy"><i
+                  class="fa-solid fa-shield-halved"></i></a>
+              <a href="https://github.com/karimuq/Speedometer/releases/latest" target="_blank" rel="noopener noreferrer"
+                class="action-icon-btn" title="Download APK" aria-label="Download APK"><i
+                  class="fa-solid fa-download"></i></a>
+              <a href="https://github.com/karimuq/Speedometer" target="_blank" rel="noopener noreferrer"
+                class="action-icon-btn" title="GitHub Repository" aria-label="GitHub"><i
+                  class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Currency Converter -->
+        <article class="app-hub-card" data-category="android">
+          <div class="app-card-banner"
+            style="background: linear-gradient(135deg, #065f46, #064e3b); --banner-glow: #34d399;">
+            <div class="app-icon-squircle">
+              <i class="fa-solid fa-money-bill-transfer" style="color: #34d399;"></i>
+            </div>
+          </div>
+          <div class="app-card-body">
+            <div class="app-card-header">
+              <h3>Currency Converter</h3>
+            </div>
+            <p>A fast, offline-capable Android currency exchange tool with multi-currency conversions and offline rate caching.</p>
+            <div class="app-card-meta">
+              <div class="app-card-tags">
+                <span class="app-card-tag">Finance</span>
+                <span class="app-card-tag">Utility</span>
+              </div>
+            </div>
+            <div class="app-card-actions">
+              <a href="app-currency-converter.html" class="action-play-btn">View Details <i
+                  class="fa-solid fa-arrow-right"></i></a>
+              <a href="privacy.html" class="action-icon-btn" title="Privacy Policy" aria-label="Privacy Policy"><i
+                  class="fa-solid fa-shield-halved"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. BMI calculator -->
+        <article class="app-hub-card" data-category="android">
+          <div class="app-card-banner"
+            style="background: linear-gradient(135deg, #4c1d95, #2e1065); --banner-glow: #a78bfa;">
+            <div class="app-icon-squircle">
+              <i class="fa-solid fa-weight-scale" style="color: #c4b5fd;"></i>
+            </div>
+          </div>
+          <div class="app-card-body">
+            <div class="app-card-header">
+              <h3>BMI calculator</h3>
+            </div>
+            <p>A clean, 100% private Body Mass Index calculator with Metric &amp; Imperial units, WHO tiers, and ideal weight targets.</p>
+            <div class="app-card-meta">
+              <div class="app-card-tags">
+                <span class="app-card-tag">Health</span>
+                <span class="app-card-tag">Fitness</span>
+              </div>
+            </div>
+            <div class="app-card-actions">
+              <a href="app-bmi-calculator.html" class="action-play-btn">View Details <i
+                  class="fa-solid fa-arrow-right"></i></a>
+              <a href="privacy.html" class="action-icon-btn" title="Privacy Policy" aria-label="Privacy Policy"><i
+                  class="fa-solid fa-shield-halved"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Stock Tracker -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #0b192c, #1e3e62); --banner-glow: #00e676;">
@@ -614,40 +789,7 @@
           </div>
         </article>
 
-        <!-- 3. Speedometer -->
-        <article class="app-hub-card" data-category="android">
-          <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #9a3412, #431407); --banner-glow: #fbbf24;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-gauge-high" style="color: #fbbf24;"></i>
-            </div>
-          </div>
-          <div class="app-card-body">
-            <div class="app-card-header">
-              <h3>Speedometer</h3>
-            </div>
-            <p>A GPS-based mobile speedometer for real-time speed tracking and trip velocity metrics with responsive HUD
-              dials.</p>
-            <div class="app-card-meta">
-              <div class="app-card-tags">
-                <span class="app-card-tag">Utility</span>
-                <span class="app-card-tag">GPS</span>
-              </div>
-            </div>
-            <div class="app-card-actions">
-              <a href="app-speedometer.html" class="action-play-btn">View Details <i
-                  class="fa-solid fa-arrow-right"></i></a>
-              <a href="https://github.com/karimuq/Speedometer/releases/latest" target="_blank" rel="noopener noreferrer"
-                class="action-icon-btn" title="Download APK" aria-label="Download APK"><i
-                  class="fa-solid fa-download"></i></a>
-              <a href="https://github.com/karimuq/Speedometer" target="_blank" rel="noopener noreferrer"
-                class="action-icon-btn" title="GitHub Repository" aria-label="GitHub"><i
-                  class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 4. Tap to Add -->
+        <!-- 6. Tap to Add -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #312e81, #1e1b4b); --banner-glow: #a5b4fc;">
@@ -680,7 +822,7 @@
           </div>
         </article>
 
-        <!-- 5. The Lock In Detector -->
+        <!-- 7. The Lock In Detector -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #0f172a, #1e293b); --banner-glow: #38bdf8;">
@@ -713,7 +855,7 @@
           </div>
         </article>
 
-        <!-- 6. Media Downloader -->
+        <!-- 8. Media Downloader -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #4a044e, #2e1065); --banner-glow: #f472b6;">
@@ -745,7 +887,7 @@
           </div>
         </article>
 
-        <!-- 7. File Converter -->
+        <!-- 9. File Converter -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #1e3a8a, #0c1c3f); --banner-glow: #60a5fa;">
@@ -775,7 +917,7 @@
           </div>
         </article>
 
-        <!-- 8. Scroll Player -->
+        <!-- 10. Scroll Player -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #3b0764, #1e1b4b); --banner-glow: #c084fc;">
@@ -804,7 +946,7 @@
           </div>
         </article>
 
-        <!-- 9. ScreenSync -->
+        <!-- 11. ScreenSync -->
         <article class="app-hub-card" data-category="concept">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #0f766e, #134e4a); --banner-glow: #2dd4bf;">
@@ -833,7 +975,7 @@
           </div>
         </article>
 
-        <!-- 10. Random Number Generator -->
+        <!-- 12. Random Number Generator -->
         <article class="app-hub-card" data-category="concept">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #7e22ce, #3b0764); --banner-glow: #e879f9;">
@@ -869,6 +1011,7 @@
   <footer>
     <div class="footer-links">
       <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+      <a href="testing.html"><i class="fa-brands fa-google-play"></i> Beta Testing</a>
       <a href="privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
       <a href="https://github.com/karimuq" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank"><i class="fa-brands fa-linkedin"></i>
