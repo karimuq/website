@@ -112,6 +112,7 @@
 
     /* Centered text elements in Arabic */
     html[lang="ar"] .testing-hero p[data-lang="ar"],
+    html[lang="ar"] .section-heading-wrap h2[data-lang="ar"],
     html[lang="ar"] .section-heading-wrap p[data-lang="ar"] {
       text-align: center;
       direction: rtl;
@@ -145,6 +146,12 @@
       direction: rtl;
     }
 
+    html[lang="ar"] .test-card-desc {
+      text-align: right;
+      direction: rtl;
+      unicode-bidi: isolate;
+    }
+
     html[lang="ar"] .test-card-specs {
       direction: rtl;
     }
@@ -157,6 +164,18 @@
     html[lang="ar"] .t4t-step-content {
       text-align: right;
       direction: rtl;
+    }
+
+    html[lang="ar"] .t4t-step-item {
+      direction: rtl;
+      text-align: right;
+    }
+
+    html[lang="ar"] .t4t-step-item h4,
+    html[lang="ar"] .t4t-step-item p {
+      direction: rtl;
+      text-align: right;
+      unicode-bidi: isolate;
     }
 
     html[lang="ar"] .faq-section {
@@ -884,9 +903,11 @@
       pointer-events: none;
     }
 
-    html[dir="rtl"] .toast-copy {
+    html[lang="ar"] .toast-copy {
       right: auto;
       left: 2rem;
+      direction: rtl;
+      font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     .toast-copy.show {
@@ -1019,7 +1040,7 @@
             <p style="margin-top: 0.5rem; font-size: 0.88rem; color: var(--text-muted);">
               <span data-lang="en">Group Email:</span>
               <span data-lang="ar">بريد المجموعة:</span>
-              <code style="color: #3b82f6;">cookie-tester@googlegroups.com</code>
+              <code style="color: #3b82f6; cursor: pointer;" onclick="copyText('cookie-tester@googlegroups.com')" title="Click to copy email">cookie-tester@googlegroups.com</code>
             </p>
           </div>
           <div class="group-actions">
@@ -1028,7 +1049,7 @@
               <span data-lang="en">Join Google Group</span>
               <span data-lang="ar">الانضمام للمجموعة</span>
             </a>
-            <button type="button" class="btn-copy" onclick="copyText('https://groups.google.com/g/cookie-tester', currentLang === 'ar' ? 'تم نسخ رابط المجموعة بنجاح!' : 'Google Group link copied!')">
+            <button type="button" class="btn-copy" onclick="copyText('https://groups.google.com/g/cookie-tester')">
               <i class="fa-regular fa-copy"></i>
               <span data-lang="en">Copy Link</span>
               <span data-lang="ar">نسخ الرابط</span>
@@ -1309,6 +1330,11 @@
             <span data-lang="en">Email karimabdelnour27@gmail.com</span>
             <span data-lang="ar">مراسلة karimabdelnour27@gmail.com</span>
           </a>
+          <button type="button" class="btn-t4t-contact" onclick="copyTemplate()" style="cursor: pointer; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.25);">
+            <i class="fa-regular fa-copy"></i>
+            <span data-lang="en">Copy Request Template</span>
+            <span data-lang="ar">نسخ نموذج الرسالة</span>
+          </button>
           <a href="contact.html" class="btn-t4t-contact">
             <i class="fa-solid fa-paper-plane"></i>
             <span data-lang="en">Use Website Contact Form</span>
@@ -1414,6 +1440,7 @@
   <script src="js/script.js?v=17.0"></script>
   <script>
     let currentLang = 'en';
+    let toastTimer = null;
 
     function setLanguage(lang) {
       currentLang = lang;
@@ -1423,13 +1450,27 @@
 
       if (lang === 'ar') {
         htmlEl.setAttribute('lang', 'ar');
-        btnAr.classList.add('active');
-        btnEn.classList.remove('active');
+        if (btnAr) {
+          btnAr.classList.add('active');
+          btnAr.setAttribute('aria-pressed', 'true');
+        }
+        if (btnEn) {
+          btnEn.classList.remove('active');
+          btnEn.setAttribute('aria-pressed', 'false');
+        }
+        document.title = 'برنامج الاختبار المغلق وتبادل الاختبار — تطبيقات أندرويد | Karim Abdelnour';
         localStorage.setItem('testing_hub_lang', 'ar');
       } else {
         htmlEl.setAttribute('lang', 'en');
-        btnEn.classList.add('active');
-        btnAr.classList.remove('active');
+        if (btnEn) {
+          btnEn.classList.add('active');
+          btnEn.setAttribute('aria-pressed', 'true');
+        }
+        if (btnAr) {
+          btnAr.classList.remove('active');
+          btnAr.setAttribute('aria-pressed', 'false');
+        }
+        document.title = 'Beta Testing & Test for Test — Android Apps | Karim Abdelnour';
         localStorage.setItem('testing_hub_lang', 'en');
       }
     }
@@ -1448,27 +1489,53 @@
     });
 
     function copyText(text, message) {
-      navigator.clipboard.writeText(text).then(function() {
-        showToast(message || (currentLang === 'ar' ? 'تم النسخ إلى الحافظة!' : 'Copied to clipboard!'));
-      }).catch(function() {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
+      const defaultMsg = currentLang === 'ar' ? 'تم النسخ إلى الحافظة!' : 'Copied to clipboard!';
+      const msg = message || defaultMsg;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          showToast(msg);
+        }).catch(function() {
+          fallbackCopy(text, msg);
+        });
+      } else {
+        fallbackCopy(text, msg);
+      }
+    }
+
+    function fallbackCopy(text, msg) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
         document.execCommand('copy');
-        document.body.removeChild(textarea);
-        showToast(message || (currentLang === 'ar' ? 'تم النسخ إلى الحافظة!' : 'Copied to clipboard!'));
-      });
+        showToast(msg);
+      } catch (err) {
+        showToast(text);
+      }
+      document.body.removeChild(textarea);
     }
 
     function showToast(msg) {
       const toast = document.getElementById('toast');
       const toastText = document.getElementById('toast-text');
+      if (!toast || !toastText) return;
       toastText.textContent = msg;
       toast.classList.add('show');
-      setTimeout(function() {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(function() {
         toast.classList.remove('show');
       }, 3000);
+    }
+
+    function copyTemplate() {
+      const enTemplate = "Hi Karim,\n\nI have installed your app on my device (screenshot attached).\n\nHere are my app details for testing:\n- Google Group Link: \n- Web Opt-In Link: \n- Play Store Link: \n\nThank you!";
+      const arTemplate = "مرحباً كريم،\n\nلقد قمت بتثبيت تطبيقك على هاتفي (مرفق لقطة الشاشة لإثبات التثبيت).\n\nإليك تفاصيل تطبيقي للاختبار:\n- رابط مجموعة Google:\n- رابط الموافقة (Web Opt-In):\n- رابط متجر Play:\n\nشكراً لك!";
+      const template = currentLang === 'ar' ? arTemplate : enTemplate;
+      const msg = currentLang === 'ar' ? 'تم نسخ نموذج الطلب إلى الحافظة!' : 'Email template copied to clipboard!';
+      copyText(template, msg);
     }
   </script>
 </body>
