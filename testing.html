@@ -102,39 +102,9 @@
       display: inline !important;
     }
 
-    /* RTL Arabic Typography & Layout */
-    html[dir="rtl"] body {
+    /* Arabic font styling (retaining stable layout without flipping header or grid) */
+    html[lang="ar"] [data-lang="ar"] {
       font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      text-align: right;
-    }
-
-    html[dir="rtl"] .breadcrumb {
-      direction: rtl;
-    }
-
-    html[dir="rtl"] .group-step-card::before {
-      left: auto;
-      right: 0;
-    }
-
-    html[dir="rtl"] .requirement-alert {
-      text-align: right;
-    }
-
-    html[dir="rtl"] .test-card-status {
-      right: auto;
-      left: 1.25rem;
-    }
-
-    html[dir="rtl"] .faq-item summary {
-      text-align: right;
-      padding-right: 1.5rem;
-      padding-left: 2.75rem;
-    }
-
-    html[dir="rtl"] .t4t-section::after {
-      right: auto;
-      left: -100px;
     }
 
     /* ==========================================
@@ -892,10 +862,10 @@
 
         <div class="lang-switch-wrap" role="radiogroup" aria-label="Language selector">
           <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">
-            <span>🇺🇸</span> English
+            <span>🇺🇸</span> EN
           </button>
           <button type="button" class="lang-btn" id="btn-lang-ar" onclick="setLanguage('ar')">
-            <span>🇸🇦</span> العربية
+            <span>🇪🇬</span> EG
           </button>
         </div>
       </div>
@@ -1363,15 +1333,11 @@
 
       if (lang === 'ar') {
         htmlEl.setAttribute('lang', 'ar');
-        htmlEl.setAttribute('dir', 'rtl');
-        document.body.classList.add('lang-ar');
         btnAr.classList.add('active');
         btnEn.classList.remove('active');
         localStorage.setItem('testing_hub_lang', 'ar');
       } else {
         htmlEl.setAttribute('lang', 'en');
-        htmlEl.setAttribute('dir', 'ltr');
-        document.body.classList.remove('lang-ar');
         btnEn.classList.add('active');
         btnAr.classList.remove('active');
         localStorage.setItem('testing_hub_lang', 'en');
