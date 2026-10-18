@@ -1,95 +1,738 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
   <meta charset="UTF-8">
   <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Icons & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Styles -->
   <link rel="stylesheet" href="css/styles.css?v=17.0">
-  <link rel="stylesheet" href="css/game-styles.css?v=2.0">  <meta name="description" content="Media Downloader — A universal desktop media downloading utility by Karim Abdelnour.">
-  <title>Media Downloader — App Details | Karim Abdelnour</title>
+  <link rel="stylesheet" href="css/game-styles.css?v=2.0">
+
+  <!-- SEO & Open Graph Meta Tags -->
+  <title>Media Downloader — Desktop App | Karim Abdelnour</title>
+  <meta name="description"
+    content="Media Downloader — A universal desktop media downloading utility built for personal archiving, educational research, and offline accessibility by Karim Abdelnour. Download for Windows.">
+  <meta name="author" content="Karim Abdelnour">
   <link rel="canonical" href="https://karimuq.github.io/website/app-media-downloader.html">
-  <meta property="og:title" content="Media Downloader — Desktop App by Karim Abdelnour">
-  <meta property="og:description" content="A universal media downloading desktop utility for downloading video, audio, and more.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/app-media-downloader.html">
+  <meta property="og:title" content="Media Downloader — Universal Desktop Media Utility by Karim Abdelnour">
+  <meta property="og:description"
+    content="A universal media downloading desktop utility for personal archiving, research, and offline access. Powered by yt-dlp.">
+  <meta property="og:image" content="https://karimuq.github.io/website/assets/media-downloader/screenshot.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karimuq.github.io/website/app-media-downloader.html">
+  <meta name="twitter:title" content="Media Downloader — Universal Desktop Media Utility">
+  <meta name="twitter:description"
+    content="A universal media downloading desktop utility for Windows by Karim Abdelnour. Paste a URL, pick your format, and download.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/assets/media-downloader/screenshot.png">
+
+  <!-- Scoped Styling for Media Downloader Showcase -->
+  <style>
+    .app-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .app-logo-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #581c87, #3b0764);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.35);
+      flex-shrink: 0;
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .app-logo-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .app-title-group h1 {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Screenshot Stage Console */
+    .screenshot-console {
+      background: #080c14;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.55);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .console-header-bar {
+      background: #0f172a;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .console-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .console-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-red {
+      background: #ef4444;
+    }
+
+    .dot-yellow {
+      background: #f59e0b;
+    }
+
+    .dot-green {
+      background: #10b981;
+    }
+
+    .console-title-text {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .console-actions-bar {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .console-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .console-action-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .screenshot-viewer-wrap {
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, rgba(88, 28, 135, 0.25) 0%, rgba(8, 12, 20, 0.95) 100%);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+    }
+
+    .screenshot-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .screenshot-viewer-wrap:hover .screenshot-image {
+      transform: scale(1.01);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(168, 85, 247, 0.25);
+    }
+
+    .screenshot-caption {
+      margin-top: 1rem;
+      font-size: 0.86rem;
+      color: #94a3b8;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Workflow Step Cards */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .workflow-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--game-card-border);
+      border-radius: 14px;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    [data-theme="light"] .workflow-card {
+      background: #f8fafc;
+    }
+
+    .workflow-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .workflow-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #a855f7, #7c3aed);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .workflow-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--game-text-primary);
+      margin: 0;
+    }
+
+    .workflow-card p {
+      font-size: 0.9rem !important;
+      color: var(--game-text-secondary);
+      line-height: 1.55 !important;
+      margin: 0 !important;
+    }
+
+    /* Disclaimer Card */
+    .disclaimer-card {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    [data-theme="light"] .disclaimer-card {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .disclaimer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+      color: #f59e0b;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .disclaimer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .disclaimer-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--game-text-secondary);
+      line-height: 1.55;
+    }
+
+    .disclaimer-list li i {
+      color: #f59e0b;
+      margin-top: 0.2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Sidebar Download Cards */
+    .dl-btn-primary {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+    }
+
+    .dl-btn-primary:hover {
+      background: linear-gradient(135deg, #6d28d9, #5b21b6);
+      box-shadow: 0 10px 28px rgba(124, 58, 237, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .dl-badge-size {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      font-weight: 500;
+      margin-left: 0.25rem;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      cursor: zoom-out;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-modal img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      cursor: default;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      outline: none;
+    }
+
+    .lightbox-close-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
+    }
+  </style>
 </head>
-<body>  <header>
+
+<body>
+
+  <!-- Main Global Navigation -->
+  <header>
     <div class="header-content">
-      <div class="header-left"><h1>Karim Abdelnour</h1></div>
-      <button class="hamburger"><span></span><span></span><span></span></button>
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation"><span></span><span></span><span></span></button>
       <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html" class="active">Projects</a>
+        <a href="links.html">Links Hub</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
-  </header>  <main>
+  </header>
+
+  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Media Downloader</span>
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>Media Downloader</span>
       </nav>
+
+      <!-- App Header Section -->
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Media Downloader</h1>
-            <span class="game-status-pill">GitHub</span>
-          </div>
-          <p class="game-subtitle">A universal media downloading desktop utility. Paste a URL, choose your format and quality, and download — clean interface, no bloat.</p>
-          <div class="tags">
-            <span class="tag">Desktop</span>
-            <span class="tag">Python</span>
-            <span class="tag">Utility</span>
-            <span class="tag">Proprietary</span>
-          </div>
-        </div>
-      </div>
-      <div class="game-showcase-grid">
-        <div class="game-main-content">
-          <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>Media Downloader provides a simple GUI on top of yt-dlp — one of the most capable open-source media download libraries. Instead of wrestling with command-line flags, you get a clean desktop interface where you paste a URL and hit download.</p>
-            <p>The app supports video and audio download in multiple formats and quality levels. It handles playlists, merges streams, and saves progress — all without a browser extension or account requirement.</p>
-          </div>
-          <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
-            <div class="game-feature-grid">
-              <div class="feature-card"><h3>URL Paste &amp; Download</h3><p>Paste any supported URL and download video or audio in your chosen quality.</p></div>
-              <div class="feature-card"><h3>Format Selection</h3><p>Choose between MP4, MP3, WebM, and other formats before downloading.</p></div>
-              <div class="feature-card"><h3>Playlist Support</h3><p>Download entire playlists or channels with a single URL.</p></div>
-              <div class="feature-card"><h3>Progress Tracking</h3><p>Live progress bar and speed indicator so you know exactly what is happening.</p></div>
+          <div class="app-brand-row">
+            <div class="app-logo-badge">
+              <img src="assets/media-downloader/logo.png" alt="Media Downloader Logo" width="64" height="64">
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Media Downloader</h1>
+                <span class="game-status-pill pulse-dot">v1.0.0 — Release</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A universal media downloading desktop utility built for personal archiving, educational research, and
+                offline accessibility.
+              </p>
             </div>
           </div>
-        </div>
-        <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
-          <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Windows / macOS / Linux</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">Python</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Utility / Media</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+
+          <div class="tags" style="margin-top: 1rem;">
+            <span class="tag">Windows Desktop</span>
+            <span class="tag">yt-dlp Engine</span>
+            <span class="tag">Media Utility</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Screenshot Showcase Console -->
+      <div class="screenshot-console">
+        <div class="console-header-bar">
+          <div class="console-dots">
+            <span class="console-dot dot-red"></span>
+            <span class="console-dot dot-yellow"></span>
+            <span class="console-dot dot-green"></span>
+          </div>
+          <div class="console-title-text">
+            <span>Media Downloader — Desktop User Interface</span>
+          </div>
+          <div class="console-actions-bar">
+            <button type="button" class="console-action-btn" id="btn-open-lightbox" title="Enlarge Screenshot">
+              <i class="fa-solid fa-expand"></i> Enlarge
+            </button>
+            <a href="https://github.com/karimuq/Media-Downloader" target="_blank" rel="noopener noreferrer"
+              class="console-action-btn" title="View Source on GitHub">
+              <i class="fa-brands fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="screenshot-viewer-wrap" id="screenshot-trigger" title="Click to view full resolution preview">
+          <img src="assets/media-downloader/screenshot.png" alt="Media Downloader Application Interface"
+            class="screenshot-image" width="674" height="436">
+          <div class="screenshot-caption">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Active download queue with real-time progress percentage, live ETA countdown, clipboard URL pasting,
+              and direct destination folder opening.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Showcase Grid: Main Content + Sidebar -->
+      <div class="game-showcase-grid">
+
+        <!-- Left Column: Details & Features -->
+        <div class="game-main-content">
+
+          <!-- About the App -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>About Media Downloader</h2>
+            </div>
+            <p>
+              <strong>Media Downloader</strong> is a modern desktop utility designed to make personal media archiving
+              and offline research effortless. Rather than wrestling with complex command-line arguments and flags,
+              Media Downloader provides an intuitive, high-contrast graphical user interface on top of industry-standard
+              download engines.
+            </p>
+            <p>
+              Whether you need to save video lectures for offline study, archive your own online productions, or extract
+              audio tracks for travel, Media Downloader simplifies the entire pipeline: paste any supported media URL,
+              customize format and quality in settings, and download directly to your local computer.
+            </p>
+          </div>
+
+          <!-- Feature Grid -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
+            <div class="game-feature-grid">
+
+              <div class="feature-card">
+                <h3>Universal URL Fetching</h3>
+                <p>Supports video, audio, and streaming media from thousands of web platforms with automatic stream
+                  resolution.</p>
+              </div>
+
+              <div class="feature-card">
+                <h3>Flexible Format Output</h3>
+                <p>Download full-resolution MP4/WebM video, or extract clean audio-only streams directly to MP3.</p>
+              </div>
+
+              <div class="feature-card">
+                <h3>Live Downloads Queue</h3>
+                <p>Track concurrent downloads with live percentage indicators, file size meters, and precise ETA timers.
+                </p>
+              </div>
+
+              <div class="feature-card">
+                <h3>One-Click Folder Access</h3>
+                <p>Jump directly to your downloaded files in Windows Explorer with the integrated folder button on each
+                  finished card.</p>
+              </div>
+
+              <div class="feature-card">
+                <h3>Smart Clipboard Pasting</h3>
+                <p>Dedicated paste button detects media links on your clipboard to initiate fetches without manual
+                  typing.</p>
+              </div>
+
+              <div class="feature-card">
+                <h3>100% Local &amp; Private</h3>
+                <p>Zero cloud tracking, no mandatory accounts, and no data harvesting. All network traffic stays
+                  directly between your machine and the source host.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- How to Use (Step by Step) -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Getting started with Media Downloader takes less than a minute:</p>
+
+            <div class="workflow-grid">
+
+              <div class="workflow-card">
+                <div class="workflow-number">1</div>
+                <h3>Download &amp; Install</h3>
+                <p>Download the latest Windows installer (<code>.exe</code>) or unpack the portable <code>.zip</code>
+                  package from GitHub Releases.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number">2</div>
+                <h3>Copy Any Media URL</h3>
+                <p>Copy the URL of the video, lecture, or audio track you want to archive from your browser's address
+                  bar.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number">3</div>
+                <h3>Paste &amp; Configure</h3>
+                <p>Paste the link into the application. Use the settings gear if you want to select a specific
+                  resolution or audio extraction.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number">4</div>
+                <h3>Download &amp; Enjoy</h3>
+                <p>Click <strong>Download</strong>. The item enters the queue and saves directly into your default local
+                  downloads folder.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Legal Disclaimer & Terms of Use (Direct from GitHub) -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Legal Disclaimer &amp; Terms of Use</h2>
+            </div>
+            <p>
+              As documented in the official GitHub repository, this tool is intended exclusively for learning, personal
+              archiving, research, and communication purposes.
+            </p>
+
+            <div class="disclaimer-card">
+              <div class="disclaimer-header">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>Terms of Use &amp; Fair Use Policy</span>
+              </div>
+              <ul class="disclaimer-list">
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <span><strong>Fair Use &amp; Personal Archiving:</strong> You must only download media for which you
+                    own the copyright, have explicit permission from the copyright owner, or where the archiving
+                    constitutes Fair Use.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <span><strong>Platform Terms of Service:</strong> Users are solely responsible for ensuring their
+                    actions comply with the Terms of Service (ToS) of the respective platforms they interact
+                    with.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <span><strong>User Responsibility:</strong> The author is not responsible for users' actions while
+                    operating this tool, including actions that violate local laws or third-party rights.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Specifications Sidebar -->
+        <aside class="game-specs-card">
+          <h3 class="game-specs-title">Application Specs</h3>
+
+          <div class="spec-rows">
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-tag"></i> Version</span>
+              <span class="spec-value">v1.0.0</span>
+            </div>
+
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-windows"></i> Platform</span>
+              <span class="spec-value">Windows 10 / 11 (64-bit)</span>
+            </div>
+
+
+
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-file-video"></i> Formats</span>
+              <span class="spec-value">MP4, MP3, WebM</span>
+            </div>
+
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Open Source (GitHub)</span>
+            </div>
+
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-hard-drive"></i> Installer Size</span>
+              <span class="spec-value">~314 MB</span>
+            </div>
+          </div>
+
           <div class="specs-cta-group">
-            <a href="https://github.com/karimuq/Media-Downloader/releases/latest" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary">Download</a>
-            <a href="https://github.com/karimuq/Media-Downloader" target="_blank" rel="noopener noreferrer" class="game-cta-btn secondary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/Media-Downloader/releases/download/v.1.0.0/Media.Downloader.Setup.1.0.0.exe"
+              target="_blank" rel="noopener noreferrer" class="game-cta-btn primary dl-btn-primary">
+              <i class="fa-solid fa-download"></i>
+              <span>Download Installer</span>
+              <span class="dl-badge-size">(.exe)</span>
+            </a>
+
+            <a href="https://github.com/karimuq/Media-Downloader/releases/download/v.1.0.0/win-unpacked.zip"
+              target="_blank" rel="noopener noreferrer" class="game-cta-btn secondary">
+              <i class="fa-solid fa-file-zipper"></i>
+              <span>Portable Version</span>
+              <span class="dl-badge-size">(.zip)</span>
+            </a>
+
+            <a href="https://github.com/karimuq/Media-Downloader" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn secondary">
+              <i class="fa-brands fa-github"></i>
+              <span>View on GitHub</span>
+            </a>
+
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i>
+              <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
+
       </div>
+
     </section>
-  </main>  <footer>
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true"
+    aria-label="Screenshot Fullscreen View">
+    <button type="button" class="lightbox-close-btn" id="btn-close-lightbox" aria-label="Close Preview">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img src="assets/media-downloader/screenshot.png" alt="Media Downloader Full Screenshot" id="lightbox-img">
+  </div>
+
+  <!-- Global Footer -->
+  <footer>
     <div class="footer-links">
       <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Me</a>
-      <a href="https://github.com/karimuq" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      <a href="https://karim25.itch.io" target="_blank"><i class="fa-brands fa-itch-io"></i> Itch.io</a>
+      <a href="https://github.com/karimuq" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i>
+        GitHub</a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank" rel="noopener noreferrer"><i
+          class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://karim25.itch.io" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-itch-io"></i>
+        Itch.io</a>
     </div>
-    <div class="footer-copyright"><p>&copy; 2026 Karim Abdelnour | Portfolio</p></div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+    </div>
   </footer>
+
+  <!-- Scripts -->
   <script src="js/script.js?v=17.0"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Lightbox handlers
+      const modal = document.getElementById('lightbox-modal');
+      const trigger = document.getElementById('screenshot-trigger');
+      const btnOpen = document.getElementById('btn-open-lightbox');
+      const btnClose = document.getElementById('btn-close-lightbox');
+
+      function openModal() {
+        if (modal) modal.classList.add('active');
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.remove('active');
+      }
+
+      if (trigger) trigger.addEventListener('click', openModal);
+      if (btnOpen) btnOpen.addEventListener('click', openModal);
+      if (btnClose) btnClose.addEventListener('click', closeModal);
+
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
 </body>
+
 </html>
