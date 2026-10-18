@@ -381,12 +381,21 @@
       const btnNativeShare = document.getElementById('btn-native-share');
       const qrTarget = document.getElementById('qr-target');
 
-      const fullUrl = window.location.href.split('#')[0].split('?')[0];
+      const canonicalUrl = 'https://karimuq.github.io/website/links.html';
+      const isPublicHost = window.location.hostname && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1');
+      const shareUrl = (isPublicHost && (window.location.protocol === 'http:' || window.location.protocol === 'https:'))
+        ? window.location.href.split('#')[0].split('?')[0]
+        : canonicalUrl;
+
+      const shareInput = document.getElementById('share-url');
+      if (shareInput) {
+        shareInput.value = shareUrl;
+      }
 
       if (btnShare && modal) {
         btnShare.addEventListener('click', function () {
           if (window.ClientQR && qrTarget) {
-            window.ClientQR.render(fullUrl, qrTarget, { colorDark: '#0f172a', colorLight: '#ffffff' });
+            window.ClientQR.render(shareUrl, qrTarget, { colorDark: '#0f172a', colorLight: '#ffffff' });
           }
           modal.classList.add('active');
         });
@@ -404,16 +413,16 @@
 
       if (btnCopy) {
         btnCopy.addEventListener('click', () => {
-          navigator.clipboard.writeText(fullUrl).then(() => showToast('Link copied to clipboard!'));
+          navigator.clipboard.writeText(shareUrl).then(() => showToast('Link copied to clipboard!'));
         });
       }
 
       if (btnNativeShare) {
         btnNativeShare.addEventListener('click', () => {
           if (navigator.share) {
-            navigator.share({ title: 'Karim Abdelnour — Links', url: fullUrl }).catch(() => { });
+            navigator.share({ title: 'Karim Abdelnour — Links', url: shareUrl }).catch(() => { });
           } else {
-            navigator.clipboard.writeText(fullUrl);
+            navigator.clipboard.writeText(shareUrl);
             showToast('Link copied to clipboard!');
           }
         });
