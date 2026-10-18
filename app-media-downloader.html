@@ -344,24 +344,49 @@
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
-      outline: none;
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      max-width: 44px !important;
+      max-height: 44px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 50% !important;
+      aspect-ratio: 1 / 1 !important;
+      box-sizing: border-box !important;
+      background: rgba(255, 255, 255, 0.18) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      font-size: 1.2rem !important;
+      line-height: 1 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      transition: background 0.2s ease, transform 0.2s ease !important;
+      outline: none !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+      flex-shrink: 0 !important;
+      -webkit-tap-highlight-color: transparent !important;
     }
 
     .lightbox-close-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: scale(1.08);
+      background: rgba(255, 255, 255, 0.3) !important;
+      transform: scale(1.08) !important;
+    }
+
+    .lightbox-close-btn:focus,
+    .lightbox-close-btn:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .lightbox-close-btn i {
+      display: inline-block !important;
+      font-size: 1.15rem;
+      line-height: 1;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -617,18 +642,6 @@
             <div class="spec-row">
               <span class="spec-label"><i class="fa-brands fa-windows"></i> Platform</span>
               <span class="spec-value">Windows 10 / 11 (64-bit)</span>
-            </div>
-
-
-
-            <div class="spec-row">
-              <span class="spec-label"><i class="fa-solid fa-file-video"></i> Formats</span>
-              <span class="spec-value">MP4, MP3, WebM</span>
-            </div>
-
-            <div class="spec-row">
-              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
-              <span class="spec-value">Open Source (GitHub)</span>
             </div>
 
             <div class="spec-row">
