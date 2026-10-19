@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -459,17 +459,20 @@
     .skill-card.expandable-hobby {
       cursor: pointer;
       justify-content: flex-start;
-      padding-top: 29px; /* Visually identical to flex-center for 1-line titles */
-      transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                  height 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                  border-color 0.2s ease, 
-                  transform 0.2s ease, 
-                  box-shadow 0.2s ease;
+      padding-top: 29px;
+      /* Visually identical to flex-center for 1-line titles */
+      transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .skill-card.expandable-hobby.expanded {
-      width: 336px; /* 2 cards wide + gap */
-      height: 250px; /* Increased height so longer text is not cut off */
+      width: 336px;
+      /* 2 cards wide + gap */
+      height: 250px;
+      /* Increased height so longer text is not cut off */
       border-color: var(--text-primary);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
       z-index: 5;
@@ -481,12 +484,13 @@
     }
 
     .skill-card.expandable-hobby.expanded:hover {
-      transform: translateY(-4px) scale(1.02); 
+      transform: translateY(-4px) scale(1.02);
     }
 
     /* ── Expand Indicator ── */
     .skill-card.expandable-hobby::after {
-      content: '\f078'; /* fa-chevron-down */
+      content: '\f078';
+      /* fa-chevron-down */
       font-family: "Font Awesome 6 Free";
       font-weight: 900;
       position: absolute;
@@ -527,11 +531,13 @@
       .skill-card.expandable-hobby {
         padding-top: 15px;
       }
+
       .skill-card.expandable-hobby.expanded {
         width: 100%;
         max-width: 336px;
         height: 250px;
       }
+
       .hobby-detail {
         top: 105px !important;
         font-size: 0.8rem;
@@ -549,7 +555,8 @@
       text-align: center;
       padding: 0 20px;
       position: absolute;
-      top: 142px; /* Safely placed below title to allow room for text */
+      top: 142px;
+      /* Safely placed below title to allow room for text */
       left: 0;
       width: 100%;
       transform: translateY(15px);
@@ -711,8 +718,10 @@
             <div class="cert-detail-wrapper">
               <div class="cert-detail">
                 <div class="cert-detail-inner">
-                  <p>Completed comprehensive training on parametric modeling, assembly design, and technical drawing in SOLIDWORKS.</p>
-                  <a href="https://coursera.org/share/3af66652b0ec29dcd9b23f9647620b36" target="_blank" class="cert-btn">
+                  <p>Completed comprehensive training on parametric modeling, assembly design, and technical drawing in
+                    SOLIDWORKS.</p>
+                  <a href="https://coursera.org/share/3af66652b0ec29dcd9b23f9647620b36" target="_blank"
+                    class="cert-btn">
                     View Credential <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 4px;"></i>
                   </a>
                 </div>
@@ -767,7 +776,8 @@
             </div>
             <div class="s-name">Running</div>
             <div class="hobby-detail">
-              I often run and am currently training to join a full marathon, and have joined several races before—most recently a half marathon.
+              I often run and am currently training to join a full marathon, and have joined several races before—most
+              recently a half marathon.
             </div>
           </div>
 
@@ -803,7 +813,6 @@
   <footer>
     <div class="footer-links">
       <a href="links.html"><i class="fa-solid fa-link"></i> Links Hub</a>
-      <a href="sitemap.html"><i class="fa-solid fa-sitemap"></i> Sitemap</a>
       <a href="privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
       <a href="contact.html">
         <i class="fa-solid fa-envelope"></i> Contact Me
@@ -919,7 +928,7 @@
       cert.addEventListener('click', e => {
         // Prevent expanding/collapsing if clicking the actual button
         if (e.target.closest('.cert-btn')) return;
-        
+
         e.stopPropagation();
         const isExpanded = cert.classList.contains('expanded');
         document.querySelectorAll('.expandable-cert').forEach(c => c.classList.remove('expanded'));
