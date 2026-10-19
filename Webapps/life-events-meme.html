@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="../js/theme.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover, interactive-widget=resizes-content">
     <link rel="canonical" href="https://karimuq.github.io/website/Webapps/life-events-meme.html">
     <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg">
     <meta property="og:title" content="Life Events Meme Generator — Karim Abdelnour">
@@ -812,30 +812,35 @@
            MOBILE-FIRST RESPONSIVE OPTIMIZATIONS (<= 960px)
            ============================================================ */
         @media (max-width: 960px) {
-            .top-nav {
-                padding: 0.65rem 1rem;
+
+            /* Hide the sub-nav breadcrumb bar on mobile — reclaims ~50px */
+            #appSubNav {
+                display: none !important;
             }
 
-            .brand-title {
-                font-size: 1rem;
+            /* Remove the sub-nav top margin offset from workspace */
+            .app-sub-nav {
+                margin-top: 0;
             }
 
             .workspace {
                 flex-direction: column;
-                padding: 0.65rem;
-                gap: 0.85rem;
-                padding-bottom: 6rem; /* Extra room for floating bottom bar */
+                padding: 0.5rem 0.65rem;
+                gap: 0.75rem;
+                /* Extra room at bottom for the fixed action bar + safe area */
+                padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
             }
 
-            /* STAGE COMES FIRST ON MOBILE: Immediate Live Visual Feedback */
+            /* STAGE COMES FIRST ON MOBILE: Live visual feedback immediately visible */
             .stage {
                 order: 1;
                 width: 100%;
                 position: sticky;
-                top: 3.25rem;
+                /* Sits just below the site header (~56px) */
+                top: 56px;
                 z-index: 45;
                 background: var(--bg-app);
-                padding: 0.25rem 0 0.5rem 0;
+                padding: 0.25rem 0 0.35rem 0;
             }
 
             .stage-toolbar {
@@ -843,14 +848,16 @@
             }
 
             .canvas-card {
-                padding: 0.5rem;
+                padding: 0.4rem;
                 border-radius: var(--radius-md);
             }
 
             .canvas-wrapper {
-                max-height: 38vh;
+                /* Larger preview on mobile — 45vh gives ~300px on typical phones */
+                max-height: 45vh;
                 aspect-ratio: 4/3;
                 border-radius: 8px;
+                width: 100%;
             }
 
             /* SIDEBAR CONTROLS COME SECOND ON MOBILE */
@@ -867,7 +874,7 @@
                 gap: 1rem;
             }
 
-            /* Horizontally Swipeable Presets Bar on Mobile */
+            /* Horizontally swipeable presets bar */
             .presets-wrapper {
                 flex-wrap: nowrap;
                 overflow-x: auto;
@@ -887,7 +894,7 @@
                 font-size: 0.82rem;
             }
 
-            /* Mobile Tab Bar Switcher between Events and Style */
+            /* Mobile segmented tab switcher */
             .mobile-tab-bar {
                 display: flex;
             }
@@ -902,7 +909,7 @@
                 gap: 0.85rem;
             }
 
-            /* Touch Friendly Inputs (16px font prevents iOS auto-zoom) */
+            /* 16px font on inputs prevents iOS auto-zoom on focus */
             .input-label-text, input[type="text"], select {
                 font-size: 16px !important;
                 padding: 0.65rem 0.75rem;
@@ -915,12 +922,12 @@
             }
 
             .event-actions .icon-btn {
-                width: 32px;
-                height: 32px;
+                width: 34px;
+                height: 34px;
                 font-size: 1rem;
             }
 
-            /* Floating Sticky Bottom Action Bar */
+            /* Fixed bottom action bar */
             .mobile-bottom-bar {
                 display: flex;
                 position: fixed;
@@ -931,7 +938,7 @@
                 padding-bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
                 background: var(--surface-card);
                 border-top: 1px solid var(--border-subtle);
-                box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.45);
+                box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.4);
                 z-index: 60;
                 gap: 0.65rem;
             }
@@ -942,7 +949,7 @@
                 padding: 0.75rem 1rem;
                 font-size: 0.92rem;
                 border-radius: var(--radius-md);
-                min-height: 44px;
+                min-height: 48px;
             }
 
             .toast {
@@ -1751,8 +1758,10 @@
                 const rect = canvas.getBoundingClientRect();
                 const scaleX = canvas.width / rect.width;
                 const scaleY = canvas.height / rect.height;
-                const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
-                const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+                // Use changedTouches for touchmove/touchend (touches[0] can be empty on touchend)
+                const touch = evt.changedTouches ? evt.changedTouches[0] : (evt.touches ? evt.touches[0] : null);
+                const clientX = touch ? touch.clientX : evt.clientX;
+                const clientY = touch ? touch.clientY : evt.clientY;
                 return {
                     x: (clientX - rect.left) * scaleX,
                     y: (clientY - rect.top) * scaleY
@@ -1853,9 +1862,14 @@
             document.querySelectorAll('.event-card').forEach((c, i) => {
                 c.classList.toggle('is-active', i === idx);
             });
-            const targetCard = document.getElementById(`event-card-${idx}`);
-            if (targetCard) {
-                targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Only auto-scroll on desktop; on mobile the canvas is sticky and
+            // scrollIntoView would fight the user while they're dragging.
+            const isMobile = window.innerWidth <= 960;
+            if (!isMobile) {
+                const targetCard = document.getElementById(`event-card-${idx}`);
+                if (targetCard) {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
             }
         }
 
