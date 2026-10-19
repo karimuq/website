@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <link rel="canonical" href="https://karimuq.github.io/website/Webapps/life-events-meme.html">
+    <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg">
+    <meta property="og:title" content="Life Events Meme Generator — Karim Abdelnour">
+    <meta property="og:description" content="Generate the viral Life events graph meme with custom peaks, valleys, and bracket annotations. 100% original, copyright-free, and mobile-optimized.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karimuq.github.io/website/Webapps/life-events-meme.html">
+    <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Life Events Meme Generator — Karim Abdelnour</title>
+    <meta name="description" content="Generate the viral 'Life events' graph meme with custom peaks, valleys, and bracket annotations. 100% original, copyright-free, and mobile-optimized.">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Comic+Neue:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css?v=17.0">
+
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-hover: #2980b9;
+            --primary-light: rgba(52, 152, 219, 0.12);
+            --bg-app: var(--bg-secondary, #f8f9fa);
+            --surface-card: var(--bg-card-solid, #ffffff);
+            --surface-subtle: var(--bg-tertiary, #f9f9f9);
+            --surface-hover: #eef2f7;
+            --text-main: var(--text-primary, #2c3e50);
+            --text-muted: var(--text-secondary, #34495e);
+            --text-faint: var(--text-muted, #7f8c8d);
+            --border-subtle: var(--border-color, rgba(44, 62, 80, 0.12));
+            --border-focus: var(--accent, #3498db);
+            --danger: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.12);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05), 0 0 0 1px var(--border-subtle);
+            --shadow-canvas: 0 12px 28px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #5dade2;
+            --primary-hover: #4fa8e6;
+            --primary-light: rgba(93, 173, 226, 0.15);
+            --bg-app: var(--bg-primary, #0f1419);
+            --surface-card: var(--bg-card-solid, #1e2732);
+            --surface-subtle: var(--bg-secondary, #151b23);
+            --surface-hover: var(--bg-tertiary, #1a222d);
+            --text-main: var(--text-primary, #ecf0f1);
+            --text-muted: var(--text-secondary, #bdc3c7);
+            --text-faint: var(--text-muted, #95a5a6);
+            --border-subtle: var(--border-color, rgba(255, 255, 255, 0.1));
+            --border-focus: var(--accent, #5dade2);
+            --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-subtle);
+            --shadow-canvas: 0 15px 35px -8px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-app);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        /* Iframe embedding modes */
+        body.in-iframe #siteHeader,
+        body.in-iframe #appSubNav,
+        body.in-iframe #siteFooter {
+            display: none !important;
+        }
+
+        body.in-iframe {
+            background: transparent !important;
+            min-height: auto !important;
+        }
+
+        body.in-iframe main.workspace {
+            margin-top: 0 !important;
+            padding: 0.75rem !important;
+        }
+
+        body.in-iframe .sidebar {
+            top: 0.5rem !important;
+            max-height: calc(100vh - 1rem) !important;
+        }
+
+        /* Standalone Sub-Navbar / Breadcrumbs */
+        .app-sub-nav {
+            margin-top: 70px;
+            background: var(--surface-card);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.75rem 2rem;
+            transition: background 0.3s ease;
+            position: relative;
+            z-index: 20;
+        }
+
+        .app-sub-nav-content {
+            max-width: 1560px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .app-sub-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.9rem;
+        }
+
+        .sub-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--radius-sm);
+            background: var(--primary-light);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.2s ease;
+        }
+
+        .sub-nav-back:hover {
+            transform: translateX(-2px);
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .sub-nav-divider {
+            color: var(--text-faint);
+            font-size: 0.8rem;
+        }
+
+        .sub-nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .sub-nav-link:hover {
+            color: var(--primary);
+        }
+
+        .sub-nav-current {
+            color: var(--text-main);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .app-sub-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Main Workspace Container */
+        .workspace {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            max-width: 1560px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            gap: 1.75rem;
+            align-items: flex-start;
+        }
+
+        /* Sidebar Editor */
+        .sidebar {
+            flex: 0 0 420px;
+            width: 420px;
+            background: var(--surface-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+            padding: 1.25rem;
+            position: sticky;
+            top: 4.5rem;
+            max-height: calc(100vh - 5.5rem);
+            overflow-y: auto;
+        }
+
+        /* Mobile Segmented Tab Switcher (Hidden on Desktop) */
+        .mobile-tab-bar {
+            display: none;
+            width: 100%;
+            background: var(--surface-subtle);
+            border-radius: var(--radius-md);
+            padding: 0.25rem;
+            gap: 0.25rem;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tab Panes: On desktop both panes are displayed stacked */
+        .tab-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .mobile-tab-btn {
+            flex: 1;
+            padding: 0.55rem;
+            border-radius: var(--radius-sm);
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .mobile-tab-btn.active {
+            background: var(--surface-card);
+            color: var(--text-main);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Preset Chips */
+        .section-label {
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .presets-wrapper {
+            display: flex;
+            gap: 0.45rem;
+            flex-wrap: wrap;
+        }
+
+        .preset-chip {
+            background: var(--surface-subtle);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 0.4rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            user-select: none;
+        }
+
+        .preset-chip:hover, .preset-chip:active {
+            color: var(--text-main);
+            background: var(--surface-hover);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Events List */
+        .events-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .event-card {
+            background: var(--surface-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative;
+        }
+
+        .event-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .event-card.is-active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .event-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .event-title-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-muted);
+        }
+
+        .event-num-pill {
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .event-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .icon-btn:hover:not(:disabled) {
+            color: var(--text-main);
+            background: var(--surface-hover);
+        }
+
+        .icon-btn.danger:hover:not(:disabled) {
+            color: var(--danger);
+            background: var(--danger-bg);
+        }
+
+        .icon-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .input-label-text {
+            width: 100%;
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 0.55rem 0.75rem;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.9rem;
+            line-height: 1.35;
+            resize: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .input-label-text:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            background: var(--surface-card);
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .slider-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            min-width: 38px;
+        }
+
+        .slider-value-pill {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 38px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--surface-card);
+            outline: none;
+            accent-color: var(--primary);
+            cursor: pointer;
+            touch-action: pan-x;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .event-options-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.35rem;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.78rem;
+        }
+
+        .bracket-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            user-select: none;
+            padding: 0.2rem 0;
+        }
+
+        .bracket-checkbox-label input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .image-uploader-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .thumb-preview {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            overflow: hidden;
+        }
+
+        .thumb-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-mini {
+            padding: 0.25rem 0.55rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            background: var(--surface-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 28px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-mini:hover {
+            color: var(--text-main);
+            background: var(--surface-hover);
+        }
+
+        /* Sidebar Action Controls */
+        .add-event-btn {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            border: 1px dashed var(--border-subtle);
+            background: var(--surface-subtle);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            min-height: 44px;
+        }
+
+        .add-event-btn:hover:not(:disabled) {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .add-event-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Customization Controls Accordion/Group */
+        .style-settings {
+            background: var(--surface-subtle);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .form-row label {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        select, input[type="text"] {
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 0.55rem 0.75rem;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s;
+            min-height: 38px;
+        }
+
+        select:focus, input[type="text"]:focus {
+            border-color: var(--border-focus);
+        }
+
+        /* Main Canvas Stage */
+        .stage {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .stage-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface-card);
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .stage-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .stage-title {
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .stage-tip {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .stage-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.15rem;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            border: none;
+            user-select: none;
+            min-height: 40px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--surface-subtle);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Canvas Card Container */
+        .canvas-card {
+            background: var(--surface-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-canvas);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .canvas-wrapper {
+            width: 100%;
+            max-width: 920px;
+            aspect-ratio: 4/3;
+            max-height: calc(100vh - 11rem);
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            cursor: default;
+            touch-action: none;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            touch-action: none;
+        }
+
+        /* Floating Bottom Bar (Mobile Only) */
+        .mobile-bottom-bar {
+            display: none;
+        }
+
+        /* Toast Alert */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-subtle);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-faint);
+        }
+
+        /* ============================================================
+           MOBILE-FIRST RESPONSIVE OPTIMIZATIONS (<= 960px)
+           ============================================================ */
+        @media (max-width: 960px) {
+            .top-nav {
+                padding: 0.65rem 1rem;
+            }
+
+            .brand-title {
+                font-size: 1rem;
+            }
+
+            .workspace {
+                flex-direction: column;
+                padding: 0.65rem;
+                gap: 0.85rem;
+                padding-bottom: 6rem; /* Extra room for floating bottom bar */
+            }
+
+            /* STAGE COMES FIRST ON MOBILE: Immediate Live Visual Feedback */
+            .stage {
+                order: 1;
+                width: 100%;
+                position: sticky;
+                top: 3.25rem;
+                z-index: 45;
+                background: var(--bg-app);
+                padding: 0.25rem 0 0.5rem 0;
+            }
+
+            .stage-toolbar {
+                display: none;
+            }
+
+            .canvas-card {
+                padding: 0.5rem;
+                border-radius: var(--radius-md);
+            }
+
+            .canvas-wrapper {
+                max-height: 38vh;
+                aspect-ratio: 4/3;
+                border-radius: 8px;
+            }
+
+            /* SIDEBAR CONTROLS COME SECOND ON MOBILE */
+            .sidebar {
+                order: 2;
+                width: 100%;
+                flex: none;
+                position: static;
+                max-height: none;
+                padding: 0.85rem;
+                border-radius: var(--radius-md);
+                box-shadow: none;
+                overflow: visible;
+                gap: 1rem;
+            }
+
+            /* Horizontally Swipeable Presets Bar on Mobile */
+            .presets-wrapper {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 0.4rem;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .presets-wrapper::-webkit-scrollbar {
+                display: none;
+            }
+
+            .preset-chip {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding: 0.4rem 0.75rem;
+                font-size: 0.82rem;
+            }
+
+            /* Mobile Tab Bar Switcher between Events and Style */
+            .mobile-tab-bar {
+                display: flex;
+            }
+
+            .tab-pane {
+                display: none;
+            }
+
+            .tab-pane.active {
+                display: flex;
+                flex-direction: column;
+                gap: 0.85rem;
+            }
+
+            /* Touch Friendly Inputs (16px font prevents iOS auto-zoom) */
+            .input-label-text, input[type="text"], select {
+                font-size: 16px !important;
+                padding: 0.65rem 0.75rem;
+                border-radius: var(--radius-md);
+            }
+
+            .event-card {
+                padding: 0.85rem;
+                border-radius: var(--radius-md);
+            }
+
+            .event-actions .icon-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+
+            /* Floating Sticky Bottom Action Bar */
+            .mobile-bottom-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 0.65rem 1rem;
+                padding-bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
+                background: var(--surface-card);
+                border-top: 1px solid var(--border-subtle);
+                box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.45);
+                z-index: 60;
+                gap: 0.65rem;
+            }
+
+            .mobile-bottom-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 0.75rem 1rem;
+                font-size: 0.92rem;
+                border-radius: var(--radius-md);
+                min-height: 44px;
+            }
+
+            .toast {
+                bottom: 5.5rem;
+                right: 1rem;
+                left: 1rem;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+    <!-- Primary Portfolio Header (Matches main website) -->
+    <header id="siteHeader">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h1>Karim Abdelnour</h1>
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../projects.html" class="active">Projects</a>
+                <a href="../links.html">Links</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sub-Navbar / Breadcrumbs Bar (shown when standalone) -->
+    <div class="app-sub-nav" id="appSubNav">
+        <div class="app-sub-nav-content">
+            <div class="app-sub-nav-left">
+                <a href="../projects-apps.html" class="sub-nav-back">
+                    <i class="fa-solid fa-arrow-left"></i> <span>Apps Hub</span>
+                </a>
+                <span class="sub-nav-divider">/</span>
+                <a href="../app-life-events.html" class="sub-nav-link">Details</a>
+                <span class="sub-nav-divider">/</span>
+                <span class="sub-nav-current"><i class="fa-solid fa-chart-line"></i> Life Events Meme Studio</span>
+            </div>
+            <div class="app-sub-nav-right">
+                <span class="app-sub-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Live Web Tool</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workspace -->
+    <main class="workspace">
+        
+        <!-- Controls Column -->
+        <aside class="sidebar">
+            
+            <!-- Quick Presets -->
+            <div>
+                <div class="section-label">
+                    <span>Quick Templates</span>
+                    <span style="font-size: 0.7rem; font-weight: 400; text-transform: none; color: var(--text-faint);">100% original</span>
+                </div>
+                <div class="presets-wrapper">
+                    <button class="preset-chip" onclick="loadPreset('reference')">🧥 The Opener (Ref Meme)</button>
+                    <button class="preset-chip" onclick="loadPreset('climax')">💧 The Climax (3 AM Water)</button>
+                    <button class="preset-chip" onclick="loadPreset('screenProtector')">📱 Screen Film</button>
+                    <button class="preset-chip" onclick="loadPreset('saturdayPanic')">⏰ Saturday Wakeup</button>
+                    <button class="preset-chip" onclick="loadPreset('blank')">✨ Blank Canvas</button>
+                </div>
+            </div>
+
+            <!-- Mobile Segmented Tabs -->
+            <div class="mobile-tab-bar">
+                <button class="mobile-tab-btn active" id="tabBtnEvents" onclick="switchMobileTab('events')">
+                    📝 Milestones (<span id="eventCountLabelTab">3</span>)
+                </button>
+                <button class="mobile-tab-btn" id="tabBtnStyle" onclick="switchMobileTab('style')">
+                    ⚙️ Style & Text
+                </button>
+            </div>
+
+            <!-- Tab 1: Events Manager -->
+            <div class="tab-pane active" id="paneEvents">
+                <div>
+                    <div class="section-label">
+                        <span>Events & Milestones (<span id="eventCountLabel">3</span>/8)</span>
+                        <span style="font-size: 0.7rem; text-transform: none; font-weight: 400; color: var(--text-faint);">Drag heights on chart</span>
+                    </div>
+                    <div class="events-container" id="eventsList">
+                        <!-- Event cards injected by JS -->
+                    </div>
+                </div>
+
+                <button class="add-event-btn" id="addEventBtn" onclick="addNewEvent()">
+                    <span>+</span> Add Another Event
+                </button>
+            </div>
+
+            <!-- Tab 2: Style & Appearance -->
+            <div class="tab-pane" id="paneStyle">
+                <div>
+                    <div class="section-label">
+                        <span>Meme Style & Appearance</span>
+                    </div>
+                    <div class="style-settings">
+                        <div class="form-row">
+                            <label for="bracketTextInput">Bracket Label</label>
+                            <input type="text" id="bracketTextInput" value="Life events" placeholder="e.g. Life events" oninput="updateSetting('bracketText', this.value)">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+                            <div class="form-row">
+                                <label for="bracketStyleSelect">Bracket Type</label>
+                                <select id="bracketStyleSelect" onchange="updateSetting('bracketStyle', this.value)">
+                                    <option value="square" selected>Square Bracket |───| (Meme)</option>
+                                    <option value="curly">Curly Brace { }</option>
+                                    <option value="none">None</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label for="bracketSpanSelect">Bracket Covers</label>
+                                <select id="bracketSpanSelect" onchange="updateSetting('bracketSpan', this.value)">
+                                    <option value="all" selected>Entire Timeline (Meme)</option>
+                                    <option value="standards">Standard Events Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+                            <div class="form-row">
+                                <label for="fontSelect">Meme Font</label>
+                                <select id="fontSelect" onchange="updateSetting('fontFamily', this.value)">
+                                    <option value="Inter" selected>Inter (Bold Meme Sans)</option>
+                                    <option value="Comic Neue">Comic Neue</option>
+                                    <option value="Outfit">Outfit</option>
+                                    <option value="Caveat">Caveat (Marker)</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label for="curveStyleSelect">Line Style</label>
+                                <select id="curveStyleSelect" onchange="updateSetting('curveStyle', this.value)">
+                                    <option value="polygon" selected>Sharp Peaks & Valleys (Meme)</option>
+                                    <option value="hump">Smooth Waves</option>
+                                    <option value="spike">ECG Pulse (Sharp)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="themeBgSelect">Canvas Paper Theme</label>
+                            <select id="themeBgSelect" onchange="updateSetting('canvasTheme', this.value)">
+                                <option value="white" selected>Clean White</option>
+                                <option value="cream">Vintage Warm Cream</option>
+                                <option value="dark">Sleek Dark Mode</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- Preview Stage -->
+        <section class="stage">
+            <div class="stage-toolbar">
+                <div class="stage-title-wrap">
+                    <span class="stage-title">Live Preview</span>
+                    <span class="stage-tip">💡 Touch and drag any peak to adjust height</span>
+                </div>
+                <div class="stage-actions">
+                    <button class="btn btn-secondary" onclick="copyImageToClipboard()">
+                        📋 Copy Image
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadMemeImage()">
+                        📥 Download PNG
+                    </button>
+                </div>
+            </div>
+
+            <div class="canvas-card">
+                <div class="canvas-wrapper" id="canvasWrapper">
+                    <canvas id="memeCanvas" width="1600" height="1200"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Sticky Bottom Bar for Mobile -->
+    <div class="mobile-bottom-bar">
+        <button class="btn btn-secondary mobile-bottom-btn" onclick="copyImageToClipboard()">
+            📋 Copy
+        </button>
+        <button class="btn btn-primary mobile-bottom-btn" onclick="downloadMemeImage()">
+            📥 Download PNG
+        </button>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toastNotification">
+        <span>✓</span> Copied image to clipboard!
+    </div>
+
+    <script>
+        /**
+         * State and Configuration
+         * Matching the exact viral meme structure:
+         * Peaks separated by valleys, square bracket |───|, bold clean sans typography.
+         * 100% Non-copyrighted content.
+         */
+        const MAX_EVENTS = 8;
+        const MIN_EVENTS = 2;
+
+        const presets = {
+            // Preset 1: Matches the user's reference image structure 1:1!
+            reference: [
+                { id: 1, label: 'finding $20 in an\nold winter coat', height: 96, isStandard: false, image: null },
+                { id: 2, label: 'Graduation\nday', height: 26, isStandard: true, image: null },
+                { id: 3, label: 'Wedding\nday', height: 46, isStandard: true, image: null }
+            ],
+            // Preset 2: Climax format (Normal milestones building up to hyper-peak)
+            climax: [
+                { id: 1, label: 'Graduation\nday', height: 26, isStandard: true, image: null },
+                { id: 2, label: 'Wedding\nday', height: 42, isStandard: true, image: null },
+                { id: 3, label: 'ice-cold water\nat 3:00 AM', height: 102, isStandard: false, image: null }
+            ],
+            screenProtector: [
+                { id: 1, label: 'First steps', height: 12, isStandard: true, image: null },
+                { id: 2, label: 'Graduation\nday', height: 28, isStandard: true, image: null },
+                { id: 3, label: 'Wedding\nday', height: 42, isStandard: true, image: null },
+                { id: 4, label: 'applying screen film\nwith zero bubbles', height: 104, isStandard: false, image: null }
+            ],
+            saturdayPanic: [
+                { id: 1, label: 'College\ndegree', height: 26, isStandard: true, image: null },
+                { id: 2, label: 'Marriage', height: 42, isStandard: true, image: null },
+                { id: 3, label: 'waking up in panic then\nrealizing it\'s Saturday', height: 100, isStandard: false, image: null }
+            ],
+            blank: [
+                { id: 1, label: 'Peak 1', height: 90, isStandard: false, image: null },
+                { id: 2, label: 'Graduation\nday', height: 28, isStandard: true, image: null },
+                { id: 3, label: 'Wedding\nday', height: 45, isStandard: true, image: null }
+            ]
+        };
+
+        // App State
+        let events = JSON.parse(JSON.stringify(presets.reference));
+        let settings = {
+            bracketText: 'Life events',
+            bracketStyle: 'square',    // 'square', 'curly', 'none'
+            bracketSpan: 'all',        // 'all', 'standards'
+            fontFamily: 'Inter',       // 'Inter', 'Comic Neue', 'Outfit', 'Caveat'
+            curveStyle: 'polygon',     // 'polygon', 'hump', 'spike'
+            canvasTheme: 'white'       // 'white', 'cream', 'dark'
+        };
+
+        // Canvas Interaction State
+        let draggingIndex = -1;
+        let hoveredIndex = -1;
+        let peakPositions = [];
+
+        // Canvas Elements
+        const canvas = document.getElementById('memeCanvas');
+        const ctx = canvas.getContext('2d');
+        const canvasWrapper = document.getElementById('canvasWrapper');
+
+        /**
+         * Initialize App
+         */
+        function initApp() {
+            if (window.self !== window.top) {
+                document.body.classList.add('in-iframe');
+            }
+            renderEventsList();
+            setupCanvasEvents();
+            if (document.fonts) {
+                document.fonts.ready.then(() => {
+                    renderCanvas();
+                });
+            } else {
+                renderCanvas();
+            }
+        }
+
+        /**
+         * Mobile Segmented Tabs Switcher
+         */
+        function switchMobileTab(tabKey) {
+            const btnEvents = document.getElementById('tabBtnEvents');
+            const btnStyle = document.getElementById('tabBtnStyle');
+            const paneEvents = document.getElementById('paneEvents');
+            const paneStyle = document.getElementById('paneStyle');
+
+            if (tabKey === 'events') {
+                btnEvents.classList.add('active');
+                btnStyle.classList.remove('active');
+                paneEvents.classList.add('active');
+                paneStyle.classList.remove('active');
+            } else {
+                btnStyle.classList.add('active');
+                btnEvents.classList.remove('active');
+                paneStyle.classList.add('active');
+                paneEvents.classList.remove('active');
+            }
+        }
+
+        /**
+         * Theme Management (Light / Dark App UI)
+         */
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || document.body.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            document.body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            const btn = document.getElementById('themeToggleBtn');
+            if (btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
+            const siteToggle = document.getElementById('theme-toggle');
+            if (siteToggle) {
+                siteToggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
+            }
+        }
+
+        /**
+         * Preset Loader
+         */
+        function loadPreset(presetKey) {
+            if (presets[presetKey]) {
+                events = JSON.parse(JSON.stringify(presets[presetKey]));
+                renderEventsList();
+                renderCanvas();
+            }
+        }
+
+        /**
+         * Setting Updater
+         */
+        function updateSetting(key, value) {
+            settings[key] = value;
+            renderCanvas();
+        }
+
+        /**
+         * Event Management
+         */
+        function renderEventsList() {
+            const listEl = document.getElementById('eventsList');
+            listEl.innerHTML = '';
+
+            events.forEach((evt, idx) => {
+                const card = document.createElement('div');
+                card.className = `event-card ${hoveredIndex === idx ? 'is-active' : ''}`;
+                card.id = `event-card-${idx}`;
+
+                const imgThumbnail = evt.image 
+                    ? `<img src="${evt.image}" alt="Preview" />` 
+                    : `<span>+Pic</span>`;
+
+                card.innerHTML = `
+                    <div class="event-card-header">
+                        <div class="event-title-badge">
+                            <span class="event-num-pill">${idx + 1}</span>
+                            <span>${evt.height >= 75 ? '🔥 The Peak' : 'Milestone'}</span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="icon-btn" title="Move Left" onclick="moveEvent(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>←</button>
+                            <button class="icon-btn" title="Move Right" onclick="moveEvent(${idx}, 1)" ${idx === events.length - 1 ? 'disabled' : ''}>→</button>
+                            <button class="icon-btn danger" title="Delete Event" onclick="removeEvent(${idx})" ${events.length <= MIN_EVENTS ? 'disabled' : ''}>✕</button>
+                        </div>
+                    </div>
+
+                    <textarea class="input-label-text" rows="2" placeholder="Event label (Enter for line break)" oninput="updateEventField(${idx}, 'label', this.value)">${evt.label}</textarea>
+
+                    <div class="slider-row">
+                        <span class="slider-label">Hype:</span>
+                        <input type="range" min="0" max="115" value="${evt.height}" oninput="updateEventField(${idx}, 'height', parseInt(this.value))">
+                        <span class="slider-value-pill">${evt.height}%</span>
+                    </div>
+
+                    <div class="event-options-row">
+                        <label class="bracket-checkbox-label" title="Whether this event sits under the standard 'life events' bracket">
+                            <input type="checkbox" ${evt.isStandard ? 'checked' : ''} onchange="updateEventField(${idx}, 'isStandard', this.checked)">
+                            <span>Standard Milestone</span>
+                        </label>
+                        <div class="image-uploader-cell">
+                            <input type="file" id="file-input-${idx}" style="display:none;" accept="image/*" onchange="handleImageUpload(${idx}, this)">
+                            <div class="thumb-preview" onclick="document.getElementById('file-input-${idx}').click()" style="cursor: pointer;" title="Upload or change image">
+                                ${imgThumbnail}
+                            </div>
+                            <button class="btn-mini" onclick="document.getElementById('file-input-${idx}').click()">
+                                ${evt.image ? 'Change' : 'Add Pic'}
+                            </button>
+                            ${evt.image ? `<button class="btn-mini" onclick="removeImage(${idx})">Clear</button>` : ''}
+                        </div>
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+
+            document.getElementById('eventCountLabel').textContent = events.length;
+            const tabLabel = document.getElementById('eventCountLabelTab');
+            if (tabLabel) tabLabel.textContent = events.length;
+            document.getElementById('addEventBtn').disabled = events.length >= MAX_EVENTS;
+        }
+
+        function addNewEvent() {
+            if (events.length < MAX_EVENTS) {
+                events.push({
+                    id: Date.now(),
+                    label: 'New event',
+                    height: 35,
+                    isStandard: true,
+                    image: null
+                });
+                renderEventsList();
+                renderCanvas();
+            }
+        }
+
+        function removeEvent(index) {
+            if (events.length > MIN_EVENTS) {
+                events.splice(index, 1);
+                renderEventsList();
+                renderCanvas();
+            }
+        }
+
+        function moveEvent(index, delta) {
+            const target = index + delta;
+            if (target >= 0 && target < events.length) {
+                const temp = events[index];
+                events[index] = events[target];
+                events[target] = temp;
+                renderEventsList();
+                renderCanvas();
+            }
+        }
+
+        function updateEventField(index, field, value) {
+            events[index][field] = value;
+            if (field === 'height') {
+                const card = document.getElementById(`event-card-${index}`);
+                if (card) {
+                    const pill = card.querySelector('.slider-value-pill');
+                    if (pill) pill.textContent = `${value}%`;
+                }
+            }
+            renderCanvas();
+        }
+
+        function handleImageUpload(index, input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const base64 = e.target.result;
+                    events[index].image = base64;
+                    const img = new Image();
+                    img.onload = () => {
+                        events[index].imgObj = img;
+                        renderEventsList();
+                        renderCanvas();
+                    };
+                    img.src = base64;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeImage(index) {
+            events[index].image = null;
+            events[index].imgObj = null;
+            renderEventsList();
+            renderCanvas();
+        }
+
+        /**
+         * Canvas Rendering Engine
+         */
+        function renderCanvas() {
+            const W = canvas.width;
+            const H = canvas.height;
+
+            // 1. Clear & Background Theme
+            ctx.clearRect(0, 0, W, H);
+
+            let bgColor = '#ffffff';
+            let strokeColor = '#000000';
+            let textColor = '#000000';
+            let textHalo = 'rgba(255, 255, 255, 0.96)';
+
+            if (settings.canvasTheme === 'cream') {
+                bgColor = '#faf6ed';
+                strokeColor = '#1e1c18';
+                textColor = '#1e1c18';
+                textHalo = 'rgba(250, 246, 237, 0.98)';
+            } else if (settings.canvasTheme === 'dark') {
+                bgColor = '#111827';
+                strokeColor = '#f3f4f6';
+                textColor = '#f3f4f6';
+                textHalo = 'rgba(17, 24, 39, 0.98)';
+            }
+
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, W, H);
+
+            const N = events.length;
+            if (N === 0) return;
+
+            // Layout Dimensions matching the meme structure
+            const padLeft = 180;
+            const padRight = 180;
+            const padTop = 170;
+            const padBottom = 160;
+
+            const baselineY = H - padBottom - 35;
+            const maxPeakY = padTop + 20;
+            const heightSpan = baselineY - maxPeakY;
+
+            // Calculate Peak Coordinates
+            peakPositions = [];
+            for (let i = 0; i < N; i++) {
+                const x = padLeft + (i / (N - 1)) * (W - padLeft - padRight);
+                const normHeight = Math.max(0, Math.min(115, events[i].height)) / 100;
+                const y = baselineY - normHeight * heightSpan;
+                peakPositions.push({ x, y, index: i });
+            }
+
+            const spacing = (peakPositions[N - 1].x - peakPositions[0].x) / (N - 1);
+            const valleyY = baselineY - heightSpan * 0.05;
+
+            // Start & End Bounds matching the reference drawing
+            const xStart = Math.max(60, peakPositions[0].x - spacing * 0.45);
+            const yStart = baselineY - heightSpan * 0.18;
+            const xV0 = peakPositions[0].x - spacing * 0.22;
+            const yV0 = valleyY;
+
+            const xEnd = Math.min(W - 60, peakPositions[N - 1].x + spacing * 0.35);
+            const yEnd = baselineY - heightSpan * 0.14;
+
+            // 2. Draw Meme Line
+            ctx.save();
+            ctx.strokeStyle = strokeColor;
+            ctx.lineWidth = 4.5;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            if (settings.curveStyle === 'polygon') {
+                // EXACT MEME STYLE: Sharp polygonal peaks and valleys
+                ctx.beginPath();
+                ctx.moveTo(xStart, yStart);
+                ctx.lineTo(xV0, yV0);
+
+                for (let i = 0; i < N; i++) {
+                    const pk = peakPositions[i];
+                    ctx.lineTo(pk.x, pk.y);
+
+                    if (i < N - 1) {
+                        const nextPk = peakPositions[i + 1];
+                        const vX = (pk.x + nextPk.x) / 2;
+                        // Dynamic valley depth sits naturally near baseline
+                        const dynamicValleyY = Math.min(baselineY, valleyY + (i % 2 === 0 ? 10 : -8));
+                        ctx.lineTo(vX, dynamicValleyY);
+                    }
+                }
+
+                ctx.lineTo(xEnd, yEnd);
+                ctx.stroke();
+
+            } else if (settings.curveStyle === 'hump') {
+                // Smooth Raised-Cosine Waves
+                const humpHalfWidth = Math.min(130, spacing * 0.46);
+                const lineStartLeft = Math.max(50, peakPositions[0].x - humpHalfWidth - 60);
+                const lineEndRight = Math.min(W - 50, peakPositions[N - 1].x + humpHalfWidth + 60);
+
+                ctx.beginPath();
+                ctx.moveTo(lineStartLeft, baselineY);
+
+                const step = 2;
+                for (let x = lineStartLeft; x <= lineEndRight; x += step) {
+                    let totalLift = 0;
+                    for (let i = 0; i < N; i++) {
+                        const pk = peakPositions[i];
+                        const dist = Math.abs(x - pk.x);
+                        if (dist < humpHalfWidth) {
+                            const t = (humpHalfWidth - dist) / humpHalfWidth;
+                            const lift = (baselineY - pk.y) * ((1 + Math.cos(Math.PI * (1 - t))) / 2);
+                            totalLift = Math.max(totalLift, lift);
+                        }
+                    }
+                    ctx.lineTo(x, baselineY - totalLift);
+                }
+                ctx.stroke();
+
+            } else {
+                // ECG Pulse Style
+                const spikeHalfW = 28;
+                ctx.beginPath();
+                ctx.moveTo(xStart, baselineY);
+
+                for (let i = 0; i < N; i++) {
+                    const pk = peakPositions[i];
+                    ctx.lineTo(pk.x - spikeHalfW, baselineY);
+                    ctx.lineTo(pk.x, pk.y);
+                    ctx.lineTo(pk.x + spikeHalfW, baselineY);
+                }
+                ctx.lineTo(xEnd, baselineY);
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            // 3. Draw Peak Dots (Interactive Highlights)
+            peakPositions.forEach((pk, idx) => {
+                ctx.save();
+                const isHovered = hoveredIndex === idx;
+                
+                if (isHovered) {
+                    ctx.beginPath();
+                    ctx.arc(pk.x, pk.y, 14, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(99, 102, 241, 0.28)';
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(pk.x, pk.y, 6.5, 0, Math.PI * 2);
+                    ctx.fillStyle = '#6366f1';
+                    ctx.fill();
+                }
+                ctx.restore();
+            });
+
+            // 4. Draw Peak Labels & Uploaded Images
+            const fontName = settings.fontFamily;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            peakPositions.forEach((pk, idx) => {
+                const evt = events[idx];
+                if (!evt) return;
+
+                let drawY = pk.y - 14;
+
+                // Draw Uploaded Image (if present)
+                if (evt.imgObj) {
+                    const imgSize = 72;
+                    const imgX = pk.x - imgSize / 2;
+                    const imgY = drawY - imgSize;
+
+                    ctx.save();
+                    ctx.beginPath();
+                    const radius = 10;
+                    ctx.roundRect ? ctx.roundRect(imgX, imgY, imgSize, imgSize, radius) : ctx.rect(imgX, imgY, imgSize, imgSize);
+                    ctx.clip();
+                    ctx.drawImage(evt.imgObj, imgX, imgY, imgSize, imgSize);
+                    ctx.restore();
+
+                    ctx.save();
+                    ctx.strokeStyle = strokeColor;
+                    ctx.lineWidth = 2.5;
+                    ctx.beginPath();
+                    ctx.roundRect ? ctx.roundRect(imgX, imgY, imgSize, imgSize, radius) : ctx.rect(imgX, imgY, imgSize, imgSize);
+                    ctx.stroke();
+                    ctx.restore();
+
+                    drawY = imgY - 10;
+                }
+
+                // Draw Multiline Text Label (Clean, bold, matching reference meme)
+                if (evt.label && evt.label.trim() !== '') {
+                    const lines = evt.label.split('\n');
+                    const fontSize = Math.max(22, Math.min(27, 29 - lines.length * 1.5));
+                    ctx.font = `700 ${fontSize}px "${fontName}", -apple-system, BlinkMacSystemFont, sans-serif`;
+
+                    const lineHeight = fontSize * 1.25;
+
+                    for (let i = lines.length - 1; i >= 0; i--) {
+                        const lineText = lines[i];
+
+                        // Text Halo ensures 100% legibility above the apex
+                        ctx.save();
+                        ctx.strokeStyle = textHalo;
+                        ctx.lineWidth = 8;
+                        ctx.strokeText(lineText, pk.x, drawY);
+                        ctx.fillStyle = textColor;
+                        ctx.fillText(lineText, pk.x, drawY);
+                        ctx.restore();
+
+                        drawY -= lineHeight;
+                    }
+                }
+            });
+
+            // 5. Draw the Bracket & "Life events" Annotation
+            if (settings.bracketStyle !== 'none') {
+                let bracketStartX = xStart;
+                let bracketEndX = xEnd;
+
+                // Determine Bracket Span
+                if (settings.bracketSpan === 'standards') {
+                    let firstStdIdx = -1;
+                    let lastStdIdx = -1;
+                    for (let i = 0; i < N; i++) {
+                        if (events[i].isStandard) {
+                            if (firstStdIdx === -1) firstStdIdx = i;
+                            lastStdIdx = i;
+                        }
+                    }
+                    if (firstStdIdx !== -1 && lastStdIdx !== -1) {
+                        bracketStartX = peakPositions[firstStdIdx].x - 35;
+                        bracketEndX = peakPositions[lastStdIdx].x + 35;
+                    }
+                }
+
+                const bracketY = baselineY + 36;
+
+                if (settings.bracketStyle === 'square') {
+                    // EXACT MEME TICK BRACKET |──────────|
+                    drawSquareBracket(ctx, bracketStartX, bracketEndX, bracketY, 14, strokeColor, 3.5);
+                } else if (settings.bracketStyle === 'curly') {
+                    // Curly Brace { }
+                    drawCurlyBrace(ctx, bracketStartX, bracketEndX, bracketY, 16, 14, strokeColor, 3.5);
+                }
+
+                // Bracket Label Text (Bold, clean, matching reference image)
+                if (settings.bracketText && settings.bracketText.trim() !== '') {
+                    const midX = (bracketStartX + bracketEndX) / 2;
+                    const textY = bracketY + 40;
+
+                    ctx.save();
+                    ctx.font = `700 32px "${fontName}", -apple-system, BlinkMacSystemFont, sans-serif`;
+                    ctx.fillStyle = textColor;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText(settings.bracketText, midX, textY);
+                    ctx.restore();
+                }
+            }
+        }
+
+        /**
+         * Square Bracket with Ticks (Exact Meme Style: |──────────|)
+         */
+        function drawSquareBracket(ctx, x1, x2, y, tickHeight, strokeColor, lineWidth) {
+            ctx.save();
+            ctx.strokeStyle = strokeColor;
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = 'square';
+            ctx.beginPath();
+
+            // Left Vertical Tick
+            ctx.moveTo(x1, y - tickHeight);
+            ctx.lineTo(x1, y + tickHeight);
+
+            // Horizontal Spanning Line
+            ctx.moveTo(x1, y);
+            ctx.lineTo(x2, y);
+
+            // Right Vertical Tick
+            ctx.moveTo(x2, y - tickHeight);
+            ctx.lineTo(x2, y + tickHeight);
+
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        /**
+         * Calligraphic Curly Brace
+         */
+        function drawCurlyBrace(ctx, x1, x2, y, depth, cusp, strokeColor, lineWidth) {
+            const midX = (x1 + x2) / 2;
+            const safeDepth = Math.min(depth, Math.abs(x2 - x1) / 4);
+
+            ctx.save();
+            ctx.strokeStyle = strokeColor;
+            ctx.lineWidth = lineWidth;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.beginPath();
+
+            // Left hook curling down
+            ctx.moveTo(x1, y);
+            ctx.bezierCurveTo(x1, y + safeDepth * 0.7, x1 + safeDepth * 0.3, y + safeDepth, x1 + safeDepth, y + safeDepth);
+
+            // Left arm to center
+            ctx.lineTo(midX - safeDepth, y + safeDepth);
+
+            // Center cusp pointing down
+            ctx.bezierCurveTo(midX - safeDepth * 0.25, y + safeDepth, midX - 2, y + safeDepth + cusp * 0.75, midX, y + safeDepth + cusp);
+            ctx.bezierCurveTo(midX + 2, y + safeDepth + cusp * 0.75, midX + safeDepth * 0.25, y + safeDepth, midX + safeDepth, y + safeDepth);
+
+            // Right arm
+            ctx.lineTo(x2 - safeDepth, y + safeDepth);
+
+            // Right hook curling up
+            ctx.bezierCurveTo(x2 - safeDepth * 0.3, y + safeDepth, x2, y + safeDepth * 0.7, x2, y);
+
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        /**
+         * Canvas Mouse & Touch Interaction (Direct Peak Dragging)
+         */
+        function setupCanvasEvents() {
+            function getCanvasCoords(evt) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+                const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+                return {
+                    x: (clientX - rect.left) * scaleX,
+                    y: (clientY - rect.top) * scaleY
+                };
+            }
+
+            canvas.addEventListener('mousedown', (e) => {
+                const pt = getCanvasCoords(e);
+                const hit = findHitPeak(pt.x, pt.y, 55);
+                if (hit !== -1) {
+                    draggingIndex = hit;
+                    highlightEventCard(hit);
+                    e.preventDefault();
+                }
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                const pt = getCanvasCoords(e);
+
+                if (draggingIndex !== -1) {
+                    const padTop = 170;
+                    const padBottom = 160;
+                    const baselineY = canvas.height - padBottom - 35;
+                    const maxPeakY = padTop + 20;
+                    const heightSpan = baselineY - maxPeakY;
+
+                    const clampedY = Math.max(maxPeakY - 40, Math.min(baselineY, pt.y));
+                    const newHeight = Math.round(((baselineY - clampedY) / heightSpan) * 100);
+
+                    events[draggingIndex].height = Math.max(0, Math.min(115, newHeight));
+                    updateCardSlider(draggingIndex, events[draggingIndex].height);
+                    renderCanvas();
+                } else {
+                    const hit = findHitPeak(pt.x, pt.y, 55);
+                    if (hit !== hoveredIndex) {
+                        hoveredIndex = hit;
+                        canvas.style.cursor = hit !== -1 ? 'ns-resize' : 'default';
+                        renderCanvas();
+                    }
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (draggingIndex !== -1) {
+                    draggingIndex = -1;
+                    renderCanvas();
+                }
+            });
+
+            // Touch events for mobile/tablet with larger finger hit-radius (75px)
+            canvas.addEventListener('touchstart', (e) => {
+                const pt = getCanvasCoords(e);
+                const hit = findHitPeak(pt.x, pt.y, 75);
+                if (hit !== -1) {
+                    draggingIndex = hit;
+                    highlightEventCard(hit);
+                    if (e.cancelable) e.preventDefault();
+                }
+            }, { passive: false });
+
+            window.addEventListener('touchmove', (e) => {
+                if (draggingIndex !== -1) {
+                    const pt = getCanvasCoords(e);
+                    const padTop = 170;
+                    const padBottom = 160;
+                    const baselineY = canvas.height - padBottom - 35;
+                    const maxPeakY = padTop + 20;
+                    const heightSpan = baselineY - maxPeakY;
+
+                    const clampedY = Math.max(maxPeakY - 40, Math.min(baselineY, pt.y));
+                    const newHeight = Math.round(((baselineY - clampedY) / heightSpan) * 100);
+
+                    events[draggingIndex].height = Math.max(0, Math.min(115, newHeight));
+                    updateCardSlider(draggingIndex, events[draggingIndex].height);
+                    renderCanvas();
+                    if (e.cancelable) e.preventDefault();
+                }
+            }, { passive: false });
+
+            window.addEventListener('touchend', () => {
+                draggingIndex = -1;
+            });
+        }
+
+        function findHitPeak(cx, cy, radius = 55) {
+            for (let i = 0; i < peakPositions.length; i++) {
+                const pk = peakPositions[i];
+                const dx = cx - pk.x;
+                const dy = cy - pk.y;
+                if (Math.sqrt(dx * dx + dy * dy) <= radius) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function highlightEventCard(idx) {
+            document.querySelectorAll('.event-card').forEach((c, i) => {
+                c.classList.toggle('is-active', i === idx);
+            });
+            const targetCard = document.getElementById(`event-card-${idx}`);
+            if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function updateCardSlider(idx, val) {
+            const card = document.getElementById(`event-card-${idx}`);
+            if (card) {
+                const slider = card.querySelector('input[type="range"]');
+                const pill = card.querySelector('.slider-value-pill');
+                if (slider) slider.value = val;
+                if (pill) pill.textContent = `${val}%`;
+            }
+        }
+
+        /**
+         * Download & Clipboard Export
+         */
+        function downloadMemeImage() {
+            const link = document.createElement('a');
+            link.download = `life-events-meme-${Date.now()}.png`;
+            link.href = canvas.toDataURL('image/png', 1.0);
+            link.click();
+        }
+
+        function copyImageToClipboard() {
+            if (!navigator.clipboard || !window.ClipboardItem) {
+                downloadMemeImage();
+                return;
+            }
+
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                const item = new ClipboardItem({ 'image/png': blob });
+                navigator.clipboard.write([item]).then(() => {
+                    showToast();
+                }).catch(() => {
+                    downloadMemeImage();
+                });
+            }, 'image/png');
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toastNotification');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2600);
+        }
+
+        // Run on load
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+
+    <!-- Footer (matches main website) -->
+    <footer id="siteFooter">
+        <div class="footer-links">
+            <a href="../links.html"><i class="fa-solid fa-link"></i> Links Hub</a>
+            <a href="../contact.html"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+            <a href="../testing.html"><i class="fa-brands fa-google-play"></i> Beta Testing</a>
+            <a href="../privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+            <a href="../sitemap.html"><i class="fa-solid fa-sitemap"></i> Sitemap</a>
+            <a href="https://github.com/karimuq" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://karim25.itch.io" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-itch-io"></i> Itch.io</a>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Karim Abdelnour | Portfolio</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js?v=17.0"></script>
+</body>
+</html>

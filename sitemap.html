@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
+  <meta charset="UTF-8">
+  <script src="js/theme.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap &amp; Directory — Karim Abdelnour</title>
+  <meta name="description" content="Complete directory and sitemap of all pages, web applications, Android apps, CAD engineering models, games, and resources by Karim Abdelnour.">
+  <link rel="canonical" href="https://karimuq.github.io/website/sitemap.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karimuq.github.io/website/sitemap.html">
+  <meta property="og:title" content="Sitemap &amp; Complete Directory — Karim Abdelnour">
+  <meta property="og:description" content="Explore every page, live web tool, Android app, CAD design, and Unity game across Karim Abdelnour's portfolio.">
+  <meta property="og:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sitemap &amp; Directory — Karim Abdelnour">
+  <meta name="twitter:description" content="Explore every page, live web tool, Android app, CAD design, and Unity game across Karim Abdelnour's portfolio.">
+  <meta name="twitter:image" content="https://karimuq.github.io/website/pixel-art/Kamilaaaaaa.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=17.1">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Sitemap & Directory",
+    "url": "https://karimuq.github.io/website/sitemap.html",
+    "description": "Complete sitemap index and page directory for Karim Abdelnour's website.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://karimuq.github.io/website/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sitemap",
+          "item": "https://karimuq.github.io/website/sitemap.html"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    .sitemap-hero {
+      max-width: 1100px;
+      margin: 2rem auto 1.5rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .sitemap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: var(--accent-soft, rgba(52, 152, 219, 0.12));
+      color: var(--accent, #3498db);
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-color);
+    }
+    .sitemap-hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .sitemap-hero p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .sitemap-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .sitemap-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .sitemap-btn-primary {
+      background: var(--accent, #3498db);
+      color: #ffffff;
+    }
+    .sitemap-btn-primary:hover {
+      background: var(--accent-hover, #2980b9);
+      transform: translateY(-2px);
+    }
+    .sitemap-btn-secondary {
+      background: var(--bg-card-solid);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+    .sitemap-btn-secondary:hover {
+      border-color: var(--accent, #3498db);
+      transform: translateY(-2px);
+    }
+
+    /* Live Search & Filter Bar */
+    .sitemap-controls {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+    }
+    .sitemap-search-wrap {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+    .sitemap-search-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .sitemap-search-input {
+      width: 100%;
+      padding: 0.9rem 1rem 0.9rem 2.8rem;
+      font-size: 0.98rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-solid);
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .sitemap-search-input:focus {
+      border-color: var(--accent, #3498db);
+      box-shadow: 0 0 0 3px var(--accent-soft, rgba(52, 152, 219, 0.15));
+    }
+
+    .sitemap-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .sitemap-filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-solid);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .sitemap-filter-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--accent);
+    }
+    .sitemap-filter-btn.active {
+      background: var(--accent, #3498db);
+      color: #ffffff;
+      border-color: var(--accent, #3498db);
+    }
+    .filter-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: rgba(0, 0, 0, 0.12);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .sitemap-filter-btn.active .filter-count {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Section & Cards */
+    .sitemap-content {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .sitemap-group {
+      margin-bottom: 2.75rem;
+    }
+    .sitemap-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .sitemap-group-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .sitemap-group-count {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1rem;
+    }
+    .sitemap-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--bg-card-solid);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.15rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .sitemap-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent, #3498db);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      margin-bottom: 0.6rem;
+    }
+    .card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+      background: var(--accent-soft, rgba(52, 152, 219, 0.12));
+      color: var(--accent, #3498db);
+    }
+    .card-meta-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .badge-live { background: rgba(16, 185, 129, 0.14); color: #10b981; }
+    .badge-android { background: rgba(59, 130, 246, 0.14); color: #3b82f6; }
+    .badge-hub { background: rgba(139, 92, 246, 0.14); color: #8b5cf6; }
+    .badge-cad { background: rgba(245, 158, 11, 0.14); color: #f59e0b; }
+    .badge-game { background: rgba(236, 72, 153, 0.14); color: #ec4899; }
+    .badge-legal { background: rgba(107, 114, 128, 0.14); color: #6b7280; }
+
+    .card-desc {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 0.85rem;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.65rem;
+      border-top: 1px dashed var(--border-color);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-arrow {
+      color: var(--accent, #3498db);
+      font-size: 0.78rem;
+      transition: transform 0.2s ease;
+    }
+    .sitemap-card:hover .card-arrow {
+      transform: translateX(3px);
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+    }
+    .no-results i {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-faint);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Karim Abdelnour</h1>
+      </div>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="links.html">Links</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Intro -->
+    <section class="sitemap-hero">
+      <span class="sitemap-badge">
+        <i class="fa-solid fa-sitemap"></i> Master Index &amp; Crawler Registry
+      </span>
+      <h1>Complete Website Sitemap</h1>
+      <p>
+        Explore every page across the portfolio — including interactive in-browser web utilities, Android APKs, SOLIDWORKS mechanical CAD assemblies, and playable games.
+      </p>
+
+      <div class="sitemap-actions">
+        <a href="sitemap.xml" target="_blank" class="sitemap-btn sitemap-btn-primary" title="Open Machine-Readable XML Sitemap">
+          <i class="fa-solid fa-code"></i> View Raw XML Sitemap
+        </a>
+        <a href="robots.txt" target="_blank" class="sitemap-btn sitemap-btn-secondary" title="View robots.txt directives">
+          <i class="fa-solid fa-robot"></i> View robots.txt
+        </a>
+        <a href="links.html" class="sitemap-btn sitemap-btn-secondary" title="Visit Quick Links Portal">
+          <i class="fa-solid fa-link"></i> Quick Links Hub
+        </a>
+      </div>
+    </section>
+
+    <!-- Search & Filter Controls -->
+    <section class="sitemap-controls">
+      <div class="sitemap-search-wrap">
+        <i class="fa-solid fa-magnifying-glass sitemap-search-icon"></i>
+        <input type="text" id="sitemapSearch" class="sitemap-search-input" placeholder="Search pages, tools, apps, games, or keywords..." autocomplete="off">
+      </div>
+
+      <div class="sitemap-filters" role="tablist">
+        <button type="button" class="sitemap-filter-btn active" data-filter="all">
+          <i class="fa-solid fa-layer-group"></i> All Pages <span class="filter-count">38</span>
+        </button>
+        <button type="button" class="sitemap-filter-btn" data-filter="webapps">
+          <i class="fa-solid fa-laptop-code"></i> Live Web Tools <span class="filter-count">4</span>
+        </button>
+        <button type="button" class="sitemap-filter-btn" data-filter="android">
+          <i class="fa-brands fa-android"></i> Android &amp; Apps <span class="filter-count">13</span>
+        </button>
+        <button type="button" class="sitemap-filter-btn" data-filter="engineering">
+          <i class="fa-solid fa-compass-drafting"></i> Engineering &amp; CAD <span class="filter-count">4</span>
+        </button>
+        <button type="button" class="sitemap-filter-btn" data-filter="games">
+          <i class="fa-solid fa-gamepad"></i> Games &amp; Art <span class="filter-count">7</span>
+        </button>
+        <button type="button" class="sitemap-filter-btn" data-filter="core">
+          <i class="fa-solid fa-globe"></i> Core &amp; Hubs <span class="filter-count">9</span>
+        </button>
+        <button type="button" class="sitemap-filter-btn" data-filter="legal">
+          <i class="fa-solid fa-shield-halved"></i> Legal <span class="filter-count">1</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Directory Grid -->
+    <section class="sitemap-content" id="sitemapContainer">
+
+      <!-- Category 1: Live Interactive Web Applications -->
+      <div class="sitemap-group" data-category="webapps">
+        <div class="sitemap-group-header">
+          <h2 class="sitemap-group-title">
+            <i class="fa-solid fa-laptop-code" style="color: #10b981;"></i> Live Web Applications
+          </h2>
+          <span class="sitemap-group-count">4 Interactive Tools</span>
+        </div>
+        <div class="sitemap-grid">
+          
+          <a href="Webapps/life-events-meme.html" class="sitemap-card" data-category="webapps">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Life Events Meme Generator</div>
+                <span class="card-badge badge-live">Live Tool</span>
+              </div>
+            </div>
+            <p class="card-desc">Interactive graph meme generator with draggable curve peaks, custom milestones, brackets, and high-res PNG export.</p>
+            <div class="card-footer">
+              <span>/Webapps/life-events-meme.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="Webapps/Counter-app.html" class="sitemap-card" data-category="webapps">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <i class="fa-solid fa-arrow-up-9-1"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Online Counter App</div>
+                <span class="card-badge badge-live">Live Tool</span>
+              </div>
+            </div>
+            <p class="card-desc">Clean, responsive tally counter with audio feedback, custom step size, vibration, and auto-saving state.</p>
+            <div class="card-footer">
+              <span>/Webapps/Counter-app.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="Webapps/random-number-generator.html" class="sitemap-card" data-category="webapps">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <i class="fa-solid fa-dice"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Random Number Generator</div>
+                <span class="card-badge badge-live">Live Tool</span>
+              </div>
+            </div>
+            <p class="card-desc">Browser-based random picker with custom ranges, history logging, sound effects, and smooth roll animations.</p>
+            <div class="card-footer">
+              <span>/Webapps/random-number-generator.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="Webapps/screensync.html" class="sitemap-card" data-category="webapps">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">ScreenSync Web Concept</div>
+                <span class="card-badge badge-live">Live Demo</span>
+              </div>
+            </div>
+            <p class="card-desc">Interactive mobile mockup demonstrating peer screen-time accountability, goal-setting, and friend leaderboards.</p>
+            <div class="card-footer">
+              <span>/Webapps/screensync.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 2: Core Hubs & Portals -->
+      <div class="sitemap-group" data-category="core">
+        <div class="sitemap-group-header">
+          <h2 class="sitemap-group-title">
+            <i class="fa-solid fa-globe" style="color: #3b82f6;"></i> Core Pages &amp; Portals
+          </h2>
+          <span class="sitemap-group-count">9 Pages</span>
+        </div>
+        <div class="sitemap-grid">
+
+          <a href="index.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-house"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Home / Portfolio Root</div>
+                <span class="card-badge badge-hub">Main Hub</span>
+              </div>
+            </div>
+            <p class="card-desc">Karim Abdelnour's official portfolio overview highlighting engineering skills, featured apps, CAD models, and games.</p>
+            <div class="card-footer">
+              <span>/ (index.html)</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="links.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-link"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Quick Links Portal</div>
+                <span class="card-badge badge-hub">Portal</span>
+              </div>
+            </div>
+            <p class="card-desc">Biolink hub with quick access to Android apps, closed beta testing, social profiles, offline QR card, and downloads.</p>
+            <div class="card-footer">
+              <span>/links.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="about.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">About Me</div>
+                <span class="card-badge badge-hub">Bio</span>
+              </div>
+            </div>
+            <p class="card-desc">Background, education, mechatronics engineering coursework, technical skillset, and personal developer journey.</p>
+            <div class="card-footer">
+              <span>/about.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="projects.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-boxes-stacked"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Projects Showcase Hub</div>
+                <span class="card-badge badge-hub">Directory</span>
+              </div>
+            </div>
+            <p class="card-desc">Comprehensive project directory organizing CAD designs, Arduino circuits, mobile apps, games, and pixel art.</p>
+            <div class="card-footer">
+              <span>/projects.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="projects-apps.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-cubes"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">All Apps &amp; Utilities Hub</div>
+                <span class="card-badge badge-hub">Apps Hub</span>
+              </div>
+            </div>
+            <p class="card-desc">Filterable directory featuring all 13 Android, desktop, and web applications with platform filters and download links.</p>
+            <div class="card-footer">
+              <span>/projects-apps.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="testing.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-brands fa-google-play"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Google Play Closed Beta Hub</div>
+                <span class="card-badge badge-hub">Community</span>
+              </div>
+            </div>
+            <p class="card-desc">Community test-for-test hub for indie Android developers fulfilling Google Play's 14-day 20-tester requirement.</p>
+            <div class="card-footer">
+              <span>/testing.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="contact.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Contact Karim</div>
+                <span class="card-badge badge-hub">Inquiry</span>
+              </div>
+            </div>
+            <p class="card-desc">Direct contact form and email for engineering internships, software collaborations, and project inquiries.</p>
+            <div class="card-footer">
+              <span>/contact.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="instagram.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Instagram Welcome Landing</div>
+                <span class="card-badge badge-hub">Social</span>
+              </div>
+            </div>
+            <p class="card-desc">Targeted welcome page for visitors arriving from Instagram, directing them to the best projects on desktop or mobile.</p>
+            <div class="card-footer">
+              <span>/instagram.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="sitemap.html" class="sitemap-card" data-category="core">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-sitemap"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Sitemap &amp; Directory</div>
+                <span class="card-badge badge-hub">Registry</span>
+              </div>
+            </div>
+            <p class="card-desc">The central directory indexing all 38 website pages, search crawlers registry, and direct links.</p>
+            <div class="card-footer">
+              <span>/sitemap.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 3: Application Detail Pages -->
+      <div class="sitemap-group" data-category="android">
+        <div class="sitemap-group-header">
+          <h2 class="sitemap-group-title">
+            <i class="fa-brands fa-android" style="color: #3b82f6;"></i> Android &amp; Desktop App Showcases
+          </h2>
+          <span class="sitemap-group-count">13 Applications</span>
+        </div>
+        <div class="sitemap-grid">
+
+          <a href="app-life-events.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Life Events Meme Generator</div>
+                <span class="card-badge badge-live">Web App</span>
+              </div>
+            </div>
+            <p class="card-desc">Showcase and full walkthrough for creating the iconic life graph meme with customizable milestones.</p>
+            <div class="card-footer">
+              <span>/app-life-events.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-tist.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">TIST: Sobriety Tracker</div>
+                <span class="card-badge badge-android">Android</span>
+              </div>
+            </div>
+            <p class="card-desc">100% offline, privacy-first sobriety and habit streak counter with real-time timers and milestone badges.</p>
+            <div class="card-footer">
+              <span>/app-tist.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-media-downloader.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Media Downloader</div>
+                <span class="card-badge badge-hub">Desktop</span>
+              </div>
+            </div>
+            <p class="card-desc">Windows desktop application for video/audio archiving with format extraction and multithreaded downloads.</p>
+            <div class="card-footer">
+              <span>/app-media-downloader.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-currency-converter.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Currency Converter</div>
+                <span class="card-badge badge-android">Android</span>
+              </div>
+            </div>
+            <p class="card-desc">Real-time global exchange rate calculator with offline cached rates, currency search, and smooth UX.</p>
+            <div class="card-footer">
+              <span>/app-currency-converter.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-bmi-calculator.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">
+                <i class="fa-solid fa-weight-scale"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">BMI Calculator</div>
+                <span class="card-badge badge-android">Android</span>
+              </div>
+            </div>
+            <p class="card-desc">Clean health calculator supporting Metric and Imperial units with instant category classification.</p>
+            <div class="card-footer">
+              <span>/app-bmi-calculator.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-speedometer.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(239, 68, 68, 0.12); color: #ef4444;">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">GPS Speedometer</div>
+                <span class="card-badge badge-android">Android</span>
+              </div>
+            </div>
+            <p class="card-desc">High-precision GPS velocity tracking with analog &amp; digital displays, max speed recording, and HUD mode.</p>
+            <div class="card-footer">
+              <span>/app-speedometer.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-stock-tracker.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Stock Tracker</div>
+                <span class="card-badge badge-android">Android</span>
+              </div>
+            </div>
+            <p class="card-desc">Portfolio tracker monitoring global stock tickers, percentage gains, and market trends.</p>
+            <div class="card-footer">
+              <span>/app-stock-tracker.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-tap-to-add.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(14, 165, 233, 0.12); color: #0ea5e9;">
+                <i class="fa-solid fa-hand-pointer"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Tap to Add Counter</div>
+                <span class="card-badge badge-android">Android</span>
+              </div>
+            </div>
+            <p class="card-desc">Fast, distraction-free tally counter with customizable multi-step buttons and vibration alerts.</p>
+            <div class="card-footer">
+              <span>/app-tap-to-add.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-lock-in-detector.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(20, 184, 166, 0.12); color: #14b8a6;">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">The Lock In Detector</div>
+                <span class="card-badge badge-android">AI Utility</span>
+              </div>
+            </div>
+            <p class="card-desc">Computer-vision focus coach detecting phone distraction and posture to keep you in the zone.</p>
+            <div class="card-footer">
+              <span>/app-lock-in-detector.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-file-converter.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                <i class="fa-solid fa-file-export"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Universal File Converter</div>
+                <span class="card-badge badge-android">Utility</span>
+              </div>
+            </div>
+            <p class="card-desc">Batch file processing tool for converting images, PDFs, and documents seamlessly on device.</p>
+            <div class="card-footer">
+              <span>/app-file-converter.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-scroll-player.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                <i class="fa-solid fa-film"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Scroll Player</div>
+                <span class="card-badge badge-android">Video</span>
+              </div>
+            </div>
+            <p class="card-desc">Short-form video player optimized for gesture navigation and continuous playback.</p>
+            <div class="card-footer">
+              <span>/app-scroll-player.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-screensync.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(13, 148, 136, 0.12); color: #0d9488;">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">ScreenSync Details</div>
+                <span class="card-badge badge-android">Prototype</span>
+              </div>
+            </div>
+            <p class="card-desc">Detailed design specs, UX rationale, and interactive web demo of the ScreenSync accountability app.</p>
+            <div class="card-footer">
+              <span>/app-screensync.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="app-random-number.html" class="sitemap-card" data-category="android">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                <i class="fa-solid fa-shuffle"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Random Number App Details</div>
+                <span class="card-badge badge-android">Tool</span>
+              </div>
+            </div>
+            <p class="card-desc">Specification, design rationale, and feature guide for the standalone Random Number Generator.</p>
+            <div class="card-footer">
+              <span>/app-random-number.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 4: Mechanical Engineering & CAD -->
+      <div class="sitemap-group" data-category="engineering">
+        <div class="sitemap-group-header">
+          <h2 class="sitemap-group-title">
+            <i class="fa-solid fa-compass-drafting" style="color: #f59e0b;"></i> Mechanical Engineering &amp; CAD
+          </h2>
+          <span class="sitemap-group-count">4 Portfolios</span>
+        </div>
+        <div class="sitemap-grid">
+
+          <a href="projects-cad.html" class="sitemap-card" data-category="engineering">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                <i class="fa-solid fa-cubes-stacked"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">CAD &amp; 3D Modeling Projects</div>
+                <span class="card-badge badge-cad">SOLIDWORKS</span>
+              </div>
+            </div>
+            <p class="card-desc">Mechanical assemblies, exploded technical views, GD&amp;T drawings, and tolerance studies.</p>
+            <div class="card-footer">
+              <span>/projects-cad.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="3d-viewer.html" class="sitemap-card" data-category="engineering">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                <i class="fa-solid fa-cube"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Interactive 3D Model Viewer</div>
+                <span class="card-badge badge-cad">WebGL</span>
+              </div>
+            </div>
+            <p class="card-desc">In-browser 3D model viewer with orbit controls, wireframe toggles, and real-time lighting shaders.</p>
+            <div class="card-footer">
+              <span>/3d-viewer.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="projects-3d.html" class="sitemap-card" data-category="engineering">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                <i class="fa-solid fa-shapes"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">3D Models Gallery</div>
+                <span class="card-badge badge-cad">Gallery</span>
+              </div>
+            </div>
+            <p class="card-desc">Renderings and mesh models created for engineering prototypes and game development.</p>
+            <div class="card-footer">
+              <span>/projects-3d.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="projects-arduino.html" class="sitemap-card" data-category="engineering">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(20, 184, 166, 0.12); color: #14b8a6;">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Arduino &amp; Embedded Systems</div>
+                <span class="card-badge badge-cad">Hardware</span>
+              </div>
+            </div>
+            <p class="card-desc">Sensor integration, motor control, microcontroller firmware, and IoT prototyping.</p>
+            <div class="card-footer">
+              <span>/projects-arduino.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 5: Interactive Games & Creative -->
+      <div class="sitemap-group" data-category="games">
+        <div class="sitemap-group-header">
+          <h2 class="sitemap-group-title">
+            <i class="fa-solid fa-gamepad" style="color: #ec4899;"></i> Interactive Games &amp; Pixel Art
+          </h2>
+          <span class="sitemap-group-count">7 Showcases</span>
+        </div>
+        <div class="sitemap-grid">
+
+          <a href="projects-games.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-gamepad"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Unity Games Hub</div>
+                <span class="card-badge badge-game">Unity C#</span>
+              </div>
+            </div>
+            <p class="card-desc">Overview of Unity 2D/3D games featuring physics-based mechanics, procedural levels, and arcade action.</p>
+            <div class="card-footer">
+              <span>/projects-games.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="projects-pixelart.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Pixel Art Gallery</div>
+                <span class="card-badge badge-game">Art</span>
+              </div>
+            </div>
+            <p class="card-desc">Original pixel art animations, game sprite sheets, and retro character design showcase.</p>
+            <div class="card-footer">
+              <span>/projects-pixelart.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="platformer.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-person-running"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Platformer 2D</div>
+                <span class="card-badge badge-game">Playable</span>
+              </div>
+            </div>
+            <p class="card-desc">Fast-paced retro 2D platformer with responsive jump physics, hazard traps, and collectible coins.</p>
+            <div class="card-footer">
+              <span>/platformer.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="fps-2.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-crosshairs"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">FPS-2 Shooter Arena</div>
+                <span class="card-badge badge-game">3D Action</span>
+              </div>
+            </div>
+            <p class="card-desc">First-person shooter prototype demonstrating weapon recoil, raycast ballistics, and enemy AI navigation.</p>
+            <div class="card-footer">
+              <span>/fps-2.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="o-cars.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-car-side"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">O-Cars Racing</div>
+                <span class="card-badge badge-game">Driving</span>
+              </div>
+            </div>
+            <p class="card-desc">Top-down arcade racer featuring tire-slip friction mechanics, drift scoring, and lap time trials.</p>
+            <div class="card-footer">
+              <span>/o-cars.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="mini-hit.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Mini Hit Arcade</div>
+                <span class="card-badge badge-game">Arcade</span>
+              </div>
+            </div>
+            <p class="card-desc">Addictive reflex reaction game testing precision timing against escalating speed levels.</p>
+            <div class="card-footer">
+              <span>/mini-hit.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+          <a href="bounce-pong.html" class="sitemap-card" data-category="games">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">
+                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Bounce Pong</div>
+                <span class="card-badge badge-game">Classic</span>
+              </div>
+            </div>
+            <p class="card-desc">Modernized Pong reimagined with spin physics, dynamic obstacles, and responsive paddle velocity.</p>
+            <div class="card-footer">
+              <span>/bounce-pong.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Category 6: Legal & Compliance -->
+      <div class="sitemap-group" data-category="legal">
+        <div class="sitemap-group-header">
+          <h2 class="sitemap-group-title">
+            <i class="fa-solid fa-shield-halved" style="color: #6b7280;"></i> Legal, Privacy &amp; Governance
+          </h2>
+          <span class="sitemap-group-count">1 Document</span>
+        </div>
+        <div class="sitemap-grid">
+
+          <a href="privacy.html" class="sitemap-card" data-category="legal">
+            <div class="card-top">
+              <div class="card-icon" style="background: rgba(107, 114, 128, 0.12); color: #6b7280;">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="card-meta-wrap">
+                <div class="card-title">Master Privacy Policy</div>
+                <span class="card-badge badge-legal">Compliance</span>
+              </div>
+            </div>
+            <p class="card-desc">Comprehensive privacy policy outlining zero data collection, offline-first design, and Google Play compliance.</p>
+            <div class="card-footer">
+              <span>/privacy.html</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="no-results" id="noResults">
+        <i class="fa-solid fa-folder-open"></i>
+        <h3>No matching pages found</h3>
+        <p>Try searching for a different keyword or select another category filter.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="links.html"><i class="fa-solid fa-link"></i> Links Hub</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+      <a href="testing.html"><i class="fa-brands fa-google-play"></i> Beta Testing</a>
+      <a href="sitemap.html"><i class="fa-solid fa-sitemap"></i> Sitemap</a>
+      <a href="privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+      <a href="https://github.com/karimuq" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/karimabdelnour26/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://karim25.itch.io" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-itch-io"></i> Itch.io</a>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Karim Abdelnour | Student Portfolio</p>
+    </div>
+  </footer>
+
+  <!-- Search & Filter Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('sitemapSearch');
+      const filterBtns = document.querySelectorAll('.sitemap-filter-btn');
+      const cards = document.querySelectorAll('.sitemap-card');
+      const groups = document.querySelectorAll('.sitemap-group');
+      const noResults = document.getElementById('noResults');
+
+      let currentFilter = 'all';
+
+      function filterCards() {
+        const query = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        groups.forEach(group => {
+          const groupCat = group.getAttribute('data-category');
+          let groupVisibleCards = 0;
+
+          const groupCards = group.querySelectorAll('.sitemap-card');
+          groupCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+            const url = card.querySelector('.card-footer span').textContent.toLowerCase();
+
+            const matchesCategory = (currentFilter === 'all') || (cardCat === currentFilter);
+            const matchesQuery = !query || title.includes(query) || desc.includes(query) || url.includes(query);
+
+            if (matchesCategory && matchesQuery) {
+              card.style.display = 'flex';
+              groupVisibleCards++;
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // Show/hide entire category header if no cards match
+          if (groupVisibleCards > 0) {
+            group.style.display = 'block';
+          } else {
+            group.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+
+      // Filter button click
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-filter');
+          filterCards();
+        });
+      });
+
+      // Search input listener
+      searchInput.addEventListener('input', filterCards);
+
+      // Mobile hamburger toggle
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.querySelector('header nav');
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          nav.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

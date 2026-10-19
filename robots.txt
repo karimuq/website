@@ -1,9 +1,12 @@
 User-agent: *
 Allow: /
 
-# Prevent search engines from indexing error & redirect utility pages
+# Prevent search engines from crawling utility redirects and error pages
 Disallow: /404.html
 Disallow: /thanks.html
+Disallow: /app-sober-tracker.html
+Disallow: /privacy-policy.html
+Disallow: /privacy-policy-tist.html
 
-# Sitemap location
+# XML Sitemap for search engines
 Sitemap: https://karimuq.github.io/website/sitemap.xml
