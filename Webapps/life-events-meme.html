@@ -1011,21 +1011,21 @@
                     <span style="font-size: 0.7rem; font-weight: 400; text-transform: none; color: var(--text-faint);">100% original</span>
                 </div>
                 <div class="presets-wrapper">
-                    <button class="preset-chip" onclick="loadPreset('blueJeans')">👖 Blue Jeans by Lana Del Rey</button>
-                    <button class="preset-chip" onclick="loadPreset('firstMarathon')">🏃 First Marathon</button>
-                    <button class="preset-chip" onclick="loadPreset('lifeIsStrange')">🦋 Life is Strange</button>
-                    <button class="preset-chip" onclick="loadPreset('skate4am')">🛹 Skate at 4 AM</button>
-                    <button class="preset-chip" onclick="loadPreset('blank')">✨ Blank Canvas</button>
+                    <button class="preset-chip" onclick="loadPreset('blueJeans')">Blue Jeans by Lana Del Rey</button>
+                    <button class="preset-chip" onclick="loadPreset('firstMarathon')">First Marathon</button>
+                    <button class="preset-chip" onclick="loadPreset('lifeIsStrange')">Life is Strange</button>
+                    <button class="preset-chip" onclick="loadPreset('skate4am')">Skate at 4 AM</button>
+                    <button class="preset-chip" onclick="loadPreset('blank')">Blank Canvas</button>
                 </div>
             </div>
 
             <!-- Mobile Segmented Tabs -->
             <div class="mobile-tab-bar">
                 <button class="mobile-tab-btn active" id="tabBtnEvents" onclick="switchMobileTab('events')">
-                    📝 Milestones (<span id="eventCountLabelTab">3</span>)
+                    <i class="fa-solid fa-list-check"></i> Milestones (<span id="eventCountLabelTab">3</span>)
                 </button>
                 <button class="mobile-tab-btn" id="tabBtnStyle" onclick="switchMobileTab('style')">
-                    ⚙️ Style & Text
+                    <i class="fa-solid fa-sliders"></i> Style &amp; Text
                 </button>
             </div>
 
@@ -1115,14 +1115,14 @@
             <div class="stage-toolbar">
                 <div class="stage-title-wrap">
                     <span class="stage-title">Live Preview</span>
-                    <span class="stage-tip">💡 Touch and drag any peak to adjust height</span>
+                    <span class="stage-tip"><i class="fa-solid fa-hand-pointer"></i> Touch and drag any peak to adjust height</span>
                 </div>
                 <div class="stage-actions">
                     <button class="btn btn-secondary" onclick="copyImageToClipboard()">
-                        📋 Copy Image
+                        <i class="fa-regular fa-copy"></i> Copy Image
                     </button>
                     <button class="btn btn-primary" onclick="downloadMemeImage()">
-                        📥 Download PNG
+                        <i class="fa-solid fa-download"></i> Download PNG
                     </button>
                 </div>
             </div>
@@ -1139,16 +1139,16 @@
     <!-- Floating Sticky Bottom Bar for Mobile -->
     <div class="mobile-bottom-bar">
         <button class="btn btn-secondary mobile-bottom-btn" onclick="copyImageToClipboard()">
-            📋 Copy
+            <i class="fa-regular fa-copy"></i> Copy
         </button>
         <button class="btn btn-primary mobile-bottom-btn" onclick="downloadMemeImage()">
-            📥 Download PNG
+            <i class="fa-solid fa-download"></i> Download PNG
         </button>
     </div>
 
     <!-- Toast Notification -->
     <div class="toast" id="toastNotification">
-        <span>✓</span> Copied image to clipboard!
+        <i class="fa-solid fa-check"></i> Copied image to clipboard!
     </div>
 
     <script>
@@ -1260,7 +1260,7 @@
             document.body.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
             const btn = document.getElementById('themeToggleBtn');
-            if (btn) btn.textContent = next === 'dark' ? '🌙' : '☀️';
+            if (btn) btn.innerHTML = next === 'dark' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
             const siteToggle = document.getElementById('theme-toggle');
             if (siteToggle) {
                 siteToggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
@@ -1306,12 +1306,12 @@
                     <div class="event-card-header">
                         <div class="event-title-badge">
                             <span class="event-num-pill">${idx + 1}</span>
-                            <span>${evt.height >= 75 ? '🔥 The Peak' : 'Milestone'}</span>
+                            <span>${evt.height >= 75 ? 'The Peak' : 'Milestone'}</span>
                         </div>
                         <div class="event-actions">
-                            <button class="icon-btn" title="Move Left" onclick="moveEvent(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>←</button>
-                            <button class="icon-btn" title="Move Right" onclick="moveEvent(${idx}, 1)" ${idx === events.length - 1 ? 'disabled' : ''}>→</button>
-                            <button class="icon-btn danger" title="Delete Event" onclick="removeEvent(${idx})" ${events.length <= MIN_EVENTS ? 'disabled' : ''}>✕</button>
+                            <button class="icon-btn" title="Move Left" onclick="moveEvent(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}><i class="fa-solid fa-arrow-left"></i></button>
+                            <button class="icon-btn" title="Move Right" onclick="moveEvent(${idx}, 1)" ${idx === events.length - 1 ? 'disabled' : ''}><i class="fa-solid fa-arrow-right"></i></button>
+                            <button class="icon-btn danger" title="Delete Event" onclick="removeEvent(${idx})" ${events.length <= MIN_EVENTS ? 'disabled' : ''}><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                     </div>
 
