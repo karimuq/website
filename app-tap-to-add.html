@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
@@ -30,46 +30,120 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Tap to Add</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>Tap to Add</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Tap to Add</h1>
-            <span class="game-status-pill">GitHub</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #312e81, #1e1b4b); border: 1px solid rgba(165, 180, 252, 0.4); box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.35);">
+              <i class="fa-solid fa-hand-pointer" style="color: #a5b4fc; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Tap to Add</h1>
+                <span class="game-status-pill pulse-dot">v1.0.0 — Available</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A tap-to-add counter application available as both an Android APK and an interactive web concept. Simple, immediate, distraction-free counting.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">A tap-to-add counter application available as both an Android APK and an interactive web concept. Simple, immediate, distraction-free counting.</p>
-          <div class="tags">
+          <div class="tags" style="margin-top: 1rem;">
             <span class="tag">Android</span>
             <span class="tag">Web App</span>
             <span class="tag">Java</span>
             <span class="tag">JavaScript</span>
+            <span class="tag">Proprietary</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>Tap to Add is a stripped-down counter app focused purely on one thing: counting taps. Whether you are counting reps at the gym, tracking inventory, or just tally-marking anything — tap the screen and the number goes up.</p>
-            <p>It is available as a native Android APK for offline use, and also as a web concept you can try directly in your browser. The web version demonstrates the core interaction model with smooth animation on every tap.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>Tap to Add</strong> is a stripped-down tally counter app focused purely on one thing: friction-free counting. Whether you are counting workout reps at the gym, tracking warehouse inventory batches, or tallying attendance, tap anywhere on the screen and the count increments instantly.
+            </p>
+            <p>
+              It is available as a native Android APK for offline on-the-go usage, and as an interactive web concept you can test right in your browser below. The tactile haptic design delivers immediate visual feedback on every tap.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
-            <div class="game-feature-grid">
-              <div class="feature-card"><h3>One-Tap Counting</h3><p>A large full-screen tap zone for easy counting with one hand.</p></div>
-              <div class="feature-card"><h3>Reset Counter</h3><p>Long-press or use the reset button to zero the counter.</p></div>
-              <div class="feature-card"><h3>Web Demo</h3><p>Try the interactive web concept directly in your browser without installing anything.</p></div>
-              <div class="feature-card"><h3>APK Download</h3><p>Download the native Android APK from GitHub Releases for offline use.</p></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Counting with Tap to Add is instant and effortless:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">1</div>
+                <h3>Launch Counter</h3>
+                <p>Open the Android APK on your mobile device or use the embedded interactive browser demo below.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">2</div>
+                <h3>Tap Anywhere</h3>
+                <p>Tap the large tactile tap surface with one hand to increment your tally count smoothly.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">3</div>
+                <h3>Reset Counter</h3>
+                <p>Long-press or use the dedicated reset control whenever you need to return the counter to zero.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">4</div>
+                <h3>Persistent State</h3>
+                <p>Your current tally number is automatically preserved on-device between app launches and reloads.</p>
+              </div>
             </div>
           </div>
 
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
+            <div class="game-feature-grid">
+              <div class="feature-card">
+                <h3>One-Tap Counting</h3>
+                <p>A large full-screen tap zone for easy counting with one hand.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Reset Counter</h3>
+                <p>Long-press or use the reset button to zero the counter.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Web Demo</h3>
+                <p>Try the interactive web concept directly in your browser without installing anything.</p>
+              </div>
+              <div class="feature-card">
+                <h3>APK Download</h3>
+                <p>Download the native Android APK from GitHub Releases for offline use.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Web Concept Console -->
           <div class="game-stage-console">
             <div class="game-console-topbar">
-              <span class="console-title">Interactive Web Concept</span>
+              <span class="console-title"><i class="fa-solid fa-laptop-code"></i> Interactive Web Concept</span>
               <div class="console-actions">
-                <a href="Webapps/Counter-app.html" target="_blank" class="console-btn">Open Full Screen</a>
+                <a href="Webapps/Counter-app.html" target="_blank" class="console-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Screen</a>
               </div>
             </div>
             <div class="game-iframe-wrapper" style="padding:0; min-height:420px;">
@@ -77,18 +151,48 @@
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Android + Web</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">Java / JavaScript</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Utility</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">Tap to Add</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-android"></i> Platform</span>
+              <span class="spec-value">Android + Web</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-code"></i> Language</span>
+              <span class="spec-value">Java / JavaScript</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">Utility / Productivity</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">Local Only</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Proprietary</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="https://github.com/karimuq/Tap-to-add/releases/latest" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary">Download APK</a>
-            <a href="https://github.com/karimuq/Tap-to-add" target="_blank" rel="noopener noreferrer" class="game-cta-btn secondary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/Tap-to-add/releases/latest" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #4f46e5, #4338ca);">
+              <i class="fa-solid fa-download"></i> <span>Download APK</span>
+            </a>
+            <a href="https://github.com/karimuq/Tap-to-add" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn secondary">
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>

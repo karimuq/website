@@ -50,23 +50,32 @@
 
   <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> /
-        <a href="projects-apps.html">Apps</a> /
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
         <span>Currency Converter</span>
       </nav>
 
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Currency Converter</h1>
-            <span class="game-status-pill">Closed Testing</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #065f46, #064e3b); border: 1px solid rgba(52, 211, 153, 0.4); box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35);">
+              <i class="fa-solid fa-money-bill-transfer" style="color: #34d399; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Currency Converter</h1>
+                <span class="game-status-pill pulse-dot">Closed Testing</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A fast, offline-capable Android currency exchange tool with instant multi-currency conversions, customized
+                favorite lists, and an integrated calculation engine.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">
-            A fast, offline-capable Android currency exchange tool with instant multi-currency conversions, customized
-            favorite lists, and an integrated calculation engine.
-          </p>
-          <div class="tags">
+          <div class="tags" style="margin-top: 1rem;">
             <span class="tag">Android</span>
             <span class="tag">Finance</span>
             <span class="tag">Utility</span>
@@ -78,6 +87,7 @@
 
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
             <div class="game-section-header">
               <h2>About the App</h2>
@@ -94,9 +104,44 @@
             </p>
           </div>
 
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
             <div class="game-section-header">
-              <h2>Features</h2>
+              <h2>How to Use</h2>
+            </div>
+            <p>Converting global currencies takes only a few quick gestures:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #059669, #047857);">1</div>
+                <h3>Select Base Currency</h3>
+                <p>Choose your primary source currency from the curated worldwide list with swift instant search.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #059669, #047857);">2</div>
+                <h3>Enter Conversion Value</h3>
+                <p>Type values using the built-in mathematical calculation keypad for instantaneous addition and splits.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #059669, #047857);">3</div>
+                <h3>Multi-Currency Output</h3>
+                <p>View live converted valuations across all your selected watch-list currencies simultaneously in real time.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #059669, #047857);">4</div>
+                <h3>Convert Offline</h3>
+                <p>Rates are cached locally so conversions remain fully operational even without internet connectivity.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
             </div>
             <div class="game-feature-grid">
               <div class="feature-card">
@@ -120,53 +165,47 @@
         </div>
 
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
             <div class="spec-row">
-              <span class="spec-label">App Name</span>
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
               <span class="spec-value">Currency Converter</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Platform</span>
-              <span class="spec-value">Android</span>
+              <span class="spec-label"><i class="fa-brands fa-android"></i> Platform</span>
+              <span class="spec-value">Android 8.0+</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Package ID</span>
+              <span class="spec-label"><i class="fa-solid fa-fingerprint"></i> Package ID</span>
               <span class="spec-value"><code>com.currencyconverter.karim</code></span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Category</span>
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
               <span class="spec-value">Finance / Utility</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Data Storage</span>
-              <span class="spec-value">Local Only</span>
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">100% Local Only</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Status</span>
-              <span class="spec-value">Closed Testing</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label">License</span>
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
               <span class="spec-value">Proprietary</span>
             </div>
           </div>
           <div class="specs-cta-group">
             <a href="https://play.google.com/apps/testing/com.currencyconverter.karim" target="_blank" rel="noopener noreferrer"
               class="game-cta-btn primary"
-              style="background: linear-gradient(135deg, #06b6d4, #0891b2); display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-brands fa-google-play"></i> Join Closed Beta
+              style="background: linear-gradient(135deg, #059669, #047857);">
+              <i class="fa-brands fa-google-play"></i> <span>Join Closed Beta</span>
             </a>
-            <a href="testing.html" class="game-cta-btn secondary"
-              style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-solid fa-users"></i> Testing Program
+            <a href="testing.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-users"></i> <span>Beta Testing Hub</span>
             </a>
-            <a href="privacy.html" class="game-cta-btn secondary"
-              style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-solid fa-shield-halved"></i> Privacy Policy
+            <a href="privacy.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-shield-halved"></i> <span>Privacy Policy</span>
             </a>
             <a href="projects-apps.html" class="game-cta-btn secondary">
-              Back to Apps
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
             </a>
           </div>
         </aside>

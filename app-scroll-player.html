@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
@@ -30,52 +30,151 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Scroll Player</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>Scroll Player</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Scroll Player</h1>
-            <span class="game-status-pill">GitHub</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #3b0764, #1e1b4b); border: 1px solid rgba(192, 132, 252, 0.4); box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.35);">
+              <i class="fa-solid fa-circle-play" style="color: #c084fc; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Scroll Player</h1>
+                <span class="game-status-pill pulse-dot">v1.0.0 — Available</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A scrolling media player application built for fluid media viewing and intuitive playback control on desktop.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">A scrolling media player application built for fluid media viewing and intuitive playback control on desktop.</p>
-          <div class="tags">
-            <span class="tag">Desktop</span>
+          <div class="tags" style="margin-top: 1rem;">
+            <span class="tag">Windows Desktop</span>
             <span class="tag">Python</span>
-            <span class="tag">Media</span>
-            <span class="tag">Proprietary</span>
+            <span class="tag">Media Utility</span>
+            <span class="tag">Open Source</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>Scroll Player is a desktop media player focused on a scroll-driven interaction model. Instead of traditional scrubbing, you can scroll through video content naturally — making it easier to skim, review, or navigate long recordings.</p>
-            <p>It is built with Python and targets users who work with long-form video content such as lectures, interviews, or recordings — where quick navigation is more important than playback controls.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>Scroll Player</strong> is a desktop media player focused on a gesture and scroll-driven interaction model. Instead of traditional imprecise timeline scrubbing bars, you can scroll through video content with natural mouse wheel or touchpad kinetics — making it significantly easier to skim lectures, review surveillance, or analyze footage.
+            </p>
+            <p>
+              Built with Python and native desktop bindings, Scroll Player delivers high performance without the memory overhead of Electron or web runtimes. Ideal for students, researchers, and video editors who need to inspect video content quickly.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Navigating video media with natural scroll kinetics:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #9333ea, #7e22ce);">1</div>
+                <h3>Open Video File</h3>
+                <p>Drag any video file or playlist queue directly into the application canvas.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #9333ea, #7e22ce);">2</div>
+                <h3>Scroll to Scrub</h3>
+                <p>Use your mouse scroll wheel or trackpad gestures to scrub forward and backward frame-by-frame.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #9333ea, #7e22ce);">3</div>
+                <h3>Adjust Speed</h3>
+                <p>Fine-tune playback speed multipliers to breeze through recorded lectures and long meetings.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #9333ea, #7e22ce);">4</div>
+                <h3>Distraction-Free</h3>
+                <p>Enter clean borderless presentation mode with auto-hiding controls for focused video viewing.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
             <div class="game-feature-grid">
-              <div class="feature-card"><h3>Scroll Navigation</h3><p>Scroll through video content with the mouse wheel for natural, fast navigation.</p></div>
-              <div class="feature-card"><h3>Playback Controls</h3><p>Standard play/pause, volume, and seek controls alongside the scroll interface.</p></div>
-              <div class="feature-card"><h3>Format Support</h3><p>Supports major video formats including MP4, MKV, AVI, and more.</p></div>
-              <div class="feature-card"><h3>Lightweight</h3><p>Minimal resource footprint — no browser, no Electron, just a Python app.</p></div>
+              <div class="feature-card">
+                <h3>Kinetic Scroll Navigation</h3>
+                <p>Scroll through video timelines smoothly with the mouse wheel for fluid, fast navigation.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Responsive Playback Controls</h3>
+                <p>Standard play/pause, volume controls, and seek markers alongside the scroll interface.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Universal Format Support</h3>
+                <p>Supports major video containers including MP4, MKV, AVI, WebM, and MOV.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Lightweight Native Footprint</h3>
+                <p>Minimal resource consumption — runs natively on Python without heavy browser frameworks.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Windows / macOS / Linux</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">Python</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Media Player</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">Scroll Player</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-windows"></i> Platform</span>
+              <span class="spec-value">Windows / Desktop</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-code"></i> Language</span>
+              <span class="spec-value">Python / PyQt</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">Media Player</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">Local Only</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Open Source (GitHub)</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="https://github.com/karimuq/scroll-player" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/scroll-player" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #9333ea, #7e22ce);">
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>

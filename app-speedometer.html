@@ -30,65 +30,170 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Speedometer</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>Speedometer</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Speedometer</h1>
-            <span class="game-status-pill">GitHub</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #9a3412, #431407); border: 1px solid rgba(251, 191, 36, 0.4); box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.35);">
+              <i class="fa-solid fa-gauge-high" style="color: #fbbf24; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Speedometer</h1>
+                <span class="game-status-pill pulse-dot">Closed Testing</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A GPS-based mobile speedometer application for real-time speed tracking and trip velocity metrics. Designed for drivers, cyclists, and anyone who wants accurate on-device speed data.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">A GPS-based mobile speedometer application for real-time speed tracking and trip velocity metrics. Designed for drivers, cyclists, and anyone who wants accurate on-device speed data.</p>
-          <div class="tags">
+          <div class="tags" style="margin-top: 1rem;">
             <span class="tag">Android</span>
             <span class="tag">Java</span>
             <span class="tag">GPS</span>
             <span class="tag">Utility</span>
+            <span class="tag">Proprietary</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>Speedometer uses the device GPS to calculate and display your current speed in real time. It provides a large, easy-to-read digital speedometer interface — clean and minimal so you can glance at it while on the move.</p>
-            <p>The app also logs trip statistics including max speed, average speed, and total distance, giving you a full picture of each journey without needing an internet connection.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>Speedometer</strong> uses device hardware GPS to calculate and render your true velocity in real time. Built with a high-contrast digital gauge interface, it provides instantaneous visibility whether mounted on a car dashboard, bicycle handlebar, or handheld during outdoor fitness.
+            </p>
+            <p>
+              In addition to real-time velocity, the app aggregates trip statistics including maximum speed achieved, average trip velocity, and total distance traveled. All calculations are executed directly on your hardware without internet requirements or telemetry tracking.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Getting accurate speed metrics takes only a moment:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #f59e0b, #d97706);">1</div>
+                <h3>Launch &amp; Mount</h3>
+                <p>Open Speedometer on your Android device and secure it in landscape or portrait orientation.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #f59e0b, #d97706);">2</div>
+                <h3>Enable GPS</h3>
+                <p>Grant location permission to let hardware GPS connect directly to positioning satellites.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #f59e0b, #d97706);">3</div>
+                <h3>Select Unit</h3>
+                <p>Switch between metric (km/h) and imperial (mph) speed measurements with a single tap.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #f59e0b, #d97706);">4</div>
+                <h3>View Trip Telemetry</h3>
+                <p>Monitor your live speed, average pace, top speed reached, and total accumulated trip distance.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
             <div class="game-feature-grid">
-              <div class="feature-card"><h3>Real-Time Speed</h3><p>Live GPS-derived speed display updated every second in your chosen unit.</p></div>
-              <div class="feature-card"><h3>Unit Toggle</h3><p>Switch between km/h and mph with a single tap.</p></div>
-              <div class="feature-card"><h3>Trip Stats</h3><p>Tracks max speed, average speed, and distance per session.</p></div>
-              <div class="feature-card"><h3>Offline</h3><p>No internet required — all calculations run on-device via GPS hardware.</p></div>
+              <div class="feature-card">
+                <h3>Real-Time Satellite Speed</h3>
+                <p>Live GPS-derived speed display refreshed continuously with low latency.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Instant Unit Toggle</h3>
+                <p>Seamlessly switch between km/h and mph at any point during active tracking.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Trip Session Statistics</h3>
+                <p>Tracks peak maximum velocity, average journey speed, and total mileage.</p>
+              </div>
+              <div class="feature-card">
+                <h3>100% Offline GPS Engine</h3>
+                <p>Operates entirely via on-device GPS hardware without requiring cellular data.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">App Name</span><span class="spec-value">Speedometer</span></div>
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Android</span></div>
-            <div class="spec-row"><span class="spec-label">Package ID</span><span class="spec-value"><code>com.speedometer.karim</code></span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Navigation / Utility</span></div>
-            <div class="spec-row"><span class="spec-label">Permissions</span><span class="spec-value">Location (GPS)</span></div>
-            <div class="spec-row"><span class="spec-label">Data Storage</span><span class="spec-value">Local Only</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">Speedometer</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-android"></i> Platform</span>
+              <span class="spec-value">Android 7.0+</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-fingerprint"></i> Package ID</span>
+              <span class="spec-value"><code>com.speedometer.karim</code></span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">Navigation / Utility</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-location-crosshairs"></i> Permissions</span>
+              <span class="spec-value">Location (GPS)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">100% Local Only</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Proprietary</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="https://play.google.com/apps/testing/com.speedometer.karim" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary" style="background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-brands fa-google-play"></i> Join Closed Beta
+            <a href="https://play.google.com/apps/testing/com.speedometer.karim" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+              <i class="fa-brands fa-google-play"></i> <span>Join Closed Beta</span>
             </a>
-            <a href="testing.html" class="game-cta-btn secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-solid fa-users"></i> Testing Program
+            <a href="testing.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-users"></i> <span>Beta Testing Hub</span>
             </a>
-            <a href="privacy.html" class="game-cta-btn secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-solid fa-shield-halved"></i> Privacy Policy
+            <a href="privacy.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-shield-halved"></i> <span>Privacy Policy</span>
             </a>
-            <a href="https://github.com/karimuq/Speedometer/releases/latest" target="_blank" rel="noopener noreferrer" class="game-cta-btn secondary">Download APK</a>
-            <a href="https://github.com/karimuq/Speedometer" target="_blank" rel="noopener noreferrer" class="game-cta-btn secondary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/Speedometer/releases/latest" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn secondary">
+              <i class="fa-solid fa-download"></i> <span>Download APK</span>
+            </a>
+            <a href="https://github.com/karimuq/Speedometer" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn secondary">
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>

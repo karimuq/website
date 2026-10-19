@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
@@ -30,53 +30,152 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>File Converter</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>File Converter</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>File Converter</h1>
-            <span class="game-status-pill">GitHub</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #1e3a8a, #0c1c3f); border: 1px solid rgba(96, 165, 250, 0.4); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.35);">
+              <i class="fa-solid fa-file-arrow-up" style="color: #60a5fa; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>File Converter</h1>
+                <span class="game-status-pill pulse-dot">v1.0.0 — Available</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A universal multi-platform file format converter for images, audio, video, and documents. Runs entirely offline — no upload, no cloud, no waiting.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">A universal multi-platform file format converter for images, audio, video, and documents. Runs entirely offline — no upload, no cloud, no waiting.</p>
-          <div class="tags">
+          <div class="tags" style="margin-top: 1rem;">
             <span class="tag">Desktop</span>
             <span class="tag">Python</span>
+            <span class="tag">FFmpeg / Pillow</span>
             <span class="tag">Utility</span>
-            <span class="tag">Offline</span>
+            <span class="tag">100% Offline</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>File Converter is a desktop application built for people who regularly need to convert files between formats. Rather than uploading files to a web service, everything is processed locally using FFmpeg and Pillow — making it fast, private, and reliable even without internet.</p>
-            <p>The interface is clean and direct: drag in a file, pick your output format, and click Convert. Batch processing lets you convert multiple files in one run.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>File Converter</strong> is a desktop application built for people who regularly need to convert files between formats. Rather than uploading files to a third-party web service, everything is processed locally on your processor using FFmpeg and Pillow — making conversions lightning fast, private, and reliable without internet access.
+            </p>
+            <p>
+              The interface is clean and direct: drag in a file, pick your output format, and click Convert. High-performance batch processing lets you transcode multiple items in a single run with unified quality settings.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Supported Formats</h2></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Transcoding files locally takes less than a minute:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">1</div>
+                <h3>Drag &amp; Drop Files</h3>
+                <p>Drag files or entire media directories directly into the desktop application window.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">2</div>
+                <h3>Choose Output Format</h3>
+                <p>Select your desired extension: MP4, MP3, PNG, WebM, FLAC, WAV, GIF, or PDF.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">3</div>
+                <h3>Configure Presets</h3>
+                <p>Optionally adjust compression ratio, video resolution scale, or audio bitrate profiles.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">4</div>
+                <h3>Convert &amp; Save</h3>
+                <p>Click Convert to process files locally with high-speed multi-threaded FFmpeg acceleration.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
             <div class="game-feature-grid">
-              <div class="feature-card"><h3>Images</h3><p>Convert between PNG, JPG, WEBP, BMP, GIF, TIFF, and more.</p></div>
-              <div class="feature-card"><h3>Audio</h3><p>Convert between MP3, WAV, FLAC, OGG, AAC, and other audio formats.</p></div>
-              <div class="feature-card"><h3>Video</h3><p>Convert between MP4, MKV, AVI, MOV, WebM, and other video formats.</p></div>
-              <div class="feature-card"><h3>Batch Processing</h3><p>Convert multiple files at once with a single click and shared settings.</p></div>
+              <div class="feature-card">
+                <h3>Images</h3>
+                <p>Convert between PNG, JPG, WEBP, BMP, GIF, TIFF, and vector formats.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Audio</h3>
+                <p>Convert between MP3, WAV, FLAC, OGG, AAC, and other high-fidelity audio containers.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Video</h3>
+                <p>Convert between MP4, MKV, AVI, MOV, WebM, and compressed streaming standards.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Batch Processing</h3>
+                <p>Convert hundreds of files simultaneously with one click and preserved folder hierarchies.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Windows / macOS / Linux</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">Python</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Utility</span></div>
-            <div class="spec-row"><span class="spec-label">Data Storage</span><span class="spec-value">Local Only</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">File Converter</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-windows"></i> Platform</span>
+              <span class="spec-value">Windows / macOS / Linux</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-code"></i> Engines</span>
+              <span class="spec-value">Python / FFmpeg / Pillow</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">Media / Utility</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">100% Offline (Local Only)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Open Source (GitHub)</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="https://github.com/karimuq/File-Converter" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/File-Converter" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>

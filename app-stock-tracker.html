@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
@@ -30,54 +30,152 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> /
-        <a href="projects-apps.html">Apps</a> /
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
         <span>Stock Tracker</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Stock Tracker</h1>
-            <span class="game-status-pill">GitHub</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #0b192c, #1e3e62); border: 1px solid rgba(0, 230, 118, 0.4); box-shadow: 0 10px 25px -5px rgba(0, 230, 118, 0.35);">
+              <i class="fa-solid fa-chart-line" style="color: #00e676; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Stock Tracker</h1>
+                <span class="game-status-pill pulse-dot">Open Source</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A mobile stock and portfolio tracking application designed for monitoring asset prices, market trends, and trade positions on Android.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">A mobile stock and portfolio tracking application designed for monitoring asset prices, market trends, and trade positions on Android.</p>
-          <div class="tags">
+          <div class="tags" style="margin-top: 1rem;">
             <span class="tag">Android</span>
             <span class="tag">Java</span>
             <span class="tag">Finance</span>
-            <span class="tag">Proprietary</span>
+            <span class="tag">Portfolio</span>
+            <span class="tag">Open Source</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>Stock Tracker is an Android application built for investors and traders who want a lightweight, focused tool to track their portfolios. The app allows you to add assets, monitor live prices, and track your overall portfolio performance in real time.</p>
-            <p>Designed with a clean, data-dense interface, it prioritises the information you need without clutter. Ideal for tracking individual stocks, crypto, or any other ticker-based asset.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>Stock Tracker</strong> is an Android application built for investors and traders who want a lightweight, focused tool to track their portfolios. The app allows you to add assets, monitor live prices, and track your overall portfolio performance in real time.
+            </p>
+            <p>
+              Designed with a clean, data-dense interface, it prioritises the information you need without clutter. Ideal for tracking individual stocks, crypto, or any other ticker-based asset.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Managing your investment holdings is straightforward:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">1</div>
+                <h3>Add Tickers</h3>
+                <p>Search and add equities, ETFs, or market securities to your watchlist by ticker symbol.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">2</div>
+                <h3>Log Holdings</h3>
+                <p>Input your acquired share quantities and average purchase prices to track investment cost basis.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">3</div>
+                <h3>Monitor Live Prices</h3>
+                <p>Track real-time valuations, day-gain fluctuations, and percentage changes across positions.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">4</div>
+                <h3>Evaluate Net P&amp;L</h3>
+                <p>Review comprehensive unrealized profit/loss summaries and portfolio allocation charts.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
             <div class="game-feature-grid">
-              <div class="feature-card"><h3>Portfolio Overview</h3><p>See your total portfolio value and performance at a glance with a clean dashboard.</p></div>
-              <div class="feature-card"><h3>Asset Tracking</h3><p>Add stocks, ETFs, or crypto by ticker symbol and track prices in real time.</p></div>
-              <div class="feature-card"><h3>Market Trends</h3><p>View price changes over time with simple trend indicators for each position.</p></div>
-              <div class="feature-card"><h3>Trade Positions</h3><p>Log buy/sell positions and calculate your P&amp;L for each held asset.</p></div>
+              <div class="feature-card">
+                <h3>Portfolio Overview</h3>
+                <p>See your total portfolio value and performance at a glance with a clean dashboard.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Asset Tracking</h3>
+                <p>Add stocks, ETFs, or crypto by ticker symbol and track prices in real time.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Market Trends</h3>
+                <p>View price changes over time with simple trend indicators for each position.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Trade Positions</h3>
+                <p>Log buy/sell positions and calculate your P&amp;L for each held asset.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Android</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">Java</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Finance</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">Stock Tracker</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-android"></i> Platform</span>
+              <span class="spec-value">Android</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-code"></i> Language</span>
+              <span class="spec-value">Java</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">Finance / Markets</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">Local Only</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Open Source (GitHub)</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="https://github.com/karimuq/Stock-Tracker" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/Stock-Tracker" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #10b981, #059669);">
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>

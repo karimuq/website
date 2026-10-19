@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
@@ -30,45 +30,119 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>Random Number Generator</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>Random Number Generator</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>Random Number Generator</h1>
-            <span class="game-status-pill pulse-dot">Concept</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #7e22ce, #3b0764); border: 1px solid rgba(232, 121, 249, 0.4); box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.35);">
+              <i class="fa-solid fa-dice" style="color: #e879f9; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>Random Number Generator</h1>
+                <span class="game-status-pill pulse-dot">Live Web App</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A lightweight random number generator web app with quick min/max configuration and a satisfying roll animation on every generation.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">A lightweight random number generator web app with quick min/max configuration and a satisfying roll animation on every generation.</p>
-          <div class="tags">
-            <span class="tag">Web App</span>
+          <div class="tags" style="margin-top: 1rem;">
+            <span class="tag">Web Application</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">Concept</span>
+            <span class="tag">Utility</span>
+            <span class="tag">Interactive Concept</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>Random Number Generator is a clean, focused web tool for generating random numbers within a configurable range. Set your minimum and maximum values, then tap the button to roll — each number appears with a smooth animation that makes the process feel tactile and satisfying.</p>
-            <p>Built entirely in vanilla JavaScript, it runs instantly in any browser with no dependencies, no install, and no latency.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>Random Number Generator</strong> is a clean, focused web tool for generating true pseudorandom numbers within any custom numeric boundary. Set your minimum and maximum values, then tap the roll button — each generated result emerges with a fluid digital tumbler animation that feels tactile and responsive.
+            </p>
+            <p>
+              Crafted in pure vanilla JavaScript, the application executes instantly across any browser with zero network latency, zero tracking scripts, and complete offline availability.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
-            <div class="game-feature-grid">
-              <div class="feature-card"><h3>Configurable Range</h3><p>Set any minimum and maximum values for your random generation range.</p></div>
-              <div class="feature-card"><h3>Roll Animation</h3><p>A smooth number-cycling animation on every roll for a satisfying feel.</p></div>
-              <div class="feature-card"><h3>Roll History</h3><p>Previous results are shown below the main display so you can track your rolls.</p></div>
-              <div class="feature-card"><h3>Instant</h3><p>Pure JavaScript — no loading, no dependencies, works offline in any browser.</p></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Generating random values takes only seconds:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #a855f7, #7c3aed);">1</div>
+                <h3>Set Thresholds</h3>
+                <p>Enter your desired minimum and maximum integer values into the boundary fields.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #a855f7, #7c3aed);">2</div>
+                <h3>Toggle Options</h3>
+                <p>Optionally configure multi-number sets or select unique non-repeating generation.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #a855f7, #7c3aed);">3</div>
+                <h3>Trigger Roll</h3>
+                <p>Click Generate to trigger the smooth rolling counter animation that stops on your result.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #a855f7, #7c3aed);">4</div>
+                <h3>Review History</h3>
+                <p>Inspect previous rolls in the live session history log or copy values with one click.</p>
+              </div>
             </div>
           </div>
 
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
+            <div class="game-feature-grid">
+              <div class="feature-card">
+                <h3>Configurable Range</h3>
+                <p>Set any minimum and maximum values for your random generation range.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Roll Animation</h3>
+                <p>A smooth number-cycling animation on every roll for a satisfying feel.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Roll History</h3>
+                <p>Previous results are shown below the main display so you can track your rolls.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Instant Offline Execution</h3>
+                <p>Pure JavaScript — no loading, no external dependencies, works offline in any browser.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Web App Console -->
           <div class="game-stage-console">
             <div class="game-console-topbar">
-              <span class="console-title">Interactive Web App</span>
+              <span class="console-title"><i class="fa-solid fa-laptop-code"></i> Interactive Web Tool</span>
               <div class="console-actions">
-                <a href="Webapps/random-number-generator.html" target="_blank" class="console-btn">Open Full Screen</a>
+                <a href="Webapps/random-number-generator.html" target="_blank" class="console-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Screen</a>
               </div>
             </div>
             <div class="game-iframe-wrapper" style="padding:0; min-height:420px;">
@@ -76,17 +150,40 @@
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Type</span><span class="spec-value">Web App</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">HTML / CSS / JS</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Utility</span></div>
-            <div class="spec-row"><span class="spec-label">Status</span><span class="spec-value">Concept</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">Random Number Generator</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-chrome"></i> Platform</span>
+              <span class="spec-value">Web Application</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-code"></i> Technology</span>
+              <span class="spec-value">HTML5 / JavaScript</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">Utility / Tool</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-bolt"></i> Execution</span>
+              <span class="spec-value">100% Client-Side</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="Webapps/random-number-generator.html" target="_blank" class="game-cta-btn primary">Try the App</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="Webapps/random-number-generator.html" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #9333ea, #7e22ce);">
+              <i class="fa-solid fa-play"></i> <span>Launch Web App</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>

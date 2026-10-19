@@ -52,23 +52,32 @@
 
   <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> /
-        <a href="projects-apps.html">Apps</a> /
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
         <span>TIST (There Is Still Time)</span>
       </nav>
 
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>TIST: Sobriety Tracker</h1>
-            <span class="game-status-pill">Closed Testing</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #064e3b, #022c22); border: 1px solid rgba(52, 211, 153, 0.4); box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35);">
+              <i class="fa-solid fa-shield-heart" style="color: #34d399; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>TIST: Sobriety Tracker</h1>
+                <span class="game-status-pill pulse-dot">Closed Testing</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                A 100% local, privacy-focused sobriety streak tracker for Android. Track your journey with live timers,
+                milestone badges, and relapse logging — no account, no data collection.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">
-            A 100% local, privacy-focused sobriety streak tracker for Android. Track your journey with live timers,
-            milestone badges, and relapse logging — no account, no data collection.
-          </p>
-          <div class="tags">
+          <div class="tags" style="margin-top: 1rem;">
             <span class="tag">Android</span>
             <span class="tag">Health</span>
             <span class="tag">Sobriety</span>
@@ -79,6 +88,7 @@
 
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
             <div class="game-section-header">
               <h2>About the App</h2>
@@ -98,9 +108,44 @@
             </p>
           </div>
 
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
             <div class="game-section-header">
-              <h2>Features</h2>
+              <h2>How to Use</h2>
+            </div>
+            <p>Building your personal recovery streak with TIST takes just a few simple steps:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">1</div>
+                <h3>Set Clean Date</h3>
+                <p>Pick the exact date and time your sobriety or self-improvement journey began to initialize the live clock.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">2</div>
+                <h3>Track Real-Time Milestones</h3>
+                <p>Watch your streak count live in days, hours, and seconds. Celebrate unlockable milestone badges at each stage.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">3</div>
+                <h3>Log Reflections &amp; Resets</h3>
+                <p>If a slip or relapse happens, log candid reflection notes and restart your counter without losing past streak data.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #10b981, #059669);">4</div>
+                <h3>100% Offline Resilience</h3>
+                <p>All timestamps, milestone progress, and notes remain encrypted and stored locally on your device.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
             </div>
             <div class="game-feature-grid">
               <div class="feature-card">
@@ -112,11 +157,11 @@
                 <p>Unlockable milestone badges at critical checkpoints to celebrate progress and maintain momentum.</p>
               </div>
               <div class="feature-card">
-                <h3>Relapse & Reset Logging</h3>
+                <h3>Relapse &amp; Reset Logging</h3>
                 <p>Log relapses with optional reflection notes and restart your counter without losing history.</p>
               </div>
               <div class="feature-card">
-                <h3>100% Offline & Private</h3>
+                <h3>100% Offline &amp; Private</h3>
                 <p>No accounts, no cloud sync, and zero tracking. Your personal data stays entirely on your device.</p>
               </div>
             </div>
@@ -124,58 +169,51 @@
         </div>
 
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
             <div class="spec-row">
-              <span class="spec-label">App Name</span>
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
               <span class="spec-value">TIST: Sobriety Tracker</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Platform</span>
-              <span class="spec-value">Android</span>
+              <span class="spec-label"><i class="fa-brands fa-android"></i> Platform</span>
+              <span class="spec-value">Android 8.0+</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Package ID</span>
+              <span class="spec-label"><i class="fa-solid fa-fingerprint"></i> Package ID</span>
               <span class="spec-value"><code>com.tist.sobriety</code></span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Category</span>
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
               <span class="spec-value">Health &amp; Wellness</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Status</span>
-              <span class="spec-value">Closed Testing</span>
-            </div>
-
-            <div class="spec-row">
-              <span class="spec-label">Data Storage</span>
-              <span class="spec-value">Local Only</span>
+              <span class="spec-label"><i class="fa-solid fa-shield-halved"></i> Data Storage</span>
+              <span class="spec-value">100% Local Only</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">License</span>
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
               <span class="spec-value">Proprietary</span>
             </div>
           </div>
           <div class="specs-cta-group">
             <a href="https://play.google.com/apps/testing/com.tist.sobriety" target="_blank" rel="noopener noreferrer"
               class="game-cta-btn primary"
-              style="background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-brands fa-google-play"></i> Join Closed Beta
+              style="background: linear-gradient(135deg, #10b981, #059669);">
+              <i class="fa-brands fa-google-play"></i> <span>Join Closed Beta</span>
             </a>
-            <a href="testing.html" class="game-cta-btn secondary"
-              style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-solid fa-users"></i> Testing Program
+            <a href="testing.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-users"></i> <span>Beta Testing Hub</span>
             </a>
-            <a href="privacy.html" class="game-cta-btn secondary"
-              style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <i class="fa-solid fa-shield-halved"></i> Privacy Policy
+            <a href="privacy.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-shield-halved"></i> <span>Privacy Policy</span>
             </a>
             <a href="https://github.com/karimuq/Sober-tracker" target="_blank" rel="noopener noreferrer"
               class="game-cta-btn secondary">
-              View on GitHub
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
             </a>
             <a href="projects-apps.html" class="game-cta-btn secondary">
-              Back to Apps
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
             </a>
           </div>
         </aside>

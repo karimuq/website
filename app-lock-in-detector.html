@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="o9NqWlHGjIKC7NE1qPQD2Ud2jrjF87Ueu_4IIdPJcIg" />
@@ -30,54 +30,156 @@
     </div>
   </header>  <main>
     <section class="game-details">
-      <nav class="breadcrumb">
-        <a href="projects.html">Projects</a> / <a href="projects-apps.html">Apps</a> / <span>The Lock In Detector</span>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="projects.html">Projects</a>
+        <span>/</span>
+        <a href="projects-apps.html">Apps</a>
+        <span>/</span>
+        <span>The Lock In Detector</span>
       </nav>
+
       <div class="game-header">
         <div class="game-header-main">
-          <div class="game-title-row">
-            <h1>The Lock In Detector</h1>
-            <span class="game-status-pill">GitHub</span>
+          <div class="app-brand-row">
+            <div class="app-logo-badge" style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid rgba(56, 189, 248, 0.4); box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.35);">
+              <i class="fa-solid fa-brain" style="color: #38bdf8; font-size: 2.2rem;"></i>
+            </div>
+            <div class="app-title-group">
+              <div class="game-title-row">
+                <h1>The Lock In Detector</h1>
+                <span class="game-status-pill pulse-dot">v1.0.0 — Available</span>
+              </div>
+              <p class="game-subtitle" style="margin: 0;">
+                An AI-powered offline desktop utility that uses your webcam to detect when you pick up your phone, then alerts you to stay locked in and focused.
+              </p>
+            </div>
           </div>
-          <p class="game-subtitle">An AI-powered offline desktop utility that uses your webcam to detect when you pick up your phone, then alerts you to stay locked in and focused.</p>
-          <div class="tags">
-            <span class="tag">Desktop</span>
+          <div class="tags" style="margin-top: 1rem;">
+            <span class="tag">Windows Desktop</span>
             <span class="tag">Python</span>
-            <span class="tag">AI / CV</span>
+            <span class="tag">AI / OpenCV</span>
             <span class="tag">Productivity</span>
+            <span class="tag">Open Source</span>
           </div>
         </div>
       </div>
+
       <div class="game-showcase-grid">
         <div class="game-main-content">
+          <!-- About the App -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>About the App</h2></div>
-            <p>The Lock In Detector is a Python desktop application that runs a lightweight computer vision model on your webcam feed. It monitors your hands and environment in real time to detect when a phone-shaped object is picked up.</p>
-            <p>When distraction is detected, the app triggers a configurable alert — sound, visual overlay, or both — to break your habit and redirect your attention back to the screen. Everything runs 100% offline with no data ever leaving your machine.</p>
+            <div class="game-section-header">
+              <h2>About the App</h2>
+            </div>
+            <p>
+              <strong>The Lock In Detector</strong> is a desktop application that runs a lightweight computer vision model on your local webcam feed. It monitors your hands and workspace in real time to detect when a phone-shaped object is picked up during work sessions.
+            </p>
+            <p>
+              When distraction is detected, the app triggers configurable intervention alerts — sound alarms, full-screen visual overlays, or both — to interrupt reflexive scrolling and redirect focus to productive work. Everything runs 100% offline with zero cloud transmission.
+            </p>
           </div>
+
+          <!-- How to Use (Step by Step) -->
           <div class="game-section-card">
-            <div class="game-section-header"><h2>Features</h2></div>
+            <div class="game-section-header">
+              <h2>How to Use</h2>
+            </div>
+            <p>Locking into deep work with AI computer vision takes less than a minute:</p>
+
+            <div class="workflow-grid">
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #0284c7, #0369a1);">1</div>
+                <h3>Download &amp; Launch</h3>
+                <p>Download the latest release package from GitHub and run the executable on Windows.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #0284c7, #0369a1);">2</div>
+                <h3>Position Webcam</h3>
+                <p>Angle your webcam so it captures your keyboard, desk surface, and natural posture.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #0284c7, #0369a1);">3</div>
+                <h3>Activate Session</h3>
+                <p>Click Start Focus. The CV pipeline begins monitoring hand movements and mobile screen glares.</p>
+              </div>
+
+              <div class="workflow-card">
+                <div class="workflow-number" style="background: linear-gradient(135deg, #0284c7, #0369a1);">4</div>
+                <h3>Stay Locked In</h3>
+                <p>If you grab your phone, an alert sounds immediately to snap you back to your priorities.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Capabilities -->
+          <div class="game-section-card">
+            <div class="game-section-header">
+              <h2>Key Capabilities</h2>
+            </div>
             <div class="game-feature-grid">
-              <div class="feature-card"><h3>Webcam Detection</h3><p>Uses computer vision to monitor hand and phone position in the camera frame.</p></div>
-              <div class="feature-card"><h3>Instant Alerts</h3><p>Audio and visual alerts trigger the moment distraction is detected.</p></div>
-              <div class="feature-card"><h3>100% Offline</h3><p>All inference runs locally — no cloud, no API calls, no data collection.</p></div>
-              <div class="feature-card"><h3>Session Stats</h3><p>Tracks how many times you were distracted per session so you can improve over time.</p></div>
+              <div class="feature-card">
+                <h3>Real-Time Webcam Detection</h3>
+                <p>Uses computer vision models to track hand position and phone usage in the camera frame.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Instant Intervention Alerts</h3>
+                <p>Audio alarms and visual HUD prompts trigger the exact moment distraction occurs.</p>
+              </div>
+              <div class="feature-card">
+                <h3>100% Offline Inference</h3>
+                <p>All vision models execute locally on-device — no cloud streaming, no recordings, zero latency.</p>
+              </div>
+              <div class="feature-card">
+                <h3>Session Analytics</h3>
+                <p>Logs distraction occurrences per deep work block to measure self-discipline growth.</p>
+              </div>
             </div>
           </div>
         </div>
+
         <aside class="game-specs-card">
-          <h3 class="game-specs-title">App Info</h3>
+          <h3 class="game-specs-title">Application Specs</h3>
           <div class="spec-rows">
-            <div class="spec-row"><span class="spec-label">Platform</span><span class="spec-value">Windows / macOS / Linux</span></div>
-            <div class="spec-row"><span class="spec-label">Language</span><span class="spec-value">Python</span></div>
-            <div class="spec-row"><span class="spec-label">Category</span><span class="spec-value">Productivity / AI</span></div>
-            <div class="spec-row"><span class="spec-label">Hardware</span><span class="spec-value">Webcam Required</span></div>
-            <div class="spec-row"><span class="spec-label">License</span><span class="spec-value">Proprietary</span></div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-mobile-screen"></i> App Name</span>
+              <span class="spec-value">The Lock In Detector</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-brands fa-windows"></i> Platform</span>
+              <span class="spec-value">Windows / Desktop</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-code"></i> Language &amp; CV</span>
+              <span class="spec-value">Python / OpenCV</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-layer-group"></i> Category</span>
+              <span class="spec-value">AI / Productivity</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-camera"></i> Hardware</span>
+              <span class="spec-value">Webcam Required</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label"><i class="fa-solid fa-scale-balanced"></i> License</span>
+              <span class="spec-value">Open Source (GitHub)</span>
+            </div>
           </div>
           <div class="specs-cta-group">
-            <a href="https://github.com/karimuq/The-Lock-In-Detector/releases/latest" target="_blank" rel="noopener noreferrer" class="game-cta-btn primary">Download</a>
-            <a href="https://github.com/karimuq/The-Lock-In-Detector" target="_blank" rel="noopener noreferrer" class="game-cta-btn secondary">View on GitHub</a>
-            <a href="projects-apps.html" class="game-cta-btn secondary">Back to Apps</a>
+            <a href="https://github.com/karimuq/The-Lock-In-Detector/releases/latest" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn primary"
+              style="background: linear-gradient(135deg, #0284c7, #0369a1);">
+              <i class="fa-solid fa-download"></i> <span>Download Release</span>
+            </a>
+            <a href="https://github.com/karimuq/The-Lock-In-Detector" target="_blank" rel="noopener noreferrer"
+              class="game-cta-btn secondary">
+              <i class="fa-brands fa-github"></i> <span>View on GitHub</span>
+            </a>
+            <a href="projects-apps.html" class="game-cta-btn secondary">
+              <i class="fa-solid fa-arrow-left"></i> <span>Back to Apps Hub</span>
+            </a>
           </div>
         </aside>
       </div>
