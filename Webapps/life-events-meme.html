@@ -821,38 +821,42 @@
         }
 
         /* ============================================================
-           MOBILE-FIRST RESPONSIVE OPTIMIZATIONS (<= 960px)
+           MOBILE LAYOUT — Two-panel, no page scroll
+           Canvas fixed at top, controls scroll inside their own panel
            ============================================================ */
         @media (max-width: 960px) {
 
-            /* Hide the sub-nav breadcrumb bar on mobile — reclaims ~50px */
+            /* Lock the full page height — no page-level scrolling */
+            html, body {
+                height: 100%;
+                overflow: hidden;
+            }
+
+            /* Hide the sub-nav breadcrumb bar on mobile */
             #appSubNav {
                 display: none !important;
             }
 
-            /* Remove the sub-nav top margin offset from workspace */
-            .app-sub-nav {
-                margin-top: 0;
-            }
-
+            /* Workspace fills exactly the remaining viewport below the 70px header */
             .workspace {
                 flex-direction: column;
-                padding: 0.5rem 0.65rem;
-                gap: 0.75rem;
-                /* Extra room at bottom for the fixed action bar + safe area */
-                padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+                height: calc(100vh - 70px);
+                overflow: hidden;
+                padding: 0;
+                gap: 0;
+                margin: 0 auto;
+                /* account for bottom action bar */
+                padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
             }
 
-            /* STAGE COMES FIRST ON MOBILE: Live visual feedback immediately visible */
+            /* ── TOP PANEL: Canvas (fixed height, never scrolls) ── */
             .stage {
                 order: 1;
                 width: 100%;
-                position: sticky;
-                /* Matches the fixed site header height (70px, from styles.css) */
-                top: 70px;
-                z-index: 45;
+                flex: 0 0 auto;
+                position: static;       /* no sticky needed — page doesn't scroll */
                 background: var(--bg-app);
-                padding: 0.25rem 0 0.35rem 0;
+                padding: 0.4rem 0.65rem 0.3rem;
             }
 
             .stage-toolbar {
@@ -865,28 +869,32 @@
             }
 
             .canvas-wrapper {
-                /* Larger preview on mobile — 45vh gives ~300px on typical phones */
-                max-height: 45vh;
-                aspect-ratio: 4/3;
-                border-radius: 8px;
+                /* Canvas takes up ~38% of viewport height */
+                height: 38vh;
+                max-height: 38vh;
+                aspect-ratio: unset;   /* let height drive size */
                 width: 100%;
+                border-radius: 8px;
             }
 
-            /* SIDEBAR CONTROLS COME SECOND ON MOBILE */
+            /* ── BOTTOM PANEL: Controls (scrolls independently) ── */
             .sidebar {
                 order: 2;
                 width: 100%;
-                flex: none;
+                flex: 1 1 0;           /* takes all remaining space */
                 position: static;
                 max-height: none;
-                padding: 0.85rem;
-                border-radius: var(--radius-md);
+                height: 100%;
+                overflow-y: auto;      /* only this area scrolls */
+                -webkit-overflow-scrolling: touch;
+                padding: 0.75rem 0.65rem;
+                border-radius: 0;
                 box-shadow: none;
-                overflow: visible;
+                border-top: 1px solid var(--border-subtle);
                 gap: 1rem;
             }
 
-            /* Horizontally swipeable presets bar */
+            /* Horizontally swipeable presets row */
             .presets-wrapper {
                 flex-wrap: nowrap;
                 overflow-x: auto;
