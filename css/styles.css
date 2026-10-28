@@ -996,6 +996,42 @@ footer::before {
   font-size: 1.1em;
 }
 
+.cad-concept-link {
+  position: relative;
+  overflow: hidden;
+  padding: 0.65rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 65%, white 35%);
+  border-radius: 10px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, transparent), rgba(255, 255, 255, 0.04));
+  color: var(--accent);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.cad-concept-link::after {
+  content: '\2197';
+  margin-left: 0.2rem;
+  font-size: 0.9em;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.cad-concept-link:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.cad-concept-link:hover::after {
+  transform: translate(2px, -2px);
+}
+
+.cad-concept-link i {
+  color: currentColor;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, currentColor 45%, transparent));
+}
+
 /* Project Categories */
 .project-categories {
   display: grid;
