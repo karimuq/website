@@ -30,43 +30,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=17.5">
+  <link rel="stylesheet" href="css/styles.css?v=17.6">
   <style>
     
 
     .contact-section {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 3rem 1.5rem 4rem;
     }
 
     .contact-form {
       background: var(--bg-card-solid);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px var(--shadow-sm);
-      margin: 2rem auto;
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      box-shadow: 0 18px 45px var(--shadow-sm);
+      margin: 2.25rem auto 0;
+      max-width: 820px;
+    }
+
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.55rem;
       color: var(--text-primary);
-      font-weight: 500;
+      font-size: 0.85rem;
+      font-weight: 650;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 0.8rem;
-      border: 2px solid var(--border-color);
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border-color);
       background: var(--input-bg);
       color: var(--text-primary);
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1rem;
       transition: all 0.3s ease;
     }
@@ -79,16 +88,17 @@
     }
 
     .form-group textarea {
-      min-height: 150px;
+      min-height: 165px;
       resize: vertical;
     }
 
     button[type="submit"] {
-      background: #3498db;
+      width: 100%;
+      background: var(--accent);
       color: white;
-      padding: 1rem 2rem;
+      padding: 0.95rem 1.5rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1rem;
       font-weight: 500;
       cursor: pointer;
@@ -96,24 +106,23 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      justify-self: center;
       gap: 0.5rem;
     }
 
     button[type="submit"]:hover {
-      background: #2980b9;
+      background: var(--accent-hover);
       transform: translateY(-2px);
     }
 
-    [data-theme="dark"] button[type="submit"] {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
+    @media (max-width: 640px) {
+      .contact-section {
+        padding: 2rem 1rem 3rem;
+      }
 
-    [data-theme="dark"] button[type="submit"]:hover {
-      background: var(--accent-soft-hover);
-      transform: translateY(-2px);
+      .contact-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
     }
 
     .section-description {
@@ -175,14 +184,16 @@
           <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_next" value="https://karimuq.github.io/website/thanks.html">
 
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
 
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
           </div>
 
           <div class="form-group">
