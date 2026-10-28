@@ -1355,6 +1355,17 @@ button:hover,
   background: var(--accent-hover);
 }
 
+.cad-concept-link,
+.cad-concept-link:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, transparent), rgba(255, 255, 255, 0.04));
+  color: var(--accent);
+}
+
+.cad-concept-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 .cta-button.secondary,
 .project-nav a,
 .social-links a,
