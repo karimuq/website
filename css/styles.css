@@ -1035,11 +1035,12 @@ footer::before {
 /* Project Categories */
 .project-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 3%;
+  justify-content: center;
 }
 
 .category-card {
