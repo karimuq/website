@@ -1447,6 +1447,15 @@ footer::before {
   color: var(--text-secondary);
 }
 
+#home-details > .about-page > .about-section:first-child {
+  min-height: auto;
+  padding-top: 1rem;
+}
+
+#home-details .skills-grid {
+  max-width: 1100px;
+}
+
 .home-details-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
