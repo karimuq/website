@@ -1339,6 +1339,124 @@ footer::before {
   background: var(--bg-secondary);
 }
 
+.home-scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.home-scroll-cue i {
+  color: var(--accent);
+  animation: home-scroll-bounce 1.8s ease-in-out infinite;
+}
+
+.home-scroll-cue:hover {
+  color: var(--accent);
+  transform: translateY(2px);
+}
+
+@keyframes home-scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.home-details {
+  padding: 4rem 2rem 5rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+.home-details-intro {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-details-intro h2 {
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
+
+.home-details-intro p {
+  color: var(--text-secondary);
+}
+
+.home-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.home-detail-card {
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.home-detail-card > i {
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+
+.home-detail-card h3 {
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+}
+
+.home-detail-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.home-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.home-skill-list span {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .home-details {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .home-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .subsection,
 .card,
 .category-card,
