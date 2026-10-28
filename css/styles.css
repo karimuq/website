@@ -1340,33 +1340,80 @@ footer::before {
 }
 
 .home-scroll-cue {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.1rem;
   width: fit-content;
   margin: 0 auto;
-  padding: 0.5rem 1rem 1.5rem;
-  color: var(--text-secondary);
+  padding: 0.7rem 1rem 1.8rem;
+  color: #fff;
   text-decoration: none;
   font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
+.home-scroll-cue span {
+  display: block;
+  order: 1;
+  margin-bottom: 0.8rem;
+}
+
+.home-scroll-cue::before,
+.home-scroll-cue::after {
+  content: '';
+  display: block;
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.85));
+  transform: rotate(45deg);
+  animation: home-scroll-chevron 1.6s ease-in-out infinite;
+}
+
+.home-scroll-cue::before {
+  order: 2;
+}
+
+.home-scroll-cue::after {
+  order: 3;
+  animation-delay: 0.28s;
+}
+
 .home-scroll-cue i {
-  color: var(--accent);
-  animation: home-scroll-bounce 1.8s ease-in-out infinite;
+  display: none;
 }
 
 .home-scroll-cue:hover {
-  color: var(--accent);
-  transform: translateY(2px);
+  color: #fff;
+  transform: translateY(3px);
 }
 
-@keyframes home-scroll-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
+[data-theme="light"] .home-scroll-cue {
+  color: #1e293b;
+  text-shadow: 0 0 12px rgba(30, 41, 59, 0.2);
+}
+
+[data-theme="light"] .home-scroll-cue::before,
+[data-theme="light"] .home-scroll-cue::after {
+  border-color: #1e293b;
+  filter: drop-shadow(0 0 5px rgba(30, 41, 59, 0.35));
+}
+
+[data-theme="light"] .home-scroll-cue:hover {
+  color: #0f172a;
+}
+
+@keyframes home-scroll-chevron {
+  0%, 100% { opacity: 0.3; transform: translateY(-3px) rotate(45deg); }
+  50% { opacity: 1; transform: translateY(3px) rotate(45deg); }
 }
 
 .home-details {
