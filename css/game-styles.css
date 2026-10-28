@@ -4,28 +4,31 @@
 
 /* Root Gaming Variables */
 :root {
-  --game-accent: #3b82f6;
-  --game-accent-glow: rgba(59, 130, 246, 0.35);
-  --game-accent-dark: #2563eb;
-  --game-purple: #8b5cf6;
-  --game-cyan: #06b6d4;
+  --game-accent: #2563eb;
+  --game-accent-glow: rgba(37, 99, 235, 0.25);
+  --game-accent-dark: #1d4ed8;
+  --game-purple: #6366f1;
+  --game-cyan: #0ea5e9;
   --game-card-bg: #ffffff;
-  --game-card-border: #e2e8f0;
-  --game-console-bg: #0f172a;
-  --game-console-topbar: #1e293b;
+  --game-card-border: #dbe3ef;
+  --game-console-bg: #0b1120;
+  --game-console-topbar: #172033;
   --game-text-primary: #0f172a;
   --game-text-secondary: #475569;
   --game-badge-bg: #eff6ff;
-  --game-badge-text: #2563eb;
+  --game-badge-text: #1d4ed8;
 }
 
 [data-theme="dark"] {
-  --game-card-bg: rgba(30, 41, 59, 0.7);
-  --game-card-border: rgba(255, 255, 255, 0.08);
+  --game-accent: #60a5fa;
+  --game-accent-dark: #93c5fd;
+  --game-accent-glow: rgba(96, 165, 250, 0.25);
+  --game-card-bg: rgba(17, 24, 39, 0.82);
+  --game-card-border: rgba(148, 163, 184, 0.18);
   --game-text-primary: #f8fafc;
   --game-text-secondary: #cbd5e1;
   --game-badge-bg: rgba(59, 130, 246, 0.15);
-  --game-badge-text: #60a5fa;
+  --game-badge-text: #93c5fd;
 }
 
 /* ==========================================
@@ -925,4 +928,113 @@ kbd {
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
   max-width: 100%;
+}
+
+/* Keep showcase pages usable on narrow screens. */
+@media (max-width: 768px) {
+  .game-details {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .breadcrumb::-webkit-scrollbar {
+    display: none;
+  }
+
+  .game-header {
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+
+  .game-header-main {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .game-title-row,
+  .app-brand-row {
+    align-items: flex-start;
+  }
+
+  .game-header h1 {
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
+    overflow-wrap: anywhere;
+  }
+
+  .game-subtitle {
+    font-size: 1rem;
+  }
+
+  .game-showcase-grid {
+    gap: 1.25rem;
+  }
+
+  .game-section-card,
+  .game-specs-card {
+    padding: 1.25rem;
+    min-width: 0;
+  }
+
+  .workflow-grid,
+  .game-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-iframe-wrapper {
+    padding: 1rem 0.5rem;
+    overflow-x: auto;
+  }
+
+  .game-iframe-wrapper iframe,
+  .itch-badge-container iframe {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .game-iframe-wrapper.widescreen iframe {
+    height: min(56.25vw, 500px);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-details {
+    padding: 1rem 0.75rem 2.5rem;
+  }
+
+  .game-title-row {
+    gap: 0.6rem;
+  }
+
+  .app-brand-row {
+    gap: 0.75rem;
+  }
+
+  .app-logo-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    padding: 7px;
+  }
+
+  .game-status-pill {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .game-section-card,
+  .game-specs-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .game-dev-placeholder {
+    padding: 2.5rem 1rem;
+    min-height: 240px;
+  }
 }

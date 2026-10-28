@@ -1,16 +1,44 @@
 (function () {
   const STORAGE_KEY = 'theme';
 
+  function getStoredTheme() {
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved === 'light' || saved === 'dark') {
+        return saved;
+      }
+    } catch (error) {
+      // Storage can be unavailable (private browsing, restricted contexts, etc.)
+    }
+
+    return null;
+  }
+
+  function persistTheme(theme) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    } catch (error) {
+      // Ignore storage failures gracefully.
+    }
+  }
+
   function getPreferredTheme() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'light' || saved === 'dark') {
+    const saved = getStoredTheme();
+    if (saved) {
       return saved;
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+    if (window.matchMedia) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    return 'light';
   }
 
   function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
+    if (document.documentElement) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
   }
 
   applyTheme(getPreferredTheme());
@@ -41,7 +69,7 @@
     button.addEventListener('click', function () {
       const nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
-      localStorage.setItem(STORAGE_KEY, nextTheme);
+      persistTheme(nextTheme);
       updateToggle();
     });
   });

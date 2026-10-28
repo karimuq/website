@@ -210,14 +210,18 @@ document.addEventListener('DOMContentLoaded', function () {
 // The orb never crosses a visible line — it presses against it and brightens it.
 
 (function initLiquidGlass() {
+  if (!document.body || !window.matchMedia) {
+    return;
+  }
+
   // Disable Liquid Glass cursor glow on mobile/touch devices for smooth scrolling & performance
   if (window.matchMedia('(pointer: coarse)').matches || ('ontouchstart' in window && navigator.maxTouchPoints > 0)) {
     return;
   }
 
   const COLORS = {
-    light: { header: [108, 99, 255], footer: [234, 170, 8], card: [26, 188, 156], hero: [52, 152, 219], section: [79, 140, 219] },
-    dark: { header: [160, 150, 255], footer: [250, 204, 21], card: [52, 211, 153], hero: [93, 173, 226], section: [100, 170, 240] }
+    light: { header: [37, 99, 235], footer: [29, 78, 216], card: [14, 165, 233], hero: [37, 99, 235], section: [96, 165, 250] },
+    dark: { header: [96, 165, 250], footer: [59, 130, 246], card: [45, 212, 191], hero: [96, 165, 250], section: [147, 197, 253] }
   };
 
   const ORB_R = 240;   // volumetric ambient spread
@@ -408,7 +412,7 @@ const SHOWCASE_ITEMS = [
     title: 'CAD & Mechanical Design',
     desc: 'Precision 3D modeling, parametric mechanical assemblies, and technical engineering drawings.',
     icon: 'fa-solid fa-compass-drafting',
-    color: '#f39c12',
+    color: '#60a5fa',
     link: 'projects-cad.html',
     linkText: 'Explore CAD Portfolio'
   },
@@ -417,7 +421,7 @@ const SHOWCASE_ITEMS = [
     title: 'Embedded Systems & Robotics',
     desc: 'Microcontroller programming, sensor/actuator interfacing',
     icon: 'fa-solid fa-microchip',
-    color: '#008184',
+    color: '#2dd4bf',
     link: 'projects-arduino.html',
     linkText: 'Explore Electronics'
   },
@@ -426,7 +430,7 @@ const SHOWCASE_ITEMS = [
     title: 'C# & Unity Interactive Dev',
     desc: 'Developing interactive real-time physics ,and custom systems architecture using Unity & C#.',
     icon: 'fa-brands fa-unity',
-    color: '#2ecc71',
+    color: '#818cf8',
     link: 'projects-games.html',
     linkText: 'Explore Interactive Work'
   },
@@ -435,7 +439,7 @@ const SHOWCASE_ITEMS = [
     title: 'Mechatronics Engineer',
     desc: 'Mechatronics Engineering student integrating mechanical design, robotics, and software systems.',
     icon: 'fa-solid fa-user-gear',
-    color: '#3498db',
+    color: '#2563eb',
     link: 'about.html',
     linkText: 'View About Me',
     secondaryLink: 'https://www.linkedin.com/in/karimabdelnour26/',
@@ -446,7 +450,7 @@ const SHOWCASE_ITEMS = [
     title: 'SOLIDWORKS CAD Certified',
     desc: '3D CAD for Education Specialization earned from Dassault Systèmes & Coursera.',
     icon: 'fa-solid fa-certificate',
-    color: '#f1c40f',
+    color: '#38bdf8',
     link: 'about.html#certifications',
     linkText: 'View Credentials'
   }

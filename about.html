@@ -6,11 +6,14 @@
   <meta charset="UTF-8">
   <script src="js/theme.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Karim Abdelnour - Student">
-  <meta name="keywords" content="Karim Abdelnour, Student Portfolio, About Me">
+  <meta name="description"
+    content="About Karim Abdelnour, also known as Karim Osman and Kiki Abdelnour: a Mechatronics Engineering student working across CAD, embedded systems, apps, games, and web projects.">
+  <meta name="keywords"
+    content="Karim Abdelnour, Karim Osman, Kiki Abdelnour, Mechatronics Engineering, CAD, embedded systems, app development, Unity">
   <meta name="author" content="Karim Abdelnour">
   <title>About Me - Karim Abdelnour</title>
   <link rel="canonical" href="https://karimuq.github.io/website/about.html">
+  <link rel="alternate" type="text/plain" href="https://karimuq.github.io/website/llms.txt">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -34,6 +37,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css?v=17.0">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "About Karim Abdelnour",
+    "url": "https://karimuq.github.io/website/about.html",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://karimuq.github.io/website/#person",
+      "name": "Karim Abdelnour",
+      "alternateName": ["Karim Osman", "Kiki Abdelnour"],
+      "jobTitle": "Mechatronics Engineering Student",
+      "url": "https://karimuq.github.io/website/",
+      "sameAs": [
+        "https://github.com/karimuq",
+        "https://www.linkedin.com/in/karimabdelnour26/",
+        "https://karim25.itch.io"
+      ]
+    }
+  }
+  </script>
   <style>
     /* ── Page wrapper ── */
     .about-page {
@@ -43,7 +67,7 @@
 
     /* ── Section fills one viewport ── */
     .about-section {
-      min-height: 100vh;
+      min-height: calc(100vh - 70px);
       padding: 6rem 2rem 5rem;
       display: flex;
       flex-direction: column;
@@ -91,11 +115,11 @@
 
     /* Subtle gradients for top row (skills) and bottom row (softwares) with solid backing */
     .skill-card.software {
-      background: linear-gradient(135deg, rgba(52, 152, 219, 0.15), rgba(52, 152, 219, 0.02)), #ffffff;
+      background: linear-gradient(135deg, var(--accent-soft), transparent), var(--bg-card-solid);
     }
 
     .skill-card.skill {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01)), #ffffff;
+      background: linear-gradient(135deg, var(--bg-tertiary), transparent), var(--bg-card-solid);
     }
 
     .skill-card:hover {
@@ -110,11 +134,11 @@
     }
 
     [data-theme="dark"] .skill-card.software {
-      background: linear-gradient(135deg, rgba(52, 152, 219, 0.25), rgba(41, 128, 185, 0.05)), rgb(21, 27, 35);
+      background: linear-gradient(135deg, var(--accent-soft), transparent), var(--bg-card-solid);
     }
 
     [data-theme="dark"] .skill-card.skill {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)), rgb(21, 27, 35);
+      background: linear-gradient(135deg, var(--bg-tertiary), transparent), var(--bg-card-solid);
     }
 
     /* ── Cursor glow ── */
@@ -470,6 +494,7 @@
 
     .skill-card.expandable-hobby.expanded {
       width: 336px;
+      flex: 0 0 336px;
       /* 2 cards wide + gap */
       height: 250px;
       /* Increased height so longer text is not cut off */
@@ -534,6 +559,7 @@
 
       .skill-card.expandable-hobby.expanded {
         width: 100%;
+        flex: 0 0 100%;
         max-width: 336px;
         height: 250px;
       }
@@ -839,7 +865,8 @@
     let tooltipTimeout;
     let lastMouseX = 0, lastMouseY = 0;
 
-    const isTouch = window.matchMedia('(pointer: coarse)').matches || ('ontouchstart' in window && navigator.maxTouchPoints > 0);
+    const isTouch = (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+      || ('ontouchstart' in window && navigator.maxTouchPoints > 0);
 
     document.querySelectorAll('.skill-card').forEach(card => {
       card.addEventListener('mousemove', e => {
@@ -939,7 +966,7 @@
     // Smooth scroll and highlight when navigating with hash (e.g. #certifications)
     function handleHashScrollAndHighlight() {
       if (window.location.hash) {
-        const target = document.querySelector(window.location.hash);
+        const target = document.getElementById(window.location.hash.slice(1));
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           const cardToHighlight = document.getElementById('solidworks-cert');

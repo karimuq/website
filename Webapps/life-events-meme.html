@@ -1085,22 +1085,13 @@
                                 oninput="updateSetting('bracketText', this.value)">
                         </div>
 
-                        <div class="form-grid-2">
-                            <div class="form-row">
-                                <label for="bracketStyleSelect">Bracket Type</label>
-                                <select id="bracketStyleSelect" onchange="updateSetting('bracketStyle', this.value)">
-                                    <option value="square" selected>Square |───|</option>
-                                    <option value="curly">Curly { }</option>
-                                    <option value="none">None</option>
-                                </select>
-                            </div>
-                            <div class="form-row">
-                                <label for="bracketSpanSelect">Bracket Covers</label>
-                                <select id="bracketSpanSelect" onchange="updateSetting('bracketSpan', this.value)">
-                                    <option value="all" selected>All Events</option>
-                                    <option value="standards">Standards Only</option>
-                                </select>
-                            </div>
+                        <div class="form-row">
+                            <label for="bracketStyleSelect">Bracket Type</label>
+                            <select id="bracketStyleSelect" onchange="updateSetting('bracketStyle', this.value)">
+                                <option value="square" selected>Square |───|</option>
+                                <option value="curly">Curly { }</option>
+                                <option value="none">None</option>
+                            </select>
                         </div>
 
                         <div class="form-grid-2">
@@ -1222,7 +1213,6 @@
         let settings = {
             bracketText: 'Life events',
             bracketStyle: 'square',    // 'square', 'curly', 'none'
-            bracketSpan: 'all',        // 'all', 'standards'
             fontFamily: 'Inter',       // 'Inter', 'Comic Neue', 'Outfit', 'Caveat'
             curveStyle: 'polygon',     // 'polygon', 'hump', 'spike'
             canvasTheme: 'white'       // 'white', 'cream', 'dark'
@@ -1667,22 +1657,6 @@
             if (settings.bracketStyle !== 'none') {
                 let bracketStartX = xStart;
                 let bracketEndX = xEnd;
-
-                // Determine Bracket Span
-                if (settings.bracketSpan === 'standards') {
-                    let firstStdIdx = -1;
-                    let lastStdIdx = -1;
-                    for (let i = 0; i < N; i++) {
-                        if (events[i].isStandard) {
-                            if (firstStdIdx === -1) firstStdIdx = i;
-                            lastStdIdx = i;
-                        }
-                    }
-                    if (firstStdIdx !== -1 && lastStdIdx !== -1) {
-                        bracketStartX = peakPositions[firstStdIdx].x - 35;
-                        bracketEndX = peakPositions[lastStdIdx].x + 35;
-                    }
-                }
 
                 const bracketY = baselineY + 36;
 

@@ -70,8 +70,8 @@
 
 .view-btn.active {
     color: #fff;
-    background: #3498db;
-    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+    background: var(--accent, #2563eb);
+    box-shadow: 0 2px 10px var(--accent-soft, rgba(37, 99, 235, 0.3));
 }
 
 /* List View Styles */
@@ -711,4 +711,3 @@
     transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
-
