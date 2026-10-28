@@ -1034,13 +1034,41 @@ footer::before {
 
 /* Project Categories */
 .project-categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 3%;
+}
+
+.category-group {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
   justify-content: center;
+}
+
+.category-group-engineering {
+  grid-template-columns: repeat(2, minmax(250px, 300px));
+}
+
+.category-group-creative {
+  grid-template-columns: repeat(3, minmax(250px, 300px));
+}
+
+.category-divider {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  padding: 0.4rem 0;
+}
+
+.category-divider div {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(100, 140, 180, 0.35), transparent);
 }
 
 .category-card {
@@ -1197,6 +1225,10 @@ footer::before {
     gap: 1rem;
   }
 
+  .category-group {
+    gap: 1rem;
+  }
+
   .category-card {
     padding: 1.25rem;
   }
@@ -1207,7 +1239,8 @@ footer::before {
 }
 
 @media (max-width: 480px) {
-  .project-categories {
+  .category-group-engineering,
+  .category-group-creative {
     grid-template-columns: 1fr;
   }
 
