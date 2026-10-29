@@ -46,6 +46,10 @@
             --border-focus: var(--accent, #3498db);
             --danger: #ef4444;
             --danger-bg: rgba(239, 68, 68, 0.12);
+            --control-bg: color-mix(in srgb, var(--surface-card) 92%, var(--primary) 8%);
+            --control-hover: color-mix(in srgb, var(--surface-card) 84%, var(--primary) 16%);
+            --border-strong: color-mix(in srgb, var(--border-subtle) 55%, var(--text-muted) 45%);
+            --focus-ring: 0 0 0 3px color-mix(in srgb, var(--primary) 24%, transparent);
             --radius-lg: 16px;
             --radius-md: 10px;
             --radius-sm: 6px;
@@ -309,6 +313,22 @@
             transform: translateY(-1px);
         }
 
+        button,
+        select,
+        input,
+        textarea {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        select:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--border-focus);
+            outline-offset: 2px;
+        }
+
         /* Events List */
         .events-container {
             display: flex;
@@ -324,12 +344,16 @@
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
-            transition: border-color 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
             position: relative;
         }
 
         .event-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--border-strong);
+            background: var(--control-hover);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
         }
 
         .event-card.is-active {
@@ -415,13 +439,15 @@
             font-size: 0.9rem;
             line-height: 1.35;
             resize: none;
-            transition: border-color 0.2s, background 0.2s;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
         }
 
         .input-label-text:focus {
             outline: none;
             border-color: var(--border-focus);
             background: var(--surface-card);
+            box-shadow: var(--focus-ring);
         }
 
         .slider-row {
@@ -455,6 +481,8 @@
             accent-color: var(--primary);
             cursor: pointer;
             touch-action: pan-x;
+            border: 1px solid var(--border-subtle);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.18);
         }
 
         input[type="range"]::-webkit-slider-thumb {
@@ -464,6 +492,22 @@
             background: var(--primary);
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            border: 3px solid var(--surface-card);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border: 3px solid var(--surface-card);
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        input[type="range"]:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
         }
 
         .event-options-row {
@@ -511,6 +555,14 @@
             font-size: 0.65rem;
             color: var(--text-muted);
             overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .thumb-preview:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 0 3px var(--primary-light);
         }
 
         .thumb-preview img {
@@ -532,11 +584,16 @@
             min-height: 28px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            transition: all 0.2s ease;
         }
 
         .btn-mini:hover {
             color: var(--text-main);
             background: var(--surface-hover);
+            border-color: var(--border-strong);
+            transform: translateY(-1px);
         }
 
         /* Sidebar Action Controls */
@@ -545,7 +602,7 @@
             padding: 0.75rem;
             border-radius: var(--radius-md);
             border: 1px dashed var(--border-subtle);
-            background: var(--surface-subtle);
+            background: linear-gradient(145deg, var(--surface-subtle), var(--control-bg));
             color: var(--text-muted);
             font-weight: 600;
             font-size: 0.9rem;
@@ -581,6 +638,7 @@
             width: 100%;
             box-sizing: border-box;
             overflow: hidden;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
         }
 
         .form-grid-2 {
@@ -607,11 +665,12 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            letter-spacing: 0.01em;
         }
 
         select,
         input[type="text"] {
-            background: var(--surface-card);
+            background: var(--control-bg);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-sm);
             padding: 0.55rem 0.65rem;
@@ -619,7 +678,8 @@
             font-family: inherit;
             font-size: 0.85rem;
             outline: none;
-            transition: border-color 0.2s;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
             min-height: 38px;
             width: 100%;
             min-width: 0;
@@ -640,6 +700,23 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08), 0 1px 0 rgba(255, 255, 255, 0.02);
+        }
+
+        select:hover,
+        input[type="text"]:hover,
+        .input-label-text:hover {
+            background-color: var(--control-hover);
+            border-color: var(--border-strong);
+        }
+
+        select:active {
+            transform: translateY(1px);
+        }
+
+        select option {
+            background: var(--surface-card);
+            color: var(--text-main);
         }
 
         [data-theme="dark"] select {
@@ -648,7 +725,46 @@
 
         select:focus,
         input[type="text"]:focus {
+            outline: none;
             border-color: var(--border-focus);
+            box-shadow: var(--focus-ring);
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            border: 1px solid var(--border-strong);
+            border-radius: 5px;
+            background: var(--control-bg);
+            display: grid;
+            place-content: center;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: 9px;
+            height: 5px;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(-45deg) scale(0);
+            transition: transform 0.15s ease-in-out;
+        }
+
+        input[type="checkbox"]:checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        input[type="checkbox"]:checked::before {
+            transform: rotate(-45deg) scale(1);
+        }
+
+        input[type="checkbox"]:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
         }
 
         /* Main Canvas Stage */
@@ -672,6 +788,7 @@
             box-shadow: var(--shadow-card);
             flex-wrap: wrap;
             gap: 0.75rem;
+            backdrop-filter: blur(12px);
         }
 
         .stage-title-wrap {
@@ -710,6 +827,9 @@
             border: none;
             user-select: none;
             min-height: 40px;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -732,7 +852,21 @@
 
         .btn-secondary:hover {
             background: var(--surface-hover);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--border-strong);
+            transform: translateY(-1px);
+        }
+
+        .btn:active,
+        .preset-chip:active,
+        .btn-mini:active {
+            transform: translateY(1px);
+        }
+
+        .btn:disabled,
+        .btn-mini:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
         }
 
         /* Canvas Card Container */

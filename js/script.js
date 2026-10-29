@@ -465,7 +465,6 @@ class DynamicShowcase {
     this.icon = document.getElementById('showcase-icon');
     this.title = document.getElementById('showcase-title');
     this.desc = document.getElementById('showcase-desc');
-    this.badge = document.getElementById('showcase-badge');
     this.link = document.getElementById('showcase-link');
     this.linkText = document.getElementById('showcase-link-text');
     this.secondaryLink = document.getElementById('showcase-secondary-link');
@@ -547,12 +546,6 @@ class DynamicShowcase {
       }
       if (this.title) this.title.textContent = item.title;
       if (this.desc) this.desc.textContent = item.desc;
-      if (this.badge) {
-        this.badge.textContent = item.type;
-        this.badge.style.color = item.color;
-        this.badge.style.background = `${item.color}18`;
-        this.badge.style.borderColor = `${item.color}40`;
-      }
       if (this.link && this.linkText) {
         this.link.href = item.link || '#';
         this.linkText.textContent = item.linkText || 'Explore';
