@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Master Terms of Service for all Android applications, utilities, web applications, and games developed and published by Karim Abdelnour. Clear terms on app licensing, acceptable use, offline data, disclaimers, and Google Play compliance.">
+  <meta name="author" content="Karim Abdelnour">
+  <title>Terms of Service — Karim Abdelnour Applications & Games</title>
+  <link rel="canonical" href="https://karimuq.github.io/website/terms.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0f1419;
+      --bg-secondary: #151b23;
+      --bg-card: rgba(26, 34, 45, 0.85);
+      --border-color: rgba(255, 255, 255, 0.12);
+      --text-primary: #f0f6fc;
+      --text-secondary: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+      --accent-soft: rgba(88, 166, 255, 0.12);
+      --success: #3fb950;
+      --success-soft: rgba(63, 185, 80, 0.12);
+      --warning: #d29922;
+      --warning-soft: rgba(210, 153, 34, 0.12);
+      --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-primary: #f6f8fa;
+        --bg-secondary: #ffffff;
+        --bg-card: #ffffff;
+        --border-color: #d0d7de;
+        --text-primary: #1f2328;
+        --text-secondary: #424a53;
+        --text-muted: #656d76;
+        --accent: #0969da;
+        --accent-hover: #0854ad;
+        --accent-soft: rgba(9, 105, 218, 0.08);
+        --success: #1a7f37;
+        --success-soft: rgba(26, 127, 55, 0.08);
+        --warning: #9a6700;
+        --warning-soft: rgba(154, 103, 0, 0.08);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      line-height: 1.68;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 2.5rem 1.25rem 4rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .nav-breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-breadcrumb a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Header & Hero */
+    header {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .badge-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .badge-success {
+      background: var(--success-soft);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .badge-neutral {
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .meta-box strong {
+      color: var(--text-primary);
+    }
+
+    /* Quick Navigation TOC */
+    .toc-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.85rem;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.5rem 1.25rem;
+      list-style: none;
+    }
+
+    .toc-grid a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .toc-grid a:hover {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    /* Content Sections */
+    section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 1.35rem 0 0.5rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    ul, ol {
+      color: var(--text-secondary);
+      padding-left: 1.4rem;
+      margin-bottom: 1.15rem;
+      font-size: 0.98rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      font-size: 0.88em;
+      padding: 0.2em 0.4em;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 6px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 10px;
+      padding: 1.15rem 1.4rem;
+      margin: 1.25rem 0;
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .callout.success {
+      border-left-color: var(--success);
+      background: var(--success-soft);
+    }
+
+    .callout.warning {
+      border-left-color: var(--warning);
+      background: var(--warning-soft);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    /* App Table / Tag List */
+    .app-tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .app-tag {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .app-tag:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    /* App Specific Cards */
+    .app-specific-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .app-specific-card h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .app-specific-card .app-badge {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid var(--accent);
+    }
+
+    /* Steps list */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-body strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-body p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2.5rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.25rem 0.85rem 3rem;
+      }
+      header {
+        padding: 1.75rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      section {
+        padding: 1.5rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="index.html">&larr; Back to Karim Abdelnour Portfolio</a>
+      <a href="privacy.html">Privacy Policy &rarr;</a>
+    </div>
+
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-accent">Google Play Store Compliant</span>
+        <span class="badge badge-success">Universal Master Terms</span>
+        <span class="badge badge-neutral">Developer: Karim Abdelnour</span>
+      </div>
+      <h1>Terms of Service</h1>
+      <p class="lead">
+        Welcome to the official Master Terms of Service for all Android applications, mobile utilities, web tools, and interactive games created and published by <strong>Karim Abdelnour</strong>. These terms govern your access to and use of our applications, downloaded via the Google Play Store, browser endpoints, or related channels.
+      </p>
+      <div class="meta-box">
+        <div><strong>Effective Date:</strong> November 6, 2026</div>
+        <div><strong>Last Updated:</strong> November 6, 2026</div>
+        <div><strong>Developer / Publisher:</strong> Karim Abdelnour</div>
+      </div>
+    </header>
+
+    <nav class="toc-card" aria-label="Table of Contents">
+      <div class="toc-title">Table of Contents</div>
+      <ul class="toc-grid">
+        <li><a href="#acceptance">&rarr; 1. Acceptance of Terms</a></li>
+        <li><a href="#covered-apps">&rarr; 2. Covered Applications</a></li>
+        <li><a href="#app-specific-terms">&rarr; 3. App-Specific Terms &amp; Disclaimers</a></li>
+        <li><a href="#license-grant">&rarr; 4. License Grant &amp; Permitted Use</a></li>
+        <li><a href="#user-conduct">&rarr; 5. Prohibited Conduct &amp; Restrictions</a></li>
+        <li><a href="#intellectual-property">&rarr; 6. Intellectual Property &amp; User Content</a></li>
+        <li><a href="#offline-data">&rarr; 7. Local-First Data &amp; User Storage</a></li>
+        <li><a href="#third-party">&rarr; 8. Third-Party Services &amp; Advertising</a></li>
+        <li><a href="#warranty-disclaimer">&rarr; 9. Disclaimer of Warranties ("As Is")</a></li>
+        <li><a href="#liability">&rarr; 10. Limitation of Liability</a></li>
+        <li><a href="#termination">&rarr; 11. Termination &amp; Updates</a></li>
+        <li><a href="#governing-law">&rarr; 12. Governing Law &amp; Severability</a></li>
+        <li><a href="#contact">&rarr; 13. Contact &amp; Support Inquiries</a></li>
+      </ul>
+    </nav>
+
+    <!-- 1. Acceptance of Terms -->
+    <section id="acceptance">
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By downloading, installing, accessing, or using any mobile application, game, or web tool published by <strong>Karim Abdelnour</strong> (referred to collectively as the <em>"Services"</em> or <em>"Applications"</em>), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service (<em>"Terms"</em>), along with our <a href="privacy.html">Master Privacy Policy</a>.
+      </p>
+      <p>
+        If you do not agree with any part of these Terms, you must not download, install, or use the Applications, and you must promptly uninstall and delete all local copies from your devices.
+      </p>
+      <div class="callout">
+        <div class="callout-title">Individual &amp; Collective Application</div>
+        <p>
+          These Terms apply individually and collectively to each application distributed under the developer name <strong>Karim Abdelnour</strong>. Installing any single app forms an agreement between you and the developer for that application.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Covered Applications -->
+    <section id="covered-apps">
+      <h2>2. Covered Applications</h2>
+      <p>
+        This agreement explicitly governs all software products, utilities, games, and web tools distributed under developer account <strong>Karim Abdelnour</strong> on Google Play, the web, or alternative platforms. Covered applications include, but are not limited to:
+      </p>
+      <div class="app-tag-grid">
+        <a href="#life-events" class="app-tag">Life Events Meme Generator (<code>com.lifeevents.karim</code>)</a>
+        <a href="#speedometer" class="app-tag">GPS Speedometer &amp; Odometer (<code>com.speedometer.karim</code>)</a>
+        <a href="#sobriety" class="app-tag">TIST: Sobriety Tracker (<code>com.tist.sobriety</code>)</a>
+        <a href="#bmi" class="app-tag">BMI Calculator (<code>com.bmi.karim</code>)</a>
+        <a href="#currency" class="app-tag">Currency Converter (<code>com.currencyconverter.karim</code>)</a>
+        <a href="#random-number" class="app-tag">Random Number &amp; Decision Tools (<code>com.randomnumber.karim</code>)</a>
+        <a href="#screensync" class="app-tag">ScreenSync (<code>com.screensync.karim</code>)</a>
+        <span class="app-tag">Stock &amp; Portfolio Tracker</span>
+        <span class="app-tag">Tap To Add</span>
+        <span class="app-tag">Lock-In Detector</span>
+        <span class="app-tag">File &amp; Media Converters</span>
+        <span class="app-tag">Bounce Pong</span>
+        <span class="app-tag">FPS &amp; Mini-Hit</span>
+      </div>
+      <p>
+        Any new utility, game, preview release, closed beta build, or software update released under this developer account automatically adopts and adheres to these Terms of Service.
+      </p>
+    </section>
+
+    <!-- 3. App-Specific Terms & Disclaimers -->
+    <section id="app-specific-terms">
+      <h2>3. App-Specific Terms &amp; Disclaimers</h2>
+      <p>
+        In addition to the general provisions of these Terms, the following specific terms apply directly to individual applications to address their unique functionalities:
+      </p>
+
+      <!-- Life Events Meme Generator -->
+      <div class="app-specific-card" id="life-events">
+        <h3>
+          <span>Life Events Meme Generator &amp; Life Events Curve</span>
+          <span class="app-badge">Creative Utility</span>
+        </h3>
+        <p>
+          <strong>Package / Service:</strong> <code>com.lifeevents.karim</code> / Web App
+        </p>
+        <ul>
+          <li><strong>Client-Side Execution:</strong> The application provides interactive curve manipulation, peak dragging, milestone labeling, and image canvas rendering directly on your local device.</li>
+          <li><strong>User-Generated Content (UGC):</strong> You retain full ownership of the meme images, milestone titles, curve profiles, and text layouts you create and export. You are exclusively responsible for any third-party images or photos you upload into milestone thumbnails.</li>
+          <li><strong>No Infringing Content:</strong> You agree not to upload or render images, trademarks, or materials that infringe upon copyright, intellectual property, or privacy rights of third parties, or that depict unlawful, defamatory, or harassing material.</li>
+          <li><strong>No Cloud Storage:</strong> Generated graphics and canvas exports are processed client-side. The developer does not host, curate, store, or view your generated memes or uploaded photos.</li>
+        </ul>
+      </div>
+
+      <!-- GPS Speedometer -->
+      <div class="app-specific-card" id="speedometer">
+        <h3>
+          <span>GPS Speedometer &amp; Odometer</span>
+          <span class="app-badge">Utility &amp; Travel</span>
+        </h3>
+        <p>
+          <strong>Package:</strong> <code>com.speedometer.karim</code>
+        </p>
+        <div class="callout warning">
+          <div class="callout-title">Critical Driver Safety Warning</div>
+          <p>
+            <strong>Never interact with this application or configure settings while operating a moving vehicle, bicycle, motorcycle, or machinery.</strong> Always mount your device securely in an approved hands-free vehicle holder before beginning your trip.
+          </p>
+        </div>
+        <ul>
+          <li><strong>Compliance with Traffic Laws:</strong> You are solely responsible for observing all official road speed limits, traffic regulations, and vehicle safety guidelines. The app does not replace your vehicle's factory calibrated speedometer.</li>
+          <li><strong>GPS Accuracy Limitations:</strong> Velocity and distance calculations rely entirely on device satellite reception. GPS signals can be distorted, delayed, or obstructed by tunnels, tall buildings, dense foliage, or adverse atmospheric conditions. Karim Abdelnour accepts zero liability for speeding citations, fines, road accidents, or navigation inaccuracies.</li>
+        </ul>
+      </div>
+
+      <!-- TIST Sobriety Tracker -->
+      <div class="app-specific-card" id="sobriety">
+        <h3>
+          <span>TIST: Sobriety &amp; Habit Tracker</span>
+          <span class="app-badge">Lifestyle &amp; Health</span>
+        </h3>
+        <p>
+          <strong>Package:</strong> <code>com.tist.sobriety</code>
+        </p>
+        <div class="callout">
+          <div class="callout-title">Not Medical or Crisis Treatment Advice</div>
+          <p>
+            TIST is a self-motivation streak counter and personal habit milestone tracker. It is <strong>NOT</strong> a certified medical device, psychiatric diagnostic tool, substance rehabilitation facility, or clinical therapy program.
+          </p>
+        </div>
+        <ul>
+          <li>If you are experiencing severe addiction, physical withdrawal symptoms, or acute psychological crisis, please seek immediate guidance from qualified medical professionals, licensed therapists, or emergency hotlines.</li>
+          <li>All reflection notes, relapse timestamps, and milestone data remain 100% locally on your device.</li>
+        </ul>
+      </div>
+
+      <!-- BMI Calculator -->
+      <div class="app-specific-card" id="bmi">
+        <h3>
+          <span>BMI Calculator &amp; Weight Tracker</span>
+          <span class="app-badge">Health &amp; Fitness</span>
+        </h3>
+        <p>
+          <strong>Package:</strong> <code>com.bmi.karim</code>
+        </p>
+        <ul>
+          <li><strong>Informational Calculation Only:</strong> Body Mass Index (BMI) is a mathematical estimation based on standard World Health Organization (WHO) formulas. It does not account for muscle mass, bone density, age distribution, pregnancy, or athletic conditioning.</li>
+          <li><strong>Consult Healthcare Providers:</strong> Consult a certified physician or registered dietitian before initiating restrictive diets, fasting routines, or rigorous physical fitness regimens.</li>
+        </ul>
+      </div>
+
+      <!-- Currency Converter -->
+      <div class="app-specific-card" id="currency">
+        <h3>
+          <span>Currency Converter &amp; Exchange Rates</span>
+          <span class="app-badge">Finance &amp; Travel</span>
+        </h3>
+        <p>
+          <strong>Package:</strong> <code>com.currencyconverter.karim</code>
+        </p>
+        <ul>
+          <li><strong>Informational Reference:</strong> Exchange rates provided or cached are intended strictly for general informational, travel budgeting, and educational purposes.</li>
+          <li><strong>No Financial / Trading Advice:</strong> Rates do not reflect live commercial interbank trading spreads, credit card provider surcharge fees, or commission margins. The developer is not liable for commercial transaction losses or currency fluctuations.</li>
+        </ul>
+      </div>
+
+      <!-- Random Number & Decision Tools -->
+      <div class="app-specific-card" id="random-number">
+        <h3>
+          <span>Random Number &amp; Decision Tools</span>
+          <span class="app-badge">Utility &amp; Mathematics</span>
+        </h3>
+        <p>
+          <strong>Package:</strong> <code>com.randomnumber.karim</code>
+        </p>
+        <ul>
+          <li>Calculated values are generated using standard pseudo-random number generator algorithms for casual decision-making, games, and raffles. They are not cryptographically audited or certified for regulated real-money gambling, commercial lotteries, or mission-critical security keys.</li>
+        </ul>
+      </div>
+
+      <!-- ScreenSync -->
+      <div class="app-specific-card" id="screensync">
+        <h3>
+          <span>ScreenSync Display &amp; Presentation Utility</span>
+          <span class="app-badge">Productivity</span>
+        </h3>
+        <p>
+          <strong>Package:</strong> <code>com.screensync.karim</code>
+        </p>
+        <ul>
+          <li>ScreenSync is provided for display management and presentation synchronization. Users must ensure that any displayed content complies with appropriate copyright and organizational confidentiality standards.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. License Grant & Permitted Use -->
+    <section id="license-grant">
+      <h2>4. License Grant &amp; Permitted Use</h2>
+      <p>
+        Subject to your continuous compliance with these Terms, Karim Abdelnour grants you a personal, revocable, non-exclusive, non-transferable, non-sublicensable, limited license to download, install, and execute the Applications on compatible Android smartphones, tablets, or web browsers solely for your personal, non-commercial use.
+      </p>
+      <p>
+        This license does not convey any title, ownership, or proprietary rights in or to the Applications or associated intellectual property.
+      </p>
+    </section>
+
+    <!-- 5. Prohibited Conduct & Restrictions -->
+    <section id="user-conduct">
+      <h2>5. Prohibited Conduct &amp; Restrictions</h2>
+      <p>You agree not to engage in, facilitate, or permit any of the following unauthorized actions:</p>
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <strong>Reverse Engineering &amp; Decompilation</strong>
+            <p>You may not decompile, reverse engineer, disassemble, decrypt, or attempt to derive the source code of any distributed application binary (APK/AAB) or compiled WebAssembly asset, except to the extent permitted by applicable law.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <strong>Unauthorized Distribution &amp; Commercial Resale</strong>
+            <p>You may not rent, lease, lend, sell, redistribute, repackage, or sublicense the Applications or any modified versions thereof without explicit written permission from Karim Abdelnour.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <strong>Bypassing Security or Ad Controls</strong>
+            <p>You may not tamper with, disable, circumvent, or manipulate advertising mechanisms (including Google AdMob SDK routines), license verification checks, or rate limiting protocols.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-body">
+            <strong>Unlawful or Hazardous Use</strong>
+            <p>You may not use any utility (including Speedometer or Meme Generator) in any manner that endangers personal safety, violates traffic safety codes, or breaches local laws.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Intellectual Property & User Content -->
+    <section id="intellectual-property">
+      <h2>6. Intellectual Property &amp; User Content</h2>
+      <h3>Developer Intellectual Property</h3>
+      <p>
+        All software code, application names, visual designs, user interfaces, 3D assets, sound effects, icons, pixel artwork (including Kamila pixel assets), and documentation are the exclusive intellectual property of Karim Abdelnour (or third-party open-source libraries incorporated under permissive licenses). All rights not expressly granted are reserved.
+      </p>
+
+      <h3>User-Generated Content &amp; Local Assets</h3>
+      <p>
+        In applications that generate graphic exports, memes, habit logs, or calculations (such as Life Events Meme Generator or TIST):
+      </p>
+      <ul>
+        <li>You retain 100% ownership of your customized meme titles, canvas graphics, habit notes, and local inputs.</li>
+        <li>You are solely responsible for ensuring you have lawful rights, licenses, or fair-use permissions for any custom images or logos you import into the canvas.</li>
+        <li>Karim Abdelnour claims zero ownership or copyright over images generated and exported by you locally.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Local-First Data & User Storage -->
+    <section id="offline-data">
+      <h2>7. Local-First Data &amp; User Storage</h2>
+      <p>
+        Our applications are built with a strict <strong>offline-first, zero-cloud architecture</strong>. All user metrics, habit streaks, custom meme drafts, exchange currency preferences, and calculation histories reside 100% on your local device.
+      </p>
+      <div class="callout success">
+        <div class="callout-title">User Backup Responsibility</div>
+        <p>
+          Because the developer does not operate external databases or cloud sync servers, <strong>you are solely responsible for preserving your device data</strong>. Clearing the application cache, resetting device storage, or uninstalling an app permanently deletes all locally saved data.
+        </p>
+      </div>
+      <p>
+        For detailed information on how data is handled locally and how permissions are processed, please review our comprehensive <a href="privacy.html">Master Privacy Policy</a>.
+      </p>
+    </section>
+
+    <!-- 8. Third-Party Services & Advertising -->
+    <section id="third-party">
+      <h2>8. Third-Party Services &amp; Advertising</h2>
+      <p>
+        To support free distribution, ongoing maintenance, and regular feature updates, our mobile applications may integrate trusted third-party developer libraries:
+      </p>
+      <ul>
+        <li><strong>Google Play Services:</strong> In-app reviews, closed beta distribution, and core Android operating system integration provided by Google LLC.</li>
+        <li><strong>Google Mobile Ads (AdMob):</strong> Non-personalized and personalized banner, interstitial, or rewarded video advertisements managed via Google AdMob.</li>
+      </ul>
+      <p>
+        Your interactions with third-party advertisements or external links delivered through Google AdMob are governed by the respective policies of those third-party providers. We encourage you to review <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google's Advertising Policies</a>.
+      </p>
+    </section>
+
+    <!-- 9. Disclaimer of Warranties -->
+    <section id="warranty-disclaimer">
+      <h2>9. Disclaimer of Warranties ("As Is")</h2>
+      <p>
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APPLICATIONS, UTILITIES, WEBSITES, AND GAMES ARE PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE.
+      </p>
+      <p>
+        KARIM ABDELNOUR SPECIFICALLY DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO:
+      </p>
+      <ul>
+        <li>IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</li>
+        <li>THAT THE OPERATION OF THE APPLICATIONS WILL BE UNINTERRUPTED, BUG-FREE, ACCURATE, OR ERROR-FREE.</li>
+        <li>THAT GPS VELOCITY READINGS, EXCHANGE RATES, BMI METRICS, OR MATHEMATICAL CALCULATIONS WILL BE 100% PRECISE AT ALL TIMES.</li>
+        <li>THAT LOCAL DATA WILL NEVER BE LOST DUE TO HARDWARE CRASHES, OPERATING SYSTEM UPDATES, OR DEVICE CORRUPTION.</li>
+      </ul>
+    </section>
+
+    <!-- 10. Limitation of Liability -->
+    <section id="liability">
+      <h2>10. Limitation of Liability</h2>
+      <p>
+        TO THE FULLEST EXTENT PERMITTED UNDER APPLICABLE LAW, IN NO EVENT SHALL <strong>KARIM ABDELNOUR</strong> BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES WHATSOEVER, INCLUDING WITHOUT LIMITATION:
+      </p>
+      <ul>
+        <li>DAMAGES FOR LOSS OF DATA, DEVICE CORRUPTION, OR BUSINESS INTERRUPTION;</li>
+        <li>TRAFFIC CITATIONS, FINES, ACCIDENTS, OR PERSONAL INJURIES ARISING FROM THE OPERATION OR MISUSE OF GPS SPEEDOMETER OR ANY APP WHILE DRIVING;</li>
+        <li>HEALTH DECISIONS, DIETARY COMPLICATIONS, OR ADDICTION RELAPSES ARISING FROM RELIANCE ON TRACKERS OR CALCULATORS;</li>
+        <li>FINANCIAL OR COMMERCIAL DISCREPANCIES RESULTING FROM CURRENCY CONVERTER CALCULATIONS;</li>
+        <li>ANY USER-GENERATED MEMES, EXPORTED IMAGES, OR COPYRIGHT DISPUTES INITIATED BY THIRD PARTIES.</li>
+      </ul>
+      <p>
+        IN NO CASE SHALL THE DEVELOPER'S TOTAL AGGREGATE LIABILITY EXCEED THE AMOUNT ACTUALLY PAID BY YOU (IF ANY) TO PURCHASE THE SPECIFIC APPLICATION GIVING RISE TO THE CLAIM OR FIVE US DOLLARS ($5.00 USD), WHICHEVER IS LESS.
+      </p>
+    </section>
+
+    <!-- 11. Termination & Updates -->
+    <section id="termination">
+      <h2>11. Termination &amp; Updates to Terms</h2>
+      <p>
+        <strong>Termination by You:</strong> You may terminate these Terms at any time simply by discontinuing all use and uninstalling the Applications from your devices.
+      </p>
+      <p>
+        <strong>Termination / Modification by Developer:</strong> The developer reserves the right to modify, suspend, update, or discontinue any application, feature, or service at any time without prior liability.
+      </p>
+      <p>
+        We may update these Terms of Service periodically to reflect new Google Play policies, legislative requirements, or new application launches. Updates become effective immediately upon posting to this standard web address with an updated <em>"Last Updated"</em> date. Your continued use of the Applications after revisions are posted constitutes your acceptance of the updated Terms.
+      </p>
+    </section>
+
+    <!-- 12. Governing Law & Severability -->
+    <section id="governing-law">
+      <h2>12. Governing Law &amp; Severability</h2>
+      <p>
+        These Terms shall be interpreted, construed, and enforced in accordance with standard consumer protection guidelines and applicable laws, without giving effect to any principles of conflicts of law.
+      </p>
+      <p>
+        If any provision of these Terms is deemed unlawful, invalid, or unenforceable by an arbitrator or court of competent jurisdiction, that provision shall be enforced to the maximum extent permissible, and the remaining provisions shall continue in full force and effect.
+      </p>
+    </section>
+
+    <!-- 13. Contact & Support -->
+    <section id="contact">
+      <h2>13. Contact &amp; Support Inquiries</h2>
+      <p>
+        If you have any questions, concerns, copyright notifications, or feedback regarding these Terms of Service or any Android application published by Karim Abdelnour, please reach out to us:
+      </p>
+      <ul>
+        <li><strong>Developer / Publisher:</strong> Karim Abdelnour</li>
+        <li><strong>Support Email:</strong> <a href="mailto:karimabdelnour27@gmail.com">karimabdelnour27@gmail.com</a></li>
+        <li><strong>Official Developer Website:</strong> <a href="https://karimuq.github.io/website/" target="_blank" rel="noopener noreferrer">https://karimuq.github.io/website/</a></li>
+        <li><strong>Direct Contact Page:</strong> <a href="contact.html">https://karimuq.github.io/website/contact.html</a></li>
+        <li><strong>Privacy Policy:</strong> <a href="privacy.html">https://karimuq.github.io/website/privacy.html</a></li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+        All support inquiries and policy questions are answered promptly, typically within 24–48 business hours.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2026 Karim Abdelnour. All rights reserved. &bull;
+        <a href="terms.html">Terms of Service</a> &bull;
+        <a href="privacy.html">Privacy Policy</a> &bull;
+        <a href="contact.html">Contact</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -256,7 +256,13 @@
   <!-- Legal & Privacy -->
   <url>
     <loc>https://karimuq.github.io/website/privacy.html</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://karimuq.github.io/website/terms.html</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.70</priority>
   </url>
