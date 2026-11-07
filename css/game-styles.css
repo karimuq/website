@@ -187,6 +187,18 @@
   object-fit: contain;
 }
 
+.app-logo-badge.image-backed {
+  background: transparent !important;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.app-logo-badge.image-backed img {
+  object-fit: cover;
+  border-radius: inherit;
+}
+
 .app-logo-badge i {
   font-size: 2.1rem;
 }
