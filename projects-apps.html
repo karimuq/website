@@ -246,6 +246,14 @@
       transition: transform 0.3s ease;
     }
 
+    .app-icon-squircle.image-backed {
+      background: transparent !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
     .app-hub-card:hover .app-icon-squircle i {
       transform: scale(1.05);
     }
@@ -354,12 +362,14 @@
     .app-card-actions {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 0.65rem;
       margin-top: 1.25rem;
     }
 
     .action-play-btn {
-      flex: 1;
+      flex: 1 1 160px;
+      min-width: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -423,6 +433,8 @@
     }
 
     .action-try-btn {
+      flex: 1 1 auto;
+      min-width: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -641,9 +653,10 @@
         <!-- Video Audio Converter -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #0c4a6e, #082f49); --banner-glow: #7dd3fc;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-photo-film" style="color: #7dd3fc;"></i>
+            style="background: #6b63b8; --banner-glow: #a9a2f0;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/video-audio-converter/icon.png" alt="Video Audio Converter app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -660,9 +673,10 @@
 
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #064e3b, #022c22); --banner-glow: #10b981;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-shield-heart" style="color: #34d399;"></i>
+            style="background: #000000; --banner-glow: #34d399;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/tist/icon.png" alt="TIST Sobriety Tracker app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -694,9 +708,10 @@
         <!-- 2. Speedometer -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #9a3412, #431407); --banner-glow: #fbbf24;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-gauge-high" style="color: #fbbf24;"></i>
+            style="background: #0d1d35; --banner-glow: #3b82f6;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/speedometer/icon.png" alt="Speedometer app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -731,9 +746,10 @@
         <!-- 3. Currency Converter -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #065f46, #064e3b); --banner-glow: #34d399;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-money-bill-transfer" style="color: #34d399;"></i>
+            style="background: #ffffff; --banner-glow: #34d399;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/currency-converter/icon.png" alt="Currency Converter app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -762,9 +778,10 @@
         <!-- 4. BMI calculator -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #4c1d95, #2e1065); --banner-glow: #a78bfa;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-weight-scale" style="color: #c4b5fd;"></i>
+            style="background: #ffffff; --banner-glow: #6366e1;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/bmi-calculator/icon.png" alt="BMI Calculator app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -792,9 +809,10 @@
         <!-- 5. Stock Tracker -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #0b192c, #1e3e62); --banner-glow: #00e676;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-chart-line" style="color: #00e676;"></i>
+            style="background: #ffffff; --banner-glow: #4a9b79;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/stock-tracker/icon.png" alt="Stock Tracker app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -822,9 +840,10 @@
         <!-- 6. Tap to Add -->
         <article class="app-hub-card" data-category="android">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #312e81, #1e1b4b); --banner-glow: #a5b4fc;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-hand-pointer" style="color: #a5b4fc;"></i>
+            style="background: #000000; --banner-glow: #ffffff;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/tap-to-add/icon.png" alt="Tap to Add app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -894,11 +913,10 @@
         <!-- 8. Media Downloader -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #3b0764, #1e1b4b); --banner-glow: #a855f7;">
-            <div class="app-icon-squircle"
-              style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); padding: 8px;">
-              <img src="assets/media-downloader/logo.png" alt="Media Downloader Logo"
-                style="width: 100%; height: 100%; object-fit: contain;">
+            style="background: #5b009c; --banner-glow: #c084fc;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/media-downloader/icon.png" alt="Media Downloader app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -930,9 +948,10 @@
         <!-- 9. File Converter -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #1e3a8a, #0c1c3f); --banner-glow: #60a5fa;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-file-arrow-up" style="color: #60a5fa;"></i>
+            style="background: #0b84f3; --banner-glow: #ffffff;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/file-converter/logo.png" alt="File Converter app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -960,9 +979,10 @@
         <!-- 10. Scroll Player -->
         <article class="app-hub-card" data-category="desktop">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #3b0764, #1e1b4b); --banner-glow: #c084fc;">
-            <div class="app-icon-squircle">
-              <i class="fa-solid fa-circle-play" style="color: #c084fc;"></i>
+            style="background: #000000; --banner-glow: #ffffff;">
+            <div class="app-icon-squircle image-backed">
+              <img src="assets/scroll-player/logo.png" alt="Scroll Player app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">
@@ -989,7 +1009,7 @@
         <article class="app-hub-card" data-category="concept">
           <div class="app-card-banner"
             style="background: linear-gradient(135deg, #0f766e, #134e4a); --banner-glow: #2dd4bf;">
-            <div class="app-icon-squircle">
+            <div class="app-icon-squircle image-backed">
               <i class="fa-solid fa-mobile-screen-button" style="color: #2dd4bf;"></i>
             </div>
           </div>
@@ -1017,9 +1037,10 @@
         <!-- 12. Generun -->
         <article class="app-hub-card" data-category="concept">
           <div class="app-card-banner"
-            style="background: linear-gradient(135deg, #7e22ce, #3b0764); --banner-glow: #e879f9;">
+            style="background: #0d1117; --banner-glow: #ffffff;">
             <div class="app-icon-squircle">
-              <i class="fa-solid fa-dice" style="color: #e879f9;"></i>
+              <img src="assets/generun/icon.png" alt="Generun app icon"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 19px;">
             </div>
           </div>
           <div class="app-card-body">

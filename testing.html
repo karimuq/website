@@ -562,6 +562,20 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     }
 
+    .test-card-icon.image-backed {
+      background: transparent !important;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .test-card-icon.image-backed img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
     .test-card-status {
       position: absolute;
       top: 1rem;
@@ -1091,9 +1105,9 @@
 
           <!-- 1. TIST: Sobriety Tracker -->
           <article class="test-card" style="--card-glow: #10b981; --card-glow-alpha: rgba(16, 185, 129, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #064e3b, #022c22);">
-              <div class="test-card-icon" style="background: rgba(16, 185, 129, 0.25);">
-                <i class="fa-solid fa-shield-heart" style="color: #34d399;"></i>
+            <div class="test-card-banner" style="background: #000000;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/tist/icon.png" alt="TIST Sobriety Tracker app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
@@ -1132,9 +1146,9 @@
 
           <!-- 2. Speedometer -->
           <article class="test-card" style="--card-glow: #f59e0b; --card-glow-alpha: rgba(245, 158, 11, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #9a3412, #431407);">
-              <div class="test-card-icon" style="background: rgba(245, 158, 11, 0.25);">
-                <i class="fa-solid fa-gauge-high" style="color: #fbbf24;"></i>
+            <div class="test-card-banner" style="background: #0d1d35;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/speedometer/icon.png" alt="Speedometer app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
@@ -1173,9 +1187,9 @@
 
           <!-- 3. BMI calculator -->
           <article class="test-card" style="--card-glow: #8b5cf6; --card-glow-alpha: rgba(139, 92, 246, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #4c1d95, #2e1065);">
-              <div class="test-card-icon" style="background: rgba(139, 92, 246, 0.25);">
-                <i class="fa-solid fa-weight-scale" style="color: #c4b5fd;"></i>
+            <div class="test-card-banner" style="background: #ffffff;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/bmi-calculator/icon.png" alt="BMI Calculator app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
@@ -1214,9 +1228,9 @@
 
           <!-- 4. Currency Converter -->
           <article class="test-card" style="--card-glow: #06b6d4; --card-glow-alpha: rgba(6, 182, 212, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #065f46, #064e3b);">
-              <div class="test-card-icon" style="background: rgba(52, 211, 153, 0.25);">
-                <i class="fa-solid fa-money-bill-transfer" style="color: #34d399;"></i>
+            <div class="test-card-banner" style="background: #ffffff;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/currency-converter/icon.png" alt="Currency Converter app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
@@ -1255,9 +1269,9 @@
 
           <!-- 5. Video Audio Converter -->
           <article class="test-card" style="--card-glow: #38bdf8; --card-glow-alpha: rgba(56, 189, 248, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #0c4a6e, #082f49);">
-              <div class="test-card-icon" style="background: rgba(56, 189, 248, 0.25);">
-                <i class="fa-solid fa-photo-film" style="color: #7dd3fc;"></i>
+            <div class="test-card-banner" style="background: #6b63b8;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/video-audio-converter/icon.png" alt="Video Audio Converter app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
@@ -1296,9 +1310,9 @@
 
           <!-- 6. Tap to Add -->
           <article class="test-card" style="--card-glow: #6366f1; --card-glow-alpha: rgba(99, 102, 241, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #312e81, #1e1b4b);">
-              <div class="test-card-icon" style="background: rgba(165, 180, 252, 0.25);">
-                <i class="fa-solid fa-hand-pointer" style="color: #a5b4fc;"></i>
+            <div class="test-card-banner" style="background: #000000;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/tap-to-add/icon.png" alt="Tap to Add app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
@@ -1337,9 +1351,9 @@
 
           <!-- 7. Generun -->
           <article class="test-card" style="--card-glow: #a855f7; --card-glow-alpha: rgba(168, 85, 247, 0.2);">
-            <div class="test-card-banner" style="background: linear-gradient(135deg, #7e22ce, #3b0764);">
-              <div class="test-card-icon" style="background: rgba(232, 121, 249, 0.25);">
-                <i class="fa-solid fa-dice" style="color: #e879f9;"></i>
+            <div class="test-card-banner" style="background: #0d1117;">
+              <div class="test-card-icon image-backed">
+                <img src="assets/generun/icon.png" alt="Generun app icon">
               </div>
               <span class="test-card-status">
                 <span data-lang="en">Closed Beta</span>
